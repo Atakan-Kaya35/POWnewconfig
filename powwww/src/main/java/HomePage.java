@@ -20,7 +20,7 @@ public class HomePage extends Application{
     public void start(Stage primaryStage) throws IOException{
        
         FXMLLoader fxml = new FXMLLoader(HomePage.class.getResource("/org/example/powwww/HomePage.fxml"));
-        Scene scene = new Scene(fxml.load(),1080,1920);
+        Scene scene = new Scene(fxml.load(),1080,720);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
