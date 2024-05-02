@@ -80,7 +80,7 @@
                         <Text layoutX="7.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="148.0" />
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">
                            <image>
-                              <Image url="@../../../cs%20hw/POW/images/Adsız%20tasarım-3.png" />
+                              <Image url="Adsız tasarım-3.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -93,7 +93,7 @@
                      <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="24.0">
                            <image>
-                              <Image url="@../../../cs%20hw/POW/images/sepet.png" />
+                              <Image url="sepet.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="56.0" layoutY="22.0" prefHeight="27.0" prefWidth="148.0" text="MY PHARMACY CART">
@@ -128,7 +128,7 @@
                      <children>
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="161.0" layoutY="11.0">
                            <image>
-                              <Image url="@../../../cs%20hw/POW/images/shoppingCart.png" />
+                              <Image url="shoppingCart.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="2.0" layoutY="5.0">
@@ -149,32 +149,32 @@
             </ImageView>
             <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="4.0" layoutY="120.0">
                <image>
-                  <Image url="@../../../cs%20hw/POW/images/5.png" />
+                  <Image url="5.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="4.0" layoutY="616.0">
                <image>
-                  <Image url="@../../../cs%20hw/POW/images/8.png" />
+                  <Image url="8.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="366.0" layoutY="16.0">
                <image>
-                  <Image url="@../../../cs%20hw/POW/images/buyutec.png" />
+                  <Image url="buyutec.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="4.0" layoutY="164.0">
                <image>
-                  <Image url="@../../../cs%20hw/POW/images/5.png" />
+                  <Image url="5.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="4.0" layoutY="202.0">
                <image>
-                  <Image url="@../../../cs%20hw/POW/images/5.png" />
+                  <Image url="5.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="4.0" layoutY="667.0">
                <image>
-                  <Image url="@../../../cs%20hw/POW/images/8.png" />
+                  <Image url="8.png" />
                </image>
             </ImageView>
             <GridPane layoutX="308.0" layoutY="272.0" prefHeight="240.0" prefWidth="464.0" style="-fx-background-color: #94ACFF; -fx-border-color: black;">
