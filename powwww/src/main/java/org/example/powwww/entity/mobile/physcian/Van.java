@@ -30,12 +30,13 @@ public class Van extends Nurses {
         currentRoad = 0;
         this. x = x;
         this.y = y;
-        road = createRoad();
+        //road = createRoad();
     }
 
     public Van(String name) {
     }
 
+    /*
     public int [][] createRoad()
     {
         int[][] road = new int[12][2]; ////This will be determined by A* algorithm.(not hardcode)
@@ -55,7 +56,7 @@ public class Van extends Nurses {
 
         List<Road> d = city.findPath(this, ob1);
         //List<Road> e = city.findPath((Van)this, ob2);
-        System.out.println(city.viewMap(false));
+        //System.out.println(city.viewMap(false));
 
 
         
@@ -67,6 +68,7 @@ public class Van extends Nurses {
 
         return road;
     }
+    */
 
     /**
      * Draw van as a red point

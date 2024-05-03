@@ -272,7 +272,7 @@ public class SimMethods {
         for (Scooter scooter : city.getScooterList()) {
             if (scooter.getBaggage() == null) {
                 // Nurse has no baggage, assign order directly
-                if (serum){
+                if (!serum){
                     scooter.receiveOrder(new Order(patient, neededMeds));
                 }
 

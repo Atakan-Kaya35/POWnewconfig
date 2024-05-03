@@ -64,7 +64,7 @@ public class Simulation extends SimMethods {
             // bu if bloklarının sayısını artırıp refresh constantı her birinde değiştirince birbirinden farklı aralıklarda bir
             // çalışan metodlar olmuş oluyor. mesela orderları 2 tickte bir güncellerken başka bir şeyi 10 tickte 1 yapabiliyorsun
             if (tick % (TICK_DURATION_MINUTES * REFRESH_CONSTANT / TICK_DURATION_MINUTES) == 0) {   //
-
+                System.out.println("mert");
 
 
 
@@ -72,6 +72,7 @@ public class Simulation extends SimMethods {
 
 
             }
+
 
             // Advance the time by one tick
             tick++;
