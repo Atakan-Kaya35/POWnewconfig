@@ -1,7 +1,9 @@
 package org.example.powwww.med;
 
-import org.example.powwww.entity.stationary.Patients;
-import org.example.powwww.grid.Order;
+package med;
+
+import entity.stationary.Patients;
+import grid.Order;
 
 public class PeriodicSickness extends Sickness{
 
@@ -10,6 +12,7 @@ public class PeriodicSickness extends Sickness{
     }
 
     @Override
+    /*
     public boolean fullCycle() {
         for (int i = 0; i < neededMeds.size(); i++) {
             if( neededMeds.get(i).takePill()){
@@ -20,5 +23,19 @@ public class PeriodicSickness extends Sickness{
 
         return false;
     }
+    */
+
+
+    public boolean fullCycle() {
+        if (!neededMeds.isEmpty()) {
+            Medicine medicine = neededMeds.get(0);
+            new Order(this.patient, (Pill)medicine);
+            if (medicine.takePill()) {
+                neededMeds.remove(0);
+            }
+        }
+        return neededMeds.isEmpty();
+    }
+
 
 }
