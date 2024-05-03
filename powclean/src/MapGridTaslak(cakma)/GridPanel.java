@@ -26,7 +26,7 @@ public class GridPanel extends JComponent
         van = new Van("atakan", 0,0);
 
         listener = new sucu();
-        t = new Timer(400, listener);
+        t = new Timer(1000, listener);
         t.start(); 
         
     }
@@ -59,8 +59,10 @@ public class GridPanel extends JComponent
     public ArrayList<Obstacle> createObstacles()
     {
         ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
-        Obstacle obs1 = new Obstacle(100, 100, 240, 140); //Obstacle coordinates will be taken from A* code.
+        Obstacle obs1 = new Obstacle(155, 55, 200, 100); //Obstacle coordinates will be taken from A* code.
+        Obstacle obs2 = new Obstacle(300, 200, 100, 100);
         obstacles.add(obs1);
+        obstacles.add(obs2);
         return obstacles;
     }
 
@@ -68,15 +70,14 @@ public class GridPanel extends JComponent
     {
         public void actionPerformed(ActionEvent event)
         {
-            if(van.getCurrentRoad() <= van.getTotalWayLength()) //This will be determined by A* algorithm.(not hardcode)
+            if(van.getCurrentRoad() < 20) //This will be determined by A* algorithm.(not hardcode)
             {
                 moveVan();
                 repaint();
-                if(van.getCurrentRoad() == van.getTotalWayLength()-1)
+                if(van.getCurrentRoad() == 20)
                 {
                     System.out.println("VAN REACHED TO TARGET!");
-                    repaint();
-                    t.stop();
+                    gridFrame.dispose();
                 }
             }
             
@@ -97,18 +98,13 @@ public class GridPanel extends JComponent
 
     public void paintComponent(Graphics g)
     {
-        //ImageIcon imageIcon = new ImageIcon("C:\\Users\\burka\\Desktop\\20240412_173426.jpg");
-        //Image image = imageIcon.getImage();
-        //g.drawImage(image, -16, -12, 650, 650, this);
-        setBackground(Color.BLACK);
+        ImageIcon imageIcon = new ImageIcon("C:\\Users\\burka\\Desktop\\20240412_173426.jpg");
+        Image image = imageIcon.getImage();
+        g.drawImage(image, -16, -12, 650, 650, this);
         
         for(int j = 0; j < homes.size(); j++)
         {
             homes.get(j).draw(g);
-            g.setColor(Color.BLACK);
-            g.drawLine(homes.get(j).getXCoor()-25, homes.get(j).getYCoor()-20, homes.get(j).getXCoor()+35, homes.get(j).getYCoor()-20);
-            g.drawLine(homes.get(j).getXCoor()-20, homes.get(j).getYCoor()-20, homes.get(j).getXCoor()-20, homes.get(j).getYCoor()+35);
-            g.setColor(Color.blue);
         }
 
         for(int i = 0; i < obstacles.size(); i++)
