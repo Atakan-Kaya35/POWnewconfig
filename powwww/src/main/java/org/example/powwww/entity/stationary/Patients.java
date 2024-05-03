@@ -54,4 +54,7 @@ public class Patients extends org.example.powwww.grid.Stationary {
     public void assSickness(Sickness sickness) {
         this.sicknesses.add(sickness);
     }
+    public void removeSickness(Sickness sickness) {
+        this.sicknesses.remove(sickness);
+    }
 }

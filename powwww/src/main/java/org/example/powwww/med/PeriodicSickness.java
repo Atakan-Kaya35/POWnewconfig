@@ -10,6 +10,7 @@ public class PeriodicSickness extends Sickness{
     }
 
     @Override
+    /*
     public boolean fullCycle() {
         for (int i = 0; i < neededMeds.size(); i++) {
             if( neededMeds.get(i).takePill()){
@@ -20,5 +21,19 @@ public class PeriodicSickness extends Sickness{
 
         return false;
     }
+    */
+
+
+    public boolean fullCycle() {
+        if (!neededMeds.isEmpty()) {
+            Medicine medicine = neededMeds.get(0);
+            new Order(this.patient, (Pill)medicine);
+            if (medicine.takePill()) {
+                neededMeds.remove(0);
+            }
+        }
+        return neededMeds.isEmpty();
+    }
+
 
 }

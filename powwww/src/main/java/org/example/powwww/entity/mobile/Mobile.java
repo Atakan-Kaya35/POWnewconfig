@@ -27,7 +27,7 @@ public abstract class Mobile extends User {
         return this.containedIn;
     }
 
-    public void receiveOrder(){
+    public void receiveOrder(Order order){
 
     }
 

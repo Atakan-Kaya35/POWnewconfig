@@ -1,5 +1,6 @@
 package org.example.powwww.med;
 
+
 import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.grid.Order;
 
@@ -7,7 +8,7 @@ public class AcutSickness extends Sickness{
 
     protected int cyclesLeft;
     private boolean done = false;
-    
+
     public AcutSickness(int cycles, int cycleFrequency, Patients patient, Medicine ... neededMeds) {
         super(cycleFrequency, patient, neededMeds);
         this.cyclesLeft = cycles;
@@ -20,6 +21,23 @@ public class AcutSickness extends Sickness{
     /**
      * @return a boolean stating whether the treatment for the sickness has been concluded
      */
+    public boolean fullCycle() {
+        if (!neededMeds.isEmpty()) {
+            Medicine medicine = neededMeds.get(0);
+            if (medicine.takePill()) {
+                neededMeds.remove(0);
+            }
+        }
+
+        // TODO: Implement reminding system
+
+        done = neededMeds.isEmpty();
+        return done;
+    }
+
+
+
+    /*     bence bu metod işe yaramaz.
     public boolean fullCycle(){
         for (int i = 0; i < neededMeds.size(); i++) {
             if( neededMeds.get(i).takePill()){
@@ -35,9 +53,10 @@ public class AcutSickness extends Sickness{
         }
         else return false;
     }
+    */
 
     public boolean getIfDone(){
         return done;
     }
-    
+
 }
