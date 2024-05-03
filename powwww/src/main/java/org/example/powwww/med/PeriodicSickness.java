@@ -10,6 +10,20 @@ public class PeriodicSickness extends Sickness{
     }
 
     @Override
+    public boolean fullCycle(int timeOfDay) {
+        if (!neededMeds.isEmpty()) {
+            for (int i = 0; i < neededMeds.size(); i++) {
+                if (neededMeds.get(i).takePill(timeOfDay)) {
+                    neededMeds.remove(i);
+                }
+            }
+        }
+
+        // TODO: make the reminding system into the cycle
+
+        return false;
+    }
+
     /*
     public boolean fullCycle() {
         for (int i = 0; i < neededMeds.size(); i++) {
@@ -22,6 +36,7 @@ public class PeriodicSickness extends Sickness{
         return false;
     }
     */
+/*
 
 
     public boolean fullCycle() {
@@ -34,6 +49,7 @@ public class PeriodicSickness extends Sickness{
         }
         return neededMeds.isEmpty();
     }
+*/
 
 
 }

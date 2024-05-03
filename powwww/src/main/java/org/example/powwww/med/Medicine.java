@@ -9,7 +9,7 @@ public abstract class Medicine {
     protected double price;
     protected String name;
     protected String description;
-    protected int[] consumeFreq = new int[3];
+    protected boolean[] consumeFreq = new boolean[3];
     protected int cyclesLeft = -1;
 
     Medicine(String name, String desciption){
@@ -21,22 +21,27 @@ public abstract class Medicine {
      * Action when a pill is taken
      * @return a boolean that states if the medicine is done being used
      */
-    public boolean takePill(){
+    public boolean takePill(int timeOfDay){
 
-        this.cyclesLeft--;
-        if(this.cyclesLeft < 1){
-            return true;
+        if(consumeFreq[timeOfDay])
+        {
+            this.cyclesLeft--;
+            if(this.cyclesLeft < 1){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
-        else{
-            return false;
-        }
+        // the medicin need not be taken at this
+        return false;
     }
 
-    public int[] getConsumeFreq() {
+    public boolean[] getConsumeFreq() {
         return consumeFreq;
     }
 
-    public void setConsumeFreq(int[] consumeFreq) {
+    public void setConsumeFreq(boolean[] consumeFreq) {
         this.consumeFreq = consumeFreq;
     }
 

@@ -20,7 +20,7 @@ public class Pill extends Medicine{
         this.pillID = IDnumber;
     }
 
-    public Pill(int IDnumber, int cyclesOfTaking, int[] takeingFrequency){
+    public Pill(int IDnumber, int cyclesOfTaking, boolean[] takeingFrequency){
         super(AllPills.get(IDnumber)[0], AllPills.get(IDnumber)[1]);
         this.pillID = IDnumber;
         super.setCyclesOfTaking(cyclesOfTaking);

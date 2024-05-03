@@ -21,15 +21,16 @@ public class AcutSickness extends Sickness{
     /**
      * @return a boolean stating whether the treatment for the sickness has been concluded
      */
-    public boolean fullCycle() {
+    public boolean fullCycle(int timeOfDay) {
         if (!neededMeds.isEmpty()) {
-            Medicine medicine = neededMeds.get(0);
-            if (medicine.takePill()) {
-                neededMeds.remove(0);
+            for (int i = 0; i < neededMeds.size(); i++) {
+                if (neededMeds.get(i).takePill(timeOfDay)) {
+                    neededMeds.remove(i);
+                }
             }
         }
 
-        // TODO: Implement reminding system
+        // TODO: make the reminding system into the cycle
 
         done = neededMeds.isEmpty();
         return done;

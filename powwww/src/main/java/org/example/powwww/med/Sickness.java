@@ -22,5 +22,5 @@ public abstract class Sickness {
         return neededMeds;
     }
     
-    public abstract boolean fullCycle();
+    public abstract boolean fullCycle(int tick);
 }

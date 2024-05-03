@@ -210,20 +210,11 @@ public class SimMethods {
     }
 
     // Method to simulate progression of sicknesses for each patient
-    public static void simulateSicknessProgression(City city) {
+    public static void simulateSicknessProgression(City city, int tick) {
         Random random = new Random();
         for (Patients patient : city.getPatientList()) {
-            // Get all sicknesses of the patient
-            ArrayList<Sickness> sicknesses = patient.getSicknesses();
 
-            // Iterate through each sickness and simulate progression
-            for (Sickness sickness : sicknesses) {
-                // Simulate progression based on sickness type
-                if (sickness.fullCycle()) { // Check if the sickness treatment cycle is completed
-                    // If the sickness cycle is completed, remove it from the patient's sicknesses
-                    patient.removeSickness(sickness);
-                }
-            }
+            patient.patientCycle((tick/60) - 1);
 
             // Introduce new infections based on environmental factors
             if (random.nextDouble() < 0.1) { // 10% chance of new infection

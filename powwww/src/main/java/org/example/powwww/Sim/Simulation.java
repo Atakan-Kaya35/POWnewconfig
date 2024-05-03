@@ -44,6 +44,7 @@ public class Simulation extends SimMethods {
 
         boolean running = true;
         int tick = 0; // Track the current tick
+        int day = 0;
 
         // Duration of a tick in minutes
         final int TICK_DURATION_MINUTES = 5;
@@ -53,24 +54,21 @@ public class Simulation extends SimMethods {
         final LocalTime START_TIME = LocalTime.of(0, 0);
 
 
+        // TODO: Put clock on right hand side top corner
 
-
-
-
+        // Every tick is 1.5 seconds, every day is 240 ticks, a whole day is 6 minutes real time
+        // In the simulation every tick is 6 minutes
         while (running) {
 
-
+            if(tick >= 240){
+                tick = 0;
+                day += 1;
+            }
 
             // bu if bloklarının sayısını artırıp refresh constantı her birinde değiştirince birbirinden farklı aralıklarda bir
             // çalışan metodlar olmuş oluyor. mesela orderları 2 tickte bir güncellerken başka bir şeyi 10 tickte 1 yapabiliyorsun
             if (tick % (TICK_DURATION_MINUTES * REFRESH_CONSTANT / TICK_DURATION_MINUTES) == 0) {   //
                 System.out.println("mert");
-
-
-
-
-
-
             }
 
 
@@ -79,7 +77,7 @@ public class Simulation extends SimMethods {
 
             // Pause execution to simulate the duration of a tick
             try {
-                Thread.sleep(TICK_DURATION_MINUTES * 1000); // constant saniye boyunca uyuyor. real time simüle ediliyor.
+                Thread.sleep(TICK_DURATION_MINUTES * 300); // constant saniye boyunca uyuyor. real time simüle ediliyor.
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -57,4 +57,14 @@ public class Patients extends org.example.powwww.grid.Stationary {
     public void removeSickness(Sickness sickness) {
         this.sicknesses.remove(sickness);
     }
+
+    public void patientCycle(int timeOfDay){
+        for (int i = 0; i < sicknesses.size(); i++){
+            Sickness sick = sicknesses.get(i);
+            if(sick.fullCycle(timeOfDay)){
+                sicknesses.remove(i);
+                i --;
+            }
+        }
+    }
 }
