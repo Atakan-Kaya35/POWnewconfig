@@ -1,11 +1,9 @@
 package org.example.powwww.Sim;
 
 
-import java.time.LocalTime;
-import java.util.Random;
+import org.example.powwww.grid.City;
 
-import entity.stationary.Patients;
-import grid.City;
+import java.time.LocalTime;
 
 public class Simulation extends SimMethods {
 

@@ -1,9 +1,8 @@
 package org.example.powwww.med;
 
-package med;
 
-import entity.stationary.Patients;
-import grid.Order;
+import org.example.powwww.entity.stationary.Patients;
+import org.example.powwww.grid.Order;
 
 public class AcutSickness extends Sickness{
 

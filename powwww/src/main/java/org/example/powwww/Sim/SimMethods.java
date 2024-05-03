@@ -1,19 +1,19 @@
 package org.example.powwww.Sim;
 
-package Simulation;
 import java.util.ArrayList;
 import java.util.Random;
-import grid.City;
-import grid.Order;
-import grid.Stationary;
-import med.AcutSickness;
-import med.PeriodicSickness;
-import med.Serum;
-import med.Sickness;
-import med.Medicine;
-import med.Pill;
-import entity.mobile.physcian.*;
-import entity.stationary.Patients;
+import org.example.powwww.grid.City;
+import org.example.powwww.grid.Order;
+import org.example.powwww.grid.Stationary;
+import org.example.powwww.med.AcutSickness;
+import org.example.powwww.med.PeriodicSickness;
+import org.example.powwww.med.Serum;
+import org.example.powwww.med.Sickness;
+import org.example.powwww.med.Medicine;
+import org.example.powwww.med.Pill;
+import org.example.powwww.entity.mobile.physcian.*;
+import org.example.powwww.entity.stationary.Patients;
+import org.example.powwww.grid.City;
 
 public class SimMethods {
 
