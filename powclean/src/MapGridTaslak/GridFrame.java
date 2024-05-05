@@ -17,9 +17,9 @@ public class GridFrame extends JFrame
 
     public GridFrame()
     {
-        
+
         panel = new JPanel();
-        
+
         //panel.set
         panel.setLayout(new BorderLayout());
         girdPanel = createGridPanel();

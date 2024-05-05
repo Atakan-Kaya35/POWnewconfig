@@ -107,7 +107,7 @@ public class City {
      * @param stationary The stationary entity.
      * @return The list of roads representing the shortest path.
      */
-    public List<Road> findPath(Nurses mobile, Stationary stationary){
+    public List<Road> findPath(Van mobile, Stationary stationary){
         // Create open and closed lists
         List<Road> open = new ArrayList<>();
         Set<Road> closed = new HashSet<>();
@@ -417,6 +417,10 @@ public ArrayList<Scooter> getScooterList(){
 
 public ArrayList<Van> getVanList(){
     return vanList;
+}
+public int getWholeWay()
+{
+    return wholeWay.size();
 }
 
 // Method to randomly create buildings within the city area
