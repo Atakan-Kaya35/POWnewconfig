@@ -35,12 +35,13 @@ public class Van extends Nurses {
 
     public int [][] createRoad()
     {
-        int[][] road = new int[12][2]; ////This will be determined by A* algorithm.(not hardcode)
-        
-
         City city = new City(12, 12);
         
+        
+
+        
         city.setRoad(this, x,y);
+        
         Stationary ob1 = new Stationary(12,12);
         city.buildCustomeStationary(1,5, 6,4, ob1);     //We already passed the coordinates of stationary by using "b". Not need!!!!!!!!!!?
         //Stationary ob2 = new Stationary(10,10);
@@ -53,11 +54,10 @@ public class Van extends Nurses {
         List<Road> d = city.findPath((Van)this, ob1);
         //List<Road> e = city.findPath((Van)this, ob2);
         System.out.println(city.viewMap(false));
-
-
-        
+        int[][] road = new int[city.getWholeWay()][2]; 
+    
         int base = 50;
-        for(int i = 0; i<12; i++){
+        for(int i = 0; i<city.getWholeWay(); i++){
                 road[i][0] = base*(city.wholeWay.get(i).get(0));
                 road[i][1] = base*(city.wholeWay.get(i).get(1));
         } 
@@ -109,5 +109,9 @@ public class Van extends Nurses {
     public int getCurrentRoad()
     {
         return currentRoad;
+    }
+    public int getTotalWayLength()
+    {
+        return road.length;
     }
 }
