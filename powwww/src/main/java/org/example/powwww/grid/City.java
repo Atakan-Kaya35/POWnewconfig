@@ -210,8 +210,11 @@ public class City {
      * @param y road's y-coordinate
      */
     public void setRoad(Mobile changed, int x, int y){
-        roads[x][y].setContined(changed);
-        changed.setContainedIn(roads[x][y]);
+        System.out.println(x + " " + y);
+        if(roads[x][y] != null) {
+            roads[x][y].setContined(changed);
+            changed.setContainedIn(roads[x][y]);
+        }
     }
 
     public int getTrafficBetweenRoads(org.example.powwww.grid.Road a, org.example.powwww.grid.Road b){
@@ -254,9 +257,17 @@ public class City {
      */
     public Stationary buildCustomeStationary(int x, int y, int width, int height, org.example.powwww.grid.Stationary stationaryInside){
 
+        if(x+width >= this.width){
+            width = this.width - x;
+        }
+
+        if (y + height >= this.height){
+            height = this.height - y;
+        }
+
         // hollowing the inside of the wanted stationary of roads
         for (int i = x + 1; i < x + width; i++) {
-            for( int j = x + 1; j < x + height; j++){
+            for( int j = y + 1; j < y + height; j++){
                 roads[i][j] = null;
             }
         }
@@ -426,8 +437,8 @@ public void createRandomBuildings(int numBuildings, double portionOfCity) {
     int cellsToFill = (int) (totalCells * portionOfCity);
 
     for (int i = 0; i < numBuildings; i++) {
-        int buildingWidth = random.nextInt(width / 50) + 1;  // Random width (genişliğin 50de biri)
-        int buildingHeight = random.nextInt(height / 50) + 1;  // Random height (50de biri uzunluğun)
+        int buildingWidth = random.nextInt(width - 2) + 1;  // Random width (genişliğin 50de biri)
+        int buildingHeight = random.nextInt(height - 2) + 1;  // Random height (50de biri uzunluğun)
 
         // Random position for the bottom-left corner of the building
         int startX = random.nextInt(width - buildingWidth);

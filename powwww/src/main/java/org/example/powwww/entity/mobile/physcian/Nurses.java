@@ -2,6 +2,8 @@ package org.example.powwww.entity.mobile.physcian;
 import java.util.ArrayList;
 
 import org.example.powwww.entity.mobile.Mobile;
+import org.example.powwww.grid.Order;
+import org.example.powwww.grid.Road;
 import org.example.powwww.med.Medicine;
 import org.example.powwww.med.Pill;
 import org.example.powwww.med.Serum;
@@ -12,6 +14,7 @@ public class Nurses extends Mobile {
     protected ArrayList<Pill> pillBaggage = new ArrayList<>();
     protected ArrayList<Medicine> baggage = new ArrayList<Medicine>();
     protected String name;
+    protected Order currentOrder;
 
     public Nurses(){
         
@@ -59,8 +62,12 @@ public class Nurses extends Mobile {
         return result;
     }
     
-    
-    
-    
+    public Order getCurrentOrder(){
+        return currentOrder;
+    }
+
+    public void setCurrentOrder(Order newOrder){
+        this.currentOrder = newOrder;
+    }
     
 }
