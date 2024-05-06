@@ -44,6 +44,9 @@ public class App extends Application {
     private Button homePageButton;
 
     @FXML
+    private Button ordersPageButton;
+
+    @FXML
     private Button personalInformationButton;
 
     @FXML
@@ -67,6 +70,9 @@ public class App extends Application {
     private Button purchaseButton;
 
     @FXML
+    private Button openCurrentOrdersButton;
+
+    @FXML
     private TextField userNameLSignUpTextField;
 
     @FXML
@@ -87,8 +93,25 @@ public class App extends Application {
     @FXML
     private TextField heightSignUpTextField;
 
+    //personal info page text fields
     @FXML
-    private TextField addressSignUpTextField;
+    private TextField IDField;
+
+    @FXML
+    private TextField nameField;
+
+    @FXML
+    private TextField ageField;
+
+    @FXML
+    private TextField addressField;
+
+    @FXML
+    private TextField weightField;
+
+    @FXML
+    private TextField heightField;
+
 
     @FXML
     ComboBox<String> comboBox = new ComboBox<>();
@@ -100,6 +123,7 @@ public class App extends Application {
     private Scene logInPage, signInOccupationPage, signInPage, homePage, pillsPage, personalInfoPage, ordersPage, currentOrdersPage,
     quickDiagnosisPage, yesNoQuestPage, symptomsPage, homePageForOthers, personalInfoPageForOthers, deliveriesPage, currentDeliveryPage; 
     
+    User user;
 
     public void start(Stage primaryStage) throws IOException{
 
@@ -109,8 +133,8 @@ public class App extends Application {
         
         comboBox.getItems().addAll("Customer", "Nurse", "Scooter", "Van");
 
-        //FXMLLoader fxmlHome = new FXMLLoader(App.class.getResource("/org/example/powwww/HomePage.fxml"));
-        //homePage = new Scene(fxmlHome.load(),1080,720);
+        FXMLLoader fxmlHome = new FXMLLoader(App.class.getResource("/org/example/powwww/HomePage.fxml"));
+        homePage = new Scene(fxmlHome.load(),1080,720);
 
         FXMLLoader fxmlPersInfo = new FXMLLoader(App.class.getResource("/org/example/powwww/PersonalInfoPage.fxml"));
         personalInfoPage = new Scene(fxmlPersInfo.load(),1080,720);
@@ -131,7 +155,7 @@ public class App extends Application {
         signUpButton.setOnAction(e -> {
             primaryStage.setScene(signInOccupationPage);
             String selected = comboBox.getSelectionModel().getSelectedItem();
-            User user; 
+            //User user; 
             if(selected.equals("Customer")){
                 user = new Patients();
             }
@@ -176,10 +200,35 @@ public class App extends Application {
 
         homePageButton.setOnAction(e -> {
             primaryStage.setScene(homePage);
-        }); 
+        });
 
+        //enter personal info page
         personalInformationButton.setOnAction(e -> {
             primaryStage.setScene(personalInfoPage);
+
+            TextField IDfield = new TextField();
+            IDfield.setText("" + user.getID());
+            IDfield.setEditable(true);
+
+            TextField nameField = new TextField();
+            nameField.setText("" + user.getName());
+            nameField.setEditable(true);
+
+            TextField ageField = new TextField();
+            ageField.setText("" + user.getAge());
+            ageField.setEditable(true);
+
+            TextField addressField = new TextField();
+            addressField.setText("" + user.getAddress());
+            addressField.setEditable(true);
+
+            TextField weightField = new TextField();
+            weightField.setText("" + user.getWeight());
+            weightField.setEditable(true);
+
+            TextField heightField = new TextField();
+            heightField.setText("" + user.getHeight());
+            heightField.setEditable(true);
         }); 
 
         //quick diagnosis test
@@ -197,6 +246,16 @@ public class App extends Application {
 
         pillsButton.setOnAction(e -> {
             primaryStage.setScene(pillsPage);
+        });
+
+        ordersPageButton.setOnAction(e -> {
+            primaryStage.setScene(ordersPage);
+            // TODO: add order history
+            openCurrentOrdersButton.setOnAction(e -> {
+                primaryStage.setScene(currentOrdersPage);
+                // TODO: add current order
+
+            });
         });
 
         primaryStage.show();

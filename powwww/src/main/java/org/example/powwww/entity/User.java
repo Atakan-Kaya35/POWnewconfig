@@ -8,7 +8,15 @@ public class User {
     protected int weight;
     protected int height;
     protected int age;
+    protected int ID;
 
+    public User(){}
+    public int getID() {
+        return ID;
+    }
+    public void setID(int iD) {
+        ID = iD;
+    }
     public String getPassword() {
         return password;
     }
