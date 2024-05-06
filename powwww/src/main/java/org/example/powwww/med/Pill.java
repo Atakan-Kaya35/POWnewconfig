@@ -5,13 +5,13 @@ import java.io.File;
 
 public class Pill extends Medicine {
 
-    public static ArrayList<String[]> AllPills;
-    public static ArrayList OTCpills;
-    public static ArrayList prescribedPills;
+    public static ArrayList<String[]> AllPills = new ArrayList();
+    public static ArrayList<String[]> OTCpills = new ArrayList();
+    public static ArrayList<String[]> prescribedPills = new ArrayList();
     public int pillID;
 
     public Pill(int IDnumber) {
-        super(AllPills.get(IDnumber)[0], AllPills.get(IDnumber)[1]);
+        super(AllPills.get(IDnumber)[0], AllPills.get(IDnumber)[3]);
         this.pillID = IDnumber;
         this.cyclesLeft = 5;
     }
@@ -23,50 +23,35 @@ public class Pill extends Medicine {
         super.setConsumeFreq(takeingFrequency);
     }
 
-    public static void fillPills(){
-        //AllPills = new ArrayList<>();
-
+    public static void fillPills() {
         // Get the file path relative to the current package
-        String filename = "meds.txt";
+        String counterMeds = "C:\\Users\\ataka\\Desktop\\POWnewconfig\\powwww\\src\\main\\java\\org\\example\\powwww\\med\\over_the_counter_meds.txt";
+        String prescribedMeds = "C:\\Users\\ataka\\Desktop\\POWnewconfig\\powwww\\src\\main\\java\\org\\example\\powwww\\med\\prescribed_meds.csv";
 
         // Use ClassLoader to load the file
-        try (Scanner scanner = new Scanner(new File(filename))) {
+        try (Scanner scanner = new Scanner(new File(counterMeds))) {
 
-            while (scanner.hasNextLine()){
+            while (scanner.hasNextLine()) {
                 String[] command = scanner.nextLine().split(",");
                 AllPills.add(command);
+                OTCpills.add(command);
             }
-            /*// Check if the file was found
-            if (inputStream != null) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    // Split the line into fields
-                    String[] fields = line.split(",");
-                    // adds the pill into the big pile
-                    AllPills.add(fields);
-                }
-            } else {
-                // File not found
-                System.err.println("File not found: " + csvFile);
-            }*/
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-/*
-        csvFile = "prescribed_meds.csv";
 
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-            while ((line = br.readLine()) != null) {
-                // Split the line into fields
-                String[] fields = line.split(csvSplitBy);
+        try (Scanner scanner = new Scanner(new File(prescribedMeds))) {
 
-                // adds the pill into the big pile
-                AllPills.add(fields);
+            while (scanner.hasNextLine()) {
+                String[] command = scanner.nextLine().split(",");
+                AllPills.add(command);
+                prescribedPills.add(command);
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
+        System.out.println();
+    }
 
     public int getPillID() {
         return pillID;

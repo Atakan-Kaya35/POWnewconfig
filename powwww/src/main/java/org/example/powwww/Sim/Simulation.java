@@ -77,7 +77,7 @@ public class Simulation extends SimMethods {
 
             // makes people take their medicine
             if (tick % (TICKPERDAY / 4) == 0) {
-                simulateSicknessProgression(city, ((TICKPERDAY / tick) - 1));
+                simulateSicknessProgression(city, ((tick / (TICKPERDAY / 4)) - 1));
             }
 
             System.out.println(tick);
