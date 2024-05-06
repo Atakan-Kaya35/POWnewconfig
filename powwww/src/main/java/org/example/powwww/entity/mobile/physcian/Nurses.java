@@ -1,29 +1,87 @@
 package org.example.powwww.entity.mobile.physcian;
 import java.util.ArrayList;
 
+import org.example.powwww.Sim.SimMethods;
 import org.example.powwww.entity.mobile.Mobile;
+import org.example.powwww.grid.City;
 import org.example.powwww.grid.Order;
 import org.example.powwww.grid.Road;
 import org.example.powwww.med.Medicine;
 import org.example.powwww.med.Pill;
 import org.example.powwww.med.Serum;
+import org.example.powwww.Sim.SimMethods;
 
 public class Nurses extends Mobile {
     
-    protected ArrayList<Serum> serumBaggage = new ArrayList<>();
     protected ArrayList<Pill> pillBaggage = new ArrayList<>();
     protected ArrayList<Medicine> baggage = new ArrayList<Medicine>();
     protected String name;
     protected Order currentOrder;
+    protected City city;
+    protected int x;
+    protected int y;
+    protected int currentTrafic;
 
-    public Nurses(){
-        
+    public enum ArrowKey {
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT
     }
 
-    Nurses(String name){
-        this.name = name;
+    ArrowKey direction;
+
+
+    public Nurses(Road cotainedIn){
+        setContainedIn(cotainedIn);
+        this.x = cotainedIn.getCoords()[0] * SimMethods.TICKPERDAY;
+        this.y = cotainedIn.getCoords()[1] * SimMethods.TICKPERDAY;
+    }
+
+    public Nurses(){}
+
+    public boolean move(){
 
     }
+
+    private boolean roadUpdateNecessaryCheck(){
+        if((x+1) % 36 < 2 && (y+1) % 36 < 2) {
+            this.setContainedIn(currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
+            if(x % 5 == 0 && x != 0){
+                x ++;
+            }
+            if(y % 5 == 0 && y != 0){
+                y ++;
+            }
+            currentOrder.setProgressIndex(currentOrder.getProgressIndex() + 1);
+            return true;
+        }
+        return false;
+
+        /*if((x+1) % 36 < 2 && (y+1) % 36 < 2) {
+            if(x % 5 == 0 && x != 0){
+                x ++;
+            }
+            if(y % 5 == 0 && y != 0){
+                y ++;
+            }
+            this.setContainedIn(city.getRoad((x / 36), (y / 36)));
+            return true;
+        }
+        return false;
+        */
+    }
+
+    private void setDirectionOfTravel(){
+        currentTrafic = city.getTrafficBetweenRoads(currentOrder.getPath().get(currentOrder.getProgressIndex()), currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
+        if((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[0] - currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[0] + 1) > 0){
+            direction = 
+        }
+        else if((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[1] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[1]) > 0){
+
+        }
+    }
+
     public String getName() {
         return name;
     }
@@ -69,5 +127,4 @@ public class Nurses extends Mobile {
     public void setCurrentOrder(Order newOrder){
         this.currentOrder = newOrder;
     }
-    
 }

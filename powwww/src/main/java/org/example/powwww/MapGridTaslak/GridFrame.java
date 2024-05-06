@@ -1,4 +1,4 @@
-package MapGridTaslak;
+package org.example.powwww.MapGridTaslak;
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;

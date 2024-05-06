@@ -1,11 +1,11 @@
-package MapGridTaslak;
+package org.example.powwww.MapGridTaslak;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import java.util.*;
 import javax.swing.Timer;
 
-import entity.mobile.physcian.Van;
+import org.example.powwww.entity.mobile.physcian.Van;
 
 public class GridPanel extends JComponent
 {

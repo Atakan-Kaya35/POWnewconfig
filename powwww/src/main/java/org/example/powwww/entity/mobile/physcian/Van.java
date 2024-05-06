@@ -8,25 +8,23 @@ import java.util.*;
 import org.example.powwww.entity.mobile.*;
 
 import org.example.powwww.entity.mobile.physcian.*;
+import org.example.powwww.med.Serum;
 
 public class Van extends Nurses {
     
     final protected int speed = 3;
 
+    protected ArrayList<Serum> serumBaggage = new ArrayList<>();
 
     private int RADIUS = 5;
-    private int[][] road;
-    private int x;
-    private int y;
     private int currentRoad;
 
     public Van(){
-        super("");
+        super();
     }
 
-    public Van(String name, int x, int y)
+    public Van(int x, int y)
     {
-        super(name);
         currentRoad = 0;
         this. x = x;
         this.y = y;
@@ -106,10 +104,6 @@ public class Van extends Nurses {
     public int getRadius()
     {
         return RADIUS;
-    }
-    public int[][] getRoad()
-    {
-        return road;
     }
     public int getCurrentRoad()
     {

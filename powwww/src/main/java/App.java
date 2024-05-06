@@ -136,6 +136,7 @@ public class App extends Application {
                 user = new Patients();
             }
             else if(selected.equals("Nurse")){
+
                 user = new Nurses();
             }
             else if(selected.equals("Scooter")){

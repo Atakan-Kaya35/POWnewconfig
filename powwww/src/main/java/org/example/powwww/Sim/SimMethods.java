@@ -20,7 +20,11 @@ public class SimMethods {
     private static ArrayList<Stationary> users = new ArrayList<>();
     private static ArrayList<String> usernames = new ArrayList<>();
     private static ArrayList<String> passwords = new ArrayList<>();
-    protected static int TICKPERDAY = 1440;
+    public final static int TICKPERDAY = 1440;
+
+    public int getTICKPERDAY(){
+        return TICKPERDAY;
+    }
 
     /**
      * Registers a new user with the provided information.

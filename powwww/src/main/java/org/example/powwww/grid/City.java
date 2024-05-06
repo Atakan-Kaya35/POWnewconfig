@@ -107,7 +107,7 @@ public class City {
      * @param stationary The stationary entity.
      * @return The list of roads representing the shortest path.
      */
-    public List<Road> findPath(Mobile mobile, org.example.powwww.grid.Stationary stationary){
+    public ArrayList<Road> findPath(Mobile mobile, org.example.powwww.grid.Stationary stationary){
         // Create open and closed lists
         List<Road> open = new ArrayList<>();
         Set<Road> closed = new HashSet<>();
@@ -130,7 +130,7 @@ public class City {
 
             // If we reached the end Road, reconstruct and return the path
             if (current == endRoad) {
-                List<Road> path = new ArrayList<>();
+                ArrayList<Road> path = new ArrayList<>();
                 Road node = current;
                 while (node != null) {
                     path.add(node);
@@ -484,7 +484,7 @@ public void createVansAndScooters() {
         int x = random.nextInt(width);
         int y = random.nextInt(height);
         String name = "v" + (i + 1); // Unique name for each van
-        Van van = new Van(name, 0,0);
+        Van van = new Van(0,0);
         vanList.add(van);
         setRoad(van, x, y);
     }
@@ -494,7 +494,7 @@ public void createVansAndScooters() {
         int x = random.nextInt(width);
         int y = random.nextInt(height);
         String name = "s" + (i + 1); // Unique name for each scooter
-        Scooter scooter = new Scooter(name);
+        Scooter scooter = new Scooter();
         scooterList.add(scooter);
         setRoad(scooter, x, y);
     }

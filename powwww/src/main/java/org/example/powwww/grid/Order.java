@@ -12,7 +12,8 @@ public class Order {
     int[] finishingCord;
     boolean assigned = false;
     boolean completed = false;
-    ArrayList<int[]> path;
+    ArrayList<Road> path;
+    int progressIndex;
     Medicine carriedMedicine;
     ArrayList<Serum> carriedSerums;
     ArrayList<Pill> carriedPills;
@@ -24,9 +25,9 @@ public class Order {
 
     public void orderFiller(ArrayList<int[]> path){
         this.assigned = true;
-        this.path = new ArrayList<int[]>();
+        this.path = new ArrayList<Road>();
     }
-     
+
     // constructors
     public Order(Patients patient, Pill carriedPill){
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
@@ -71,7 +72,7 @@ public class Order {
         return this.completed;
     }
 
-    public ArrayList<int[]> getPath() {
+    public ArrayList<Road> getPath() {
         return this.path;
     }
 
@@ -81,6 +82,14 @@ public class Order {
 
     public ArrayList<Pill> getCarriedPills(){
         return carriedPills;
+    }
+
+    public int getProgressIndex(){
+        return progressIndex;
+    }
+
+    public void setProgressIndex(int processIndex){
+        this.progressIndex = processIndex;
     }
 
 

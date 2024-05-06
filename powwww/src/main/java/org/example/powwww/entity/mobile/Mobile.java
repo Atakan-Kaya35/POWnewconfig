@@ -6,7 +6,6 @@ import org.example.powwww.entity.User;
 
 public abstract class Mobile extends User {
 
-    int[] coordinates;
     // maybe ArrayList for more complicated city arrangements in the future
     // though that would require a rework of a* which is not easy
     //Building[] surroundingBuildings;
