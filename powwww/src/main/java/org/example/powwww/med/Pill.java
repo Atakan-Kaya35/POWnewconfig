@@ -1,70 +1,58 @@
 package org.example.powwww.med;
+import java.io.*;
 import java.util.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.File;
 
-public class Pill extends Medicine{
+public class Pill extends Medicine {
 
-    public static ArrayList<String[]> AllPills;
-    public static ArrayList OTCpills;
-    public static ArrayList prescribedPills;
+    public static ArrayList<String[]> AllPills = new ArrayList();
+    public static ArrayList<String[]> OTCpills = new ArrayList();
+    public static ArrayList<String[]> prescribedPills = new ArrayList();
     public int pillID;
 
-    public Pill (boolean initializer){
-        super("try", "try");
-        fillPills();
-    }
-    public Pill(int IDnumber){
-        super(AllPills.get(IDnumber)[0], AllPills.get(IDnumber)[1]);
+    public Pill(int IDnumber) {
+        super(AllPills.get(IDnumber)[0], AllPills.get(IDnumber)[3]);
         this.pillID = IDnumber;
+        this.cyclesLeft = 5;
     }
 
-    public Pill(int IDnumber, int cyclesOfTaking, boolean[] takeingFrequency){
+    public Pill(int IDnumber, int cyclesOfTaking, boolean[] takeingFrequency) {
         super(AllPills.get(IDnumber)[0], AllPills.get(IDnumber)[1]);
         this.pillID = IDnumber;
         super.setCyclesOfTaking(cyclesOfTaking);
         super.setConsumeFreq(takeingFrequency);
     }
 
-    public void fillPills(){
-        AllPills = new ArrayList<>();
-        OTCpills = new ArrayList<>();
-        prescribedPills = new ArrayList<>();
+    public static void fillPills() {
+        // Get the file path relative to the current package
+        String counterMeds = "C:\\Users\\ataka\\Desktop\\POWnewconfig\\powwww\\src\\main\\java\\org\\example\\powwww\\med\\over_the_counter_meds.txt";
+        String prescribedMeds = "C:\\Users\\ataka\\Desktop\\POWnewconfig\\powwww\\src\\main\\java\\org\\example\\powwww\\med\\prescribed_meds.csv";
 
-        String csvFile = "over_the_counter.csv";
-        String line = "";
-        String csvSplitBy = ",";
+        // Use ClassLoader to load the file
+        try (Scanner scanner = new Scanner(new File(counterMeds))) {
 
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-            while ((line = br.readLine()) != null) {
-                // Split the line into fields
-                String[] fields = line.split(csvSplitBy);
-                
-                // adds the pill into the big pile
-                this.AllPills.add(fields);
-                this.OTCpills.add(fields);
+            while (scanner.hasNextLine()) {
+                String[] command = scanner.nextLine().split(",");
+                AllPills.add(command);
+                OTCpills.add(command);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        csvFile = "prescribed.csv";
-        
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-            while ((line = br.readLine()) != null) {
-                // Split the line into fields
-                String[] fields = line.split(csvSplitBy);
-                
-                // adds the pill into the big pile
-                this.AllPills.add(fields);
-                this.prescribedPills.add(fields);
+        try (Scanner scanner = new Scanner(new File(prescribedMeds))) {
+
+            while (scanner.hasNextLine()) {
+                String[] command = scanner.nextLine().split(",");
+                AllPills.add(command);
+                prescribedPills.add(command);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println();
     }
-     
+
     public int getPillID() {
         return pillID;
     }
@@ -72,5 +60,5 @@ public class Pill extends Medicine{
     public void setPillID(int pillID) {
         this.pillID = pillID;
     }
-
 }
+

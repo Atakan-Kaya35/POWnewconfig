@@ -2,6 +2,7 @@ package org.example.powwww.Sim;
 
 
 import org.example.powwww.grid.City;
+import org.example.powwww.med.Pill;
 
 import java.time.LocalTime;
 
@@ -11,6 +12,9 @@ public class Simulation extends SimMethods {
 
         // Initialize the city with desired parameters
         City city = createCity();
+        Pill.fillPills();
+        Pill a = new Pill(0);
+        System.out.println();
 
         /*sign upa tıklanırsa
         boolean signedUp = false;
@@ -43,7 +47,7 @@ public class Simulation extends SimMethods {
 
 
         boolean running = true;
-        int tick = 0; // Track the current tick
+        int tick = 1; // Track the current tick
         int day = 0;
 
         // Duration of a tick in minutes
@@ -60,8 +64,8 @@ public class Simulation extends SimMethods {
         // In the simulation every tick is 6 minutes
         while (running) {
 
-            if(tick >= 240){
-                tick = 0;
+            if(tick >= (TICKPERDAY - 1)){
+                tick = 1;
                 day += 1;
             }
 
@@ -71,16 +75,25 @@ public class Simulation extends SimMethods {
                 System.out.println("mert");
             }
 
+            // makes people take their medicine
+            if (tick % (TICKPERDAY / 4) == 0) {
+                simulateSicknessProgression(city, ((tick / (TICKPERDAY / 4)) - 1));
+            }
+
+            System.out.println(tick);
+
+            // moves all nurses
+            stimulateNurses(city);
 
             // Advance the time by one tick
             tick++;
 
             // Pause execution to simulate the duration of a tick
-            try {
+            /*try {
                 Thread.sleep(TICK_DURATION_MINUTES * 300); // constant saniye boyunca uyuyor. real time simüle ediliyor.
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
+            }*/
 
             // Check the progress of activities
             //checkActivityProgress();

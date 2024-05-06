@@ -20,6 +20,7 @@ public class SimMethods {
     private static ArrayList<Stationary> users = new ArrayList<>();
     private static ArrayList<String> usernames = new ArrayList<>();
     private static ArrayList<String> passwords = new ArrayList<>();
+    protected static int TICKPERDAY = 1440;
 
     /**
      * Registers a new user with the provided information.
@@ -79,8 +80,8 @@ public class SimMethods {
 
     // Method to initialize the city with desired parameters
     public static City createCity() {
-        final int cityWidth = 100;
-        final int cityHeight = 100;
+        final int cityWidth = 30;
+        final int cityHeight = 20;
         City Ankara = new City(cityWidth, cityHeight);
         return Ankara;
     }
@@ -210,11 +211,11 @@ public class SimMethods {
     }
 
     // Method to simulate progression of sicknesses for each patient
-    public static void simulateSicknessProgression(City city, int tick) {
+    public static void simulateSicknessProgression(City city, int timeOfDay) {
         Random random = new Random();
         for (Patients patient : city.getPatientList()) {
 
-            patient.patientCycle((tick/60) - 1);
+            patient.patientCycle(timeOfDay);
 
             // Introduce new infections based on environmental factors
             if (random.nextDouble() < 0.1) { // 10% chance of new infection
@@ -307,8 +308,6 @@ public class SimMethods {
         }
     }
 
-
-
     // Method to simulate events within the city
     public static void simulateEvents(City city) {
         // Simulate new orders from patients
@@ -321,6 +320,12 @@ public class SimMethods {
 
         // Simulate traffic (optional)
         // For simplicity, we won't implement traffic simulation in this example
+    }
+
+    public static void stimulateNurses(City city){
+        for( Nurses nurse : city.getNurseList()){
+            //nurse.move();
+        }
     }
 }
 
