@@ -1,3 +1,4 @@
+/*
 package org.example.powwww.MapGridTaslak;
 import javax.swing.JFrame;
 
@@ -11,3 +12,4 @@ public class TaslakMain
         //grid.setVisible(true);
     }
 }
+*/

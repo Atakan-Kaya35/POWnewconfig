@@ -41,7 +41,10 @@ public class Nurses extends Mobile {
     public Nurses(){}
 
     public boolean move(){
-
+        setDirectionOfTravel();
+        if(direction == ArrowKey.UP){
+            x += (36 / )
+        }
     }
 
     private boolean roadUpdateNecessaryCheck(){
@@ -54,6 +57,7 @@ public class Nurses extends Mobile {
                 y ++;
             }
             currentOrder.setProgressIndex(currentOrder.getProgressIndex() + 1);
+            setDirectionOfTravel();
             return true;
         }
         return false;
@@ -74,11 +78,19 @@ public class Nurses extends Mobile {
 
     private void setDirectionOfTravel(){
         currentTrafic = city.getTrafficBetweenRoads(currentOrder.getPath().get(currentOrder.getProgressIndex()), currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
-        if((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[0] - currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[0] + 1) > 0){
-            direction = 
-        }
-        else if((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[1] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[1]) > 0){
 
+        try {
+            if ((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[0] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[0]) > 0) {
+                direction = ArrowKey.LEFT;
+            } else if ((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[1] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[1]) > 0) {
+                direction = ArrowKey.UP;
+            } else if ((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[0] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[0]) < 0) {
+                direction = ArrowKey.RIGHT;
+            } else if ((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[1] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[1]) < 0) {
+                direction = ArrowKey.DOWN;
+            }
+        }catch (Exception e){
+            System.out.println("Check your indexes in Move!");
         }
     }
 

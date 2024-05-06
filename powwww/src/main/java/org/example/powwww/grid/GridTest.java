@@ -10,9 +10,9 @@ public class GridTest {
     public static void main(String[] args) {
         
         City city = new City(12, 12);
-        Mobile a = new Van("mert",0,0);
+        Mobile a = new Van(0,0);
         city.setRoad(a, 0,0);
-        Mobile v = new Van("atakanisko");
+        Mobile v = new Van();
        city.setRoad(a, 0,0);
         Stationary b = new Stationary(9,9);
         city.buildCustomeStationary(9,9, 1,1, b);     //We already passed the coordinates of stationary by using "b". Not need!!!!!!!!!!?

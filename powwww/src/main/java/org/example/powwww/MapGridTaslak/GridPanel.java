@@ -1,3 +1,4 @@
+/*
 package org.example.powwww.MapGridTaslak;
 import javax.swing.*;
 import java.awt.event.*;
@@ -23,7 +24,7 @@ public class GridPanel extends JComponent
         gridFrame = ref;
         homes = createHomes();
         obstacles = createObstacles();
-        van = new Van("atakan", 0,0);
+        van = new Van(0,0);
 
         listener = new sucu();
         t = new Timer(400, listener);
@@ -31,10 +32,12 @@ public class GridPanel extends JComponent
         
     }
 
-    /**
+    */
+/**
      * Create all homes according to gird. Center of all squares there is a home.
      * @return all home objects in the ArrayList
-     */
+     *//*
+
     public ArrayList<Home> createHomes()
     {
         
@@ -52,10 +55,12 @@ public class GridPanel extends JComponent
         return homes;
     }
 
-    /**
+    */
+/**
      * Create all obstacles according to coordinates.
      * @return all obstacle objects in the ArrayList
-     */
+     *//*
+
     public ArrayList<Obstacle> createObstacles()
     {
         ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
@@ -64,7 +69,8 @@ public class GridPanel extends JComponent
         return obstacles;
     }
 
-    class sucu implements ActionListener
+   */
+/* class sucu implements ActionListener
     {
         public void actionPerformed(ActionEvent event)
         {
@@ -81,15 +87,18 @@ public class GridPanel extends JComponent
             }
             
         }
-    }
+    }*//*
 
-    /**
+
+    */
+/**
      * make van follow its path
-     */
+     *//*
+
     public void moveVan()
     {
         van.setCurrentRoad();
-        int nextX = van.getRoad()[van.getCurrentRoad()][0];
+        int nextX = van.getC()[van.getCurrentRoad()][0];
         int nextY = van.getRoad()[van.getCurrentRoad()][1];
         van.setXCoor(nextX);
         van.setYCoor(nextY);
@@ -119,3 +128,4 @@ public class GridPanel extends JComponent
         van.draw(g);
     }
 }
+*/

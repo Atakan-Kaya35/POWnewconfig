@@ -1,14 +1,11 @@
 package org.example.powwww;
+
 import org.example.powwww.med.*;
-import org.example.powwww.DiagnosisTest.*;
-import org.example.powwww.DiagnosisTest.Menu;
 import org.example.powwww.entity.mobile.physcian.Nurses;
 import org.example.powwww.entity.mobile.physcian.Van;
 import org.example.powwww.entity.mobile.physcian.Scooter;
 import org.example.powwww.entity.stationary.*;
 import org.example.powwww.entity.*;
-import javax.swing.*;
-import java.awt.event.*;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.*;
@@ -181,7 +175,7 @@ public class App extends Application {
                 user.setAge(Integer.parseInt(ageSignUpTextField.getText()));
                 user.setWeight(Integer.parseInt(weightSignUpTextField.getText()));
                 user.setHeight(Integer.parseInt(heightSignUpTextField.getText()));
-                user.setHeight(Integer.parseInt(addressSignUpTextField.getText()));
+                //user.setHeight(Integer.parseInt(addressSignUpTextField.getText()));
 
                 //enter home page
                 loginButton.setOnAction(eee -> {
@@ -252,7 +246,7 @@ public class App extends Application {
         ordersPageButton.setOnAction(e -> {
             primaryStage.setScene(ordersPage);
             // TODO: add order history
-            openCurrentOrdersButton.setOnAction(e -> {
+            openCurrentOrdersButton.setOnAction(ee -> {
                 primaryStage.setScene(currentOrdersPage);
                 // TODO: add current order
 
