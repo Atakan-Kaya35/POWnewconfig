@@ -41,6 +41,12 @@ public class Order {
         this.carriedMedicine = new Serum();
     }
 
+    public Order(Patients patient, Medicine carriedPill){
+        this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
+        this.finishingCord = patient.getCoordinates();
+        this.carriedMedicine = carriedPill;
+    }
+
     public Order(Patients patient, ArrayList<Medicine> medList){
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
         this.finishingCord = patient.getCoordinates();

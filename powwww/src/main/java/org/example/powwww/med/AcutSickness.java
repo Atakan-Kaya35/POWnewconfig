@@ -14,7 +14,7 @@ public class AcutSickness extends Sickness{
         this.cyclesLeft = cycles;
 
         for (Medicine medicine : neededMeds) {
-            new Order(patient, (Pill)medicine);
+            new Order(patient, medicine);
         }
     }
 

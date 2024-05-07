@@ -40,7 +40,7 @@ public class City {
         this.orders = new ArrayList<Order>();
 
         roads = new Road[ width + 1][ height + 1];
-        stationarys = new Stationary[ width][ height];
+        stationarys = new Stationary[ width ][ height];
 
         for (int x = 0; x < width + 1; x++) {
             for (int y = 0; y < height + 1; y++) {
@@ -60,33 +60,39 @@ public class City {
         int y = stationary.getCoordinates()[1];
         int distance = 1;
         int[] coord = new int[2];
-        while (control && distance<=this.height && distance<=this.width) {
-            for (int i = 0; i < distance; i++) {
-                if(roads[x+i][y-(distance-i)].getContained() instanceof Nurses){
-                    coord[0]=x+i;
-                    coord[1]=y-(distance-i);
-                    control = false;
-                    return coord;
+
+        while (control && distance <= this.height && distance <= this.width) {
+            distance++;
+
+            try{
+                for (int i = 0; i < distance; i++) {
+                    if (x + i < this.width && y - (distance - i) >= 0 && roads[x + i][y - (distance - i)].getContained() instanceof Nurses) {
+                        coord[0] = x + i;
+                        coord[1] = y - (distance - i);
+                        control = false;
+                        return coord;
+                    }
+                    if (x - i >= 0 && y - (distance - i) >= 0 && roads[x - i][y - (distance - i)].getContained() instanceof Nurses) {
+                        coord[0] = x - i;
+                        coord[1] = y - (distance - i);
+                        control = false;
+                        return coord;
+                    }
+                    if (x + i < this.width && y + (distance - i) < this.height && roads[x + i][y + (distance - i)].getContained() instanceof Nurses) {
+                        coord[0] = x + i;
+                        coord[1] = y + (distance - i);
+                        control = false;
+                        return coord;
+                    }
+                    if (x - i >= 0 && y + (distance - i) < this.height && roads[x - i][y + (distance - i)].getContained() instanceof Nurses) {
+                        coord[0] = x - i;
+                        coord[1] = y + (distance - i);
+                        control = false;
+                        return coord;
+                    }
                 }
-                if(roads[x+i][y+(distance-i)].getContained() instanceof Nurses){
-                    coord[0]=x+i;
-                    coord[1]=y-(distance-i);
-                    control = false;
-                    return coord;
-                }
-                
-                if(roads[x-i][y+(distance-i)].getContained() instanceof Nurses){
-                    coord[0]=x-i;
-                    coord[1]=y+(distance-i);
-                    control = false;
-                    return coord;
-                }
-                if(roads[x-i][y-(distance-i)].getContained() instanceof Nurses){
-                    coord[0]=x-i;
-                    coord[1]=y+(distance-i);
-                    control = false;
-                    return coord;
-                }
+            } catch(NullPointerException e){
+                // It is possible that an object is in the way
             }
         }
         return null;

@@ -84,16 +84,17 @@ public class Simulation extends SimMethods {
 
             // moves all nurses
             stimulateNurses(city);
+            System.out.println(city.viewMap(false));
 
             // Advance the time by one tick
             tick++;
 
             // Pause execution to simulate the duration of a tick
-            /*try {
+            try {
                 Thread.sleep(TICK_DURATION_MINUTES * 300); // constant saniye boyunca uyuyor. real time simüle ediliyor.
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }*/
+            }
 
             // Check the progress of activities
             //checkActivityProgress();
