@@ -43,8 +43,15 @@ public class Nurses extends Mobile {
     public boolean move(){
         setDirectionOfTravel();
         if(direction == ArrowKey.UP){
-            x += (36 / )
+            y -= (36 / currentTrafic);
+        } else if(direction == ArrowKey.DOWN){
+            y += (36 / currentTrafic);
+        } else if(direction == ArrowKey.LEFT){
+            x -= (36 / currentTrafic);
+        } else {
+            x += (36 / currentTrafic);
         }
+        return roadUpdateNecessaryCheck();
     }
 
     private boolean roadUpdateNecessaryCheck(){
