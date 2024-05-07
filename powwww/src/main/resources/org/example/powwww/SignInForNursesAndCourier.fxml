@@ -19,7 +19,7 @@
       <Button layoutX="261.0" layoutY="293.0" mnemonicParsing="false" style="-fx-background-color: #F69256;" text="Sign in" />
       <ImageView fitHeight="97.0" fitWidth="99.0" layoutX="110.0" layoutY="-7.0">
          <image>
-            <Image url="Logo.png" />
+            <Image url="@Logo.png" />
          </image>
       </ImageView>
       <ComboBox layoutX="260.0" layoutY="151.0" prefHeight="30.0" prefWidth="189.0" promptText="Select your occupation!" />
