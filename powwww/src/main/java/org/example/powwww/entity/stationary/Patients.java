@@ -13,11 +13,12 @@ public class Patients extends org.example.powwww.grid.Stationary {
 
     protected City city;
 
-    public Patients(){
+    /*public Patients(){
         super(0, 0);
-    }
+    }*/
+
     public Patients(String name, int x, int y, City city){
-        super(x, y);
+        super(x, y,city);
         this.name = name;
         this.city = city;
     }
@@ -51,7 +52,7 @@ public class Patients extends org.example.powwww.grid.Stationary {
     public ArrayList<Sickness> getSicknesses() {
         return sicknesses;
     }
-    public void assSickness(Sickness sickness) {
+    public void addSickness(Sickness sickness) {
         this.sicknesses.add(sickness);
     }
     public void removeSickness(Sickness sickness) {

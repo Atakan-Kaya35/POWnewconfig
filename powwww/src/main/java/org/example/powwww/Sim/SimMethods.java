@@ -13,7 +13,6 @@ import org.example.powwww.med.Medicine;
 import org.example.powwww.med.Pill;
 import org.example.powwww.entity.mobile.physcian.*;
 import org.example.powwww.entity.stationary.Patients;
-import org.example.powwww.grid.City;
 
 public class SimMethods {
 
@@ -224,7 +223,7 @@ public class SimMethods {
             // Introduce new infections based on environmental factors
             if (random.nextDouble() < 0.1) { // 10% chance of new infection
                 Sickness newInfection = getRandomSickness(patient);
-                patient.assSickness(newInfection); // Patient gets infected
+                patient.addSickness(newInfection); // Patient gets infected
             }
         }
     }
@@ -244,16 +243,15 @@ public class SimMethods {
         // Create orders for each needed medicine
         for (Medicine medicine : neededMeds) {
             if (medicine instanceof Pill) {
-                assignOrdersToNurses(patient, neededMeds,new Order(patient, (Pill) medicine), city);
+                assignOrdersToNurses(patient, neededMeds, city);
             } else if (medicine instanceof Serum) {
-                assignOrdersToNurses(patient, neededMeds, new Order(patient, (Serum) medicine), city);
+                assignOrdersToNurses(patient, neededMeds, city);
             }
         }
     }
 
     // Method to assign orders to nurses based on their baggages
-    private static void assignOrdersToNurses(Patients patient, ArrayList<Medicine> neededMeds, Order order, City city) {
-        ArrayList<Nurses> nurses = patient.getCity().getNurseList();
+    private static void assignOrdersToNurses(Patients patient, ArrayList<Medicine> neededMeds, City city) {
         Nurses leastOccupiedNurse = null;
         int minBaggageSize = Integer.MAX_VALUE;
         boolean serum = false;

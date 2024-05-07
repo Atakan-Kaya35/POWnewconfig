@@ -1,20 +1,21 @@
 package org.example.powwww.entity.mobile.physcian;
 
+import org.example.powwww.grid.Road;
 import org.example.powwww.med.Pill;
 
 public class Scooter extends Nurses {
     
     final protected int speed = 5;
 
-    public Scooter(){
-        super();
+    public Scooter(Road cotainedIn){
+        super(cotainedIn);
     }
 
-    //@Override
+    /*//@Override
     public void receiveOrder(org.example.powwww.grid.Order order){
         this.pillBaggage = order.getCarriedPills();
-
-    }
+        this.currentOrder = order;
+    }*/
 
     /**
      * Give all medicines stored in baggage

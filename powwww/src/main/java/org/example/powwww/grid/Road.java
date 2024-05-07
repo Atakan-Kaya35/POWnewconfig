@@ -16,6 +16,7 @@ public class Road {
     boolean isThereRoad; //if there is no road there might be a stationary
     int[] traffic = {1,1};
     boolean wasCrossed = false;
+    City city;
 
     // melike boolean, constructor içine bina alma ve getter setter
 
@@ -83,10 +84,11 @@ public class Road {
         setTraffic(initTraffic);
     }
 
-    public Road(int x, int y){
+    public Road(int x, int y, City city){
         this.coordinates = new int[2];
         coordinates[0] = x;
         coordinates[1] = y;
+        this.city = city;
 
         this.contained = null;
 
@@ -166,4 +168,8 @@ public class Road {
     public void setEnteranceOf(Stationary build){
         this.entrenceOf = build;
     }
-} 
+
+    public City getCity(){ return this.city;}
+}
+
+

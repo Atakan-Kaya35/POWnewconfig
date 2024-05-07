@@ -33,30 +33,34 @@ public class Nurses extends Mobile {
 
 
     public Nurses(Road cotainedIn){
-        setContainedIn(cotainedIn);
+        super(cotainedIn);
+        this.city = cotainedIn.getCity();
+        city.addNurse(this);
         this.x = cotainedIn.getCoords()[0] * SimMethods.TICKPERDAY;
         this.y = cotainedIn.getCoords()[1] * SimMethods.TICKPERDAY;
     }
 
-    public Nurses(){}
-
     public boolean move(){
-        setDirectionOfTravel();
-        if(direction == ArrowKey.UP){
-            y -= (36 / currentTrafic);
-        } else if(direction == ArrowKey.DOWN){
-            y += (36 / currentTrafic);
-        } else if(direction == ArrowKey.LEFT){
-            x -= (36 / currentTrafic);
-        } else {
-            x += (36 / currentTrafic);
+        if(currentOrder != null){
+            setDirectionOfTravel();
+            if (direction == ArrowKey.UP) {
+                y -= (36 / currentTrafic);
+            } else if (direction == ArrowKey.DOWN) {
+                y += (36 / currentTrafic);
+            } else if (direction == ArrowKey.LEFT) {
+                x -= (36 / currentTrafic);
+            } else {
+                x += (36 / currentTrafic);
+            }
+            return roadUpdateNecessaryCheck();
         }
-        return roadUpdateNecessaryCheck();
+        return false;
     }
 
     private boolean roadUpdateNecessaryCheck(){
         if((x+1) % 36 < 2 && (y+1) % 36 < 2) {
             this.setContainedIn(currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
+
             if(x % 5 == 0 && x != 0){
                 x ++;
             }
@@ -145,5 +149,10 @@ public class Nurses extends Mobile {
 
     public void setCurrentOrder(Order newOrder){
         this.currentOrder = newOrder;
+    }
+
+    public void receiveOrder(org.example.powwww.grid.Order order){
+        this.pillBaggage = order.getCarriedPills();
+        this.currentOrder = order;
     }
 }
