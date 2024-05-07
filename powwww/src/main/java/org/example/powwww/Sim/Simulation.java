@@ -1,9 +1,11 @@
 package org.example.powwww.Sim;
 
 
+import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.grid.City;
 import org.example.powwww.med.Pill;
 
+import javax.swing.*;
 import java.time.LocalTime;
 
 public class Simulation extends SimMethods {
@@ -15,6 +17,11 @@ public class Simulation extends SimMethods {
         Pill.fillPills();
         Pill a = new Pill(0);
         System.out.println();
+
+        JFrame grid = new GridFrame();
+        grid.setTitle("MAP");
+        grid.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        grid.setVisible(true);
 
         /*sign upa tıklanırsa
         boolean signedUp = false;

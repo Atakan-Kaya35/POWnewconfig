@@ -1,4 +1,4 @@
-/*
+
 package org.example.powwww.MapGridTaslak;
 import javax.swing.*;
 import java.awt.*;
@@ -58,4 +58,4 @@ public class GridFrame extends JFrame
     {
         return EACH_SQUARE;
     }
-}*/
+}

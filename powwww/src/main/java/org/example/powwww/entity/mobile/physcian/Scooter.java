@@ -2,9 +2,13 @@ package org.example.powwww.entity.mobile.physcian;
 
 import org.example.powwww.med.Pill;
 
+import java.awt.*;
+
 public class Scooter extends Nurses {
     
     final protected int speed = 5;
+
+    private int RADIUS = 5;
 
     public Scooter(){
         super();
@@ -48,6 +52,16 @@ public class Scooter extends Nurses {
             result += x;
         }
         return result;
+    }
+
+    /**
+     * Draw van as a red point
+     * @param g graphics object
+     */
+    public void draw(Graphics g)
+    {
+        g.setColor(Color.GREEN);
+        g.fillOval(x, y, RADIUS * 4, RADIUS * 4);
     }
     
 }

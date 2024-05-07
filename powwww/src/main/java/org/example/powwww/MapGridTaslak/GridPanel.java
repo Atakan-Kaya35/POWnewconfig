@@ -1,4 +1,4 @@
-/*
+
 package org.example.powwww.MapGridTaslak;
 import javax.swing.*;
 import java.awt.event.*;
@@ -7,6 +7,7 @@ import java.util.*;
 import javax.swing.Timer;
 
 import org.example.powwww.entity.mobile.physcian.Van;
+import org.example.powwww.grid.City;
 
 public class GridPanel extends JComponent
 {
@@ -16,6 +17,7 @@ public class GridPanel extends JComponent
     private ArrayList<Home> homes;
     private ArrayList<Obstacle> obstacles;
     private Van van;
+    private City city;
     Timer t;
     ActionListener listener;
 
@@ -26,17 +28,15 @@ public class GridPanel extends JComponent
         obstacles = createObstacles();
         van = new Van(0,0);
 
-        listener = new sucu();
+        //listener = new sucu();
         t = new Timer(400, listener);
         t.start(); 
         
     }
 
-    */
-/**
-     * Create all homes according to gird. Center of all squares there is a home.
-     * @return all home objects in the ArrayList
-     *//*
+    public void setCity(City city) {
+        this.city = city;
+    }
 
     public ArrayList<Home> createHomes()
     {
@@ -55,11 +55,8 @@ public class GridPanel extends JComponent
         return homes;
     }
 
-    */
-/**
-     * Create all obstacles according to coordinates.
-     * @return all obstacle objects in the ArrayList
-     *//*
+
+
 
     public ArrayList<Obstacle> createObstacles()
     {
@@ -69,40 +66,35 @@ public class GridPanel extends JComponent
         return obstacles;
     }
 
-   */
-/* class sucu implements ActionListener
-    {
-        public void actionPerformed(ActionEvent event)
-        {
-            if(van.getCurrentRoad() <= van.getTotalWayLength()) //This will be determined by A* algorithm.(not hardcode)
-            {
-                moveVan();
-                repaint();
-                if(van.getCurrentRoad() == van.getTotalWayLength()-1)
-                {
-                    System.out.println("VAN REACHED TO TARGET!");
-                    repaint();
-                    t.stop();
-                }
-            }
-            
-        }
-    }*//*
+
+// class sucu implements ActionListener
+//    {
+//        public void actionPerformed(ActionEvent event)
+//        {
+//            if(van.getCurrentRoad() <= van.getTotalWayLength()) //This will be determined by A* algorithm.(not hardcode)
+//            {
+//                moveVan();
+//                repaint();
+//                if(van.getCurrentRoad() == van.getTotalWayLength()-1)
+//                {
+//                    System.out.println("VAN REACHED TO TARGET!");
+//                    repaint();
+//                    t.stop();
+//                }
+//            }
+//
+//        }
+//    }
 
 
-    */
-/**
-     * make van follow its path
-     *//*
-
-    public void moveVan()
-    {
-        van.setCurrentRoad();
-        int nextX = van.getC()[van.getCurrentRoad()][0];
-        int nextY = van.getRoad()[van.getCurrentRoad()][1];
-        van.setXCoor(nextX);
-        van.setYCoor(nextY);
-    }
+//    public void moveVan()
+//    {
+//        van.setCurrentRoad();
+//        int nextX = van.getC()[van.getCurrentRoad()][0];
+//        int nextY = van.getRoad()[van.getCurrentRoad()][1];
+//        van.setXCoor(nextX);
+//        van.setYCoor(nextY);
+//    }
 
     public void paintComponent(Graphics g)
     {
@@ -125,7 +117,15 @@ public class GridPanel extends JComponent
             obstacles.get(i).draw(g);
         }
 
-        van.draw(g);
+        for(int i = 0; i< city.getVanList().size(); i++){
+            if(city.getVanList().get(i).getCurrentOrder()!=null) { //null degilse
+                city.getVanList().get(i).draw(g);
+            }
+        }
+        for(int i = 0; i< city.getScooterList().size(); i++){
+            if(city.getScooterList().get(i).getCurrentOrder()!=null) { //null degilse
+                city.getScooterList().get(i).draw(g);
+            }
+        }
     }
 }
-*/
