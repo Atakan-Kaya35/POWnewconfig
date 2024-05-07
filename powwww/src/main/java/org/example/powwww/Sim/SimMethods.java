@@ -328,7 +328,7 @@ public class SimMethods {
 
     public static void stimulateNurses(City city){
         for( Nurses nurse : city.getNurseList()){
-            //nurse.move();
+            nurse.move();
         }
     }
 }
