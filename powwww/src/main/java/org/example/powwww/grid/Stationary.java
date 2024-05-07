@@ -11,6 +11,7 @@ public class Stationary extends User{
     Road[] surroundingRoads;
     Stationary contained;
     String inital;
+    City insideOf;
 
 /*     public Building(int[] coords, Stationary contained){
         this.coordinates = coords;
@@ -25,10 +26,12 @@ public class Stationary extends User{
         this.contained = contained;
     } */
 
-    public Stationary(int x, int y){
+    public Stationary(int x, int y, City insideOf){
         this.coordinates = new int[2];
         coordinates[0] = x;
         coordinates[1] = y;
+        this.insideOf = insideOf;
+        insideOf.addStationary(this);
 
         this.contained = null;
     }

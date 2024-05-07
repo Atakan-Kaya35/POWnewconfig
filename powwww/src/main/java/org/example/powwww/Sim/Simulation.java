@@ -1,12 +1,15 @@
 package org.example.powwww.Sim;
 
 
+import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.grid.City;
+import org.example.powwww.med.AcutSickness;
 import org.example.powwww.med.Pill;
 
 import javax.swing.*;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Simulation extends SimMethods {
 
@@ -22,6 +25,15 @@ public class Simulation extends SimMethods {
         grid.setTitle("MAP");
         grid.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         grid.setVisible(true);
+
+        Patients p1 = new Patients("p1", 0,0,city);
+        city.addStationary(p1);
+        Patients p2 = new Patients("p2", 28,18,city);
+        city.addStationary(p2);
+
+
+        int h = 1;
+
 
         /*sign upa tıklanırsa
         boolean signedUp = false;
@@ -89,9 +101,18 @@ public class Simulation extends SimMethods {
 
             System.out.println(tick);
 
+            if(Math.random() < h){
+                ArrayList f = new ArrayList();
+                Pill p = new Pill(0);
+                p1.addSickness(new AcutSickness(5,5, p1,p));
+/*                f.add(Pill.AllPills.get(0));
+                createOrdersForPatients(p1, city, f);*/
+                h = 0;
+            }
+
             // moves all nurses
             stimulateNurses(city);
-            System.out.println(city.viewMap(false));
+            System.out.println(city.viewMap(true));
 
             // Advance the time by one tick
             tick++;

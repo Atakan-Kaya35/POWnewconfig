@@ -31,24 +31,29 @@ public class Order {
     // constructors
     public Order(Patients patient, Pill carriedPill){
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
+        path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
         this.finishingCord = patient.getCoordinates();
         this.carriedMedicine = new Pill(carriedPill.getPillID());
     }
 
     public Order(Patients patient, Serum carriedPill){
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
+        path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
         this.finishingCord = patient.getCoordinates();
         this.carriedMedicine = new Serum();
     }
 
     public Order(Patients patient, Medicine carriedPill){
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
+        path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
         this.finishingCord = patient.getCoordinates();
         this.carriedMedicine = carriedPill;
+        if(startingCord != null) patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained().receiveOrder(this);
     }
 
     public Order(Patients patient, ArrayList<Medicine> medList){
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
+        path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
         this.finishingCord = patient.getCoordinates();
         for (Medicine med : medList) {
             if (med instanceof Serum){

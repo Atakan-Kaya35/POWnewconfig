@@ -19,20 +19,15 @@ public class Van extends Nurses {
     private int RADIUS = 5;
     private int currentRoad;
 
-    public Van(){
-        super();
-    }
-
-    public Van(int x, int y)
+    public Van(Road containedIn)
     {
+        super(containedIn);
         currentRoad = 0;
-        this. x = x;
-        this.y = y;
+        this. x = containedIn.getCoords()[0] * 36;
+        this.y = containedIn.getCoords()[1] * 36;
         //road = createRoad();
     }
 
-    public Van(String name) {
-    }
 
     /*
     public int [][] createRoad()

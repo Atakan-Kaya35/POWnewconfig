@@ -7,7 +7,11 @@
     <groupId>org.example</groupId>
     <artifactId>powwww</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>powwww</name>
+    <modules>
+        <module>untitled</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

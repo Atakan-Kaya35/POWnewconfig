@@ -73,7 +73,7 @@
                   <Text layoutX="7.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="154.8840789794922" />
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">
                      <image>
-                        <Image url="Adsız tasarım-3.png" />
+                        <Image url="@Adsız tasarım-3.png" />
                      </image>
                   </ImageView>
                </children>
@@ -86,7 +86,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="24.0">
                      <image>
-                        <Image url="sepet.png" />
+                        <Image url="@sepet.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="56.0" layoutY="20.0" text="MY PHARMACY CART" />
@@ -116,7 +116,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="161.0" layoutY="11.0">
                      <image>
-                        <Image url="shoppingCart.png" />
+                        <Image url="@shoppingCart.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="2.0" layoutY="5.0">
@@ -130,39 +130,39 @@
          </children>
       </Pane>
       <Pane layoutY="65.0" prefHeight="27.0" prefWidth="1080.0" style="-fx-background-color: #94ACFF;" />
-      <ImageView fitHeight="51.0" fitWidth="51.0" layoutX="4.0" layoutY="20.0">
+      <ImageView fitHeight="51.0" fitWidth="51.0" layoutX="4.0" layoutY="9.0">
          <image>
-            <Image url="4.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="4.0" layoutY="120.0">
-         <image>
-            <Image url="6.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="4.0" layoutY="616.0">
-         <image>
-            <Image url="5.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="344.0" layoutY="18.0">
-         <image>
-            <Image url="7.png" />
+            <Image url="@4.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="4.0" layoutY="164.0">
          <image>
-            <Image url="8.png" />
+            <Image url="@6.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="4.0" layoutY="120.0">
+         <image>
+            <Image url="@5.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="6.0" layoutY="205.0">
          <image>
-            <Image url="9.png" />
+            <Image url="@7.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="4.0" layoutY="616.0">
+         <image>
+            <Image url="@8.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="4.0" layoutY="667.0">
          <image>
-            <Image url="buyutec.png" />
+            <Image url="@9.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="344.0" layoutY="18.0">
+         <image>
+            <Image url="@buyutec.png" />
          </image>
       </ImageView>
       <ScrollPane layoutX="238.0" layoutY="108.0" prefHeight="604.0" prefWidth="602.0">
@@ -178,7 +178,7 @@
                      <children>
                         <ImageView fitHeight="75.0" fitWidth="74.0" layoutX="15.0" layoutY="14.0">
                            <image>
-                              <Image url="sepet.png" />
+                              <Image url="@sepet.png" />
                            </image>
                         </ImageView>
                         <GridPane layoutX="8.0" layoutY="7.0" prefHeight="186.0" prefWidth="537.0">
@@ -222,22 +222,22 @@
                                  <children>
                                     <ImageView fitHeight="53.0" fitWidth="50.0">
                                        <image>
-                                          <Image url="serum.png" />
+                                          <Image url="@serum.png" />
                                        </image>
                                     </ImageView>
                                     <ImageView fitHeight="44.0" fitWidth="42.0" GridPane.columnIndex="1">
                                        <image>
-                                          <Image url="pill4.png" />
+                                          <Image url="@pill4.png" />
                                        </image>
                                     </ImageView>
                                     <ImageView fitHeight="47.0" fitWidth="49.0" GridPane.columnIndex="2">
                                        <image>
-                                          <Image url="pill6.png" />
+                                          <Image url="@pill6.png" />
                                        </image>
                                     </ImageView>
                                     <ImageView fitHeight="51.0" fitWidth="50.0" GridPane.columnIndex="3">
                                        <image>
-                                          <Image url="pill2.png" />
+                                          <Image url="@pill2.png" />
                                        </image>
                                     </ImageView>
                                     <Label alignment="CENTER" prefHeight="55.0" prefWidth="46.0" text="+" GridPane.columnIndex="4">
@@ -285,7 +285,7 @@
                      <children>
                         <ImageView fitHeight="75.0" fitWidth="74.0" layoutX="15.0" layoutY="14.0">
                            <image>
-                              <Image url="sepet.png" />
+                              <Image url="@sepet.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -326,22 +326,22 @@
                            <children>
                               <ImageView fitHeight="53.0" fitWidth="50.0">
                                  <image>
-                                    <Image url="serum.png" />
+                                    <Image url="@serum.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="44.0" fitWidth="42.0" GridPane.columnIndex="1">
                                  <image>
-                                    <Image url="pill4.png" />
+                                    <Image url="@pill4.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="47.0" fitWidth="49.0" GridPane.columnIndex="2">
                                  <image>
-                                    <Image url="pill6.png" />
+                                    <Image url="@pill6.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="51.0" fitWidth="50.0" GridPane.columnIndex="3">
                                  <image>
-                                    <Image url="pill2.png" />
+                                    <Image url="@pill2.png" />
                                  </image>
                               </ImageView>
                               <Label alignment="CENTER" prefHeight="55.0" prefWidth="46.0" text="+" GridPane.columnIndex="4">
@@ -382,7 +382,7 @@
                      <children>
                         <ImageView fitHeight="75.0" fitWidth="74.0" layoutX="15.0" layoutY="14.0">
                            <image>
-                              <Image url="sepet.png" />
+                              <Image url="@sepet.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -423,22 +423,22 @@
                            <children>
                               <ImageView fitHeight="53.0" fitWidth="50.0">
                                  <image>
-                                    <Image url="serum.png" />
+                                    <Image url="@serum.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="44.0" fitWidth="42.0" GridPane.columnIndex="1">
                                  <image>
-                                    <Image url="pill4.png" />
+                                    <Image url="@pill4.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="47.0" fitWidth="49.0" GridPane.columnIndex="2">
                                  <image>
-                                    <Image url="pill6.png" />
+                                    <Image url="@pill6.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="51.0" fitWidth="50.0" GridPane.columnIndex="3">
                                  <image>
-                                    <Image url="pill2.png" />
+                                    <Image url="@pill2.png" />
                                  </image>
                               </ImageView>
                               <Label alignment="CENTER" prefHeight="55.0" prefWidth="46.0" text="+" GridPane.columnIndex="4">

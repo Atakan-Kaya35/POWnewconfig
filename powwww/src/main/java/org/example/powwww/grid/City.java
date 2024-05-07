@@ -44,7 +44,7 @@ public class City {
 
         for (int x = 0; x < width + 1; x++) {
             for (int y = 0; y < height + 1; y++) {
-                roads[x][y] = new Road(x,y);
+                roads[x][y] = new Road(x,y, this);
             }    
         }
     }
@@ -279,7 +279,7 @@ public class City {
         }
 
         // creating and allocating a stationary to the monstrocity
-        stationarys[x][y] = new Stationary(x, y);
+        stationarys[x][y] = new Stationary(x, y, this);
 
         return stationarys[x][y];
     }
@@ -428,12 +428,21 @@ public ArrayList<Stationary> getStationaryList(){
     return stationaryList;
 }
 
+public void addStationary(Stationary newStationary){
+    this.stationaryList.add(newStationary);
+    stationarys[newStationary.getCoordinates()[0]][newStationary.getCoordinates()[1]] = newStationary;
+}
+
 public ArrayList<Scooter> getScooterList(){
     return scooterList;
 }
 
 public ArrayList<Van> getVanList(){
     return vanList;
+}
+
+public void addNurse(Nurses newNurse){
+    this.NurseList.add(newNurse);
 }
 
 // Method to randomly create buildings within the city area
@@ -463,7 +472,7 @@ public void createRandomBuildings(int numBuildings, double portionOfCity) {
 
         if (!isOverlap) {
             // Build the stationary object for the building
-            Stationary building = new Stationary(startX, startY);
+            Stationary building = new Stationary(startX, startY, this);
             stationaryList.add(building);
             // Place the building in the city org.example.powwww.grid
             buildCustomeStationary(startX, startY, buildingWidth, buildingHeight, building);
@@ -487,22 +496,30 @@ public void createVansAndScooters() {
     
     // Place vans randomly in the city
     for (int i = 0; i < numVans; i++) {
-        int x = random.nextInt(width);
-        int y = random.nextInt(height);
-        String name = "v" + (i + 1); // Unique name for each van
-        Van van = new Van(0,0);
-        vanList.add(van);
-        setRoad(van, x, y);
+        try{
+            int x = random.nextInt(width);
+            int y = random.nextInt(height);
+            String name = "v" + (i + 1); // Unique name for each van
+            Van van = new Van(this.roads[x][y]);
+            vanList.add(van);
+            setRoad(van, x, y);
+        }catch(NullPointerException e){
+            System.out.println("Tossed an obstacle! Could not create van.");
+        }
     }
 
     // Place scooters randomly in the city
     for (int i = 0; i < numScooters; i++) {
-        int x = random.nextInt(width);
-        int y = random.nextInt(height);
-        String name = "s" + (i + 1); // Unique name for each scooter
-        Scooter scooter = new Scooter();
-        scooterList.add(scooter);
-        setRoad(scooter, x, y);
+        try {
+            int x = random.nextInt(width);
+            int y = random.nextInt(height);
+            String name = "s" + (i + 1); // Unique name for each scooter
+            Scooter scooter = new Scooter(this.roads[x][y]);
+            scooterList.add(scooter);
+            setRoad(scooter, x, y);
+        }catch(NullPointerException e){
+            System.out.println("Tossed an obstacle! Could not create scooter.");
+        }
     }
 }
 }

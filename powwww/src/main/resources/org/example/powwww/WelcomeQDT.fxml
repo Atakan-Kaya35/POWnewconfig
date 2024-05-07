@@ -68,7 +68,7 @@
                   <Text layoutX="7.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="176.8840789794922" />
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">
                      <image>
-                        <Image url="Adsız tasarım-3.png" />
+                        <Image url="@Adsız tasarım-3.png" />
                      </image>
                   </ImageView>
                </children>
@@ -81,7 +81,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="24.0">
                      <image>
-                        <Image url="sepet.png" />
+                        <Image url="@sepet.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="56.0" layoutY="20.0" prefHeight="27.0" prefWidth="148.0" text="MY PHARMACY CART" />
@@ -111,7 +111,7 @@
                <children>
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="161.0" layoutY="11.0">
                      <image>
-                        <Image url="shoppingCart.png" />
+                        <Image url="@shoppingCart.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="2.0" layoutY="5.0">
@@ -127,37 +127,37 @@
       <Pane layoutY="65.0" prefHeight="27.0" prefWidth="1080.0" style="-fx-background-color: #94ACFF;" />
       <ImageView fitHeight="51.0" fitWidth="51.0" layoutX="4.0" layoutY="9.0">
          <image>
-            <Image url="4.png" />
+            <Image url="@4.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="4.0" layoutY="120.0">
          <image>
-            <Image url="6.png" />
+            <Image url="@6.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="4.0" layoutY="616.0">
          <image>
-            <Image url="5.png" />
+            <Image url="@5.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="344.0" layoutY="18.0">
          <image>
-            <Image url="7.png" />
+            <Image url="@7.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="4.0" layoutY="164.0">
          <image>
-            <Image url="8.png" />
+            <Image url="@8.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="6.0" layoutY="205.0">
          <image>
-            <Image url="9.png" />
+            <Image url="@9.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="4.0" layoutY="667.0">
          <image>
-            <Image url="buyutec.png" />
+            <Image url="@buyutec.png" />
          </image>
       </ImageView>
       <Text layoutX="277.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning: It is just provide a medical advice. For real results please contact with your doctor!" textAlignment="CENTER" wrappingWidth="532.3437887002787">

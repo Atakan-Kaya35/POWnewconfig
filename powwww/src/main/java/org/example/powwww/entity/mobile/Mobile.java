@@ -13,6 +13,9 @@ public abstract class Mobile extends User {
     // Burkay affet
     Road containedIn;
 
+    public Mobile (Road containedIn){
+        setContainedIn(containedIn);
+    }
 
     /**
      * Put mobile to the given road
@@ -27,7 +30,6 @@ public abstract class Mobile extends User {
     }
 
     public void receiveOrder(Order order){
-
     }
 
 /* 
