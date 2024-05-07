@@ -30,12 +30,12 @@
       <TextField layoutX="261.0" layoutY="306.0" />
       <ImageView fitHeight="97.0" fitWidth="99.0" layoutX="110.0" layoutY="-7.0">
          <image>
-            <Image url="Logo.png" />
+            <Image url="@Logo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="327.0" fitWidth="325.0" layoutX="263.0" layoutY="76.0">
          <image>
-            <Image url="2.png" />
+            <Image url="@2.png" />
          </image>
       </ImageView>
    </children>
