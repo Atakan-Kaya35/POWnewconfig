@@ -22,7 +22,7 @@ public class GridFrame extends JFrame
         this.city = c;
         panel = new JPanel();
         
-        //panel.set
+        panel.setBackground(Color.BLACK);
         panel.setLayout(new BorderLayout());
         girdPanel = createGridPanel();
         System.out.println("h");

@@ -26,10 +26,8 @@ public class Simulation extends SimMethods {
         grid.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         grid.setVisible(true);
 
-        Patients p1 = new Patients("p1", 0,0,city);
+        Patients p1 = new Patients("p1", 10,0,city);
         city.addStationary(p1);
-        Patients p2 = new Patients("p2", 28,18,city);
-        city.addStationary(p2);
 
 
         int h = 1;

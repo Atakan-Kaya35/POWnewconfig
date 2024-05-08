@@ -16,14 +16,14 @@ public class Van extends Nurses {
 
     protected ArrayList<Serum> serumBaggage = new ArrayList<>();
 
-    private int RADIUS = 5;
+    private int RADIUS = 10;
     private int currentRoad;
 
     public Van(Road containedIn)
     {
         super(containedIn);
         currentRoad = 0;
-        this. x = containedIn.getCoords()[0] * 36;
+        this.x = containedIn.getCoords()[0] * 36;
         this.y = containedIn.getCoords()[1] * 36;
         //road = createRoad();
     }
@@ -70,7 +70,7 @@ public class Van extends Nurses {
     public void draw(Graphics g)
     {
         g.setColor(Color.CYAN);
-        g.fillOval(x, y, RADIUS * 4, RADIUS * 4);
+        g.fillOval(x-RADIUS/2, y-RADIUS/2, RADIUS, RADIUS);
     }
 
     //Setter methods
