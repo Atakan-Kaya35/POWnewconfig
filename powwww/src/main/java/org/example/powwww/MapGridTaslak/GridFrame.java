@@ -9,11 +9,9 @@ import javax.swing.Timer;
 
 public class GridFrame extends JFrame
 {
-    private final int FRAME_WIDTH = 645;
-    private final int FRAME_HEIGTH = 660;
-    private final int START_WIDTH = 5;
-    private final int START_HEIGHT = 5;
-    private final int EACH_SQUARE = 50;
+    private final int EACH_SQUARE = 36;
+    private final int FRAME_HEIGTH = EACH_SQUARE*20;
+    private final int FRAME_WIDTH = EACH_SQUARE*30;
     private City city;
 
     private JPanel panel;
@@ -52,11 +50,11 @@ public class GridFrame extends JFrame
     }
     public int getStartW()
     {
-        return START_WIDTH;
+        return EACH_SQUARE;
     }
     public int getStartH()
     {
-        return START_HEIGHT;
+        return EACH_SQUARE;
     }
     public int getEachSquare()
     {

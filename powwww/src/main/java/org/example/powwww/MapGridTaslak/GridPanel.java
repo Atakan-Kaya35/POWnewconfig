@@ -18,7 +18,7 @@ public class GridPanel extends JComponent
     private ArrayList<Obstacle> obstacles;
     //private Van van;
     private City city;
-    Timer t;
+    //Timer t;
     ActionListener listener;
 
     public GridPanel(GridFrame ref, City c)
@@ -30,8 +30,8 @@ public class GridPanel extends JComponent
         //van = new Van(city);
 
         //listener = new sucu();
-        t = new Timer(400, listener);
-        t.start(); 
+        //t = new Timer(400, listener);
+        //t.start();
         
     }
 
