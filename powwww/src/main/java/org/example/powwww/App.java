@@ -204,7 +204,7 @@ public class App extends Application {
         loginButton.setOnAction(e -> {
             UserMethods.login(userNameLogInTextField.getText(), passwordLogInTextField.getText());
             primaryStage.setScene(homePage);
-        }); 
+        });
 
         homePageButton.setOnAction(e -> {
             primaryStage.setScene(homePage);
