@@ -11,8 +11,7 @@ import org.example.powwww.grid.City;
 
 public class GridPanel extends JComponent
 {
-    public final static int calibrationX = 53;
-    public final static int calibrationY = 50;
+
     private GridFrame gridFrame;
     private ArrayList<Home> homes;
     private ArrayList<Obstacle> obstacles;
@@ -44,11 +43,11 @@ public class GridPanel extends JComponent
         
         ArrayList<Home> homes = new ArrayList<Home>();
 
-        for(int i = gridFrame.getStartW() + (gridFrame.getEachSquare()/ 2); i < gridFrame.getWidth(); i += gridFrame.getEachSquare())
+        for(int i = gridFrame.getStartW(); i < gridFrame.getWidth()-50; i += gridFrame.getEachSquare())
         {
-            for(int j = gridFrame.getStartH() + (gridFrame.getEachSquare()/ 2); j < gridFrame.getHeight(); j += gridFrame.getEachSquare())
+            for(int j = gridFrame.getStartH(); j < gridFrame.getHeight()-100; j += gridFrame.getEachSquare())
             {
-                Home h = new Home(i, j);
+                Home h = new Home(i+ gridFrame.getEachSquare()/2, j+ gridFrame.getEachSquare()/2);
                 homes.add(h);
             }
         }
@@ -103,9 +102,12 @@ public class GridPanel extends JComponent
         {
             homes.get(j).draw(g);
             g.setColor(Color.BLACK);
-            g.drawLine(homes.get(j).getXCoor()-25, homes.get(j).getYCoor()-20, homes.get(j).getXCoor()+35, homes.get(j).getYCoor()-20);
-            g.drawLine(homes.get(j).getXCoor()-20, homes.get(j).getYCoor()-20, homes.get(j).getXCoor()-20, homes.get(j).getYCoor()+35);
+            g.drawLine(homes.get(j).getXCoor()- gridFrame.getEachSquare()/2, homes.get(j).getYCoor()- gridFrame.getEachSquare()/2,
+                    homes.get(j).getXCoor()+ gridFrame.getEachSquare()/2 , homes.get(j).getYCoor()- gridFrame.getEachSquare()/2);
+            g.drawLine(homes.get(j).getXCoor()- gridFrame.getEachSquare()/2, homes.get(j).getYCoor()- gridFrame.getEachSquare()/2,
+                    homes.get(j).getXCoor()- gridFrame.getEachSquare()/2 , homes.get(j).getYCoor()+ gridFrame.getEachSquare()/2);
             g.setColor(Color.blue);
+            g.drawRect(36,36,50,50);
         }
 
         for(int i = 0; i < obstacles.size(); i++)

@@ -2,6 +2,8 @@ package org.example.powwww.Sim;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.grid.City;
 import org.example.powwww.grid.Order;
 import org.example.powwww.grid.Stationary;
@@ -13,6 +15,8 @@ import org.example.powwww.med.Medicine;
 import org.example.powwww.med.Pill;
 import org.example.powwww.entity.mobile.physcian.*;
 import org.example.powwww.entity.stationary.Patients;
+
+import javax.swing.*;
 
 public class SimMethods {
 
@@ -322,10 +326,13 @@ public class SimMethods {
         // For simplicity, we won't implement traffic simulation in this example
     }
 
-    public static void stimulateNurses(City city){
+    public static void stimulateNurses(City city, GridFrame grid){
         for( Nurses nurse : city.getNurseList()){
             nurse.move();
+
         }
+        grid.getPanel().repaint();
+
     }
 }
 

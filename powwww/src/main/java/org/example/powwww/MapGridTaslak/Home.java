@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Home 
 {
-    private final  int RADIUS = 5;
+    private final int RADIUS = 5;
 
     private int x;
     private int y;
@@ -14,6 +14,10 @@ public class Home
     {
         this.x = x;
         this.y = y;
+    }
+
+    public int getRADIUS() {
+        return RADIUS;
     }
 
     /**

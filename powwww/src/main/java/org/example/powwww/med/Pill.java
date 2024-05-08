@@ -31,11 +31,11 @@ public class Pill extends Medicine {
 
     public static void fillPills() {
         // Get the file path relative to the current package
-        /*String counterMeds = "C:\\Users\\ataka\\Desktop\\POWnewconfig\\powwww\\src\\main\\java\\org\\example\\powwww\\med\\over_the_counter_meds.txt";
+        /* String counterMeds = "C:\\Users\\ataka\\Desktop\\POWnewconfig\\powwww\\src\\main\\java\\org\\example\\powwww\\med\\over_the_counter_meds.txt";
         String prescribedMeds = "C:\\Users\\ataka\\Desktop\\POWnewconfig\\powwww\\src\\main\\java\\org\\example\\powwww\\med\\prescribed_meds.csv";
 
         // Use ClassLoader to load the file
-        try (Scanner scanner = new Scanner(new File(counterMeds))) {
+        //try (Scanner scanner = new Scanner(new File(counterMeds))) {
 
             while (scanner.hasNextLine()) {
                 String[] command = scanner.nextLine().split(",");

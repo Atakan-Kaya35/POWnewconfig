@@ -62,8 +62,8 @@ public class Nurses extends Mobile {
         if(((x+1) % 36) < 4 && ((y+1) % 36) < 4) {
             this.moveForth(currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
 
-            x = this.getContainedIn().getCoords()[0];
-            y = this.getContainedIn().getCoords()[1];
+            x = this.getContainedIn().getCoords()[0]*36;
+            y = this.getContainedIn().getCoords()[1]*36;
 
             currentOrder.setProgressIndex(currentOrder.getProgressIndex() + 1);
             setDirectionOfTravel();
@@ -103,6 +103,7 @@ public class Nurses extends Mobile {
                 System.out.println("Check your indexes in Move!");
             }
         }catch(IndexOutOfBoundsException e){
+            System.out.println("end of road");
             direction = ArrowKey.STAY;
         }
     }
