@@ -329,7 +329,6 @@ public class SimMethods {
     public static void stimulateNurses(City city, GridFrame grid){
         for( Nurses nurse : city.getNurseList()){
             nurse.move();
-
         }
         grid.getPanel().repaint();
 

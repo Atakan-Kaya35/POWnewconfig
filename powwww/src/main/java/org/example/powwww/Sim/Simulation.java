@@ -1,6 +1,7 @@
 package org.example.powwww.Sim;
 
 
+import org.example.powwww.entity.mobile.physcian.Van;
 import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.grid.City;

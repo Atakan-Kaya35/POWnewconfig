@@ -37,8 +37,8 @@ public class Nurses extends Mobile {
         super(cotainedIn);
         this.city = cotainedIn.getCity();
         city.addNurse(this);
-        this.x = cotainedIn.getCoords()[0] * SimMethods.TICKPERDAY+ 36;
-        this.y = cotainedIn.getCoords()[1] * SimMethods.TICKPERDAY+ 36;
+        this.x = cotainedIn.getCoords()[0] * SimMethods.TICKPERDAY;
+        this.y = cotainedIn.getCoords()[1] * SimMethods.TICKPERDAY;
     }
 
     public boolean move(){

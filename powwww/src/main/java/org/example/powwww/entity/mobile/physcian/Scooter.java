@@ -63,7 +63,7 @@ public class Scooter extends Nurses {
     public void draw(Graphics g)
     {
         g.setColor(Color.GREEN);
-        g.fillOval(x-RADIUS/2, y-RADIUS/2, RADIUS, RADIUS);
+        g.fillOval(36+x-RADIUS/2, 36 + y-RADIUS/2, RADIUS, RADIUS);
     }
     
 }
