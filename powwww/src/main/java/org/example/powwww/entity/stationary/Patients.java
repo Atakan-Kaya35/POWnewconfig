@@ -2,6 +2,7 @@ package org.example.powwww.entity.stationary;
 import java.util.ArrayList;
 
 import org.example.powwww.grid.City;
+import org.example.powwww.grid.Order;
 import org.example.powwww.med.Medicine;
 import org.example.powwww.med.Sickness;
 
@@ -9,6 +10,7 @@ public class Patients extends org.example.powwww.grid.Stationary {
 
     protected ArrayList<Medicine> cart = new ArrayList<Medicine>();
     protected ArrayList<Sickness> sicknesses = new ArrayList<Sickness>();
+    protected ArrayList<Order> orderList = new ArrayList<Order>();
 
 
     protected City city;
@@ -70,5 +72,9 @@ public class Patients extends org.example.powwww.grid.Stationary {
                 i --;
             }
         }
+    }
+
+    public ArrayList<Order> getOrderList() {
+        return orderList;
     }
 }

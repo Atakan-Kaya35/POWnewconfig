@@ -53,6 +53,14 @@ public abstract class Medicine {
         this.cyclesLeft = cyclesOfTaking;
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public double getPrice(){
+        return price;
+    }
+
     /**
      * Assign a price to each medicine. (in order to calculate totol price that cart has)
      * @param price medicine price

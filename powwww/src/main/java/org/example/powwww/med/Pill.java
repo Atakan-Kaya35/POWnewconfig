@@ -16,6 +16,12 @@ public class Pill extends Medicine {
         this.cyclesLeft = 5;
     }
 
+    public Pill(int IDnumber, String name) {
+        super(name, AllPills.get(IDnumber)[3]);
+        this.pillID = IDnumber;
+        this.cyclesLeft = 5;
+    }
+
     public Pill(int IDnumber, int cyclesOfTaking, boolean[] takeingFrequency) {
         super(AllPills.get(IDnumber)[0], AllPills.get(IDnumber)[1]);
         this.pillID = IDnumber;
@@ -59,6 +65,10 @@ public class Pill extends Medicine {
 
     public void setPillID(int pillID) {
         this.pillID = pillID;
+    }
+
+    public static ArrayList<String[]> getAllPills(){
+        return AllPills;
     }
 }
 
