@@ -141,6 +141,10 @@ public class App extends Application {
         FXMLLoader fxmlHome = new FXMLLoader(App.class.getResource("/org/example/powwww/HomePage.fxml"));
         homePage = new Scene(fxmlHome.load(),1080,720);
 
+        FXMLLoader fxmlSignInOccupation = new FXMLLoader(App.class.getResource("/org/example/powwww/SignInOccupationPage.fxml"));
+        signInOccupationPage = new Scene(fxmlSignInOccupation.load(), 1080, 720);
+
+
         FXMLLoader fxmlPersInfo = new FXMLLoader(App.class.getResource("/org/example/powwww/PersonalInfoPage.fxml"));
         personalInfoPage = new Scene(fxmlPersInfo.load(),1080,720);
 
