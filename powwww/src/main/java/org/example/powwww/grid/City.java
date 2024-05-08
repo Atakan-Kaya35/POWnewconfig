@@ -150,6 +150,11 @@ public class City {
                     node = node.getParent();
                 }
                 Collections.reverse(path);
+                for(Road[] roads : this.roads){
+                    for(Road road : roads) {
+                        if(road != null) road.returnToDefault();
+                    }
+                }
                 return path;
             }
 
@@ -503,7 +508,8 @@ public void createVansAndScooters() {
             Van van = new Van(this.roads[x][y]);
             vanList.add(van);
             setRoad(van, x, y);
-        }catch(NullPointerException e){
+        }
+        catch(NullPointerException e){
             System.out.println("Tossed an obstacle! Could not create van.");
         }
     }

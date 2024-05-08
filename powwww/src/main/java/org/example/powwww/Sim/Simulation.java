@@ -29,7 +29,12 @@ public class Simulation extends SimMethods {
 
         Patients p1 = new Patients("p1", 10,0,city);
         city.addStationary(p1);
-
+        Patients p2 = new Patients("p1", 0,0,city);
+        city.addStationary(p1);
+        Patients p3 = new Patients("p1", 29,19,city);
+        city.addStationary(p1);
+        Patients p4 = new Patients("p1", 20,10,city);
+        city.addStationary(p1);
 
         int h = 1;
 
@@ -81,7 +86,7 @@ public class Simulation extends SimMethods {
         // Every tick is 1.5 seconds, every day is 240 ticks, a whole day is 6 minutes real time
         // In the simulation every tick is 6 minutes
         while (running) {
-
+            long start = System.nanoTime();
             if(tick >= (TICKPERDAY - 1)){
                 tick = 1;
                 day += 1;
@@ -104,6 +109,9 @@ public class Simulation extends SimMethods {
                 ArrayList f = new ArrayList();
                 Pill p = new Pill(0);
                 p1.addSickness(new AcutSickness(5,5, p1,p));
+                p2.addSickness(new AcutSickness(5,5, p2,p));
+                p3.addSickness(new AcutSickness(5,5, p3,p));
+                p4.addSickness(new AcutSickness(5,5, p4,p));
 /*                f.add(Pill.AllPills.get(0));
                 createOrdersForPatients(p1, city, f);*/
                 h = 0;
@@ -117,9 +125,10 @@ public class Simulation extends SimMethods {
             // Advance the time by one tick
             tick++;
 
+            long nanoSecTaken = System.nanoTime() - start;
             // Pause execution to simulate the duration of a tick
             try {
-                Thread.sleep(TICK_DURATION_MINUTES * 300); // constant saniye boyunca uyuyor. real time simüle ediliyor.
+                Thread.sleep(500-(int)(nanoSecTaken / 1000000)); // constant saniye boyunca uyuyor. real time simüle ediliyor.
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

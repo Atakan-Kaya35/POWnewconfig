@@ -54,13 +54,13 @@ public class GridPanel extends JComponent
         return homes;
     }
 
-    public ArrayList<Obstacle> createObstacles()
-    {
-        ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
-        Obstacle obs1 = new Obstacle(100, 100, 240, 140); //Obstacle coordinates will be taken from A* code.
-        obstacles.add(obs1);
-        return obstacles;
-    }
+//    public ArrayList<Obstacle> createObstacles()
+//    {
+//        ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
+//        Obstacle obs1 = new Obstacle(100, 100, 240, 140); //Obstacle coordinates will be taken from A* code.
+//        obstacles.add(obs1);
+//        return obstacles;
+//    }
 
 // class sucu implements ActionListener
 //    {
@@ -109,9 +109,9 @@ public class GridPanel extends JComponent
             g.setColor(Color.blue);
         }
 
-        for(int i = 0; i < obstacles.size(); i++)
+        for(int i = 0; i < city.getStationaryList().size(); i++)
         {
-            obstacles.get(i).draw(g);
+            city.getStationaryList().get(i).draw(g);
         }
 
         for(int i = 0; i< city.getVanList().size(); i++){

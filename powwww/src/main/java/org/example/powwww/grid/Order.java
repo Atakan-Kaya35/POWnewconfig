@@ -45,10 +45,13 @@ public class Order {
 
     public Order(Patients patient, Medicine carriedPill){
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
-        path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
-        this.finishingCord = patient.getCoordinates();
-        this.carriedMedicine = carriedPill;
-        if(startingCord != null) patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained().receiveOrder(this);
+        if(startingCord != null){
+            path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained(), patient);
+            this.finishingCord = patient.getCoordinates();
+            this.carriedMedicine = carriedPill;
+            if (startingCord != null)
+                patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained().receiveOrder(this);
+        }
     }
 
     public Order(Patients patient, ArrayList<Medicine> medList){
