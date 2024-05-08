@@ -23,10 +23,11 @@ public class GridPanel extends JComponent
 
     public GridPanel(GridFrame ref)
     {
+        this.setCity(city);
         gridFrame = ref;
         homes = createHomes();
         obstacles = createObstacles();
-        van = new Van(0,0);
+        //van = new Van(city);
 
         //listener = new sucu();
         t = new Timer(400, listener);

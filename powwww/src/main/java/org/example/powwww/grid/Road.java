@@ -170,6 +170,10 @@ public class Road {
     }
 
     public City getCity(){ return this.city;}
+
+    public void nullifyContined() {
+        contained = null;
+    }
 }
 
 

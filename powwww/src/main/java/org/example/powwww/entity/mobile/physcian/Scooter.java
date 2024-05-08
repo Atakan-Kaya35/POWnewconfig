@@ -6,13 +6,12 @@ import org.example.powwww.med.Pill;
 import java.awt.*;
 
 public class Scooter extends Nurses {
-    
+
+    private static Road cotainedIn;
     final protected int speed = 5;
 
     private int RADIUS = 5;
 
-    public Scooter(){
-        super();
     public Scooter(Road cotainedIn){
         super(cotainedIn);
     }

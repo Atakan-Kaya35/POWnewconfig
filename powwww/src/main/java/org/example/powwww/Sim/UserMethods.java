@@ -100,7 +100,7 @@ public class UserMethods {
     public static void currentOrderInformation(Patients patient) {
         Order currentOrder = patient.getCurrentOrder();
         if (currentOrder != null) {
-            System.out.println("Current Order ID: " + currentOrder.getOrderID());
+            System.out.println("Current Order carries: " + currentOrder.getCarriedPills().get(0));
         } else {
             System.out.println("No current order.");
         }

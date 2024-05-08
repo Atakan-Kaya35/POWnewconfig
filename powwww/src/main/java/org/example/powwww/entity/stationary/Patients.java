@@ -11,6 +11,8 @@ public class Patients extends org.example.powwww.grid.Stationary {
     protected ArrayList<Medicine> cart = new ArrayList<Medicine>();
     protected ArrayList<Sickness> sicknesses = new ArrayList<Sickness>();
     protected ArrayList<Order> orderList = new ArrayList<Order>();
+    Order currentOrder;
+    ArrayList<Order> prevOrders;
 
 
     protected City city;
@@ -76,5 +78,14 @@ public class Patients extends org.example.powwww.grid.Stationary {
 
     public ArrayList<Order> getOrderList() {
         return orderList;
+    }
+
+    public Order getCurrentOrder() {
+        return currentOrder;
+    }
+
+    public void setCurrentOrder(Order newOrder){
+        this.prevOrders.add(currentOrder);
+        this.currentOrder = newOrder;
     }
 }

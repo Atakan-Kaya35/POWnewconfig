@@ -58,7 +58,7 @@ public class Nurses extends Mobile {
     }
 
     private boolean roadUpdateNecessaryCheck(){
-        if((x+1) % 36 < 2 && (y+1) % 36 < 2) {
+        if(((x+1) % 36) < 2 && ((y+1) % 36) < 2) {
             this.setContainedIn(currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
 
             if(x % 5 == 0 && x != 0){

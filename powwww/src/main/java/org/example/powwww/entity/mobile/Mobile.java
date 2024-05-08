@@ -11,7 +11,7 @@ public abstract class Mobile extends User {
     //Building[] surroundingBuildings;
 
     // Burkay affet
-    Road containedIn;
+    Road containedIn = null;
 
     public Mobile (Road containedIn){
         setContainedIn(containedIn);
@@ -23,6 +23,7 @@ public abstract class Mobile extends User {
      */
     public void setContainedIn(Road containedIn) {
         this.containedIn = containedIn;
+        containedIn.setContined(this);
     }
 
     public Road getContainedIn() {
