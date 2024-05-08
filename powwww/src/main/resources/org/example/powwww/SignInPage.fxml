@@ -21,7 +21,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button fx:id="signUpButton" layoutX="193.0" layoutY="348.0" mnemonicParsing="false" style="-fx-background-color: #F69256;" text="Sign in" />
+      <Button fx:id="signUPButton3" layoutX="193.0" layoutY="348.0" mnemonicParsing="false" style="-fx-background-color: #F69256;" text="Sign in" />
       <TextField layoutX="261.0" layoutY="100.0" />
       <TextField layoutX="261.0" layoutY="140.0" />
       <TextField layoutX="261.0" layoutY="180.0" />
