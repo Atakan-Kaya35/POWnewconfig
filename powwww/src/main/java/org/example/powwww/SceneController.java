@@ -25,12 +25,15 @@ public class SceneController {
 
     private Stage stage;
     private Scene scene;
-    private Parent root;
+    private Parent root ;
+    private FXMLLoader fxmlLoader;
 
     public void switchToSignUpPage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/org/example/powwww/SignInPage.fxml"));
-        stage = (Stage)(((Node)event.getSource()).getScene().getWindow());
+        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/SignInPage.fxml"));
+        root = fxmlLoader.load();
         scene = new Scene(root);
+        scene.setRoot(root);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
