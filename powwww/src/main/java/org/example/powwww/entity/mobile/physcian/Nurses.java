@@ -105,6 +105,7 @@ public class Nurses extends Mobile {
         }catch(IndexOutOfBoundsException e){
             System.out.println("end of road");
             direction = ArrowKey.STAY;
+            currentOrder = null;
         }
     }
 

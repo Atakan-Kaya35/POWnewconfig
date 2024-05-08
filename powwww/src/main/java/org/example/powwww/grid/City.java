@@ -150,6 +150,11 @@ public class City {
                     node = node.getParent();
                 }
                 Collections.reverse(path);
+                for(Road[] roads : this.roads){
+                    for(Road road : roads) {
+                        if(road != null) road.returnToDefault();
+                    }
+                }
                 return path;
             }
 

@@ -51,11 +51,19 @@ import static org.example.powwww.Sim.UserMethods.*;
     public Stage primaryStage;
     @Override
     public void start(Stage primaryStage) throws Exception {
+<<<<<<< Updated upstream
         try {
+=======
+>>>>>>> Stashed changes
         FXMLLoader fxmlLogIn = new FXMLLoader(App.class.getResource("/org/example/powwww/Merhaba.fxml"));
         logInPage = new Scene(fxmlLogIn.load(),600,400);
+
+        FXMLLoader fxmlHome = new FXMLLoader(App.class.getResource("/org/example/powwww/HomePage.fxml"));
+        Scene homePage = new Scene(fxmlHome.load(), 1080, 720);
+
         primaryStage.setScene(logInPage);
 
+<<<<<<< Updated upstream
         @FXML
         void initialize(){
             loginButton.setOnAction(e -> {
@@ -69,6 +77,13 @@ import static org.example.powwww.Sim.UserMethods.*;
             System.err.println("Error loading FXML file: " + e.getMessage());
             e.printStackTrace();
         }
+=======
+        loginButton.setOnAction(e -> {
+            System.out.println("oluyor");
+            primaryStage.setScene(homePage);
+        });
+        primaryStage.show();
+>>>>>>> Stashed changes
     }
 
     public static void main(String[] args) {

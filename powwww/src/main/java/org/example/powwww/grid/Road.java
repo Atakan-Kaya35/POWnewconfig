@@ -174,6 +174,13 @@ public class Road {
     public void nullifyContined() {
         contained = null;
     }
+
+    public void returnToDefault(){
+        costFromStart = 0;
+        costToFinish = 0;
+        parent = null;
+        //wasCrossed = false;
+    }
 }
 
 
