@@ -22,100 +22,100 @@ import java.util.*;
 public class App extends Application {
 
     @FXML
-    private Label nameLabel;
+    private Label nameLabel = new Label();
 
     @FXML
-    private Button loginButton;
+    private Button loginButton = new Button();
 
     @FXML
-    private Button Allahimmmmm;
+    private Button Allahimmmmm = new Button();
 
     @FXML
-    private Button signUPButton2;
+    private Button signUPButton2 = new Button();
 
     @FXML
-    private Button signUPButton3;
+    private Button signUPButton3 = new Button();
 
     @FXML
-    private Button homePageButton;
+    private Button homePageButton = new Button();
 
     @FXML
-    private Button ordersPageButton;
+    private Button ordersPageButton = new Button();
 
     @FXML
-    private Button personalInformationButton;
+    private Button personalInformationButton = new Button();
 
     @FXML
-    private Button quickDiagnosisTestButton;
+    private Button quickDiagnosisTestButton = new Button();
 
     @FXML
-    private Button QDTStartButton;
+    private Button QDTStartButton = new Button();
 
     @FXML
-    private Button QDTNextButton;
+    private Button QDTNextButton = new Button();
 
     //pop up will be opened and show recomendation
     @FXML
-    private Button QDTNextButton2;
+    private Button QDTNextButton2 = new Button();
 
     @FXML
-    private Button pillsButton;
+    private Button pillsButton = new Button();
 
     private Stage primaryStage;
     @FXML
-    private Button purchaseButton;
+    private Button purchaseButton = new Button();
 
     @FXML
-    private Button openCurrentOrdersButton;
+    private Button openCurrentOrdersButton = new Button();
 
     @FXML
-    private TextField userNameLSignUpTextField;
+    private TextField userNameLSignUpTextField = new TextField();
 
     @FXML
-    private TextField passwordSignUpTextField;
+    private TextField passwordSignUpTextField = new TextField();
 
     @FXML
-    private TextField nameLogInTextField;
+    private TextField nameLogInTextField = new TextField();
 
     @FXML
-    private TextField userNameLogInTextField;
+    private TextField userNameLogInTextField = new TextField();
 
     @FXML
-    private TextField passwordLogInTextField;
+    private TextField passwordLogInTextField = new TextField();
 
     @FXML
-    private TextField ageSignUpTextField;
+    private TextField ageSignUpTextField = new TextField();
 
     @FXML
-    private TextField weightSignUpTextField;
+    private TextField weightSignUpTextField = new TextField();
 
     @FXML
-    private TextField heightSignUpTextField;
+    private TextField heightSignUpTextField = new TextField();
 
     @FXML
-    private TextField addressTextField;
+    private TextField addressTextField = new TextField();
 
     @FXML
-    private TextField nameLSignUpTextField;
+    private TextField nameLSignUpTextField = new TextField();
 
     //personal info page text fields
     @FXML
-    private TextField IDField;
+    private TextField IDField = new TextField();
 
     @FXML
-    private TextField nameField;
+    private TextField nameField = new TextField();
 
     @FXML
-    private TextField ageField;
+    private TextField ageField = new TextField();
 
     @FXML
-    private TextField addressField;
+    private TextField addressField = new TextField();
 
     @FXML
-    private TextField weightField;
+    private TextField weightField = new TextField();
 
     @FXML
-    private TextField heightField;
+    private TextField heightField = new TextField();
 
 
     @FXML
