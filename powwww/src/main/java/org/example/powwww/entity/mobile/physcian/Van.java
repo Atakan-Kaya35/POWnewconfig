@@ -16,7 +16,7 @@ public class Van extends Nurses {
 
     protected ArrayList<Serum> serumBaggage = new ArrayList<>();
 
-    private int RADIUS = 10;
+    private int RADIUS = 15;
     private int currentRoad;
 
     public Van(Road containedIn)
@@ -69,7 +69,7 @@ public class Van extends Nurses {
      */
     public void draw(Graphics g)
     {
-        g.setColor(Color.CYAN);
+        g.setColor(Color.RED);
         g.fillOval(36+ x-RADIUS/2, 36+y-RADIUS/2, RADIUS, RADIUS);
     }
 

@@ -10,7 +10,7 @@ public class Scooter extends Nurses {
     private static Road cotainedIn;
     final protected int speed = 5;
 
-    private int RADIUS = 10;
+    private int RADIUS = 15;
 
     public Scooter(Road cotainedIn){
         super(cotainedIn);
