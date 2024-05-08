@@ -25,7 +25,7 @@ public class GridPanel extends JComponent
         this.setCity(c);
         gridFrame = ref;
         homes = createHomes();
-        obstacles = createObstacles();
+        //obstacles = createObstacles();
         //van = new Van(city);
 
         //listener = new sucu();
