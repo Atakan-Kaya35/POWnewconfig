@@ -1,5 +1,5 @@
 
-package org.example.powwww.MapGridTaslak;
+/*package org.example.powwww.MapGridTaslak;
 import javax.swing.JFrame;
 
 public class TaslakMain 
@@ -11,5 +11,5 @@ public class TaslakMain
         grid.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         grid.setVisible(true);
     }
-}
+}*/
 

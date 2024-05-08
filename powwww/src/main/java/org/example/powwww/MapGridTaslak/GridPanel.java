@@ -16,14 +16,14 @@ public class GridPanel extends JComponent
     private GridFrame gridFrame;
     private ArrayList<Home> homes;
     private ArrayList<Obstacle> obstacles;
-    private Van van;
+    //private Van van;
     private City city;
     Timer t;
     ActionListener listener;
 
-    public GridPanel(GridFrame ref)
+    public GridPanel(GridFrame ref, City c)
     {
-        this.setCity(city);
+        this.setCity(c);
         gridFrame = ref;
         homes = createHomes();
         obstacles = createObstacles();
@@ -48,16 +48,12 @@ public class GridPanel extends JComponent
         {
             for(int j = gridFrame.getStartH() + (gridFrame.getEachSquare()/ 2); j < gridFrame.getHeight(); j += gridFrame.getEachSquare())
             {
-                
                 Home h = new Home(i, j);
                 homes.add(h);
             }
         }
         return homes;
     }
-
-
-
 
     public ArrayList<Obstacle> createObstacles()
     {
@@ -66,7 +62,6 @@ public class GridPanel extends JComponent
         obstacles.add(obs1);
         return obstacles;
     }
-
 
 // class sucu implements ActionListener
 //    {
