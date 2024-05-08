@@ -1,6 +1,12 @@
 package org.example.powwww;
 
 
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Node;
+import javafx.scene.layout.StackPane;
+import org.example.powwww.grid.Stationary;
 import org.example.powwww.med.*;
 import org.example.powwww.Sim.UserMethods;
 import org.example.powwww.entity.mobile.physcian.Nurses;
@@ -31,6 +37,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.*;
 
@@ -77,51 +84,50 @@ import static org.example.powwww.Sim.UserMethods.*;
 }*/
 
 
-public class Applic extends Application{
-
+public class Applic{
+    public static User currentUser;
+    private Scene scene;
+    private Stage stage;
+    private Parent root;
+    public static ArrayList<Stationary> everyOne = new ArrayList<>();
+    public static ArrayList<String> usernames = new ArrayList<>();
+    public static ArrayList<String> passwords = new ArrayList<>();
+    static ArrayList<User> users = new ArrayList<>();
     @FXML
-    public Button loginButton = new Button();
+    public Button loginButton;
     @FXML
-    public Button signUpButton = new Button();
+    public Button signUpButton;
     @FXML
-    public TextField userNameTextField = new TextField();
+    public TextField userNameTextField;
     @FXML
-    public TextField passwordTextField = new TextField();
-    public Scene logInPage;
+    public TextField passwordTextField;
+    @FXML
+    private void logInTry(ActionEvent event){
+        System.out.println("oldu");
+    }
     public void start(Stage primaryStage) throws IOException{
 
+        
         FXMLLoader fxmlLogIn = new FXMLLoader(App.class.getResource("/org/example/powwww/Merhaba.fxml"));
-        logInPage = new Scene(fxmlLogIn.load(),600,400);
+        Scene logInPage = new Scene(fxmlLogIn.load(),600,400);
+
+        //logInPage = new Scene(fxmlLogIn.load(),600,400);
         primaryStage.setScene(logInPage);
 
-        loginButton.setOnAction(event -> {
+        /*loginButton.setOnAction(event -> {
             System.out.println("oluyor");
-            login(userNameTextField.getText(),passwordTextField.getText());
-
         });
-    }
 
-    private boolean login(String username, String password) {
-            // Check if the username exists
-            int index = usernames.indexOf(username);
-            if (index == -1) {
-                System.out.println("Username not found.");
-                return false;
+        loginButton.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent actionEvent) {
+                System.out.println("oluyor");
             }
+        });*/
 
-            // Check if the password matches
-            if (!passwords.get(index).equals(password)) {
-                System.out.println("Incorrect password.");
-                return false;
-            }
-
-            System.out.println("Login successful. Welcome, " + everyOne.get(index).getName() + "!");
-            return true;
-
+        primaryStage.show();
     }
     public static void main(String[] args) {
         launch(args);
     }
-
 }
 
