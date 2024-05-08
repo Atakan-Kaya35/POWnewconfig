@@ -8,8 +8,6 @@ import org.example.powwww.grid.Order;
 import org.example.powwww.grid.Road;
 import org.example.powwww.med.Medicine;
 import org.example.powwww.med.Pill;
-import org.example.powwww.med.Serum;
-import org.example.powwww.Sim.SimMethods;
 
 public class Nurses extends Mobile {
     
@@ -26,7 +24,8 @@ public class Nurses extends Mobile {
         UP,
         DOWN,
         LEFT,
-        RIGHT
+        RIGHT,
+        STAY
     }
 
     ArrowKey direction;
@@ -60,15 +59,12 @@ public class Nurses extends Mobile {
     }
 
     private boolean roadUpdateNecessaryCheck(){
-        if(((x+1) % 36) < 2 && ((y+1) % 36) < 2) {
-            this.setContainedIn(currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
+        if(((x+1) % 36) < 4 && ((y+1) % 36) < 4) {
+            this.moveForth(currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
 
-            if(x % 5 == 0 && x != 0){
-                x ++;
-            }
-            if(y % 5 == 0 && y != 0){
-                y ++;
-            }
+            x = this.getContainedIn().getCoords()[0];
+            y = this.getContainedIn().getCoords()[1];
+
             currentOrder.setProgressIndex(currentOrder.getProgressIndex() + 1);
             setDirectionOfTravel();
             return true;
@@ -90,20 +86,24 @@ public class Nurses extends Mobile {
     }
 
     private void setDirectionOfTravel(){
-        currentTrafic = city.getTrafficBetweenRoads(currentOrder.getPath().get(currentOrder.getProgressIndex()), currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
+        try{
+            currentTrafic = city.getTrafficBetweenRoads(currentOrder.getPath().get(currentOrder.getProgressIndex()), currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
 
-        try {
-            if ((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[0] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[0]) > 0) {
-                direction = ArrowKey.LEFT;
-            } else if ((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[1] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[1]) > 0) {
-                direction = ArrowKey.UP;
-            } else if ((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[0] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[0]) < 0) {
-                direction = ArrowKey.RIGHT;
-            } else if ((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[1] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[1]) < 0) {
-                direction = ArrowKey.DOWN;
+            try {
+                if ((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[0] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[0]) > 0) {
+                    direction = ArrowKey.LEFT;
+                } else if ((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[1] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[1]) > 0) {
+                    direction = ArrowKey.UP;
+                } else if ((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[0] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[0]) < 0) {
+                    direction = ArrowKey.RIGHT;
+                } else if ((currentOrder.getPath().get(currentOrder.getProgressIndex()).getCoords()[1] - currentOrder.getPath().get(currentOrder.getProgressIndex() + 1).getCoords()[1]) < 0) {
+                    direction = ArrowKey.DOWN;
+                }
+            } catch (Exception e) {
+                System.out.println("Check your indexes in Move!");
             }
-        }catch (Exception e){
-            System.out.println("Check your indexes in Move!");
+        }catch(IndexOutOfBoundsException e){
+            direction = ArrowKey.STAY;
         }
     }
 

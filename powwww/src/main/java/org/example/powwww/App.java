@@ -147,14 +147,14 @@ public class App extends Application {
         FXMLLoader fxmlQuickDiag = new FXMLLoader(App.class.getResource("/org/example/powwww/WelcomeQDT.fxml"));
         quickDiagnosisPage = new Scene(fxmlQuickDiag.load(),1080,720);
 
-        FXMLLoader fxmlSymptoms = new FXMLLoader(App.class.getResource("/org/example/powwww/SymptomQDT.fxml"));
+        /*FXMLLoader fxmlSymptoms = new FXMLLoader(App.class.getResource("/org/example/powwww/SymptomQDT.fxml"));
         symptomsPage = new Scene(fxmlSymptoms.load(),1080,720);
+*/
+        /*FXMLLoader fxmlYesNo = new FXMLLoader(App.class.getResource("/org/example/powwww/YesNoQuestQDT.fxml"));
+        yesNoQuestPage = new Scene(fxmlYesNo.load(),1080,720);*/
 
-        FXMLLoader fxmlYesNo = new FXMLLoader(App.class.getResource("/org/example/powwww/YesNoQuestQDT.fxml"));
-        yesNoQuestPage = new Scene(fxmlYesNo.load(),1080,720);
-
-        FXMLLoader fxmlPills = new FXMLLoader(App.class.getResource("/org/example/powwww/PillsPage.fxml"));
-        pillsPage = new Scene(fxmlPills.load(),1080,720);
+        /*FXMLLoader fxmlPills = new FXMLLoader(App.class.getResource("/org/example/powwww/PillsPage.fxml"));
+        pillsPage = new Scene(fxmlPills.load(),1080,720);*/
 
         //sign up
         signUpButton.setOnAction(e -> {
@@ -188,7 +188,7 @@ public class App extends Application {
                 user.setHeight(Integer.parseInt(heightSignUpTextField.getText()));
                 String[] coord = new String[2];
                 coord = addressTextField.getText().split(",");
-                UserMethods.signUp(user.getName(),Integer.parseInt(coord[0]), Integer.parseInt(coord[1]), user.getUserName(), user.getPassword());
+                //UserMethods.signUp(user.getName(),Integer.parseInt(coord[0]), Integer.parseInt(coord[1]), user.getUserName(), user.getPassword());
 
                 //enter home page
                 loginButton.setOnAction(eee -> {
