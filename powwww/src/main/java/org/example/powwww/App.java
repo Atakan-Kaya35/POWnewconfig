@@ -28,7 +28,7 @@ public class App extends Application {
     private Button loginButton;
 
     @FXML
-    private Button signUpButton;
+    private Button Allahimmmmm;
 
     @FXML
     private Button signUPButton2;
@@ -158,7 +158,7 @@ public class App extends Application {
 
         //sign up
 
-        signUpButton.setOnAction(e -> {
+        Allahimmmmm.setOnAction(e -> {
             primaryStage.setScene(signInOccupationPage);
             String selected = comboBox.getSelectionModel().getSelectedItem();
             User user;
