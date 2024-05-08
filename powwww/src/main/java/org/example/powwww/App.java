@@ -61,7 +61,7 @@ public class App extends Application {
     @FXML
     private Button pillsButton = new Button();
 
-    private Stage primaryStage;
+    public Stage primaryStage;
     @FXML
     private Button purchaseButton = new Button();
 
@@ -125,7 +125,7 @@ public class App extends Application {
     int totalProduct;
     ArrayList<Medicine> purchaseList = new ArrayList<Medicine>();
 
-    private Scene logInPage, signInOccupationPage, signInPage, homePage, pillsPage, personalInfoPage, ordersPage, currentOrdersPage,
+    public Scene logInPage, SignInForNursesAndCourierPage, signInPage, homePage, pillsPage, personalInfoPage, ordersPage, currentOrdersPage,
     quickDiagnosisPage, yesNoQuestPage, symptomsPage, homePageForOthers, personalInfoPageForOthers, deliveriesPage, currentDeliveryPage; 
     
     User user;
@@ -141,8 +141,8 @@ public class App extends Application {
         FXMLLoader fxmlHome = new FXMLLoader(App.class.getResource("/org/example/powwww/HomePage.fxml"));
         homePage = new Scene(fxmlHome.load(),1080,720);
 
-        FXMLLoader fxmlSignInOccupation = new FXMLLoader(App.class.getResource("/org/example/powwww/SignInOccupationPage.fxml"));
-        signInOccupationPage = new Scene(fxmlSignInOccupation.load(), 600, 400);
+        FXMLLoader fxmlSignInOccupation = new FXMLLoader(App.class.getResource("/org/example/powwww/SignInForNursesAndCourier.fxml"));
+        SignInForNursesAndCourierPage = new Scene(fxmlSignInOccupation.load(), 600, 400);
 
 
         FXMLLoader fxmlPersInfo = new FXMLLoader(App.class.getResource("/org/example/powwww/PersonalInfoPage.fxml"));
@@ -163,7 +163,9 @@ public class App extends Application {
         //sign up
 
         Allahimmmmm.setOnAction(e -> {
-            primaryStage.setScene(signInOccupationPage);
+            System.out.println("oluyor");
+            Stage secondaryStage = new Stage();
+            secondaryStage.setScene(SignInForNursesAndCourierPage);
             String selected = comboBox.getSelectionModel().getSelectedItem();
             User user;
             if(selected.equals("Customer")){
