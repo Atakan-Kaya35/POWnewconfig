@@ -34,6 +34,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.*;
 
+import static javafx.application.Application.launch;
 import static org.example.powwww.Sim.UserMethods.*;
 
 /*public class Applic extends Application {
@@ -112,6 +113,9 @@ public class Applic {
             System.out.println("Login successful. Welcome, " + everyOne.get(index).getName() + "!");
             return true;
 
+    }
+    public static void main(String[] args) {
+        launch(args);
     }
 }
 
