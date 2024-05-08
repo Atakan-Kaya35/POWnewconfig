@@ -15,7 +15,7 @@ public class GridFrame extends JFrame
     private City city;
 
     private JPanel panel;
-    private JComponent girdPanel;
+    private JComponent gridPanel;
 
     public GridFrame( City c)
     {
@@ -24,9 +24,8 @@ public class GridFrame extends JFrame
         
         panel.setBackground(Color.BLACK);
         panel.setLayout(new BorderLayout());
-        girdPanel = createGridPanel();
-        System.out.println("h");
-        panel.add(girdPanel, BorderLayout.CENTER);
+        gridPanel = createGridPanel();
+        panel.add(gridPanel, BorderLayout.CENTER);
         add(panel);
         setSize(FRAME_WIDTH, FRAME_HEIGTH);
         setResizable(false);

@@ -2,7 +2,7 @@ package org.example.powwww.grid;
 
 import org.example.powwww.entity.*;
 
-
+import java.awt.*;
 
 
 public class Stationary extends User{
@@ -12,6 +12,10 @@ public class Stationary extends User{
     Stationary contained;
     String inital;
     City insideOf;
+    int startX;
+    int startY;
+    int endX;
+    int endY;
 
 /*     public Building(int[] coords, Stationary contained){
         this.coordinates = coords;
@@ -47,6 +51,12 @@ public class Stationary extends User{
         this.surroundingRoads[1] = road2;
         this.surroundingRoads[2] = road3;
         this.surroundingRoads[3] = road4;
+    }
+
+    public void draw(Graphics g)
+    {
+        g.setColor(Color.RED);
+        //g.fillRect(36+ startX, 36+startY, 36+surroundingRoads[4].getCoords()[0], 36+surroundingRoads[4].getCoords()[1]);
     }
 
     public Road getEntrence(){
