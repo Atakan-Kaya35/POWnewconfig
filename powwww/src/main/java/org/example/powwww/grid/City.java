@@ -508,7 +508,8 @@ public void createVansAndScooters() {
             Van van = new Van(this.roads[x][y]);
             vanList.add(van);
             setRoad(van, x, y);
-        }catch(NullPointerException e){
+        }
+        catch(NullPointerException e){
             System.out.println("Tossed an obstacle! Could not create van.");
         }
     }
