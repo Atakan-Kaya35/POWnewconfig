@@ -77,7 +77,7 @@ import static org.example.powwww.Sim.UserMethods.*;
 }*/
 
 
-public class Applic {
+public class Applic extends Application{
 
     @FXML
     public Button loginButton = new Button();
@@ -87,8 +87,13 @@ public class Applic {
     public TextField userNameTextField = new TextField();
     @FXML
     public TextField passwordTextField = new TextField();
-    @FXML
-    void initialize() {
+    public Scene logInPage;
+    public void start(Stage primaryStage) throws IOException{
+
+        FXMLLoader fxmlLogIn = new FXMLLoader(App.class.getResource("/org/example/powwww/Merhaba.fxml"));
+        logInPage = new Scene(fxmlLogIn.load(),600,400);
+        primaryStage.setScene(logInPage);
+
         loginButton.setOnAction(event -> {
             System.out.println("oluyor");
             login(userNameTextField.getText(),passwordTextField.getText());
@@ -117,5 +122,6 @@ public class Applic {
     public static void main(String[] args) {
         launch(args);
     }
+
 }
 
