@@ -92,6 +92,12 @@ public class App extends Application {
     @FXML
     private TextField heightSignUpTextField;
 
+    @FXML
+    private TextField addressTextField;
+
+    @FXML
+    private TextField nameLSignUpTextField;
+
     //personal info page text fields
     @FXML
     private TextField IDField;
@@ -174,12 +180,15 @@ public class App extends Application {
 
                 user.setUserName(userNameLSignUpTextField.getText());
                 user.setPassword(passwordSignUpTextField.getText());
-                user.setName(nameLogInTextField.getText());
+                user.setName(nameLSignUpTextField.getText());
+                user.setAddress(addressTextField.getText());
                 user.setAge(Integer.parseInt(ageSignUpTextField.getText()));
                 user.setAge(Integer.parseInt(ageSignUpTextField.getText()));
                 user.setWeight(Integer.parseInt(weightSignUpTextField.getText()));
                 user.setHeight(Integer.parseInt(heightSignUpTextField.getText()));
-                //user.setHeight(Integer.parseInt(addressSignUpTextField.getText()));
+                String[] coord = new String[2];
+                coord = addressTextField.getText().split(",");
+                UserMethods.signUp(user.getName(),Integer.parseInt(coord[0]), Integer.parseInt(coord[1]), user.getUserName(), user.getPassword());
 
                 //enter home page
                 loginButton.setOnAction(eee -> {
