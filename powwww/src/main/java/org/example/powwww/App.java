@@ -22,100 +22,100 @@ import java.util.*;
 public class App extends Application {
 
     @FXML
-    private Label nameLabel;
+    private Label nameLabel = new Label();
 
     @FXML
-    private Button loginButton;
+    private Button loginButton = new Button();
 
     @FXML
-    private Button signUpButton;
+    private Button Allahimmmmm = new Button();
 
     @FXML
-    private Button signUPButton2;
+    private Button signUPButton2 = new Button();
 
     @FXML
-    private Button signUPButton3;
+    private Button signUPButton3 = new Button();
 
     @FXML
-    private Button homePageButton;
+    private Button homePageButton = new Button();
 
     @FXML
-    private Button ordersPageButton;
+    private Button ordersPageButton = new Button();
 
     @FXML
-    private Button personalInformationButton;
+    private Button personalInformationButton = new Button();
 
     @FXML
-    private Button quickDiagnosisTestButton;
+    private Button quickDiagnosisTestButton = new Button();
 
     @FXML
-    private Button QDTStartButton;
+    private Button QDTStartButton = new Button();
 
     @FXML
-    private Button QDTNextButton;
+    private Button QDTNextButton = new Button();
 
     //pop up will be opened and show recomendation
     @FXML
-    private Button QDTNextButton2;
+    private Button QDTNextButton2 = new Button();
 
     @FXML
-    private Button pillsButton;
+    private Button pillsButton = new Button();
 
-    private Stage primaryStage;
+    public Stage primaryStage;
     @FXML
-    private Button purchaseButton;
-
-    @FXML
-    private Button openCurrentOrdersButton;
+    private Button purchaseButton = new Button();
 
     @FXML
-    private TextField userNameLSignUpTextField;
+    private Button openCurrentOrdersButton = new Button();
 
     @FXML
-    private TextField passwordSignUpTextField;
+    private TextField userNameLSignUpTextField = new TextField();
 
     @FXML
-    private TextField nameLogInTextField;
+    private TextField passwordSignUpTextField = new TextField();
 
     @FXML
-    private TextField userNameLogInTextField;
+    private TextField nameLogInTextField = new TextField();
 
     @FXML
-    private TextField passwordLogInTextField;
+    private TextField userNameLogInTextField = new TextField();
 
     @FXML
-    private TextField ageSignUpTextField;
+    private TextField passwordLogInTextField = new TextField();
 
     @FXML
-    private TextField weightSignUpTextField;
+    private TextField ageSignUpTextField = new TextField();
 
     @FXML
-    private TextField heightSignUpTextField;
+    private TextField weightSignUpTextField = new TextField();
 
     @FXML
-    private TextField addressTextField;
+    private TextField heightSignUpTextField = new TextField();
 
     @FXML
-    private TextField nameLSignUpTextField;
+    private TextField addressTextField = new TextField();
+
+    @FXML
+    private TextField nameLSignUpTextField = new TextField();
 
     //personal info page text fields
     @FXML
-    private TextField IDField;
+    private TextField IDField = new TextField();
 
     @FXML
-    private TextField nameField;
+    private TextField nameField = new TextField();
 
     @FXML
-    private TextField ageField;
+    private TextField ageField = new TextField();
 
     @FXML
-    private TextField addressField;
+    private TextField addressField = new TextField();
 
     @FXML
-    private TextField weightField;
+    private TextField weightField = new TextField();
 
     @FXML
-    private TextField heightField;
+    private TextField heightField = new TextField();
 
 
     @FXML
@@ -125,7 +125,7 @@ public class App extends Application {
     int totalProduct;
     ArrayList<Medicine> purchaseList = new ArrayList<Medicine>();
 
-    private Scene logInPage, signInOccupationPage, signInPage, homePage, pillsPage, personalInfoPage, ordersPage, currentOrdersPage,
+    public Scene logInPage, SignInForNursesAndCourierPage, signInPage, homePage, pillsPage, personalInfoPage, ordersPage, currentOrdersPage,
     quickDiagnosisPage, yesNoQuestPage, symptomsPage, homePageForOthers, personalInfoPageForOthers, deliveriesPage, currentDeliveryPage; 
     
     User user;
@@ -133,13 +133,17 @@ public class App extends Application {
     public void start(Stage primaryStage) throws IOException{
 
         FXMLLoader fxmlLogIn = new FXMLLoader(App.class.getResource("/org/example/powwww/Merhaba.fxml"));
-        logInPage = new Scene(fxmlLogIn.load(),1080,720);
+        logInPage = new Scene(fxmlLogIn.load(),600,400);
         primaryStage.setScene(logInPage);
         
         comboBox.getItems().addAll("Customer", "Nurse", "Scooter", "Van");
 
         FXMLLoader fxmlHome = new FXMLLoader(App.class.getResource("/org/example/powwww/HomePage.fxml"));
         homePage = new Scene(fxmlHome.load(),1080,720);
+
+        FXMLLoader fxmlSignInOccupation = new FXMLLoader(App.class.getResource("/org/example/powwww/SignInForNursesAndCourier.fxml"));
+        SignInForNursesAndCourierPage = new Scene(fxmlSignInOccupation.load(), 600, 400);
+
 
         FXMLLoader fxmlPersInfo = new FXMLLoader(App.class.getResource("/org/example/powwww/PersonalInfoPage.fxml"));
         personalInfoPage = new Scene(fxmlPersInfo.load(),1080,720);
@@ -158,8 +162,10 @@ public class App extends Application {
 
         //sign up
 
-        signUpButton.setOnAction(e -> {
-            primaryStage.setScene(signInOccupationPage);
+        Allahimmmmm.setOnAction(e -> {
+            System.out.println("oluyor");
+            Stage secondaryStage = new Stage();
+            secondaryStage.setScene(SignInForNursesAndCourierPage);
             String selected = comboBox.getSelectionModel().getSelectedItem();
             User user;
             if(selected.equals("Customer")){
@@ -204,7 +210,7 @@ public class App extends Application {
         loginButton.setOnAction(e -> {
             UserMethods.login(userNameLogInTextField.getText(), passwordLogInTextField.getText());
             primaryStage.setScene(homePage);
-        }); 
+        });
 
         homePageButton.setOnAction(e -> {
             primaryStage.setScene(homePage);
