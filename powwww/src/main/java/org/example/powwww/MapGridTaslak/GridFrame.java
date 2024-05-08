@@ -1,5 +1,7 @@
 
 package org.example.powwww.MapGridTaslak;
+import org.example.powwww.grid.City;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
@@ -12,18 +14,20 @@ public class GridFrame extends JFrame
     private final int START_WIDTH = 5;
     private final int START_HEIGHT = 5;
     private final int EACH_SQUARE = 50;
+    private City city;
 
     private JPanel panel;
     private JComponent girdPanel;
 
-    public GridFrame()
+    public GridFrame( City c)
     {
-        
+        this.city = c;
         panel = new JPanel();
         
         //panel.set
         panel.setLayout(new BorderLayout());
         girdPanel = createGridPanel();
+        System.out.println("h");
         panel.add(girdPanel, BorderLayout.CENTER);
         add(panel);
         setSize(FRAME_WIDTH, FRAME_HEIGTH);
@@ -33,7 +37,7 @@ public class GridFrame extends JFrame
 
     public JComponent createGridPanel()
     {
-        JComponent panel = new GridPanel(this);
+        JComponent panel = new GridPanel(this, city);
         return panel;
     }
 

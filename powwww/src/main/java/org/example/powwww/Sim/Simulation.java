@@ -21,7 +21,7 @@ public class Simulation extends SimMethods {
         Pill a = new Pill(0);
         System.out.println();
 
-        JFrame grid = new GridFrame();
+        JFrame grid = new GridFrame(city);
         grid.setTitle("MAP");
         grid.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         grid.setVisible(true);
