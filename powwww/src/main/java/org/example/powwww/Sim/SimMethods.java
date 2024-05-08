@@ -16,9 +16,6 @@ import org.example.powwww.entity.stationary.Patients;
 
 public class SimMethods {
 
-    private static ArrayList<Stationary> users = new ArrayList<>();
-    private static ArrayList<String> usernames = new ArrayList<>();
-    private static ArrayList<String> passwords = new ArrayList<>();
     public final static int TICKPERDAY = 1440;
 
     public int getTICKPERDAY(){
@@ -28,7 +25,7 @@ public class SimMethods {
     /**
      * Registers a new user with the provided information.
      */
-    public static boolean signUp(String name, int x, int y, City city, String username, String password) {
+    /*public static boolean signUp(String name, int x, int y, City city, String username, String password) {
         // Check if username is already taken
         if (isUsernameTaken(username)) {
             System.out.println("Username is already taken.");
@@ -59,6 +56,7 @@ public class SimMethods {
      * @param username The username to check.
      * @return True if the username is already taken, false otherwise.
      */
+    /*
     private static boolean isUsernameTaken(String username) {
         return usernames.contains(username);
     }
@@ -79,7 +77,7 @@ public class SimMethods {
 
         System.out.println("Login successful. Welcome, " + users.get(index).getName() + "!");
         return true;
-    }
+    }*/
 
     // Method to initialize the city with desired parameters
     public static City createCity() {

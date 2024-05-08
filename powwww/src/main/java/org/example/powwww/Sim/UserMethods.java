@@ -6,13 +6,20 @@ import org.example.powwww.grid.Order;
 import org.example.powwww.grid.Stationary;
 import org.example.powwww.med.Medicine;
 import org.example.powwww.med.Pill;
+import org.example.powwww.Sim.SimMethods;
+import org.example.powwww.entity.User;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserMethods {
+    static ArrayList<Stationary> everyOne = new ArrayList<>();
+    public static ArrayList<String> usernames = new ArrayList<>();
+    public static ArrayList<String> passwords = new ArrayList<>();
+    static ArrayList<User> users = new ArrayList<>();
 
-    public static boolean signIn(String username, String password, List<String> usernames, List<String> passwords, List<Stationary> users) {
+    /*public static boolean signIn(String username, String password, List<String> usernames, List<String> passwords, List<Stationary> users) {
         int index = usernames.indexOf(username);
         if (index == -1) {
             System.out.println("Username not found.");
@@ -48,6 +55,58 @@ public class UserMethods {
         passwords.add(password);
 
         System.out.println("User signed up successfully.");
+        return true;
+    }*/
+    public static boolean signUp(String name, int x, int y, City city, String username, String password) {
+        // Check if username is already taken
+        if (isUsernameTaken(username)) {
+            System.out.println("Username is already taken.");
+            return false;
+        }
+
+        // Check if password meets length requirement
+        if (password.length() < 8) {
+            System.out.println("Password must be at least 8 characters long.");
+            return false;
+        }
+
+        // Create a new user
+        Stationary newUser = new Patients(name, x, y, city);
+
+        // Add the new user to the list of users
+        everyOne.add(newUser);
+        usernames.add(username);
+        passwords.add(password);
+
+        System.out.println("User signed up successfully.");
+        System.out.println(usernames.get(0));
+        return true;
+    }
+
+    /**
+     * Checks if the given username is already taken.
+     * @param username The username to check.
+     * @return True if the username is already taken, false otherwise.
+     */
+    private static boolean isUsernameTaken(String username) {
+        return usernames.contains(username);
+    }
+
+    public static boolean login(String username, String password) {
+        // Check if the username exists
+        int index = usernames.indexOf(username);
+        if (index == -1) {
+            System.out.println("Username not found.");
+            return false;
+        }
+
+        // Check if the password matches
+        if (!passwords.get(index).equals(password)) {
+            System.out.println("Incorrect password.");
+            return false;
+        }
+
+        System.out.println("Login successful. Welcome, " + everyOne.get(index).getName() + "!");
         return true;
     }
 
