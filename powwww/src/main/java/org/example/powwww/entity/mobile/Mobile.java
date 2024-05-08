@@ -1,7 +1,6 @@
 package org.example.powwww.entity.mobile;
 
 import org.example.powwww.grid.*;
-import org.example.powwww.entity.*;
 import org.example.powwww.entity.User;
 
 public abstract class Mobile extends User {
@@ -22,6 +21,12 @@ public abstract class Mobile extends User {
      * @param containedIn road
      */
     public void setContainedIn(Road containedIn) {
+        this.containedIn = containedIn;
+        containedIn.setContined(this);
+    }
+
+    public void moveForth(Road containedIn) {
+        this.containedIn.setContined(null);
         this.containedIn = containedIn;
         containedIn.setContined(this);
     }

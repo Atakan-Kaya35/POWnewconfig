@@ -57,7 +57,8 @@ public class UserMethods {
         System.out.println("User signed up successfully.");
         return true;
     }*/
-    public static boolean signUp(String name, int x, int y, String username, String password) {
+
+    public static boolean signUp(String name, int x, int y, String username, String password, City city) {
         // Check if username is already taken
         if (isUsernameTaken(username)) {
             System.out.println("Username is already taken.");
