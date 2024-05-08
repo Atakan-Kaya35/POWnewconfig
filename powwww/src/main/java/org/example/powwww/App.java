@@ -160,19 +160,19 @@ public class App extends Application {
         signUpButton.setOnAction(e -> {
             primaryStage.setScene(signInOccupationPage);
             String selected = comboBox.getSelectionModel().getSelectedItem();
-            //User user; 
+            User user;
             if(selected.equals("Customer")){
-                //user = new Patients();
+                user = new Patients();
             }
             else if(selected.equals("Nurse")){
 
-                //user = new Nurses();
+                user = new Nurses();
             }
             else if(selected.equals("Scooter")){
-                //user = new Scooter();
+                user = new Scooter();
             }
             else{
-                //user = new Van();
+                user = new Van();
             }
 
             signUPButton2.setOnAction(ee -> {

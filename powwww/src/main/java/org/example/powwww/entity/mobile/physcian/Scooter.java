@@ -6,7 +6,7 @@ import org.example.powwww.med.Pill;
 import java.awt.*;
 
 public class Scooter extends Nurses {
-
+    public Scooter(){}
     private static Road cotainedIn;
     final protected int speed = 5;
 

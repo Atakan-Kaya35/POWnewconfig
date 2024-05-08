@@ -7,7 +7,7 @@ import org.example.powwww.med.Medicine;
 import org.example.powwww.med.Sickness;
 
 public class Patients extends org.example.powwww.grid.Stationary {
-
+    public Patients(){}
     protected ArrayList<Medicine> cart = new ArrayList<Medicine>();
     protected ArrayList<Sickness> sicknesses = new ArrayList<Sickness>();
     protected ArrayList<Order> orderList = new ArrayList<Order>();

@@ -25,7 +25,7 @@ public class Stationary extends User{
 
         this.contained = contained;
     } */
-
+    public Stationary(){}
     public Stationary(int x, int y, City insideOf){
         this.coordinates = new int[2];
         coordinates[0] = x;

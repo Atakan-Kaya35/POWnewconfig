@@ -11,7 +11,7 @@ import org.example.powwww.entity.mobile.physcian.*;
 import org.example.powwww.med.Serum;
 
 public class Van extends Nurses {
-    
+    public Van(){}
     final protected int speed = 3;
 
     protected ArrayList<Serum> serumBaggage = new ArrayList<>();
