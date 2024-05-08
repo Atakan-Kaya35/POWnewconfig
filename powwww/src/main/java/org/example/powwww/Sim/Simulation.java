@@ -35,6 +35,24 @@ public class Simulation extends SimMethods {
         city.addStationary(p1);
         Patients p4 = new Patients("p1", 20,10,city);
         city.addStationary(p1);
+        Patients p5 = new Patients("p1", 0,5,city);
+        city.addStationary(p1);
+        Patients p6 = new Patients("p1", 5,5,city);
+        city.addStationary(p1);
+        Patients p7 = new Patients("p1", 10,10,city);
+        city.addStationary(p1);
+        Patients p8 = new Patients("p1", 15,10,city);
+        city.addStationary(p1);
+        Patients p9 = new Patients("p1", 0,19,city);
+        city.addStationary(p1);
+        Patients p10 = new Patients("p1", 3,15,city);
+        city.addStationary(p1);
+        Patients p11 = new Patients("p1", 25,8,city);
+        city.addStationary(p1);
+        Patients p12 = new Patients("p1", 28,11,city);
+        city.addStationary(p1);
+        Patients p13 = new Patients("p1", 27,6,city);
+        city.addStationary(p1);
 
         int h = 1;
 
@@ -80,6 +98,8 @@ public class Simulation extends SimMethods {
         // Start time for the simulation
         final LocalTime START_TIME = LocalTime.of(0, 0);
 
+        ArrayList f = new ArrayList();
+        Pill p = new Pill(0);
 
         // TODO: Put clock on right hand side top corner
 
@@ -95,7 +115,7 @@ public class Simulation extends SimMethods {
             // bu if bloklarının sayısını artırıp refresh constantı her birinde değiştirince birbirinden farklı aralıklarda bir
             // çalışan metodlar olmuş oluyor. mesela orderları 2 tickte bir güncellerken başka bir şeyi 10 tickte 1 yapabiliyorsun
             if (tick % (TICK_DURATION_MINUTES * REFRESH_CONSTANT / TICK_DURATION_MINUTES) == 0) {   //
-                System.out.println("mert");
+                //System.out.println("mert");
             }
 
             // makes people take their medicine
@@ -103,24 +123,88 @@ public class Simulation extends SimMethods {
                 simulateSicknessProgression(city, ((tick / (TICKPERDAY / 4)) - 1));
             }
 
-            System.out.println(tick);
+            // For p1
+            if (Math.random() < 0.1) {
+                System.out.println("p1");
+                p1.addSickness(new AcutSickness(5, 5, p1, p));
+            }
 
-            if(Math.random() < h){
-                ArrayList f = new ArrayList();
-                Pill p = new Pill(0);
-                p1.addSickness(new AcutSickness(5,5, p1,p));
-                p2.addSickness(new AcutSickness(5,5, p2,p));
-                p3.addSickness(new AcutSickness(5,5, p3,p));
-                p4.addSickness(new AcutSickness(5,5, p4,p));
-/*                f.add(Pill.AllPills.get(0));
-                createOrdersForPatients(p1, city, f);*/
-                h = 0;
+// For p2
+            if (Math.random() < 0.1) {
+                System.out.println("p2");
+                p2.addSickness(new AcutSickness(5, 5, p2, p));
+            }
+
+// For p3
+            if (Math.random() < 0.1) {
+                System.out.println("p3");
+                p3.addSickness(new AcutSickness(5, 5, p3, p));
+            }
+
+// For p4
+            if (Math.random() < 0.1) {
+                System.out.println("p4");
+                p4.addSickness(new AcutSickness(5, 5, p4, p));
+            }
+
+// For p5
+            if (Math.random() < 0.1) {
+                System.out.println("p5");
+                p5.addSickness(new AcutSickness(5, 5, p5, p));
+            }
+
+// For p6
+            if (Math.random() < 0.1) {
+                System.out.println("p6");
+                p6.addSickness(new AcutSickness(5, 5, p6, p));
+            }
+
+// For p7
+            if (Math.random() < 0.1) {
+                System.out.println("p7");
+                p7.addSickness(new AcutSickness(5, 5, p7, p));
+            }
+
+// For p8
+            if (Math.random() < 0.1) {
+                System.out.println("p8");
+                p8.addSickness(new AcutSickness(5, 5, p8, p));
+            }
+
+// For p9
+            if (Math.random() < 0.1) {
+                System.out.println("p9");
+                p9.addSickness(new AcutSickness(5, 5, p9, p));
+            }
+
+// For p10
+            if (Math.random() < 0.1) {
+                System.out.println("p10");
+                p10.addSickness(new AcutSickness(5, 5, p10, p));
+            }
+
+// For p11
+            if (Math.random() < 0.1) {
+                System.out.println("p11");
+                p11.addSickness(new AcutSickness(5, 5, p11, p));
+            }
+
+// For p12
+            if (Math.random() < 0.1) {
+                System.out.println("p12");
+                p12.addSickness(new AcutSickness(5, 5, p12, p));
+            }
+
+// For p13
+            if (Math.random() < 0.1) {
+                System.out.println("p13");
+                p13.addSickness(new AcutSickness(5, 5, p13, p));
             }
 
             // moves all nurses
             stimulateNurses(city, (GridFrame) grid);
 
-            System.out.println(city.viewMap(false));
+            //System.out.println(city.viewMap(false));
 
             // Advance the time by one tick
             tick++;
@@ -128,7 +212,7 @@ public class Simulation extends SimMethods {
             long nanoSecTaken = System.nanoTime() - start;
             // Pause execution to simulate the duration of a tick
             try {
-                Thread.sleep(500-(int)(nanoSecTaken / 1000000)); // constant saniye boyunca uyuyor. real time simüle ediliyor.
+                Thread.sleep(100-(int)(nanoSecTaken / 1000000)); // constant saniye boyunca uyuyor. real time simüle ediliyor.
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
