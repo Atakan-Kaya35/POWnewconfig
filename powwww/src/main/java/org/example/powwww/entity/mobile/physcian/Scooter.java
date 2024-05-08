@@ -10,7 +10,7 @@ public class Scooter extends Nurses {
     private static Road cotainedIn;
     final protected int speed = 5;
 
-    private int RADIUS = 5;
+    private int RADIUS = 10;
 
     public Scooter(Road cotainedIn){
         super(cotainedIn);
@@ -63,7 +63,7 @@ public class Scooter extends Nurses {
     public void draw(Graphics g)
     {
         g.setColor(Color.GREEN);
-        g.fillOval(x, y, RADIUS * 4, RADIUS * 4);
+        g.fillOval(x-RADIUS/2, y-RADIUS/2, RADIUS, RADIUS);
     }
     
 }

@@ -101,7 +101,7 @@ public class GridPanel extends JComponent
         for(int j = 0; j < homes.size(); j++)
         {
             homes.get(j).draw(g);
-            g.setColor(Color.BLACK);
+            g.setColor(Color.WHITE);
             g.drawLine(homes.get(j).getXCoor()- gridFrame.getEachSquare()/2, homes.get(j).getYCoor()- gridFrame.getEachSquare()/2,
                     homes.get(j).getXCoor()+ gridFrame.getEachSquare()/2 , homes.get(j).getYCoor()- gridFrame.getEachSquare()/2);
             g.drawLine(homes.get(j).getXCoor()- gridFrame.getEachSquare()/2, homes.get(j).getYCoor()- gridFrame.getEachSquare()/2,
