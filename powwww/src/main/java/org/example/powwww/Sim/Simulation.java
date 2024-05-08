@@ -101,13 +101,13 @@ public class Simulation extends SimMethods {
 
             System.out.println(tick);
 
-            if(Math.random() < h){
+            if(Math.random() < 0.1){
                 ArrayList f = new ArrayList();
                 Pill p = new Pill(0);
                 p1.addSickness(new AcutSickness(5,5, p1,p));
 /*                f.add(Pill.AllPills.get(0));
                 createOrdersForPatients(p1, city, f);*/
-                h = 0;
+
             }
 
             // moves all nurses
