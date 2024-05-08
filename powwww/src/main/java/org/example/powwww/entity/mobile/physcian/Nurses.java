@@ -30,7 +30,9 @@ public class Nurses extends Mobile {
 
     ArrowKey direction;
 
-
+    public Nurses(){
+        super();
+    }
     public Nurses(Road cotainedIn){
         super(cotainedIn);
         this.city = cotainedIn.getCity();

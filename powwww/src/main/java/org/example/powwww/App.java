@@ -157,22 +157,23 @@ public class App extends Application {
         pillsPage = new Scene(fxmlPills.load(),1080,720);*/
 
         //sign up
+
         signUpButton.setOnAction(e -> {
             primaryStage.setScene(signInOccupationPage);
             String selected = comboBox.getSelectionModel().getSelectedItem();
-            //User user; 
+            User user;
             if(selected.equals("Customer")){
-                //user = new Patients();
+                user = new Patients();
             }
             else if(selected.equals("Nurse")){
 
-                //user = new Nurses();
+                user = new Nurses();
             }
             else if(selected.equals("Scooter")){
-                //user = new Scooter();
+                user = new Scooter();
             }
             else{
-                //user = new Van();
+                user = new Van();
             }
 
             signUPButton2.setOnAction(ee -> {
@@ -189,21 +190,19 @@ public class App extends Application {
                 String[] coord = new String[2];
                 coord = addressTextField.getText().split(",");
                 //UserMethods.signUp(user.getName(),Integer.parseInt(coord[0]), Integer.parseInt(coord[1]), user.getUserName(), user.getPassword());
-
-                //enter home page
-                loginButton.setOnAction(eee -> {
-                    primaryStage.setScene(homePage);
-                }); 
-            }); 
+                signUPButton2.setOnAction(eee -> {
+                            primaryStage.setScene(logInPage);
+                });
+                    //enter home page
+                    loginButton.setOnAction(eeee -> {
+                        primaryStage.setScene(homePage);
+                });
+            });
         });
 
         //enter home page
         loginButton.setOnAction(e -> {
             UserMethods.login(userNameLogInTextField.getText(), passwordLogInTextField.getText());
-            primaryStage.setScene(homePage);
-        }); 
-
-        signUPButton3.setOnAction(e -> {
             primaryStage.setScene(homePage);
         }); 
 

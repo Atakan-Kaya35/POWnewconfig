@@ -16,7 +16,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button fx:id="signUpButton" layoutX="261.0" layoutY="293.0" mnemonicParsing="false" style="-fx-background-color: #F69256;" text="Sign up" />
+      <Button fx:id="signUPButton2" layoutX="261.0" layoutY="293.0" mnemonicParsing="false" style="-fx-background-color: #F69256;" text="Sign up" />
       <ImageView fitHeight="97.0" fitWidth="99.0" layoutX="110.0" layoutY="-7.0">
          <image>
             <Image url="@Logo.png" />

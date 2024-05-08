@@ -11,7 +11,7 @@ public abstract class Mobile extends User {
 
     // Burkay affet
     Road containedIn = null;
-
+    public Mobile(){}
     public Mobile (Road containedIn){
         setContainedIn(containedIn);
     }
