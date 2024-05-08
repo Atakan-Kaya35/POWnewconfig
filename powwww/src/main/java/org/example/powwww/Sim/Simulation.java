@@ -112,6 +112,7 @@ public class Simulation extends SimMethods {
 
             // moves all nurses
             stimulateNurses(city, (GridFrame) grid);
+
             System.out.println(city.viewMap(false));
 
             // Advance the time by one tick
