@@ -99,7 +99,7 @@ import static org.example.powwww.Sim.UserMethods.*;
 }*/
 
 
-public class Applic{
+public class Applic extends Application{
     public static User currentUser;
     private Scene scene;
     private Stage stage;
