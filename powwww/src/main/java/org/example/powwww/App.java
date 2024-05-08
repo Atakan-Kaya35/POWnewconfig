@@ -133,7 +133,7 @@ public class App extends Application {
     public void start(Stage primaryStage) throws IOException{
 
         FXMLLoader fxmlLogIn = new FXMLLoader(App.class.getResource("/org/example/powwww/Merhaba.fxml"));
-        logInPage = new Scene(fxmlLogIn.load(),1080,720);
+        logInPage = new Scene(fxmlLogIn.load(),600,400);
         primaryStage.setScene(logInPage);
         
         comboBox.getItems().addAll("Customer", "Nurse", "Scooter", "Van");
@@ -142,7 +142,7 @@ public class App extends Application {
         homePage = new Scene(fxmlHome.load(),1080,720);
 
         FXMLLoader fxmlSignInOccupation = new FXMLLoader(App.class.getResource("/org/example/powwww/SignInOccupationPage.fxml"));
-        signInOccupationPage = new Scene(fxmlSignInOccupation.load(), 1080, 720);
+        signInOccupationPage = new Scene(fxmlSignInOccupation.load(), 600, 400);
 
 
         FXMLLoader fxmlPersInfo = new FXMLLoader(App.class.getResource("/org/example/powwww/PersonalInfoPage.fxml"));
