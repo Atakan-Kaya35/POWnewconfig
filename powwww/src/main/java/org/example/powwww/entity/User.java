@@ -1,4 +1,5 @@
 package org.example.powwww.entity;
+import org.example.powwww.Sim.*;
 
 public class User {
     protected String name;
@@ -21,6 +22,7 @@ public class User {
         return password;
     }
     public void setPassword(String password) {
+        UserMethods.passwords.add(password);
         this.password = password;
     }
 
@@ -34,6 +36,7 @@ public class User {
         return userName;
     }
     public void setUserName(String userName) {
+        UserMethods.usernames.add(name);
         this.userName = userName;
     }
     public String getAddress() {

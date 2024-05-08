@@ -1,6 +1,7 @@
 package org.example.powwww;
 
 import org.example.powwww.med.*;
+import org.example.powwww.Sim.UserMethods;
 import org.example.powwww.entity.mobile.physcian.Nurses;
 import org.example.powwww.entity.mobile.physcian.Van;
 import org.example.powwww.entity.mobile.physcian.Scooter;
@@ -78,6 +79,9 @@ public class App extends Application {
 
     @FXML
     private TextField userNameLogInTextField;
+
+    @FXML
+    private TextField passwordLogInTextField;
 
     @FXML
     private TextField ageSignUpTextField;
@@ -186,6 +190,7 @@ public class App extends Application {
 
         //enter home page
         loginButton.setOnAction(e -> {
+            UserMethods.login(userNameLogInTextField.getText(), passwordLogInTextField.getText());
             primaryStage.setScene(homePage);
         }); 
 
