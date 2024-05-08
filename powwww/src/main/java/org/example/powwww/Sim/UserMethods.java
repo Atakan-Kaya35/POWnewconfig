@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserMethods {
-    static ArrayList<Stationary> everyOne = new ArrayList<>();
+    public static ArrayList<Stationary> everyOne = new ArrayList<>();
     public static ArrayList<String> usernames = new ArrayList<>();
     public static ArrayList<String> passwords = new ArrayList<>();
     static ArrayList<User> users = new ArrayList<>();
