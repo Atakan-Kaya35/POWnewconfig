@@ -120,6 +120,11 @@ public class Applic extends Application{
     private void logInTry(ActionEvent event){
         System.out.println("oldu");
     }
+    @FXML
+    private void openSignUp(ActionEvent event) throws IOException {
+        FXMLLoader fxmlSignInPageLoad = new FXMLLoader(App.class.getResource("/org/example/powwww/SignInPage.fxml"));
+        Scene logInPage = new Scene(fxmlSignInPageLoad.load(),600,400);
+    }
     public void start(Stage primaryStage) throws IOException{
 
         
