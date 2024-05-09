@@ -212,7 +212,7 @@ public class Simulation extends SimMethods {
             long nanoSecTaken = System.nanoTime() - start;
             // Pause execution to simulate the duration of a tick
             try {
-                Thread.sleep(100-(int)(nanoSecTaken / 1000000)); // constant saniye boyunca uyuyor. real time simüle ediliyor.
+                Thread.sleep(300-(int)(nanoSecTaken / 1000000)); // constant saniye boyunca uyuyor. real time simüle ediliyor.
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

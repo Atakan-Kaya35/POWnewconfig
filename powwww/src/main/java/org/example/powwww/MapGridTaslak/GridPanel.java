@@ -97,7 +97,8 @@ public class GridPanel extends JComponent
         //Image image = imageIcon.getImage();
         //g.drawImage(image, -16, -12, 650, 650, this);
         setBackground(Color.BLACK);
-        
+
+
         for(int j = 0; j < homes.size(); j++)
         {
             homes.get(j).draw(g);
@@ -106,8 +107,15 @@ public class GridPanel extends JComponent
                     homes.get(j).getXCoor()+ gridFrame.getEachSquare()/2 , homes.get(j).getYCoor()- gridFrame.getEachSquare()/2);
             g.drawLine(homes.get(j).getXCoor()- gridFrame.getEachSquare()/2, homes.get(j).getYCoor()- gridFrame.getEachSquare()/2,
                     homes.get(j).getXCoor()- gridFrame.getEachSquare()/2 , homes.get(j).getYCoor()+ gridFrame.getEachSquare()/2);
-            g.setColor(Color.blue);
+
         }
+
+        g.drawLine(gridFrame.getEachSquare(), homes.get(homes.size() - 1).getYCoor() + gridFrame.getEachSquare() / 2,
+                homes.get(homes.size() - 1).getXCoor() + gridFrame.getEachSquare() / 2, homes.get(homes.size() - 1).getYCoor() + gridFrame.getEachSquare() / 2);
+        g.drawLine(homes.get(homes.size() - 1).getXCoor() + gridFrame.getEachSquare() / 2, gridFrame.getEachSquare(),
+                homes.get(homes.size() - 1).getXCoor() + gridFrame.getEachSquare() / 2 , homes.get(homes.size() - 1).getYCoor() + gridFrame.getEachSquare()/2);
+
+        g.setColor(Color.blue);
 
         for(int i = 0; i < city.getStationaryList().size(); i++)
         {
@@ -118,10 +126,16 @@ public class GridPanel extends JComponent
             if(city.getVanList().get(i).getCurrentOrder()!=null) { //null degilse
                 city.getVanList().get(i).draw(g);
             }
+            else{
+                city.getVanList().get(i).drawIdle(g);
+            }
         }
-        for(int i = 0; i< city.getScooterList().size(); i++){
-            if(city.getScooterList().get(i).getCurrentOrder()!=null) { //null degilse
+        for(int i = 0; i< city.getScooterList().size(); i++) {
+            if (city.getScooterList().get(i).getCurrentOrder() != null) { //null degilse
                 city.getScooterList().get(i).draw(g);
+            }
+            else{
+                city.getScooterList().get(i).drawIdle(g);
             }
         }
     }

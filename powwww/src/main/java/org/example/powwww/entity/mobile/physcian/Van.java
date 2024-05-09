@@ -2,8 +2,7 @@ package org.example.powwww.entity.mobile.physcian;
     
 import org.example.powwww.grid.*;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.util.*;
 import org.example.powwww.entity.mobile.*;
 
@@ -71,6 +70,18 @@ public class Van extends Nurses {
     {
         g.setColor(Color.RED);
         g.fillOval(36+ x-RADIUS/2, 36+y-RADIUS/2, RADIUS, RADIUS);
+        Graphics2D a = (Graphics2D)g;
+        g.setColor(Color.black);
+        a.drawString("" + this.ID,36+ x-RADIUS/2, 36+y-RADIUS/2 + RADIUS);
+    }
+
+    public void drawIdle(Graphics g)
+    {
+        g.setColor(Color.lightGray);
+        g.fillOval(36+ x-RADIUS/2, 36+y-RADIUS/2, RADIUS, RADIUS);
+        Graphics2D a = (Graphics2D)g;
+        g.setColor(Color.black);
+        a.drawString("" + this.ID,36+ x-RADIUS/2, 36+y-RADIUS/2 + RADIUS);
     }
 
     //Setter methods

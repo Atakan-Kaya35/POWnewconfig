@@ -50,7 +50,7 @@ public class Nurses extends Mobile {
                 y += (36 / currentTrafic);
             } else if (direction == ArrowKey.LEFT) {
                 x -= (36 / currentTrafic);
-            } else {
+            } else if(direction == ArrowKey.RIGHT){
                 x += (36 / currentTrafic);
             }
             return roadUpdateNecessaryCheck();
@@ -59,7 +59,7 @@ public class Nurses extends Mobile {
     }
 
     private boolean roadUpdateNecessaryCheck(){
-        if(((x+1) % 36) < 4 && ((y+1) % 36) < 4) {
+        if((x % 36) < 4 && (y % 36) < 4) {
             this.moveForth(currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
 
             x = this.getContainedIn().getCoords()[0]*36;

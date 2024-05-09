@@ -10,10 +10,13 @@ public abstract class Mobile extends User {
     //Building[] surroundingBuildings;
 
     // Burkay affet
+    static int serialNumber = 0;
+    protected int ID;
     Road containedIn = null;
     public Mobile(){}
     public Mobile (Road containedIn){
         setContainedIn(containedIn);
+        ID = ++ serialNumber;
     }
 
     /**
