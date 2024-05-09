@@ -9,7 +9,7 @@ import javax.swing.Timer;
 
 public class GridFrame extends JFrame
 {
-    private final int EACH_SQUARE = 36;
+    public static final int EACH_SQUARE = 36;
     private final int FRAME_HEIGTH = EACH_SQUARE*20+ EACH_SQUARE*2;
     private final int FRAME_WIDTH = EACH_SQUARE*30+ EACH_SQUARE*2;
     private City city;

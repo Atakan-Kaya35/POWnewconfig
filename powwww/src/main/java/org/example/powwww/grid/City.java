@@ -239,10 +239,10 @@ public class City {
         else if( aCoords[0] > bCoords[0]){
             return b.getTraffic()[0];
         }
-        else if( aCoords[1] < bCoords[1]){
+        else if( aCoords[1] > bCoords[1]){
             return b.getTraffic()[1];
         }
-        else if( aCoords[1] > bCoords[1]){
+        else if( aCoords[1] < bCoords[1]){
             return a.getTraffic()[1];
         }
         else{
@@ -496,8 +496,10 @@ public void createVansAndScooters() {
     Random random = new Random();
     
     // Determine the number of vans and scooters based on city parameters
-    int numVans = 1 + width * height / 100; // Adjust the factor as needed. en az 1 olmalı
-    int numScooters = 1  + width * height / 50; // Adjust the factor as needed
+    /*int numVans = 1 + width * height / 100; // Adjust the factor as needed. en az 1 olmalı
+    int numScooters = 1  + width * height / 50;*/ // Adjust the factor as needed
+    int numVans = 5;
+    int numScooters = 5;
     
     // Place vans randomly in the city
     for (int i = 0; i < numVans; i++) {
@@ -528,4 +530,8 @@ public void createVansAndScooters() {
         }
     }
 }
+
+    public Stationary[][] getStationaries() {
+        return this.stationarys;
+    }
 }

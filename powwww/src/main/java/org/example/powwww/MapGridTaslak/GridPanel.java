@@ -8,6 +8,7 @@ import javax.swing.Timer;
 
 import org.example.powwww.entity.mobile.physcian.Van;
 import org.example.powwww.grid.City;
+import org.example.powwww.grid.Stationary;
 
 public class GridPanel extends JComponent
 {
@@ -98,29 +99,27 @@ public class GridPanel extends JComponent
         //g.drawImage(image, -16, -12, 650, 650, this);
         setBackground(Color.BLACK);
 
-
-        for(int j = 0; j < homes.size(); j++)
+        g.setColor(Color.WHITE);
+        for(int j = 1; j <= 21; j++)
         {
-            homes.get(j).draw(g);
-            g.setColor(Color.WHITE);
-            g.drawLine(homes.get(j).getXCoor()- gridFrame.getEachSquare()/2, homes.get(j).getYCoor()- gridFrame.getEachSquare()/2,
-                    homes.get(j).getXCoor()+ gridFrame.getEachSquare()/2 , homes.get(j).getYCoor()- gridFrame.getEachSquare()/2);
-            g.drawLine(homes.get(j).getXCoor()- gridFrame.getEachSquare()/2, homes.get(j).getYCoor()- gridFrame.getEachSquare()/2,
-                    homes.get(j).getXCoor()- gridFrame.getEachSquare()/2 , homes.get(j).getYCoor()+ gridFrame.getEachSquare()/2);
-
+            g.drawLine(GridFrame.EACH_SQUARE, j * GridFrame.EACH_SQUARE, GridFrame.EACH_SQUARE * 30, j * GridFrame.EACH_SQUARE);
         }
 
-        g.drawLine(gridFrame.getEachSquare(), homes.get(homes.size() - 1).getYCoor() + gridFrame.getEachSquare() / 2,
-                homes.get(homes.size() - 1).getXCoor() + gridFrame.getEachSquare() / 2, homes.get(homes.size() - 1).getYCoor() + gridFrame.getEachSquare() / 2);
-        g.drawLine(homes.get(homes.size() - 1).getXCoor() + gridFrame.getEachSquare() / 2, gridFrame.getEachSquare(),
-                homes.get(homes.size() - 1).getXCoor() + gridFrame.getEachSquare() / 2 , homes.get(homes.size() - 1).getYCoor() + gridFrame.getEachSquare()/2);
+        for (int i = 1; i <= 30; i++) {
+            g.drawLine(i * GridFrame.EACH_SQUARE, GridFrame.EACH_SQUARE , i * GridFrame.EACH_SQUARE, GridFrame.EACH_SQUARE * 20);
+        }
 
         g.setColor(Color.blue);
 
-        for(int i = 0; i < city.getStationaryList().size(); i++)
+        for(Stationary[] stationary2d: city.getStationaries())
         {
-            city.getStationaryList().get(i).draw(g);
+            for(Stationary stat : stationary2d){
+                if(stat != null){
+                    stat.draw(g);
+                }
+            }
         }
+
 
         for(int i = 0; i< city.getVanList().size(); i++){
             if(city.getVanList().get(i).getCurrentOrder()!=null) { //null degilse

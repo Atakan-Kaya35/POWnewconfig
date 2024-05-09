@@ -1,6 +1,7 @@
 package org.example.powwww.grid;
 import java.util.*;
 
+import org.example.powwww.entity.mobile.physcian.Nurses;
 import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.med.Medicine;
 import org.example.powwww.med.Pill;
@@ -50,7 +51,7 @@ public class Order {
             this.finishingCord = patient.getCoordinates();
             this.carriedMedicine = carriedPill;
             if (startingCord != null)
-                patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained().receiveOrder(this);
+                ((Nurses)(patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained())).receiveOrder(this);
         }
     }
 

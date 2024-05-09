@@ -27,13 +27,13 @@ public class Simulation extends SimMethods {
         grid.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         grid.setVisible(true);
 
-        Patients p1 = new Patients("p1", 10,0,city);
+        Patients p1 = new Patients("p1", 0,0,city);
         city.addStationary(p1);
-        Patients p2 = new Patients("p1", 0,0,city);
+        Patients p2 = new Patients("p1", 28,0,city);
         city.addStationary(p1);
-        Patients p3 = new Patients("p1", 29,19,city);
+        Patients p3 = new Patients("p1", 28,18,city);
         city.addStationary(p1);
-        Patients p4 = new Patients("p1", 20,10,city);
+        Patients p4 = new Patients("p1", 0,18,city);
         city.addStationary(p1);
         Patients p5 = new Patients("p1", 0,5,city);
         city.addStationary(p1);
@@ -43,7 +43,7 @@ public class Simulation extends SimMethods {
         city.addStationary(p1);
         Patients p8 = new Patients("p1", 15,10,city);
         city.addStationary(p1);
-        Patients p9 = new Patients("p1", 0,19,city);
+        Patients p9 = new Patients("p1", 0,18,city);
         city.addStationary(p1);
         Patients p10 = new Patients("p1", 3,15,city);
         city.addStationary(p1);
@@ -147,6 +147,7 @@ public class Simulation extends SimMethods {
                 p4.addSickness(new AcutSickness(5, 5, p4, p));
             }
 
+
 // For p5
             if (Math.random() < 0.1) {
                 System.out.println("p5");
@@ -201,6 +202,7 @@ public class Simulation extends SimMethods {
                 p13.addSickness(new AcutSickness(5, 5, p13, p));
             }
 
+
             // moves all nurses
             stimulateNurses(city, (GridFrame) grid);
 
@@ -212,7 +214,9 @@ public class Simulation extends SimMethods {
             long nanoSecTaken = System.nanoTime() - start;
             // Pause execution to simulate the duration of a tick
             try {
-                Thread.sleep(300-(int)(nanoSecTaken / 1000000)); // constant saniye boyunca uyuyor. real time simüle ediliyor.
+                Thread.sleep(100
+                //        -(int)(nanoSecTaken / 1000000)
+                ); // constant saniye boyunca uyuyor. real time simüle ediliyor.
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
