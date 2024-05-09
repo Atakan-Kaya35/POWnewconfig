@@ -10,12 +10,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F6ECE6;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.powwww.Applic">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F6ECE6;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.powwww.SceneController">
    <children>
       <Label layoutX="44.0" layoutY="182.0" prefHeight="21.0" prefWidth="65.0" text="User Name" />
       <Label layoutX="44.0" layoutY="231.0" text="Password" />
-      <Button fx:id="loginButton" layoutX="110.0" layoutY="282.0" mnemonicParsing="false" onAction="#logInTry" style="-fx-background-color: #F69256;" text="Login" />
-      <Button fx:id="signUpButton" layoutX="110.0" layoutY="356.0" mnemonicParsing="false" style="-fx-background-color: #F69256;" text="Sign up" />
+      <Button fx:id="loginButton" layoutX="110.0" layoutY="282.0" mnemonicParsing="false" style="-fx-background-color: #F69256;" text="Login" />
+      <Button fx:id="signUpButton" layoutX="110.0" layoutY="356.0" mnemonicParsing="false" onAction="#switchToSignUpPage" style="-fx-background-color: #F69256;" text="Sign up" />
       <Pane layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #F69256;">
          <children>
             <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="210.0">
