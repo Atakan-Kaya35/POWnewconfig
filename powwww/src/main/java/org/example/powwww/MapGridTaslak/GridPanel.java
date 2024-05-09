@@ -7,6 +7,7 @@ import java.util.*;
 import javax.swing.Timer;
 
 import org.example.powwww.entity.mobile.physcian.Van;
+import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.grid.City;
 import org.example.powwww.grid.Stationary;
 
@@ -102,7 +103,16 @@ public class GridPanel extends JComponent
         g.setColor(Color.WHITE);
         for(int j = 1; j <= 21; j++)
         {
+<<<<<<< HEAD
             g.drawLine(GridFrame.EACH_SQUARE, j * GridFrame.EACH_SQUARE, GridFrame.EACH_SQUARE * 30, j * GridFrame.EACH_SQUARE);
+=======
+            g.setColor(Color.WHITE);
+            g.drawLine(homes.get(j).getXCoor()- gridFrame.getEachSquare()/2, homes.get(j).getYCoor()- gridFrame.getEachSquare()/2,
+                    homes.get(j).getXCoor()+ gridFrame.getEachSquare()/2 , homes.get(j).getYCoor()- gridFrame.getEachSquare()/2);
+            g.drawLine(homes.get(j).getXCoor()- gridFrame.getEachSquare()/2, homes.get(j).getYCoor()- gridFrame.getEachSquare()/2,
+                    homes.get(j).getXCoor()- gridFrame.getEachSquare()/2 , homes.get(j).getYCoor()+ gridFrame.getEachSquare()/2);
+
+>>>>>>> 15a592688ca8c108d7638f0ebd972b7a211f73d2
         }
 
         for (int i = 1; i <= 30; i++) {
@@ -111,6 +121,7 @@ public class GridPanel extends JComponent
 
         g.setColor(Color.blue);
 
+<<<<<<< HEAD
         for(Stationary[] stationary2d: city.getStationaries())
         {
             for(Stationary stat : stationary2d){
@@ -124,9 +135,21 @@ public class GridPanel extends JComponent
         for(int i = 0; i< city.getVanList().size(); i++){
             if(city.getVanList().get(i).getCurrentOrder()!=null) { //null degilse
                 city.getVanList().get(i).draw(g);
+=======
+        for(Patients p : city.getPatientList())
+        {
+            if(p.getCurrentOrder()==null){ // bunun not equal to olmasi lazim
+                p.draw(g);
+            }
+        }
+
+        for(Van v : city.getVanList()){
+            if(v.getCurrentOrder()!=null) { //null degilse
+                v.draw(g);
+>>>>>>> 15a592688ca8c108d7638f0ebd972b7a211f73d2
             }
             else{
-                city.getVanList().get(i).drawIdle(g);
+                v.drawIdle(g);
             }
         }
         for(int i = 0; i< city.getScooterList().size(); i++) {
