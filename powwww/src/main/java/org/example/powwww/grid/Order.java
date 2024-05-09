@@ -34,6 +34,7 @@ public class Order {
         path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
         this.finishingCord = patient.getCoordinates();
         this.carriedMedicine = new Pill(carriedPill.getPillID());
+        patient.setCurrentOrder(this);
     }
 
     public Order(Patients patient, Serum carriedPill){
@@ -41,6 +42,7 @@ public class Order {
         path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
         this.finishingCord = patient.getCoordinates();
         this.carriedMedicine = new Serum();
+        patient.setCurrentOrder(this);
     }
 
     public Order(Patients patient, Medicine carriedPill){
@@ -49,9 +51,9 @@ public class Order {
             path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained(), patient);
             this.finishingCord = patient.getCoordinates();
             this.carriedMedicine = carriedPill;
-            if (startingCord != null)
-                patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained().receiveOrder(this);
+            patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained().receiveOrder(this);
         }
+        patient.setCurrentOrder(this);
     }
 
     public Order(Patients patient, ArrayList<Medicine> medList){
@@ -65,6 +67,7 @@ public class Order {
                 carriedPills.add((Pill) med);
             }
         }
+        patient.setCurrentOrder(this);
     }
 
     // manifest order path dolacak??

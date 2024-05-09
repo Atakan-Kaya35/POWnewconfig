@@ -59,7 +59,7 @@ public class Nurses extends Mobile {
     }
 
     private boolean roadUpdateNecessaryCheck(){
-        if((x % 36) < 4 && (y % 36) < 4) {
+        if((x % 36) ==0 && (y % 36) == 0) {
             this.moveForth(currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
 
             x = this.getContainedIn().getCoords()[0]*36;

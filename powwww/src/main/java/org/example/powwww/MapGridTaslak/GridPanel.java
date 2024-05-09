@@ -7,6 +7,7 @@ import java.util.*;
 import javax.swing.Timer;
 
 import org.example.powwww.entity.mobile.physcian.Van;
+import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.grid.City;
 
 public class GridPanel extends JComponent
@@ -101,7 +102,6 @@ public class GridPanel extends JComponent
 
         for(int j = 0; j < homes.size(); j++)
         {
-            homes.get(j).draw(g);
             g.setColor(Color.WHITE);
             g.drawLine(homes.get(j).getXCoor()- gridFrame.getEachSquare()/2, homes.get(j).getYCoor()- gridFrame.getEachSquare()/2,
                     homes.get(j).getXCoor()+ gridFrame.getEachSquare()/2 , homes.get(j).getYCoor()- gridFrame.getEachSquare()/2);
@@ -117,17 +117,20 @@ public class GridPanel extends JComponent
 
         g.setColor(Color.blue);
 
-        for(int i = 0; i < city.getStationaryList().size(); i++)
+        for(Patients p : city.getPatientList())
         {
-            city.getStationaryList().get(i).draw(g);
+            if(p.getCurrentOrder()!=null){
+                System.out.println("BBBBBBBBBBBBBBBBBBBBBB");
+                p.draw(g);
+            }
         }
 
-        for(int i = 0; i< city.getVanList().size(); i++){
-            if(city.getVanList().get(i).getCurrentOrder()!=null) { //null degilse
-                city.getVanList().get(i).draw(g);
+        for(Van v : city.getVanList()){
+            if(v.getCurrentOrder()!=null) { //null degilse
+                v.draw(g);
             }
             else{
-                city.getVanList().get(i).drawIdle(g);
+                v.drawIdle(g);
             }
         }
         for(int i = 0; i< city.getScooterList().size(); i++) {

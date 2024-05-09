@@ -1,4 +1,5 @@
 package org.example.powwww.entity.stationary;
+import java.awt.*;
 import java.util.ArrayList;
 
 import org.example.powwww.grid.City;
@@ -13,6 +14,7 @@ public class Patients extends org.example.powwww.grid.Stationary {
     protected ArrayList<Order> orderList = new ArrayList<Order>();
     Order currentOrder;
     ArrayList<Order> prevOrders;
+    private final int RADIUS = 5;
 
 
     protected City city;
@@ -25,6 +27,10 @@ public class Patients extends org.example.powwww.grid.Stationary {
         super(x, y,city);
         this.name = name;
         this.city = city;
+    }
+    public void draw(Graphics g){
+        g.setColor(Color.BLUE);
+        g.fillOval(getCoordinates()[0]*36+54, getCoordinates()[1]*36+54, RADIUS * 2, RADIUS * 2);
     }
     public String getPatientsName(){
         return this.name;
@@ -85,7 +91,10 @@ public class Patients extends org.example.powwww.grid.Stationary {
     }
 
     public void setCurrentOrder(Order newOrder){
-        this.prevOrders.add(currentOrder);
+        if (this.prevOrders == null) {
+            this.prevOrders = new ArrayList<>();
+        }
+        this.prevOrders.add(newOrder);
         this.currentOrder = newOrder;
     }
 }
