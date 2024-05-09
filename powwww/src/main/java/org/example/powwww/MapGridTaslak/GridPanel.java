@@ -119,7 +119,7 @@ public class GridPanel extends JComponent
 
         for(Patients p : city.getPatientList())
         {
-            if(p.getCurrentOrder()==null){
+            if(p.getCurrentOrder()==null){ // bunun not equal to olmasi lazim
                 p.draw(g);
             }
         }
