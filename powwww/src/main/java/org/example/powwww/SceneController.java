@@ -47,13 +47,13 @@ public class SceneController {
     private Parent root ;
     private FXMLLoader fxmlLoader;
     public void switchToSignUpPage(ActionEvent event) throws IOException {
-        setItems();
         fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/SignInForNursesAndCourier.fxml"));
         root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        setItems();
         stage.show();
     }
     public void switchToSignUpPage2(ActionEvent event) throws IOException {
