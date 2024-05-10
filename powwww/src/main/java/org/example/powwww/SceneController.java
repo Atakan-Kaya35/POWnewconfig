@@ -52,6 +52,7 @@ public class SceneController {
         scene = new Scene(root);
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        setItems(event);
         stage.setScene(scene);
         stage.show();
     }
@@ -101,10 +102,12 @@ public class SceneController {
         stage.show();
     }
     public void setItems(Event e){
+        choices.clear();
         choices.add("Nurse");
         choices.add("Patient");
         choices.add("Courier");
         occupationSelectionBox.getItems().clear();
         occupationSelectionBox.getItems().addAll(choices);
+        System.out.println("sevgi");
     }
 }
