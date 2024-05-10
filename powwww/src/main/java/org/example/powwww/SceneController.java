@@ -260,7 +260,7 @@ public class SceneController {
         // Instantiate a Swing JFrame
         JFrame menuFrame = new Menu();
         menuFrame.setTitle("Pills on Wheels");
-        menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        menuFrame.setDefaultCloseOperation(menuFrame.DISPOSE_ON_CLOSE);
         menuFrame.setVisible(true);
 
     }
