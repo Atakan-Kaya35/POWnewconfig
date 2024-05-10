@@ -51,6 +51,7 @@ public class SceneController {
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        occupationSelectionBox = new ComboBox<>();
         setItems();
         stage.show();
     }
