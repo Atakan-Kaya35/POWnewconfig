@@ -19,22 +19,22 @@
       </TextField>
       <Pane layoutX="52.0" layoutY="92.0" prefHeight="628.0" prefWidth="180.0" style="-fx-background-color: #94ACFF; -fx-border-color: black;">
          <children>
-            <Label fx:id="nameLabel" layoutX="5.0" layoutY="14.0" prefHeight="44.0" prefWidth="169.0" text="Sinan Sonlu">
+            <Label fx:id="A_Name" layoutX="5.0" layoutY="14.0" prefHeight="44.0" prefWidth="169.0" text="Sinan Sonlu">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="78.0" text="Age: ">
+            <Label fx:id="A_Age" layoutX="10.0" layoutY="78.0" text="Age: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="8.0" layoutY="116.0" text="Weight: ">
+            <Label fx:id="A_Weight" layoutX="8.0" layoutY="116.0" text="Weight: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="151.0" text="Height: ">
+            <Label fx:id="A_Height" layoutX="10.0" layoutY="151.0" text="Height: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -66,7 +66,7 @@
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="7.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="148.0" />
+                  <Text fx:id="A_Remainder" layoutX="7.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="148.0" />
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">
                      <image>
                         <Image url="@Adsız tasarım-3.png" />
@@ -121,7 +121,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="purchaseButton" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
+                  <Button fx:id="Purchase" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
                </children>
             </Pane>
          </children>

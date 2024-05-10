@@ -42,6 +42,8 @@ public class SceneController {
     @FXML
     private Button QDT;
     @FXML
+    private Button Purchase;
+    @FXML
     private Button history;
     @FXML
     private Button exit;
