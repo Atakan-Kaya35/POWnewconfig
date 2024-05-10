@@ -163,7 +163,7 @@
          </image>
       </ImageView>
       <Button fx:id="homePageButton" layoutX="1.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToHomePageInApp" prefHeight="51.0" prefWidth="51.0" text="home page" visible="false" />
-      <Button fx:id="personalInformationButton" layoutX="1.0" layoutY="119.0" mnemonicParsing="false" onAction="#switchToPersonalInfoPage" prefHeight="36.0" prefWidth="50.0" text="personal info button" visible="false" />
+      <Button fx:id="personalInformationButton" layoutX="1.0" layoutY="119.0" mnemonicParsing="false" onAction="#switchToPersonalInfoPage" prefHeight="36.0" prefWidth="50.0" text="personal info button" />
       <Button fx:id="pillsButton" layoutX="-3.0" layoutY="163.0" mnemonicParsing="false" onAction="#switchToPillsPage" prefHeight="36.0" prefWidth="51.0" text="pills button" visible="false" />
       <Button fx:id="quickDiagnosisTestButton" layoutX="-3.0" layoutY="210.0" mnemonicParsing="false" onAction="#switchToQDTPage" prefHeight="36.0" prefWidth="51.0" text="QDT button" visible="false" />
       <Button fx:id="history" layoutX="2.0" layoutY="611.0" mnemonicParsing="false" onAction="#switchToOrdersPage" prefHeight="43.0" prefWidth="56.0" text="Button" visible="false" />
