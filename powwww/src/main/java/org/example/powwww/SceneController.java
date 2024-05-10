@@ -99,6 +99,11 @@ public class SceneController {
     }
     public void switchToSignUpPagetoLogIn(ActionEvent event) throws IOException {
         //creating user
+        Alert alertt = new Alert(Alert.AlertType.ERROR);
+        alertt.setTitle("Warning");
+        alertt.setContentText("You should type your address as coordinates like(X,Y)");
+        alertt.showAndWait();
+
         if (isUsernameTaken(SU_Username.getText())) {
             System.out.println("Username is already taken.");
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -115,6 +120,7 @@ public class SceneController {
             alert.setContentText("Password must be at least 8 characters long.");
             alert.showAndWait();
         }
+
         String[] address = SU_Address.getText().split(",");
         int x = Integer.parseInt(address[0]);
         int y = Integer.parseInt(address[1]);
