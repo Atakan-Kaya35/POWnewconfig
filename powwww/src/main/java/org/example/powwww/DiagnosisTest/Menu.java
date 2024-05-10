@@ -62,7 +62,7 @@ public class Menu extends JFrame
             getMenu().dispose();
             JFrame test = new Test();
             test.setTitle("Answer Questions");
-            test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            test.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             test.setVisible(true);
         }
     }

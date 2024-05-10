@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.powwww.SceneController">
    <children>
       <TextField layoutX="390.0" layoutY="20.0" prefHeight="32.0" prefWidth="300.0" promptText="search for medicine..." style="-fx-border-color: grey;">
          <font>
@@ -123,42 +123,12 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
+                  <Button fx:id="Purchase" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
                </children>
             </Pane>
          </children>
       </Pane>
       <Pane layoutY="65.0" prefHeight="27.0" prefWidth="1080.0" style="-fx-background-color: #94ACFF;" />
-      <ImageView fitHeight="51.0" fitWidth="51.0" layoutX="4.0" layoutY="9.0">
-         <image>
-            <Image url="@4.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="4.0" layoutY="164.0">
-         <image>
-            <Image url="@6.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="4.0" layoutY="120.0">
-         <image>
-            <Image url="@5.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="6.0" layoutY="205.0">
-         <image>
-            <Image url="@7.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="4.0" layoutY="616.0">
-         <image>
-            <Image url="@8.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="4.0" layoutY="667.0">
-         <image>
-            <Image url="@9.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="344.0" layoutY="18.0">
          <image>
             <Image url="@buyutec.png" />
@@ -356,11 +326,6 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="166.0" layoutY="7.0">
-                           <image>
-                              <Image url="@pill2.png" />
-                           </image>
-                        </ImageView>
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -459,5 +424,59 @@
             </GridPane>
          </content>
       </ScrollPane>
+      <Button fx:id="homePageButton1" layoutX="6.0" layoutY="1.0" mnemonicParsing="false" onAction="#switchToHomePageInApp" prefHeight="60.0" prefWidth="68.0">
+         <graphic>
+            <ImageView fitHeight="51.0" fitWidth="51.0">
+               <image>
+                  <Image url="@4.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="personalInformationButton" layoutX="-6.0" layoutY="104.0" mnemonicParsing="false" onAction="#switchToPersonalInfoPage" prefHeight="49.0" prefWidth="48.0">
+         <graphic>
+            <ImageView fitHeight="38.0" fitWidth="43.0">
+               <image>
+                  <Image url="@5.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="pillsPage" layoutX="-9.0" layoutY="163.0" mnemonicParsing="false" onAction="#switchToPillsPage" prefHeight="47.0" prefWidth="64.0">
+         <graphic>
+            <ImageView fitHeight="38.0" fitWidth="43.0">
+               <image>
+                  <Image url="@6.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="quickDiagnosisTestButton" layoutX="-4.0" layoutY="220.0" mnemonicParsing="false" onAction="#switchToQDTPage" prefHeight="31.0" prefWidth="60.0">
+         <graphic>
+            <ImageView fitHeight="38.0" fitWidth="43.0">
+               <image>
+                  <Image url="@7.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="history" layoutX="2.0" layoutY="603.0" mnemonicParsing="false" onAction="#switchToOrdersPage" prefHeight="43.0" prefWidth="56.0">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="43.0">
+               <image>
+                  <Image url="@8.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="exit" layoutX="4.0" layoutY="663.0" mnemonicParsing="false" onAction="#Exit" prefHeight="60.0" prefWidth="68.0">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="43.0">
+               <image>
+                  <Image url="@9.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
