@@ -72,7 +72,7 @@ public class Van extends Nurses {
         g.fillOval(36+ x-RADIUS/2, 36+y-RADIUS/2, RADIUS, RADIUS);
         Graphics2D a = (Graphics2D)g;
         g.setColor(Color.blue);
-        a.drawString("" + this.y,36+ x-RADIUS/2, 36+y-RADIUS/2 + RADIUS);
+        a.drawString("" + this.ID,36+ x-RADIUS/2, 36+y-RADIUS/2 + RADIUS);
     }
 
     public void drawIdle(Graphics g)
@@ -81,7 +81,7 @@ public class Van extends Nurses {
         g.fillOval(36+ x-RADIUS/2, 36+y-RADIUS/2, RADIUS, RADIUS);
         Graphics2D a = (Graphics2D)g;
         g.setColor(Color.blue);
-        a.drawString("" + this.y,36+ x-RADIUS/2, 36+y-RADIUS/2 + RADIUS);
+        a.drawString("" + this.ID,36+ x-RADIUS/2, 36+y-RADIUS/2 + RADIUS);
     }
 
     //Setter methods

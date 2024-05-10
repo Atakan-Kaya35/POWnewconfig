@@ -3,6 +3,8 @@ package org.example.powwww.grid;
 import java.util.*;
 
 
+import org.example.powwww.MapGridTaslak.GridFrame;
+import org.example.powwww.MapGridTaslak.GridPanel;
 import org.example.powwww.entity.mobile.*;
 import org.example.powwww.entity.mobile.physcian.*;
 import org.example.powwww.entity.mobile.physcian.Scooter;
@@ -464,6 +466,7 @@ public void createRandomBuildings(int numBuildings, double portionOfCity) {
         int startX = random.nextInt(width - buildingWidth);
         int startY = random.nextInt(height - buildingHeight);
 
+
         // Ensure building does not overlap with existing buildings or roads
         boolean isOverlap = false;
         for (int x = startX; x < startX + buildingWidth; x++) {
@@ -481,6 +484,10 @@ public void createRandomBuildings(int numBuildings, double portionOfCity) {
             stationaryList.add(building);
             // Place the building in the city org.example.powwww.grid
             buildCustomeStationary(startX, startY, buildingWidth, buildingHeight, building);
+
+            int[] newObstacle = {startX, startY, buildingWidth, buildingHeight};
+            GridPanel.addObstacle(newObstacle);
+
             // Update the remaining cells to fill
             cellsToFill -= buildingWidth * buildingHeight;
         }

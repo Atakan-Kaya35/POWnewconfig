@@ -27,7 +27,7 @@ public class GridFrame extends JFrame
         gridPanel = createGridPanel();
         panel.add(gridPanel, BorderLayout.CENTER);
         add(panel);
-        setSize(FRAME_WIDTH, FRAME_HEIGTH);
+        setSize(FRAME_WIDTH, FRAME_HEIGTH + EACH_SQUARE);
         setResizable(false);
         setVisible(true);
     }
@@ -62,5 +62,8 @@ public class GridFrame extends JFrame
     public int getEachSquare()
     {
         return EACH_SQUARE;
+    }
+
+    public void showTime(int tick) {
     }
 }

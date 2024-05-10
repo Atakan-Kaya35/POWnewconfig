@@ -6,6 +6,7 @@ import java.awt.*;
 import java.util.*;
 import javax.swing.Timer;
 
+import org.example.powwww.Sim.Simulation;
 import org.example.powwww.entity.mobile.physcian.Van;
 import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.grid.City;
@@ -21,6 +22,7 @@ public class GridPanel extends JComponent
     private City city;
     //Timer t;
     ActionListener listener;
+    public static ArrayList<int[]> obstanceList = new ArrayList<>();
 
     public GridPanel(GridFrame ref, City c)
     {
@@ -101,18 +103,9 @@ public class GridPanel extends JComponent
         setBackground(Color.BLACK);
 
         g.setColor(Color.WHITE);
-        for(int j = 1; j <= 21; j++)
+        for(int j = 1; j <= 20; j++)
         {
-<<<<<<< HEAD
             g.drawLine(GridFrame.EACH_SQUARE, j * GridFrame.EACH_SQUARE, GridFrame.EACH_SQUARE * 30, j * GridFrame.EACH_SQUARE);
-=======
-            g.setColor(Color.WHITE);
-            g.drawLine(homes.get(j).getXCoor()- gridFrame.getEachSquare()/2, homes.get(j).getYCoor()- gridFrame.getEachSquare()/2,
-                    homes.get(j).getXCoor()+ gridFrame.getEachSquare()/2 , homes.get(j).getYCoor()- gridFrame.getEachSquare()/2);
-            g.drawLine(homes.get(j).getXCoor()- gridFrame.getEachSquare()/2, homes.get(j).getYCoor()- gridFrame.getEachSquare()/2,
-                    homes.get(j).getXCoor()- gridFrame.getEachSquare()/2 , homes.get(j).getYCoor()+ gridFrame.getEachSquare()/2);
-
->>>>>>> 15a592688ca8c108d7638f0ebd972b7a211f73d2
         }
 
         for (int i = 1; i <= 30; i++) {
@@ -121,7 +114,6 @@ public class GridPanel extends JComponent
 
         g.setColor(Color.blue);
 
-<<<<<<< HEAD
         for(Stationary[] stationary2d: city.getStationaries())
         {
             for(Stationary stat : stationary2d){
@@ -132,10 +124,10 @@ public class GridPanel extends JComponent
         }
 
 
-        for(int i = 0; i< city.getVanList().size(); i++){
-            if(city.getVanList().get(i).getCurrentOrder()!=null) { //null degilse
-                city.getVanList().get(i).draw(g);
-=======
+/*        for(int i = 0; i< city.getVanList().size(); i++) {
+            city.getVanList().get(i).draw(g);
+        }*/
+
         for(Patients p : city.getPatientList())
         {
             if(p.getCurrentOrder()==null){ // bunun not equal to olmasi lazim
@@ -143,10 +135,19 @@ public class GridPanel extends JComponent
             }
         }
 
+        g.setColor(Color.black);
+        for(int[] obstacle : obstanceList){
+            if(obstacle[3] > 1 && obstacle[2] > 1) {
+                g.drawRect(obstacle[0] * GridFrame.EACH_SQUARE + GridFrame.EACH_SQUARE + 1, obstacle[1] * GridFrame.EACH_SQUARE + GridFrame.EACH_SQUARE + 1,
+                        obstacle[2] * GridFrame.EACH_SQUARE - 2, obstacle[3] * GridFrame.EACH_SQUARE - 2);
+                g.fillRect(obstacle[0] * GridFrame.EACH_SQUARE + GridFrame.EACH_SQUARE + 1, obstacle[1] * GridFrame.EACH_SQUARE + GridFrame.EACH_SQUARE + 1,
+                        obstacle[2] * GridFrame.EACH_SQUARE - 2, obstacle[3] * GridFrame.EACH_SQUARE - 2);
+            }
+        }
+
         for(Van v : city.getVanList()){
             if(v.getCurrentOrder()!=null) { //null degilse
                 v.draw(g);
->>>>>>> 15a592688ca8c108d7638f0ebd972b7a211f73d2
             }
             else{
                 v.drawIdle(g);
@@ -160,5 +161,18 @@ public class GridPanel extends JComponent
                 city.getScooterList().get(i).drawIdle(g);
             }
         }
+
+        g.setColor(Color.ORANGE);
+        g.drawRect((int)(27.5 * GridFrame.EACH_SQUARE), (int)(20.5 * GridFrame.EACH_SQUARE), 2 * GridFrame.EACH_SQUARE, GridFrame.EACH_SQUARE);
+        g.fillRect((int)(27.5 * GridFrame.EACH_SQUARE), (int)(20.5 * GridFrame.EACH_SQUARE), 2 * GridFrame.EACH_SQUARE, GridFrame.EACH_SQUARE);
+
+        g.setColor(Color.black);
+        Graphics2D a = (Graphics2D)g;
+        a.setFont(new Font("Arial", Font.BOLD, 20));
+        a.drawString(String.format("%02d:%02d", Simulation.tick / 60, Simulation.tick % 60), (int)(27.8 * GridFrame.EACH_SQUARE), (int)(21.2 * GridFrame.EACH_SQUARE));
+
+    }
+    public static void addObstacle(int[] newObstacle){
+        obstanceList.add(newObstacle);
     }
 }

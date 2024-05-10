@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 public class Simulation extends SimMethods {
 
+    public static int tick;
+
     public static void main(String[] args) {
 
         // Initialize the city with desired parameters
@@ -88,7 +90,7 @@ public class Simulation extends SimMethods {
 
 
         boolean running = true;
-        int tick = 1; // Track the current tick
+        tick = 1; // Track the current tick
         int day = 0;
 
         // Duration of a tick in minutes
@@ -204,7 +206,7 @@ public class Simulation extends SimMethods {
 
 
             // moves all nurses
-            stimulateNurses(city, (GridFrame) grid);
+            stimulateNurses(city, (GridFrame) grid, tick);
 
             //System.out.println(city.viewMap(false));
 

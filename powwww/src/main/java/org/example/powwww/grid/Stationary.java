@@ -46,15 +46,6 @@ public class Stationary extends User{
         this.surroundingRoads = roads;
     }
 
-    public void setRoads(Road road1, Road road2, Road road3, Road road4){
-        this.surroundingRoads = new Road[4];
-
-        this.surroundingRoads[0] = road1;
-        this.surroundingRoads[1] = road2;
-        this.surroundingRoads[2] = road3;
-        this.surroundingRoads[3] = road4;
-    }
-
     public void draw(Graphics g)
     {
         g.setColor(Color.RED);
