@@ -1,6 +1,8 @@
 package org.example.powwww;
 
+import javafx.collections.FXCollections;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import org.example.powwww.Sim.UserMethods;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,12 +31,16 @@ public class SceneController {
     private TextField userNameTextField;
     @FXML
     private TextField passwordTextField;
+    @FXML
+    private ComboBox<String> occupationSelectionBox;
 
     private Stage stage;
     private Scene scene;
     private Parent root ;
     private FXMLLoader fxmlLoader;
-
+    public void addComboBoxItems(){
+        occupationSelectionBox.setItems(FXCollections.observableArrayList("Nurse","Courier","Patient"));
+    }
     public void switchToSignUpPage(ActionEvent event) throws IOException {
         fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/SignInForNursesAndCourier.fxml"));
         root = fxmlLoader.load();
