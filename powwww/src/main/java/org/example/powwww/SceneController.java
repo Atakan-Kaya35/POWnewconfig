@@ -49,6 +49,8 @@ public class SceneController {
     @FXML
     private Button exit;
     @FXML
+    private Button QDTStart;
+    @FXML
     private TextField userNameTextField;
     @FXML
     private TextField passwordTextField;
