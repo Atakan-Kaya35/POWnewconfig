@@ -33,7 +33,7 @@ public class Road {
     }
 
     public void setTraffic(int[] traffic) {
-        int max = 100;
+        int max = 6;
         int min = 1;
 
         // setting right traffic

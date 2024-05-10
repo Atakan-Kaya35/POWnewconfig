@@ -1,6 +1,7 @@
 package org.example.powwww.entity.mobile.physcian;
 import java.util.ArrayList;
 
+import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.Sim.SimMethods;
 import org.example.powwww.entity.mobile.Mobile;
 import org.example.powwww.grid.City;
@@ -37,8 +38,8 @@ public class Nurses extends Mobile {
         super(cotainedIn);
         this.city = cotainedIn.getCity();
         city.addNurse(this);
-        this.x = cotainedIn.getCoords()[0] * SimMethods.TICKPERDAY;
-        this.y = cotainedIn.getCoords()[1] * SimMethods.TICKPERDAY;
+        this.x = cotainedIn.getCoords()[0] * GridFrame.EACH_SQUARE;
+        this.y = cotainedIn.getCoords()[1] * GridFrame.EACH_SQUARE;
     }
 
     public boolean move(){
@@ -55,11 +56,16 @@ public class Nurses extends Mobile {
             }
             return roadUpdateNecessaryCheck();
         }
+        else{
+            x = this.getContainedIn().getCoords()[0]*36;
+            y = this.getContainedIn().getCoords()[1]*36;
+            direction = ArrowKey.STAY;
+        }
         return false;
     }
 
     private boolean roadUpdateNecessaryCheck(){
-        if((x % 36) ==0 && (y % 36) == 0) {
+        if((x % 36) < 6 && (y % 36) < 6) {
             this.moveForth(currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
 
             x = this.getContainedIn().getCoords()[0]*36;
@@ -70,19 +76,6 @@ public class Nurses extends Mobile {
             return true;
         }
         return false;
-
-        /*if((x+1) % 36 < 2 && (y+1) % 36 < 2) {
-            if(x % 5 == 0 && x != 0){
-                x ++;
-            }
-            if(y % 5 == 0 && y != 0){
-                y ++;
-            }
-            this.setContainedIn(city.getRoad((x / 36), (y / 36)));
-            return true;
-        }
-        return false;
-        */
     }
 
     private void setDirectionOfTravel(){
@@ -156,7 +149,9 @@ public class Nurses extends Mobile {
     }
 
     public void receiveOrder(org.example.powwww.grid.Order order){
-        this.pillBaggage = order.getCarriedPills();
-        this.currentOrder = order;
+        if(currentOrder == null) {
+            this.pillBaggage = order.getCarriedPills();
+            this.currentOrder = order;
+        }
     }
 }

@@ -9,7 +9,7 @@ import javax.swing.Timer;
 
 public class GridFrame extends JFrame
 {
-    private final int EACH_SQUARE = 36;
+    public static final int EACH_SQUARE = 36;
     private final int FRAME_HEIGTH = EACH_SQUARE*20+ EACH_SQUARE*2;
     private final int FRAME_WIDTH = EACH_SQUARE*30+ EACH_SQUARE*2;
     private City city;
@@ -27,7 +27,7 @@ public class GridFrame extends JFrame
         gridPanel = createGridPanel();
         panel.add(gridPanel, BorderLayout.CENTER);
         add(panel);
-        setSize(FRAME_WIDTH, FRAME_HEIGTH);
+        setSize(FRAME_WIDTH, FRAME_HEIGTH + EACH_SQUARE);
         setResizable(false);
         setVisible(true);
     }
@@ -62,5 +62,8 @@ public class GridFrame extends JFrame
     public int getEachSquare()
     {
         return EACH_SQUARE;
+    }
+
+    public void showTime(int tick) {
     }
 }

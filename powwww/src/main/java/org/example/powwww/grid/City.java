@@ -3,6 +3,8 @@ package org.example.powwww.grid;
 import java.util.*;
 
 
+import org.example.powwww.MapGridTaslak.GridFrame;
+import org.example.powwww.MapGridTaslak.GridPanel;
 import org.example.powwww.entity.mobile.*;
 import org.example.powwww.entity.mobile.physcian.*;
 import org.example.powwww.entity.mobile.physcian.Scooter;
@@ -239,10 +241,10 @@ public class City {
         else if( aCoords[0] > bCoords[0]){
             return b.getTraffic()[0];
         }
-        else if( aCoords[1] < bCoords[1]){
+        else if( aCoords[1] > bCoords[1]){
             return b.getTraffic()[1];
         }
-        else if( aCoords[1] > bCoords[1]){
+        else if( aCoords[1] < bCoords[1]){
             return a.getTraffic()[1];
         }
         else{
@@ -464,6 +466,7 @@ public void createRandomBuildings(int numBuildings, double portionOfCity) {
         int startX = random.nextInt(width - buildingWidth);
         int startY = random.nextInt(height - buildingHeight);
 
+
         // Ensure building does not overlap with existing buildings or roads
         boolean isOverlap = false;
         for (int x = startX; x < startX + buildingWidth; x++) {
@@ -481,6 +484,10 @@ public void createRandomBuildings(int numBuildings, double portionOfCity) {
             stationaryList.add(building);
             // Place the building in the city org.example.powwww.grid
             buildCustomeStationary(startX, startY, buildingWidth, buildingHeight, building);
+
+            int[] newObstacle = {startX, startY, buildingWidth, buildingHeight};
+            GridPanel.addObstacle(newObstacle);
+
             // Update the remaining cells to fill
             cellsToFill -= buildingWidth * buildingHeight;
         }
@@ -496,8 +503,10 @@ public void createVansAndScooters() {
     Random random = new Random();
     
     // Determine the number of vans and scooters based on city parameters
-    int numVans = 1 + width * height / 100; // Adjust the factor as needed. en az 1 olmalı
-    int numScooters = 1  + width * height / 50; // Adjust the factor as needed
+    /*int numVans = 1 + width * height / 100; // Adjust the factor as needed. en az 1 olmalı
+    int numScooters = 1  + width * height / 50;*/ // Adjust the factor as needed
+    int numVans = 5;
+    int numScooters = 5;
     
     // Place vans randomly in the city
     for (int i = 0; i < numVans; i++) {
@@ -528,4 +537,8 @@ public void createVansAndScooters() {
         }
     }
 }
+
+    public Stationary[][] getStationaries() {
+        return this.stationarys;
+    }
 }

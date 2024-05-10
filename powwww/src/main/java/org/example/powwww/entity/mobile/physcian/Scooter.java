@@ -75,7 +75,7 @@ public class Scooter extends Nurses {
         g.setColor(Color.lightGray);
         g.fillOval(36+x-RADIUS/2, 36 + y-RADIUS/2, RADIUS, RADIUS);
         Graphics2D a = (Graphics2D)g;
-        g.setColor(Color.black);
+        g.setColor(Color.blue);
         a.drawString("" + this.ID,36+ x-RADIUS/2, 36+y-RADIUS/2 + RADIUS);
     }
     

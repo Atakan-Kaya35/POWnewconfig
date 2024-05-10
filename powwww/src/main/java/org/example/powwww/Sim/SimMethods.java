@@ -85,8 +85,8 @@ public class SimMethods {
 
     // Method to initialize the city with desired parameters
     public static City createCity() {
-        final int cityWidth = 30;
-        final int cityHeight = 20;
+        final int cityWidth = 29;
+        final int cityHeight = 19;
         City Ankara = new City(cityWidth, cityHeight);
         return Ankara;
     }
@@ -141,7 +141,7 @@ public class SimMethods {
 
     public static void buildCity(City city) {
 
-        city.createRandomBuildings(30, 0.7);
+        city.createRandomBuildings(4, 0.7);
         city.createVansAndScooters();
         createPatients(10, city);
         //createNurses(5, city);
@@ -326,12 +326,12 @@ public class SimMethods {
         // For simplicity, we won't implement traffic simulation in this example
     }
 
-    public static void stimulateNurses(City city, GridFrame grid){
+    public static void stimulateNurses(City city, GridFrame grid, int tick){
         for( Nurses nurse : city.getNurseList()){
             nurse.move();
         }
+        grid.showTime(tick);
         grid.getPanel().repaint();
-
     }
 }
 

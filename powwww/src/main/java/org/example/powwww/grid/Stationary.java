@@ -16,7 +16,7 @@ public class Stationary extends User{
     int startY;
     int endX;
     int endY;
-
+    boolean meaningful;
 /*     public Building(int[] coords, Stationary contained){
         this.coordinates = coords;
         this.contained = contained;
@@ -29,28 +29,21 @@ public class Stationary extends User{
 
         this.contained = contained;
     } */
-    public Stationary(){}
+    public Stationary(){
+        meaningful = false;
+    }
     public Stationary(int x, int y, City insideOf){
         this.coordinates = new int[2];
         coordinates[0] = x;
         coordinates[1] = y;
         this.insideOf = insideOf;
         insideOf.addStationary(this);
-
+        meaningful = true;
         this.contained = null;
     }
 
     public void setRoads(Road[] roads){
         this.surroundingRoads = roads;
-    }
-
-    public void setRoads(Road road1, Road road2, Road road3, Road road4){
-        this.surroundingRoads = new Road[4];
-
-        this.surroundingRoads[0] = road1;
-        this.surroundingRoads[1] = road2;
-        this.surroundingRoads[2] = road3;
-        this.surroundingRoads[3] = road4;
     }
 
     public void draw(Graphics g)
@@ -77,5 +70,9 @@ public class Stationary extends User{
 
     public String getName(){
         return "";
+    }
+
+    public boolean getIsMeaningful() {
+        return meaningful;
     }
 }
