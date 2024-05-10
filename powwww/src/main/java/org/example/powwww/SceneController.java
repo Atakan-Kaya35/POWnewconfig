@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import org.example.powwww.Sim.UserMethods;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -76,7 +77,7 @@ public class SceneController {
     @FXML
     private Label A_Height;
     @FXML
-    private Label A_Remainder;
+    private Text A_Remainder;
     City city = new City(20,20);
     private ArrayList<String> choices = new ArrayList<String>();
     public static ArrayList<Stationary> everyOne = new ArrayList<>();
