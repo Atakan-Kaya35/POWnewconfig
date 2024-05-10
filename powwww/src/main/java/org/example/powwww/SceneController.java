@@ -101,11 +101,19 @@ public class SceneController {
         //creating user
         if (isUsernameTaken(SU_Username.getText())) {
             System.out.println("Username is already taken.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Username is already taken.");
+            alert.showAndWait();
         }
 
         // Check if password meets length requirement
         if (SU_Password.getText().length() < 8) {
             System.out.println("Password must be at least 8 characters long.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Password must be at least 8 characters long.");
+            alert.showAndWait();
         }
         String[] address = SU_Address.getText().split(",");
         int x = Integer.parseInt(address[0]);
