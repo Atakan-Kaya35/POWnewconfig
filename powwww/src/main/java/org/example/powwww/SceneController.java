@@ -40,8 +40,6 @@ public class SceneController {
     private ComboBox<String> occupationSelectionBox;
     private ArrayList<String> choices = new ArrayList<String>();
 
-
-
     private Stage stage;
     private Scene scene;
     private Parent root ;
