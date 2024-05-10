@@ -142,7 +142,7 @@ public class SceneController {
         return usernames.contains(username);
     }
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
-        if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
+        //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
             fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
             root = fxmlLoader.load();
             scene = new Scene(root);
