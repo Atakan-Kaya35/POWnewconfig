@@ -16,6 +16,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.powwww.Sim.UserMethods;
+import org.example.powwww.entity.User;
+import org.example.powwww.entity.stationary.Patients;
+import org.example.powwww.grid.City;
+import org.example.powwww.grid.Stationary;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,8 +41,27 @@ public class SceneController {
     @FXML
     private TextField passwordTextField;
     @FXML
+    private TextField SU_Name;
+    @FXML
+    private TextField SU_Username;
+    @FXML
+    private TextField SU_Password;
+    @FXML
+    private TextField SU_Age;
+    @FXML
+    private TextField SU_Weight;
+    @FXML
+    private TextField SU_Height;
+    @FXML
+    private TextField SU_Address;
+    @FXML
     private ComboBox<String> occupationSelectionBox;
+    City city = new City(20,20);
     private ArrayList<String> choices = new ArrayList<String>();
+    public static ArrayList<Stationary> everyOne = new ArrayList<>();
+    public static ArrayList<String> usernames = new ArrayList<>();
+    public static ArrayList<String> passwords = new ArrayList<>();
+    static ArrayList<User> users = new ArrayList<>();
 
     private Stage stage;
     private Scene scene;
@@ -75,6 +98,26 @@ public class SceneController {
         stage.show();
     }
     public void switchToSignUpPagetoLogIn(ActionEvent event) throws IOException {
+        //creating user
+        if (isUsernameTaken(SU_Username.getText())) {
+            System.out.println("Username is already taken.");
+        }
+
+        // Check if password meets length requirement
+        if (SU_Password.getText().length() < 8) {
+            System.out.println("Password must be at least 8 characters long.");
+        }
+        
+        // Create a new user(address problem)
+        Stationary newUser = new Patients(SU_Name.getText(), 4, 4, city);
+
+        // Add the new user to the list of users
+        everyOne.add(newUser);
+        usernames.add(SU_Username.getText());
+        passwords.add(SU_Password.getText());
+
+        System.out.println("User signed up successfully.");
+        System.out.println(usernames.get(0));
         fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/Merhaba.fxml"));
         root = fxmlLoader.load();
         scene = new Scene(root);
@@ -82,6 +125,9 @@ public class SceneController {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+    private static boolean isUsernameTaken(String username) {
+        return usernames.contains(username);
     }
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
         if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
