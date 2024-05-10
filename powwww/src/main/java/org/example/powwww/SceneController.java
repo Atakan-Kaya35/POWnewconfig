@@ -19,6 +19,7 @@ import org.example.powwww.Sim.UserMethods;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -37,7 +38,9 @@ public class SceneController {
     private TextField passwordTextField;
     @FXML
     private ComboBox<String> occupationSelectionBox;
-    private String[] choices = {"Nurse","Courier","Patient"};
+    private ArrayList<String> choices = new ArrayList<String>();
+
+
 
     private Stage stage;
     private Scene scene;
@@ -97,10 +100,11 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
-    public void getChoice(ActionEvent event){
-        String occupation = occupationSelectionBox.getValue();
-    }
     public void setItems(Event e){
+        choices.add("Nurse");
+        choices.add("Patient");
+        choices.add("Courier");
+        occupationSelectionBox.getItems().clear();
         occupationSelectionBox.getItems().addAll(choices);
     }
 }
