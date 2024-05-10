@@ -5,11 +5,17 @@ import java.util.*;
 
 import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.MapGridTaslak.GridPanel;
+import org.example.powwww.Sim.SimMethods;
 import org.example.powwww.entity.mobile.*;
 import org.example.powwww.entity.mobile.physcian.*;
 import org.example.powwww.entity.mobile.physcian.Scooter;
 import org.example.powwww.entity.mobile.physcian.Van;
 import org.example.powwww.entity.stationary.*;
+import org.example.powwww.med.AcutSickness;
+import org.example.powwww.med.Pill;
+
+import static org.example.powwww.Sim.SimMethods.getRandomStationaryCoordinates;
+import static org.example.powwww.Sim.SimMethods.getTurkishNames;
 
 /**
  * Represents a city org.example.powwww.grid with roads, mobile entities, and stationary entities.
@@ -551,7 +557,7 @@ public void createVansAndScooters() {
         return this.stationarys;
     }
 
-    public void createBilkent() {
+    public void createBilkent(int numPatients) {
                     //0  1  2  3 4 5 6  7 8  9  10
         int[] tempX ={18,25,17,9,1,8,14,8,10,11,11}; //0. center 1. windows 2.mayfest 3.dogu cimen 4 ve 5 agac
         int[] tempY ={7,3,11,17,6,0,0,5,11,11,6}; //8 ve 9 olan göl //10 olan göle uzanan yol
@@ -565,7 +571,24 @@ public void createVansAndScooters() {
             int[] newObstacle = {tempX[i], tempY[i], tempWidth[i], tempHeight[i]};
             GridPanel.addObstacle(newObstacle);
         }
+        ArrayList<String> turkishNames = getTurkishNames(); // Get a list of Turkish names
 
+        Random random = new Random();
+        int[] temporX= {11,1,2,28,25,26,17,19,6,6,19};
+        int[] temporY= {0,1,17,0,8,15,15,1,7,14,12};
+        for (int i = 0; i < temporX.length; i++) {
+            String name = turkishNames.get(random.nextInt(turkishNames.size())); // her bir patientı bir stationary ile aynı lokasyona atıyoruz
+            Patients patient = new Patients(name, temporX[i], temporY[i], this);
+            this.getPatientList().add(patient);
+        }
+        killPatients();
     }
-
+    public void killPatients(){
+        Pill p = new Pill(0);
+        for(int i = 0; i< getPatientList().size(); i++){
+            if (Math.random() < 0.1) {
+                SimMethods.getRandomSickness(getPatientList().get(i));
+            }
+        }
+    }
 }

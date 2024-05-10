@@ -97,5 +97,4 @@ public class Patients extends org.example.powwww.grid.Stationary {
         this.prevOrders.add(newOrder);
         this.currentOrder = newOrder;
     }
-
 }
