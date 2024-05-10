@@ -2,6 +2,7 @@ package org.example.powwww;
 
 import com.almasb.fxgl.cutscene.dialogue.BranchNode;
 import javafx.application.Application;
+import org.example.powwww.SceneController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,5 +26,7 @@ public class Applic extends Application {
 
     public static void main(String[] args) {
         launch(args);
+        SceneController.addComboBoxItems();
     }
+
 }

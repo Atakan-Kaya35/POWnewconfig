@@ -38,7 +38,7 @@ public class SceneController {
     private Scene scene;
     private Parent root ;
     private FXMLLoader fxmlLoader;
-    public void addComboBoxItems(){
+    public static void addComboBoxItems(){
         occupationSelectionBox.setItems(FXCollections.observableArrayList("Nurse","Courier","Patient"));
     }
     public void switchToSignUpPage(ActionEvent event) throws IOException {
