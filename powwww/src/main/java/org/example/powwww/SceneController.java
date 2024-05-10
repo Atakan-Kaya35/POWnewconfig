@@ -256,7 +256,7 @@ public class SceneController {
         occupationSelectionBox.getItems().addAll(choices);
         System.out.println("sevgi");
     }
-    private void openQDT(ActionEvent event) {
+    public void openQDT(ActionEvent event) {
         // Instantiate a Swing JFrame
         JFrame menuFrame = new Menu();
         menuFrame.setTitle("Pills on Wheels");
