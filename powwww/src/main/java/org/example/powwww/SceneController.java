@@ -37,7 +37,7 @@ public class SceneController {
     @FXML
     private TextField passwordTextField;
     @FXML
-    private ComboBox<String> occupationSelectionBox;
+    private ComboBox<String> occupationSelectionBox = new ComboBox<String>();
     private ArrayList<String> choices = new ArrayList<String>();
 
 
