@@ -3,8 +3,7 @@ package org.example.powwww;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
 import org.example.powwww.Sim.UserMethods;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,8 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.powwww.Sim.UserMethods;
 import org.example.powwww.entity.User;
@@ -37,6 +34,18 @@ public class SceneController {
     @FXML
     private Button signUpButtonThree;
     @FXML
+    private Button homePage;
+    @FXML
+    private Button personalInfoPage;
+    @FXML
+    private Button pillsPage;
+    @FXML
+    private Button QDT;
+    @FXML
+    private Button history;
+    @FXML
+    private Button exit;
+    @FXML
     private TextField userNameTextField;
     @FXML
     private TextField passwordTextField;
@@ -56,6 +65,16 @@ public class SceneController {
     private TextField SU_Address;
     @FXML
     private ComboBox<String> occupationSelectionBox;
+    @FXML
+    private Label A_Name;
+    @FXML
+    private Label A_Age;
+    @FXML
+    private Label A_Weight;
+    @FXML
+    private Label A_Height;
+    @FXML
+    private Label A_Remainder;
     City city = new City(20,20);
     private ArrayList<String> choices = new ArrayList<String>();
     public static ArrayList<Stationary> everyOne = new ArrayList<>();
@@ -150,7 +169,7 @@ public class SceneController {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
-        }
+        //}
         /*else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Check your personal information, and try to Login");
@@ -161,6 +180,60 @@ public class SceneController {
     }
     public void switchToHomePageInApp(ActionEvent event) throws IOException {
         fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
+        root = fxmlLoader.load();
+        scene = new Scene(root);
+        scene.setRoot(root);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToPersonalInfoPage(ActionEvent event) throws IOException {
+        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/PersonalInfoPage.fxml"));
+        root = fxmlLoader.load();
+        scene = new Scene(root);
+        scene.setRoot(root);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToPillsPage(ActionEvent event) throws IOException {
+        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/PillsPage.fxml"));
+        root = fxmlLoader.load();
+        scene = new Scene(root);
+        scene.setRoot(root);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToQDTPage(ActionEvent event) throws IOException {
+        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/WelcomeQDT.fxml"));
+        root = fxmlLoader.load();
+        scene = new Scene(root);
+        scene.setRoot(root);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToOrdersPage(ActionEvent event) throws IOException {
+        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/OrdersPage.fxml"));
+        root = fxmlLoader.load();
+        scene = new Scene(root);
+        scene.setRoot(root);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToCurrentOrdersPage(ActionEvent event) throws IOException {
+        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/CurrentOrdersPage.fxml"));
+        root = fxmlLoader.load();
+        scene = new Scene(root);
+        scene.setRoot(root);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void Exit(ActionEvent event) throws IOException {
+        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/Merhaba.fxml"));
         root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
