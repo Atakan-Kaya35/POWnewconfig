@@ -90,7 +90,7 @@ public class Simulation extends SimMethods {
 
 
         boolean running = true;
-        tick = 1; // Track the current tick
+        tick = 480; // Track the current tick
         int day = 0;
 
         // Duration of a tick in minutes
@@ -123,6 +123,11 @@ public class Simulation extends SimMethods {
             // makes people take their medicine
             if (tick % (TICKPERDAY / 4) == 0) {
                 simulateSicknessProgression(city, ((tick / (TICKPERDAY / 4)) - 1));
+                System.out.println(city.viewMap(true));
+                if(TICKPERDAY!=0){
+                    city.changeTraffic();
+                    System.out.println(city.viewMap(true));
+                }
             }
 
             // For p1

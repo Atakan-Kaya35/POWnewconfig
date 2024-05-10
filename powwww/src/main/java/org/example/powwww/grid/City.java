@@ -50,6 +50,15 @@ public class City {
             }    
         }
     }
+    public void changeTraffic(){
+        for (int x = 0; x < width + 1; x++) {
+            for (int y = 0; y < height + 1; y++) {
+                if(roads[x][y] != null){
+                    roads[x][y].changeTraffic();
+                }
+            }
+        }
+    }
 
     /**
      * Finds a mobile entity nearest to the given stationary entity.
@@ -541,4 +550,22 @@ public void createVansAndScooters() {
     public Stationary[][] getStationaries() {
         return this.stationarys;
     }
+
+    public void createBilkent() {
+                    //0  1  2  3 4 5 6  7 8  9  10
+        int[] tempX ={18,25,17,9,1,8,14,8,10,11,11}; //0. center 1. windows 2.mayfest 3.dogu cimen 4 ve 5 agac
+        int[] tempY ={7,3,11,17,6,0,0,5,11,11,6}; //8 ve 9 olan göl //10 olan göle uzanan yol
+        int[] tempWidth ={7,2,2,9,4,2,2,8,4,2,2};
+        int[] tempHeight ={2,2,3,2,4,4,4,2,2,4,6};
+
+        for(int i = 0; i<tempX.length; i++){
+            Stationary building = new Stationary(tempX[i], tempY[i], this);
+            stationaryList.add(building);
+            buildCustomeStationary(tempX[i], tempY[i], tempWidth[i],tempHeight[i], building);
+            int[] newObstacle = {tempX[i], tempY[i], tempWidth[i], tempHeight[i]};
+            GridPanel.addObstacle(newObstacle);
+        }
+
+    }
+
 }

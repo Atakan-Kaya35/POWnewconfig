@@ -95,6 +95,10 @@ public class Road {
         int[] initTraffic = {(int) (Math.random() * 6) +1, (int) (Math.random() * 6) + 1};
         setTraffic(initTraffic);
     }
+    public void changeTraffic(){
+        int[] initTraffic = {(int) (Math.random() * 6) +1, (int) (Math.random() * 6) + 1};
+        setTraffic(initTraffic);
+    }
 
     //getter methods
     
