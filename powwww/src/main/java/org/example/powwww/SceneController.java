@@ -2,9 +2,11 @@ package org.example.powwww;
 
 import javafx.collections.FXCollections;
 import javafx.event.Event;
+import org.example.powwww.DiagnosisTest.*;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import org.example.powwww.DiagnosisTest.Menu;
 import org.example.powwww.Sim.UserMethods;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +21,7 @@ import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.grid.City;
 import org.example.powwww.grid.Stationary;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -252,5 +255,13 @@ public class SceneController {
         choices.add("Courier");
         occupationSelectionBox.getItems().addAll(choices);
         System.out.println("sevgi");
+    }
+    private void openQDT(ActionEvent event) {
+        // Instantiate a Swing JFrame
+        JFrame menuFrame = new Menu();
+        menuFrame.setTitle("Pills on Wheels");
+        menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        menuFrame.setVisible(true);
+
     }
 }
