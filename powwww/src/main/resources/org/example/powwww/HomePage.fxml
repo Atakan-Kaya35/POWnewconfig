@@ -134,7 +134,7 @@
       </ImageView>
       <Button fx:id="homePageButton" layoutX="6.0" layoutY="1.0" mnemonicParsing="false" onAction="#switchToHomePageInApp" prefHeight="60.0" prefWidth="68.0">
          <graphic>
-            <ImageView fitHeight="51.0" fitWidth="51.0">
+            <ImageView fx:id="homePage" fitHeight="51.0" fitWidth="51.0">
                <image>
                   <Image url="@4.png" />
                </image>

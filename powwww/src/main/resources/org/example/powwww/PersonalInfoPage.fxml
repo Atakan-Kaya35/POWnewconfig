@@ -71,7 +71,7 @@
                               <Font size="17.0" />
                            </font>
                         </Text>
-                        <Text layoutX="7.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="148.0" />
+                        <Text fx:id="A_Remainder" layoutX="7.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="148.0" />
                         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">
                            <image>
                               <Image url="@Adsız tasarım-3.png" />
@@ -231,7 +231,7 @@
             </GridPane>
          </children>
       </AnchorPane>
-      <Button fx:id="homePageButton" layoutX="16.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchToHomePageInApp" prefHeight="60.0" prefWidth="68.0">
+      <Button fx:id="homePageButton" layoutX="6.0" layoutY="1.0" mnemonicParsing="false" onAction="#switchToHomePageInApp" prefHeight="60.0" prefWidth="68.0">
          <graphic>
             <ImageView fx:id="homePage" fitHeight="51.0" fitWidth="51.0">
                <image>
