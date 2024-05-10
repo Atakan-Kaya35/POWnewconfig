@@ -95,16 +95,17 @@ public class SceneController {
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.show();
-    }
-    public void switchToSignUpPagetoLogIn(ActionEvent event) throws IOException {
-        //creating user
-        if(0==0) {
+
             Alert alertt = new Alert(Alert.AlertType.ERROR);
             alertt.setTitle("Warning");
             alertt.setContentText("You should type your address as coordinates like(X,Y)");
             alertt.showAndWait();
-        }
+        
+        stage.show();
+    }
+    public void switchToSignUpPagetoLogIn(ActionEvent event) throws IOException {
+        //creating user
+
 
         if (isUsernameTaken(SU_Username.getText())) {
             System.out.println("Username is already taken.");
