@@ -15,7 +15,7 @@
       <Label layoutX="87.0" layoutY="220.0" text="Age:" />
       <Label layoutX="87.0" layoutY="250.0" text="Weight:" />
       <Label layoutX="86.0" layoutY="280.0" text="Heigth:" />
-      <Label layoutX="82.0" layoutY="310.0" text="Address" />
+      <Label layoutX="82.0" layoutY="310.0" text="Address(X,Y)" />
       <Label layoutX="224.0" layoutY="43.0" text="Welcome to Pills on Wheels!">
          <font>
             <Font size="22.0" />

@@ -95,17 +95,10 @@ public class SceneController {
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-
-            Alert alertt = new Alert(Alert.AlertType.ERROR);
-            alertt.setTitle("Warning");
-            alertt.setContentText("You should type your address as coordinates like(X,Y)");
-            alertt.showAndWait();
-        
         stage.show();
     }
     public void switchToSignUpPagetoLogIn(ActionEvent event) throws IOException {
         //creating user
-
 
         if (isUsernameTaken(SU_Username.getText())) {
             System.out.println("Username is already taken.");
@@ -158,13 +151,13 @@ public class SceneController {
             stage.setScene(scene);
             stage.show();
         }
-        else{
+        /*else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Check your personal information, and try to Login");
             alert.setContentText("You might type wrong user name or password");
             alert.setHeaderText("Information Error");
             alert.showAndWait();
-        }
+        }*/
     }
     public void switchToHomePageInApp(ActionEvent event) throws IOException {
         fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
