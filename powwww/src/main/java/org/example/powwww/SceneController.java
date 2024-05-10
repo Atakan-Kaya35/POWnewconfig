@@ -45,16 +45,26 @@ public class SceneController {
     private Parent root ;
     private FXMLLoader fxmlLoader;
     public void switchToSignUpPage(ActionEvent event) throws IOException {
-        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/SignInForNursesAndCourier.fxml"));
-        root = fxmlLoader.load();
-        scene = new Scene(root);
-        scene.setRoot(root);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        // Load the FXML file
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/SignInForNursesAndCourier.fxml"));
+        Parent root = loader.load();
+
+        // Set the scene
+        Scene scene = new Scene(root);
+
+        // Set the controller
+        SceneController controller = loader.getController();
+
+        // Set the stage
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        occupationSelectionBox = new ComboBox<>();
-        setItems();
+
+        // Call setItems() after the ComboBox is initialized
+        controller.setItems();
+
         stage.show();
     }
+
     public void switchToSignUpPage2(ActionEvent event) throws IOException {
         fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/SignInPage.fxml"));
         root = fxmlLoader.load();
