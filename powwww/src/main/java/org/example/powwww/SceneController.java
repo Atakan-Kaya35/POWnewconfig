@@ -107,9 +107,11 @@ public class SceneController {
         if (SU_Password.getText().length() < 8) {
             System.out.println("Password must be at least 8 characters long.");
         }
-        
+        String[] address = SU_Address.getText().split(",");
+        int x = Integer.parseInt(address[0]);
+        int y = Integer.parseInt(address[1]);
         // Create a new user(address problem)
-        Stationary newUser = new Patients(SU_Name.getText(), 4, 4, city);
+        Stationary newUser = new Patients(SU_Name.getText(), x, y, city);
 
         // Add the new user to the list of users
         everyOne.add(newUser);
