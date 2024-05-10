@@ -102,11 +102,9 @@ public class SceneController {
         stage.show();
     }
     public void setItems(){
-        choices.clear();
         choices.add("Nurse");
         choices.add("Patient");
         choices.add("Courier");
-        occupationSelectionBox.getItems().clear();
         occupationSelectionBox.getItems().addAll(choices);
         System.out.println("sevgi");
     }
