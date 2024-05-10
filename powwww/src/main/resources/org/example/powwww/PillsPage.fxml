@@ -123,7 +123,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
+                  <Button fx:id="Purchase" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
                </children>
             </Pane>
          </children>
@@ -326,11 +326,6 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="Purchase" fitHeight="200.0" fitWidth="200.0" layoutX="166.0" layoutY="7.0">
-                           <image>
-                              <Image url="@pill2.png" />
-                           </image>
-                        </ImageView>
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
