@@ -52,8 +52,8 @@ public class SceneController {
         scene = new Scene(root);
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        setItems(event);
         stage.setScene(scene);
+        setItems(event);
         stage.show();
     }
     public void switchToSignUpPage2(ActionEvent event) throws IOException {
