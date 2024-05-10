@@ -141,7 +141,8 @@ public class SimMethods {
 
     public static void buildCity(City city) {
 
-        city.createRandomBuildings(4, 0.7);
+        //city.createRandomBuildings(4, 0);
+        city.createBilkent();
         city.createVansAndScooters();
         createPatients(10, city);
         //createNurses(5, city);
@@ -209,7 +210,7 @@ public class SimMethods {
 
         for (int i = 0; i < numMedicines; i++) {
             // Get a random pill ID
-            int pillID = random.nextInt(52);    // csvnin uzunluğunu alamadım hardcode bu
+            int pillID = random.nextInt(51);    // csvnin uzunluğunu alamadım hardcode bu
             medicines[i] = new Pill(pillID);
         }
         return medicines;

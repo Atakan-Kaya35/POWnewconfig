@@ -114,14 +114,14 @@ public class GridPanel extends JComponent
 
         g.setColor(Color.blue);
 
-        for(Stationary[] stationary2d: city.getStationaries())
-        {
-            for(Stationary stat : stationary2d){
-                if(stat != null){
-                    stat.draw(g);
-                }
-            }
-        }
+//        for(Stationary[] stationary2d: city.getStationaries())
+//        {
+//            for(Stationary stat : stationary2d){
+//                if(stat != null){
+//                    stat.draw(g);
+//                }
+//            }
+//        }
 
 
 /*        for(int i = 0; i< city.getVanList().size(); i++) {
@@ -131,7 +131,10 @@ public class GridPanel extends JComponent
         for(Patients p : city.getPatientList())
         {
             if(p.getCurrentOrder()==null){ // bunun not equal to olmasi lazim
-                p.draw(g);
+                p.draw(g,Color.ORANGE);
+            }
+            else{
+                p.draw(g,Color.BLUE);
             }
         }
 
