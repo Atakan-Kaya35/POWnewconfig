@@ -1,6 +1,8 @@
 package org.example.powwww;
 
 import javafx.collections.FXCollections;
+import javafx.event.Event;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import org.example.powwww.Sim.UserMethods;
@@ -16,6 +18,8 @@ import javafx.stage.Stage;
 import org.example.powwww.Sim.UserMethods;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 public class SceneController {
@@ -33,14 +37,12 @@ public class SceneController {
     private TextField passwordTextField;
     @FXML
     private ComboBox<String> occupationSelectionBox;
+    private String[] choices = {"Nurse","Courier","Patient"};
 
     private Stage stage;
     private Scene scene;
     private Parent root ;
     private FXMLLoader fxmlLoader;
-    public static void addComboBoxItems(){
-        occupationSelectionBox.setItems(FXCollections.observableArrayList("Nurse","Courier","Patient"));
-    }
     public void switchToSignUpPage(ActionEvent event) throws IOException {
         fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/SignInForNursesAndCourier.fxml"));
         root = fxmlLoader.load();
@@ -94,5 +96,11 @@ public class SceneController {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+    public void getChoice(ActionEvent event){
+        String occupation = occupationSelectionBox.getValue();
+    }
+    public void setItems(Event e){
+        occupationSelectionBox.getItems().addAll(choices);
     }
 }

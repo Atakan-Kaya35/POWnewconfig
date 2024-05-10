@@ -26,7 +26,7 @@ public class Applic extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        SceneController.addComboBoxItems();
+
     }
 
 }
