@@ -116,21 +116,21 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Text fx:id="cart1" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                                    <Text fx:id="cart2" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="1" />
-                                    <Text fx:id="cart3" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="2" />
-                                    <Text fx:id="cart4" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="3" />
-                                    <Text fx:id="cart5" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="4" />
-                                    <Text fx:id="cart6" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="5" />
-                                    <Text fx:id="cart7" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="6" />
-                                    <Text fx:id="cart8" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="7" />
-                                    <Text fx:id="cart9" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="8" />
-                                    <Text fx:id="cart10" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="9" />
-                                    <Text fx:id="cart11" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="10" />
-                                    <Text fx:id="cart12" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="11" />
-                                    <Text fx:id="cart13" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="12" />
-                                    <Text fx:id="cart14" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="13" />
-                                    <Text fx:id="cart15" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="14" />
+                                    <Text fx:id="cart1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <Text fx:id="cart2" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="1" />
+                                    <Text fx:id="cart3" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="2" />
+                                    <Text fx:id="cart4" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="3" />
+                                    <Text fx:id="cart5" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="4" />
+                                    <Text fx:id="cart6" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="5" />
+                                    <Text fx:id="cart7" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="6" />
+                                    <Text fx:id="cart8" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="7" />
+                                    <Text fx:id="cart9" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="8" />
+                                    <Text fx:id="cart10" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="9" />
+                                    <Text fx:id="cart11" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="10" />
+                                    <Text fx:id="cart12" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="11" />
+                                    <Text fx:id="cart13" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="12" />
+                                    <Text fx:id="cart14" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="13" />
+                                    <Text fx:id="cart15" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="14" />
                                  </children>
                               </GridPane>
                            </children>

@@ -184,5 +184,15 @@
             </ImageView>
          </graphic>
       </Button>
+      <ImageView fitHeight="348.0" fitWidth="345.0" layoutX="278.0" layoutY="198.0">
+         <image>
+            <Image url="@../../../logocum.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="476.0" layoutY="480.0" text="Pills on Wheels...">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
