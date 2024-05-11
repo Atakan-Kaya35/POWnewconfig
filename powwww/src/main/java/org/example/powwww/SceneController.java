@@ -109,6 +109,9 @@ public class SceneController {
     String NAME = userInfo[3];
     String WEIGHT = userInfo[0] + " kg";
     String HEIGHT = userInfo[1] + " cm";
+    String ADDRESS = userInfo[4]+","+userInfo[5];
+    String bmi = String.format("%,2f",(Integer.parseInt(userInfo[2]) / (Integer.parseInt(userInfo[1]) / 100.0)));
+    bmi += ((Integer.parseInt(userInfo[0]) / (Integer.parseInt(userInfo[1]) / 100.0)) < 15 || (Integer.parseInt(userInfo[1]) / (Integer.parseInt(userInfo[2]) / 100.0)) > 25)? "(good)" : " (bad)";
     private Stage stage;
     private Scene scene;
     private Parent root ;
@@ -407,7 +410,7 @@ public class SceneController {
         System.out.println("sevgi");
     }
     public void setInfos(){
-        
+
         A_Name.setText(NAME);
         A_Weight.setText(WEIGHT);
         A_Height.setText(HEIGHT);
@@ -430,14 +433,14 @@ public class SceneController {
         ((GridFrame)grid).getPanel().repaint();
     }
     public void setInfoPIP(){
-        String[] userInfo = SQLTest.getUserInfo(userName);
+        /*String[] userInfo = SQLTest.getUserInfo(userName);
         String bmi = String.format("%,2f",(Integer.parseInt(userInfo[2]) / (Integer.parseInt(userInfo[1]) / 100.0)));
-        bmi += ((Integer.parseInt(userInfo[2]) / (Integer.parseInt(userInfo[1]) / 100.0)) < 15 || (Integer.parseInt(userInfo[1]) / (Integer.parseInt(userInfo[2]) / 100.0)) > 25)? "(good)" : " (bad)";
+        bmi += ((Integer.parseInt(userInfo[0]) / (Integer.parseInt(userInfo[1]) / 100.0)) < 15 || (Integer.parseInt(userInfo[1]) / (Integer.parseInt(userInfo[2]) / 100.0)) > 25)? "(good)" : " (bad)";*/
         bmi_p.setText(bmi);
-        name_p.setText(userInfo[3]);
-        age_p.setText(userInfo[2] + " years");
-        address_p.setText(userInfo[4]+","+userInfo[5]);
-        weigth_p.setText(userInfo[0] + " kg");
-        height_p.setText(userInfo[1] + " cm");
+        name_p.setText(NAME);
+        age_p.setText(AGE);
+        address_p.setText(ADDRESS);
+        weigth_p.setText(WEIGHT);
+        height_p.setText(HEIGHT);
     }
 }
