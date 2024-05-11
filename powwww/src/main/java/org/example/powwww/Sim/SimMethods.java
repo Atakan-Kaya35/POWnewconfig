@@ -333,12 +333,10 @@ public class SimMethods {
         // For simplicity, we won't implement traffic simulation in this example
     }
 
-    public static void stimulateNurses(City city, GridFrame grid, int tick){
+    public static void stimulateNurses(City city){
         for( Nurses nurse : city.getNurseList()){
             nurse.move();
         }
-        grid.showTime(tick);
-        grid.getPanel().repaint();
     }
 }
 

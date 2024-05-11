@@ -16,7 +16,7 @@ public class SQLTest {
 
         // Metodu çağırarak varchar değerini güncelle
         boolean success = updateVarcharColumn(id, newVarcharValue);
-        
+
         // Sonucu kontrol et
         if (success) {
             System.out.println("Data updated successfully.");
@@ -78,27 +78,35 @@ public class SQLTest {
         return answer;
     }
 
-    public static boolean userAdder(String userName, String password, int age, String name, int weight, int height, int x, int y){
-        String userInfo = userName + "#" + weight + "#" + height + "#" + age + "#" + x + "#" + y + "#" + encriptedPassword;
+    public static boolean addUser(String userName, String password, int age, String name, int weight, int height, int x, int y){
+        String encriptedPassword = encryptPassword(password);
+        String userInfo =weight + "#" + height + "#" + age + "#" + x + "#" + y + "#" + encriptedPassword;
         Connection conn = null;
         PreparedStatement stmt = null;
 
-        try {
-            String sql = "INSERT INTO nurse (info) VALUES (?)";
-            stmt = conn.prepareStatement(sql);
-            stmt.setString(1, userInfo);
+        if(!isUsernameTaken(userName)) {
+            try {
+                String sql = "INSERT INTO Patients (userName, info) VALUES (?, ?)";
+                conn = DriverManager.getConnection(DB_URL, USER, PASS);
+                stmt = conn.prepareStatement(sql);
+                stmt.setString(1, userName);
+                stmt.setString(2, userInfo);
 
-            int rowsInserted = stmt.executeUpdate();
+                int rowsInserted = stmt.executeUpdate();
 
-            if (rowsInserted > 0) {
-                System.out.println("A new row has been inserted successfully!");
-                return true;
-            } else {
-                System.out.println("Failed to insert a new row!");
+                if (rowsInserted > 0) {
+                    System.out.println("A new row has been inserted successfully!");
+                    return true;
+                } else {
+                    System.out.println("Failed to insert a new row!");
+                    return false;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
                 return false;
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        }
+        else{
             return false;
         }
     }
@@ -109,6 +117,9 @@ public class SQLTest {
         PreparedStatement stmt = null;
 
         try {
+
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
             String sql = "UPDATE Patients SET pastOrder = ? WHERE userName = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, userInfo);
@@ -152,6 +163,9 @@ public class SQLTest {
         ResultSet rs = null;
 
         try {
+
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
             String sql = "SELECT info FROM Patients WHERE userName = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, userName);
@@ -184,5 +198,105 @@ public class SQLTest {
                 ex.printStackTrace();
             }
         }
+    }
+
+    public static boolean isUserAuthorised(String userName, String enteredPassword){
+        String[] infoOfUser = getUserInfo(userName);
+        if(SQLTest.encryptPassword(enteredPassword).equals(infoOfUser[infoOfUser.length - 1])){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isUsernameTaken(String userName) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            String sql = "SELECT COUNT(*) AS count FROM Patients WHERE userName = ?";
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, userName);
+
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                int count = rs.getInt("count");
+                if(count > 0) System.out.println("Username already taken!");
+                return count > 0;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public static boolean removeUser(String userName) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            String sql = "DELETE FROM Patients WHERE userName = ?";
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, userName);
+
+            int rowsDeleted = stmt.executeUpdate();
+
+            if (rowsDeleted > 0) {
+                System.out.println("User deleted successfully!");
+                return true;
+            } else {
+                System.out.println("No user found with the provided username.");
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+
+    public static String encryptPassword(String password) {
+        StringBuilder encrypted = new StringBuilder();
+        for (char ch : password.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                char base = Character.isUpperCase(ch) ? 'A' : 'a';
+                encrypted.append((char) ((ch - base + 2) % 26 + base));
+            } else if (Character.isDigit(ch)) {
+                encrypted.append((char) ((ch - '0' + 2) % 10 + '0'));
+            } else {
+                encrypted.append(ch);
+            }
+        }
+        return encrypted.toString();
     }
 }

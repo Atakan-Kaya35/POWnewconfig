@@ -212,7 +212,10 @@ public class Simulation extends SimMethods {
 
 
             // moves all nurses
-            stimulateNurses(city, (GridFrame) grid, tick);
+            stimulateNurses(city);
+
+            ((GridFrame)grid).showTime(tick);
+            ((GridFrame)grid).getPanel().repaint();
 
             //System.out.println(city.viewMap(false));
 
