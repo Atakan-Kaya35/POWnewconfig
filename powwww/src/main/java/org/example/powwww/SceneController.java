@@ -227,23 +227,47 @@ public class SceneController {
         }*/
     }
     public void switchToHomePageInApp(ActionEvent event) throws IOException {
-        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
-        root = fxmlLoader.load();
-        scene = new Scene(root);
-        scene.setRoot(root);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
+        Parent root = loader.load();
+
+        // Set the scene
+        Scene scene = new Scene(root);
+
+        // Set the controller
+        SceneController controller = loader.getController();
+
+        // Set the stage
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        setInfos();
+
+        // Call setItems() after the ComboBox is initialized
+        controller.setInfos();
         stage.show();
     }
     public void switchToPersonalInfoPage(ActionEvent event) throws IOException {
-        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/PersonalInfoPage.fxml"));
+        //fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/PersonalInfoPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/PersonalInfoPage.fxml"));
+        Parent root = loader.load();
+
+        // Set the scene
+        Scene scene = new Scene(root);
+
+        // Set the controller
+        SceneController controller = loader.getController();
+
+        // Set the stage
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        controller.setInfos();
+
+        // Call setItems() after the ComboBox is initialized
+        /*controller.setInfos();
         root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        setInfos();
+        setInfos();*/
         String[] userInfo = SQLTest.getUserInfo(userName);
         name_p.setText(userInfo[0]);
         age_p.setText(userInfo[3]);
@@ -253,52 +277,126 @@ public class SceneController {
         stage.show();
     }
     public void switchToPillsPage(ActionEvent event) throws IOException {
-        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/PillsPage.fxml"));
-        root = fxmlLoader.load();
+        //fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/PillsPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/PillsPage.fxml"));
+        Parent root = loader.load();
+
+        // Set the scene
+        Scene scene = new Scene(root);
+
+        // Set the controller
+        SceneController controller = loader.getController();
+
+        // Set the stage
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+
+        // Call setItems() after the ComboBox is initialized
+        controller.setInfos();
+        /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        setInfos();
+        setInfos();*/
         stage.show();
     }
     public void switchToQDTPage(ActionEvent event) throws IOException {
-        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/WelcomeQDT.fxml"));
-        root = fxmlLoader.load();
+        //fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/WelcomeQDT.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/WelcomeQDT.fxml"));
+        Parent root = loader.load();
+
+        // Set the scene
+        Scene scene = new Scene(root);
+
+        // Set the controller
+        SceneController controller = loader.getController();
+
+        // Set the stage
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        // Call setItems() after the ComboBox is initialized
+        controller.setInfos();
+        /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        setInfos();
+        setInfos();*/
         stage.show();
     }
     public void switchToOrdersPage(ActionEvent event) throws IOException {
-        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/OrdersPage.fxml"));
-        root = fxmlLoader.load();
+        //fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/OrdersPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/OrdersPage.fxml"));
+        Parent root = loader.load();
+
+        // Set the scene
+        Scene scene = new Scene(root);
+
+        // Set the controller
+        SceneController controller = loader.getController();
+
+        // Set the stage
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+
+        // Call setItems() after the ComboBox is initialized
+        controller.setInfos();
+        /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        setInfos();
+        setInfos();*/
         stage.show();
     }
     public void switchToCurrentOrdersPage(ActionEvent event) throws IOException {
-        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/CurrentOrdersPage.fxml"));
-        root = fxmlLoader.load();
+        //fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/CurrentOrdersPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/CurrentOrdersPage.fxml"));
+        Parent root = loader.load();
+
+        // Set the scene
+        Scene scene = new Scene(root);
+
+        // Set the controller
+        SceneController controller = loader.getController();
+
+        // Set the stage
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+
+        // Call setItems() after the ComboBox is initialized
+        controller.setInfos();
+        /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        setInfos();
+        setInfos();*/
         stage.show();
     }
     public void Exit(ActionEvent event) throws IOException {
-        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/Merhaba.fxml"));
-        root = fxmlLoader.load();
+        //fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/Merhaba.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/Merhaba.fxml"));
+        Parent root = loader.load();
+
+        // Set the scene
+        Scene scene = new Scene(root);
+
+        // Set the controller
+        SceneController controller = loader.getController();
+
+        // Set the stage
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+
+        // Call setItems() after the ComboBox is initialized
+        controller.setInfos();
+        /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
+        stage.setScene(scene);*/
         stage.show();
     }
     public void setItems(){
@@ -310,13 +408,13 @@ public class SceneController {
     }
     public void setInfos(){
         String[] userInfo = SQLTest.getUserInfo(userName);
-        String userName_ = userInfo[0];
+        String userName_ = userInfo[3];
         A_Name.setText(userName_);
-        String weight_ = userInfo[1];
+        String weight_ = userInfo[0];
         A_Weight.setText(weight_);
-        String height_ = userInfo[2];
+        String height_ = userInfo[1];
         A_Height.setText(height_);
-        String age_ = userInfo[3];
+        String age_ = userInfo[2];
         A_Name.setText(age_);
     }
     public void openQDT(ActionEvent event) {
