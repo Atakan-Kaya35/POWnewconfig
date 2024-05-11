@@ -789,7 +789,7 @@ public class SceneController {
         cart.add(pills.get(16));
     }
     public void setMedInCart17(ActionEvent event){
-        getEmptyText().setText(pills.get(17).getName());,
+        getEmptyText().setText(pills.get(17).getName());
         cart.add(pills.get(17));
     }
     public void setMedInCart18(ActionEvent event){
