@@ -281,7 +281,36 @@ public class SceneController {
     private Button buttonformed23;
     @FXML
     private Button buttonformed24;
-
+    @FXML
+    private Text cart1;
+    @FXML
+    private Text cart2;
+    @FXML
+    private Text cart3;
+    @FXML
+    private Text cart4;
+    @FXML
+    private Text cart5;
+    @FXML
+    private Text cart6;
+    @FXML
+    private Text cart7;
+    @FXML
+    private Text cart8;
+    @FXML
+    private Text cart9;
+    @FXML
+    private Text cart10;
+    @FXML
+    private Text cart11;
+    @FXML
+    private Text cart12;
+    @FXML
+    private Text cart13;
+    @FXML
+    private Text cart14;
+    @FXML
+    private Text cart15;
 
 
     City city = new City(30,20);
@@ -289,6 +318,7 @@ public class SceneController {
     public static ArrayList<Stationary> everyOne = new ArrayList<>();
     public static ArrayList<String> usernames = new ArrayList<>();
     public static ArrayList<String> passwords = new ArrayList<>();
+    public static ArrayList<Text> textarr = new ArrayList<>();
     public static String userName;
     static ArrayList<User> users = new ArrayList<>();
 
