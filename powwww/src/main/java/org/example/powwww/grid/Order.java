@@ -20,6 +20,7 @@ public class Order {
     ArrayList<Pill> carriedPills;
     public static ArrayList<Order> assignedOrders = new ArrayList<Order>();
     public static ArrayList<Order> completedOrders = new ArrayList<Order>();
+    Patients orderPatient;
 
     //atakan biz burda pathi array arraylisti yaptık da, biz citydeki 
     //find pathde road array listi olarak kullandık sıkıntı çıkarmaz mı bu????
@@ -31,22 +32,28 @@ public class Order {
 
     // constructors
     public Order(Patients patient, Pill carriedPill){
+        patient.setCurrentOrder(this);
+
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
         path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
         this.finishingCord = patient.getCoordinates();
         this.carriedMedicine = new Pill(carriedPill.getPillID());
-        patient.setCurrentOrder(this);
+        orderPatient = patient;
     }
 
     public Order(Patients patient, Serum carriedPill){
+        patient.setCurrentOrder(this);
+
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
         path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
         this.finishingCord = patient.getCoordinates();
         this.carriedMedicine = new Serum();
-        patient.setCurrentOrder(this);
+        orderPatient = patient;
     }
 
     public Order(Patients patient, Medicine carriedPill){
+        patient.setCurrentOrder(this);
+
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
         if(startingCord != null){
             path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained(), patient);
@@ -55,10 +62,11 @@ public class Order {
             if (startingCord != null)
                 ((Nurses)(patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained())).receiveOrder(this);
         }
-        patient.setCurrentOrder(this);
+        orderPatient = patient;
     }
 
     public Order(Patients patient, ArrayList<Medicine> medList){
+        patient.setCurrentOrder(this);
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
         path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
         this.finishingCord = patient.getCoordinates();
@@ -69,7 +77,7 @@ public class Order {
                 carriedPills.add((Pill) med);
             }
         }
-        patient.setCurrentOrder(this);
+        orderPatient = patient;
     }
 
     // manifest order path dolacak??
@@ -127,4 +135,7 @@ public class Order {
         completedOrders.add(this);
     }
 
-} 
+    public Patients getPatient() {
+        return this.orderPatient;
+    }
+}

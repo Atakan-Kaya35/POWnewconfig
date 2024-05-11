@@ -119,7 +119,7 @@ public class SimMethods {
     */
 
     // Helper method to get a list of common Turkish names
-    private static ArrayList<String> getTurkishNames() {
+    public static ArrayList<String> getTurkishNames() {
         ArrayList<String> turkishNames = new ArrayList<>();
         turkishNames.add("Ahmet");
         turkishNames.add("Mehmet");
@@ -131,7 +131,7 @@ public class SimMethods {
     }
 
     // Helper method to get random coordinates from a stationary in the city
-    private static int[] getRandomStationaryCoordinates(City city) {
+    public static int[] getRandomStationaryCoordinates(City city) {
         Random random = new Random();
         // Get a random stationary from the city
         int index = random.nextInt(city.getStationaryList().size());
@@ -144,6 +144,13 @@ public class SimMethods {
         city.createRandomBuildings(5, 0.7);
         city.createVansAndScooters();
         createPatients(10, city);
+        //createNurses(5, city);
+    }
+    public static void buildBilkent(City city) {
+
+        city.createBilkent(10);
+        city.createVansAndScooters();
+
         //createNurses(5, city);
     }
 
@@ -209,7 +216,7 @@ public class SimMethods {
 
         for (int i = 0; i < numMedicines; i++) {
             // Get a random pill ID
-            int pillID = random.nextInt(52);    // csvnin uzunluğunu alamadım hardcode bu
+            int pillID = random.nextInt(51);    // csvnin uzunluğunu alamadım hardcode bu
             medicines[i] = new Pill(pillID);
         }
         return medicines;

@@ -12,7 +12,7 @@ public class Patients extends org.example.powwww.grid.Stationary {
     protected ArrayList<Medicine> cart = new ArrayList<Medicine>();
     protected ArrayList<Sickness> sicknesses = new ArrayList<Sickness>();
     protected ArrayList<Order> orderList = new ArrayList<Order>();
-    Order currentOrder;
+    private Order currentOrder;
     ArrayList<Order> prevOrders;
     private final int RADIUS = 5;
 
@@ -28,8 +28,8 @@ public class Patients extends org.example.powwww.grid.Stationary {
         this.name = name;
         this.city = city;
     }
-    public void draw(Graphics g){
-        g.setColor(Color.BLUE);
+    public void draw(Graphics g, Color color){
+        g.setColor(color);
         g.fillOval(getCoordinates()[0]*36+54, getCoordinates()[1]*36+54, RADIUS * 2, RADIUS * 2);
     }
     public String getPatientsName(){
