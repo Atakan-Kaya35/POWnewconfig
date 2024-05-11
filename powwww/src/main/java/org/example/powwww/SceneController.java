@@ -62,7 +62,7 @@ public class SceneController {
     @FXML
     private TextField userNameTextField;
     @FXML
-    private TextField passwordTextField;
+    private PasswordField passwordTextField;
     @FXML
     private TextField SU_Name;
     @FXML
