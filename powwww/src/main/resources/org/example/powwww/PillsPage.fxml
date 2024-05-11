@@ -141,7 +141,7 @@
             <Pane layoutX="14.0" layoutY="216.0" prefHeight="80.0" prefWidth="207.0" style="-fx-background-color: white; -fx-border-color: black;">
                <children>
                   <Label layoutX="14.0" layoutY="16.0" prefHeight="17.0" prefWidth="82.0" text="Total Cost:" />
-                  <Label layoutX="14.0" layoutY="46.0" text="Total Product:" />
+                  <Label layoutX="14.0" layoutY="46.0" text="Num of Products" />
                   <Label layoutX="184.0" layoutY="8.0" text="\$">
                      <font>
                         <Font size="20.0" />
@@ -280,36 +280,36 @@
                   <Label fx:id="cost23" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="24" />
                   <Label text="Atorvastatin" GridPane.rowIndex="25" />
                   <Label fx:id="cost24" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="25" />
-                  <Button fx:id="buttonformed1" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                  <Button fx:id="buttonformed0" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <Button fx:id="buttonformed2" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                  <Button fx:id="buttonformed3" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                  <Button fx:id="buttonformed4" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                  <Button fx:id="buttonformed5" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-                  <Button fx:id="buttonformed7" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-                  <Button fx:id="buttonformed8" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="9" />
-                  <Button fx:id="buttonformed10" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="11" />
-                  <Button fx:id="buttonformed11" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="12" />
-                  <Button fx:id="buttonformed13" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="14" />
-                  <Button fx:id="buttonformed14" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="15" />
-                  <Button fx:id="buttonformed15" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="16" />
-                  <Button fx:id="buttonformed16" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="17" />
-                  <Button fx:id="buttonformed17" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="18" />
-                  <Button fx:id="buttonformed18" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="19" />
-                  <Button fx:id="buttonformed19" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="20" />
-                  <Button fx:id="buttonformed20" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="21" />
-                  <Button fx:id="buttonformed21" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="22" />
-                  <Button fx:id="buttonformed23" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="24" />
-                  <Button fx:id="buttonformed24" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="25" />
+                  <Button fx:id="buttonformed1" mnemonicParsing="false" onAction="#setMedInCart1" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Button fx:id="buttonformed0" mnemonicParsing="false" onAction="#setMedInCart0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button fx:id="buttonformed2" mnemonicParsing="false" onAction="#setMedInCart2" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Button fx:id="buttonformed3" mnemonicParsing="false" onAction="#setMedInCart3" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Button fx:id="buttonformed4" mnemonicParsing="false" onAction="#setMedInCart4" text="+" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                  <Button fx:id="buttonformed5" mnemonicParsing="false" onAction="#setMedInCart5" text="+" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                  <Button fx:id="buttonformed7" mnemonicParsing="false" onAction="#setMedInCart7" text="+" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                  <Button fx:id="buttonformed8" mnemonicParsing="false" onAction="#setMedInCart8" text="+" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                  <Button fx:id="buttonformed10" mnemonicParsing="false" onAction="#setMedInCart10" text="+" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+                  <Button fx:id="buttonformed11" mnemonicParsing="false" onAction="#setMedInCart11" text="+" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+                  <Button fx:id="buttonformed13" mnemonicParsing="false" onAction="#setMedInCart13" text="+" GridPane.columnIndex="3" GridPane.rowIndex="14" />
+                  <Button fx:id="buttonformed14" mnemonicParsing="false" onAction="#setMedInCart14" text="+" GridPane.columnIndex="3" GridPane.rowIndex="15" />
+                  <Button fx:id="buttonformed15" mnemonicParsing="false" onAction="#setMedInCart15" text="+" GridPane.columnIndex="3" GridPane.rowIndex="16" />
+                  <Button fx:id="buttonformed16" mnemonicParsing="false" onAction="#setMedInCart16" text="+" GridPane.columnIndex="3" GridPane.rowIndex="17" />
+                  <Button fx:id="buttonformed17" mnemonicParsing="false" onAction="#setMedInCart17" text="+" GridPane.columnIndex="3" GridPane.rowIndex="18" />
+                  <Button fx:id="buttonformed18" mnemonicParsing="false" onAction="#setMedInCart18" text="+" GridPane.columnIndex="3" GridPane.rowIndex="19" />
+                  <Button fx:id="buttonformed19" mnemonicParsing="false" onAction="#setMedInCart19" text="+" GridPane.columnIndex="3" GridPane.rowIndex="20" />
+                  <Button fx:id="buttonformed20" mnemonicParsing="false" onAction="#setMedInCart20" text="+" GridPane.columnIndex="3" GridPane.rowIndex="21" />
+                  <Button fx:id="buttonformed21" mnemonicParsing="false" onAction="#setMedInCart21" text="+" GridPane.columnIndex="3" GridPane.rowIndex="22" />
+                  <Button fx:id="buttonformed23" mnemonicParsing="false" onAction="#setMedInCart23" text="+" GridPane.columnIndex="3" GridPane.rowIndex="24" />
+                  <Button fx:id="buttonformed24" mnemonicParsing="false" onAction="#setMedInCart24" text="+" GridPane.columnIndex="3" GridPane.rowIndex="25" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine Name" wrappingWidth="173.06370162963867">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="13" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="23" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="10" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                  <Button fx:id="buttonformed12" mnemonicParsing="false" onAction="#setMedInCart12" text="+" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+                  <Button fx:id="buttonformed22" mnemonicParsing="false" onAction="#setMedInCart22" text="+" GridPane.columnIndex="3" GridPane.rowIndex="23" />
+                  <Button fx:id="buttonformed9" mnemonicParsing="false" onAction="#setMedInCart9" text="+" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                  <Button fx:id="buttonformed6" mnemonicParsing="false" onAction="#setMedInCart6" text="+" GridPane.columnIndex="3" GridPane.rowIndex="7" />
                   <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                      <image>
                         <Image url="@../../../pill1.png" />
