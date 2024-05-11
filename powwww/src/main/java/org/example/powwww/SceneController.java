@@ -186,15 +186,29 @@ public class SceneController {
     }
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
         //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
+        Parent root = loader.load();
 
-            userName = userNameTextField.getText();
+        // Set the scene
+        Scene scene = new Scene(root);
+
+        // Set the controller
+        SceneController controller = loader.getController();
+
+        // Set the stage
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+
+        // Call setItems() after the ComboBox is initialized
+        controller.setInfos();;
+            /*userName = userNameTextField.getText();
             fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
             root = fxmlLoader.load();
             scene = new Scene(root);
             scene.setRoot(root);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
-            setInfos();
+            setInfos();*/
             stage.show();
         //}
         /*else{
