@@ -474,36 +474,10 @@ public class SceneController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
 
-        System.out.println(pills.get(5).getPrice());
-        System.out.println("dlhrefo");
-        cost0.setText(""+ pills.get(0).getPrice());
-        cost1.setText(""+ pills.get(1).getPrice());
-        cost2.setText(""+ pills.get(2).getPrice());
-        cost3.setText(""+ pills.get(3).getPrice());
-        cost4.setText(""+ pills.get(4).getPrice());
-        cost5.setText(""+ pills.get(5).getPrice());
-        cost6.setText(""+ pills.get(6).getPrice());
-        cost7.setText(""+ pills.get(7).getPrice());
-        cost8.setText(""+ pills.get(8).getPrice());
-        cost9.setText(""+ pills.get(9).getPrice());
-        cost10.setText(""+ pills.get(10).getPrice());
-        cost11.setText(""+ pills.get(11).getPrice());
-        cost12.setText(""+ pills.get(12).getPrice());
-        cost13.setText(""+ pills.get(13).getPrice());
-        cost14.setText(""+ pills.get(14).getPrice());
-        cost15.setText(""+ pills.get(15).getPrice());
-        cost16.setText(""+ pills.get(16).getPrice());
-        cost17.setText(""+ pills.get(17).getPrice());
-        cost18.setText(""+ pills.get(18).getPrice());
-        cost19.setText(""+ pills.get(19).getPrice());
-        cost20.setText(""+ pills.get(20).getPrice());
-        cost21.setText(""+ pills.get(21).getPrice());
-        cost22.setText(""+ pills.get(22).getPrice());
-        cost23.setText(""+ pills.get(23).getPrice());
-        cost24.setText(""+ pills.get(24).getPrice());
 
         // Call setItems() after the ComboBox is initialized
         controller.setInfos();
+        controller.setCost();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
@@ -655,6 +629,32 @@ public class SceneController {
         weigth_p.setText(userInfo[0] + " kg");
         height_p.setText(userInfo[1] + " cm");
     }
-
+    public void setCost(){
+        cost0.setText(""+ pills.get(0).getPrice());
+        cost1.setText(""+ pills.get(1).getPrice());
+        cost2.setText(""+ pills.get(2).getPrice());
+        cost3.setText(""+ pills.get(3).getPrice());
+        cost4.setText(""+ pills.get(4).getPrice());
+        cost5.setText(""+ pills.get(5).getPrice());
+        cost6.setText(""+ pills.get(6).getPrice());
+        cost7.setText(""+ pills.get(7).getPrice());
+        cost8.setText(""+ pills.get(8).getPrice());
+        cost9.setText(""+ pills.get(9).getPrice());
+        cost10.setText(""+ pills.get(10).getPrice());
+        cost11.setText(""+ pills.get(11).getPrice());
+        cost12.setText(""+ pills.get(12).getPrice());
+        cost13.setText(""+ pills.get(13).getPrice());
+        cost14.setText(""+ pills.get(14).getPrice());
+        cost15.setText(""+ pills.get(15).getPrice());
+        cost16.setText(""+ pills.get(16).getPrice());
+        cost17.setText(""+ pills.get(17).getPrice());
+        cost18.setText(""+ pills.get(18).getPrice());
+        cost19.setText(""+ pills.get(19).getPrice());
+        cost20.setText(""+ pills.get(20).getPrice());
+        cost21.setText(""+ pills.get(21).getPrice());
+        cost22.setText(""+ pills.get(22).getPrice());
+        cost23.setText(""+ pills.get(23).getPrice());
+        cost24.setText(""+ pills.get(24).getPrice());
+    }
 
 }
