@@ -686,5 +686,106 @@ public class SceneController {
         cost23.setText(""+ pills.get(23).getPrice());
         cost24.setText(""+ pills.get(24).getPrice());
     }
-
+    public void textArray(){
+        textarr.add(cart1);
+        textarr.add(cart2);
+        textarr.add(cart3);
+        textarr.add(cart4);
+        textarr.add(cart5);
+        textarr.add(cart6);
+        textarr.add(cart7);
+        textarr.add(cart8);
+        textarr.add(cart9);
+        textarr.add(cart10);
+        textarr.add(cart11);
+        textarr.add(cart12);
+        textarr.add(cart13);
+        textarr.add(cart14);
+        textarr.add(cart15);
+    }
+    public Text getEmptyText(){
+        for(Text t : textarr){
+            if(t.getText().equals("")){
+                return t;
+            }
+        }
+        System.out.println("null hatası salakakk");
+        return null;
+    }
+    public void setMedInCart0(ActionEvent event){
+        getEmptyText().setText(pills.get(0).getName());
+    }
+    public void setMedInCart1(ActionEvent event){
+        getEmptyText().setText(pills.get(1).getName());
+    }
+    // Devam eden diğer metodlar
+    public void setMedInCart2(ActionEvent event){
+        getEmptyText().setText(pills.get(2).getName());
+    }
+    public void setMedInCart3(ActionEvent event){
+        getEmptyText().setText(pills.get(3).getName());
+    }
+    public void setMedInCart4(ActionEvent event){
+        getEmptyText().setText(pills.get(4).getName());
+    }
+    public void setMedInCart5(ActionEvent event){
+        getEmptyText().setText(pills.get(5).getName());
+    }
+    public void setMedInCart6(ActionEvent event){
+        getEmptyText().setText(pills.get(6).getName());
+    }
+    public void setMedInCart7(ActionEvent event){
+        getEmptyText().setText(pills.get(7).getName());
+    }
+    public void setMedInCart8(ActionEvent event){
+        getEmptyText().setText(pills.get(8).getName());
+    }
+    public void setMedInCart9(ActionEvent event){
+        getEmptyText().setText(pills.get(9).getName());
+    }
+    public void setMedInCart10(ActionEvent event){
+        getEmptyText().setText(pills.get(10).getName());
+    }
+    public void setMedInCart11(ActionEvent event){
+        getEmptyText().setText(pills.get(11).getName());
+    }
+    public void setMedInCart12(ActionEvent event){
+        getEmptyText().setText(pills.get(12).getName());
+    }
+    public void setMedInCart13(ActionEvent event){
+        getEmptyText().setText(pills.get(13).getName());
+    }
+    public void setMedInCart14(ActionEvent event){
+        getEmptyText().setText(pills.get(14).getName());
+    }
+    public void setMedInCart15(ActionEvent event){
+        getEmptyText().setText(pills.get(15).getName());
+    }
+    public void setMedInCart16(ActionEvent event){
+        getEmptyText().setText(pills.get(16).getName());
+    }
+    public void setMedInCart17(ActionEvent event){
+        getEmptyText().setText(pills.get(17).getName());
+    }
+    public void setMedInCart18(ActionEvent event){
+        getEmptyText().setText(pills.get(18).getName());
+    }
+    public void setMedInCart19(ActionEvent event){
+        getEmptyText().setText(pills.get(19).getName());
+    }
+    public void setMedInCart20(ActionEvent event){
+        getEmptyText().setText(pills.get(20).getName());
+    }
+    public void setMedInCart21(ActionEvent event){
+        getEmptyText().setText(pills.get(21).getName());
+    }
+    public void setMedInCart22(ActionEvent event){
+        getEmptyText().setText(pills.get(22).getName());
+    }
+    public void setMedInCart23(ActionEvent event){
+        getEmptyText().setText(pills.get(23).getName());
+    }
+    public void setMedInCart24(ActionEvent event){
+        getEmptyText().setText(pills.get(24).getName());
+    }
 }
