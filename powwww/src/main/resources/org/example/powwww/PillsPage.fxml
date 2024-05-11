@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -139,8 +138,9 @@
          <content>
             <GridPane prefHeight="594.0" prefWidth="616.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.923828125" minWidth="10.0" prefWidth="311.208984375" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="188.291015625" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.923828125" minWidth="10.0" prefWidth="270.5" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.923828125" minWidth="10.0" prefWidth="86.5" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="181.5" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.208984375" minWidth="0.0" prefWidth="115.1640625" />
               </columnConstraints>
               <rowConstraints>
@@ -172,96 +172,221 @@
                   <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine Cost" GridPane.columnIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine Cost" GridPane.columnIndex="2">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add to Cart" GridPane.columnIndex="2">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add to Cart" GridPane.columnIndex="3">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
                   <Label text="Label" GridPane.rowIndex="1" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <Label text="Label" GridPane.rowIndex="2" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                   <Label text="Label" GridPane.rowIndex="3" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                   <Label text="Label" GridPane.rowIndex="4" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                   <Label text="Label" GridPane.rowIndex="5" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                   <Label text="Label" GridPane.rowIndex="6" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
                   <Label text="Label" GridPane.rowIndex="7" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="7" />
                   <Label text="Label" GridPane.rowIndex="8" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="8" />
                   <Label text="Label" GridPane.rowIndex="10" />
                   <Label text="Label" GridPane.rowIndex="9" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="10" />
                   <Label text="Label" GridPane.rowIndex="11" />
                   <Label text="Label" GridPane.rowIndex="12" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="12" />
                   <Label text="Label" GridPane.rowIndex="13" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="13" />
                   <Label text="Label" GridPane.rowIndex="14" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="14" />
                   <Label text="Label" GridPane.rowIndex="15" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="15" />
                   <Label text="Label" GridPane.rowIndex="16" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="16" />
                   <Label text="Label" GridPane.rowIndex="17" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="17" />
                   <Label text="Label" GridPane.rowIndex="19" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="18" />
                   <Label text="Label" GridPane.rowIndex="18" />
                   <Label text="Label" GridPane.rowIndex="20" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="19" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="20" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="19" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="20" />
                   <Label text="Label" GridPane.rowIndex="21" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="21" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="21" />
                   <Label text="Label" GridPane.rowIndex="22" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="22" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="22" />
                   <Label text="Label" GridPane.rowIndex="23" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="23" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="23" />
                   <Label text="Label" GridPane.rowIndex="24" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="24" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="24" />
                   <Label text="Label" GridPane.rowIndex="25" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="25" />
-                  <Button fx:id="buttonformed1" mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Button fx:id="buttonformed0" mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button fx:id="buttonformed2" mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Button fx:id="buttonformed3" mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                  <Button fx:id="buttonformed4" mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                  <BottomNavigationButton text="+" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                  <BottomNavigationButton text="+" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="12" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="14" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="15" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="16" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="17" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="18" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="19" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="20" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="21" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="22" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="24" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="25" />
+                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="25" />
+                  <Button fx:id="buttonformed1" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Button fx:id="buttonformed0" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button fx:id="buttonformed2" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Button fx:id="buttonformed3" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Button fx:id="buttonformed4" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                  <Button fx:id="buttonformed5" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                  <Button fx:id="buttonformed7" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                  <Button fx:id="buttonformed8" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                  <Button fx:id="buttonformed10" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+                  <Button fx:id="buttonformed11" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+                  <Button fx:id="buttonformed13" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="14" />
+                  <Button fx:id="buttonformed14" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="15" />
+                  <Button fx:id="buttonformed15" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="16" />
+                  <Button fx:id="buttonformed16" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="17" />
+                  <Button fx:id="buttonformed17" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="18" />
+                  <Button fx:id="buttonformed18" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="19" />
+                  <Button fx:id="buttonformed19" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="20" />
+                  <Button fx:id="buttonformed20" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="21" />
+                  <Button fx:id="buttonformed21" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="22" />
+                  <Button fx:id="buttonformed23" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="24" />
+                  <Button fx:id="buttonformed24" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="25" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine Name" wrappingWidth="173.06370162963867">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="13" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="23" />
+                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="23" />
+                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <image>
+                        <Image url="@../../../pill1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@../../../pill2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <image>
+                        <Image url="@../../../pill3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <image>
+                        <Image url="@../../../pill4.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <image>
+                        <Image url="@../../../pill5.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@../../../pill6.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <image>
+                        <Image url="@../../../pill7.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../../../serum.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                     <image>
+                        <Image url="@../../../med13.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                     <image>
+                        <Image url="@../../../med12.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                     <image>
+                        <Image url="@../../../med11.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                     <image>
+                        <Image url="@../../../med10.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                     <image>
+                        <Image url="@../../../med9.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="14">
+                     <image>
+                        <Image url="@../../../med8.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="15">
+                     <image>
+                        <Image url="@../../../med7.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="16">
+                     <image>
+                        <Image url="@../../../med6.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="17">
+                     <image>
+                        <Image url="@../../../med5.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="18">
+                     <image>
+                        <Image url="@../../../med4.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="19">
+                     <image>
+                        <Image url="@../../../med3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="20">
+                     <image>
+                        <Image url="@../../../med2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="21">
+                     <image>
+                        <Image url="@../../../med1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="22">
+                     <image>
+                        <Image url="@../../../medic1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="23">
+                     <image>
+                        <Image url="@../../../medic2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="24">
+                     <image>
+                        <Image url="@../../../medic3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="25">
+                     <image>
+                        <Image url="@../../../medic4.png" />
+                     </image>
+                  </ImageView>
                </children>
             </GridPane>
          </content>
