@@ -18,7 +18,7 @@
          </font></TextField>
       <Pane layoutX="52.0" layoutY="92.0" prefHeight="628.0" prefWidth="180.0" style="-fx-background-color: #94ACFF; -fx-border-color: black;">
          <children>
-            <Label layoutX="5.0" layoutY="14.0" prefHeight="44.0" prefWidth="169.0" text="Sinan Sonlu">
+            <Label fx:id="A_Name" layoutX="5.0" layoutY="14.0" prefHeight="44.0" prefWidth="169.0" text="Sinan Sonlu">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -38,17 +38,17 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="109.0" layoutY="73.0" prefHeight="38.0" prefWidth="43.0" text="25">
+            <Label fx:id="A_Age" layoutX="109.0" layoutY="73.0" prefHeight="38.0" prefWidth="43.0" text="25">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="95.0" layoutY="151.0" text="185 cm">
+            <Label fx:id="A_Height" layoutX="95.0" layoutY="151.0" text="185 cm">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="104.0" layoutY="116.0" text="72 kg">
+            <Label fx:id="A_Weight" layoutX="104.0" layoutY="116.0" text="72 kg">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

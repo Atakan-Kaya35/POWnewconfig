@@ -24,32 +24,32 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="A_Age" layoutX="10.0" layoutY="78.0" text="Age: ">
+            <Label layoutX="10.0" layoutY="78.0" text="Age: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="A_Weight" layoutX="8.0" layoutY="116.0" text="Weight: ">
+            <Label layoutX="8.0" layoutY="116.0" text="Weight: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="A_Height" layoutX="10.0" layoutY="151.0" text="Height: ">
+            <Label layoutX="10.0" layoutY="151.0" text="Height: ">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="109.0" layoutY="73.0" prefHeight="38.0" prefWidth="43.0" text="25">
+            <Label fx:id="A_Age" layoutX="109.0" layoutY="73.0" prefHeight="38.0" prefWidth="43.0" text="25">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="95.0" layoutY="151.0" text="185 cm">
+            <Label fx:id="A_Height" layoutX="95.0" layoutY="151.0" text="185 cm">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="104.0" layoutY="116.0" text="72 kg">
+            <Label fx:id="A_Weight" layoutX="104.0" layoutY="116.0" text="72 kg">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
