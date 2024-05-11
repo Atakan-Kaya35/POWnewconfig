@@ -141,7 +141,7 @@ public class SimMethods {
 
     public static void buildCity(City city) {
 
-        city.createRandomBuildings(4, 0.7);
+        city.createRandomBuildings(5, 0.7);
         city.createVansAndScooters();
         createPatients(10, city);
         //createNurses(5, city);

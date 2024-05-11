@@ -1,9 +1,6 @@
 package org.example.powwww.Database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class SQLTest {
     // Database connection details
@@ -74,10 +71,118 @@ public class SQLTest {
     public static String coder(int x, int y, String ... vars){
 
         String answer = "";
-        answer = answer + x + "$" + y + "$";
+        answer = answer + x + "#" + y + "#";
         for (String var : vars) {
-            answer += var;
+            answer += var + "#";
         }
         return answer;
+    }
+
+    public static boolean userAdder(String userName, String password, int age, String name, int weight, int height, int x, int y){
+        String userInfo = userName + "#" + weight + "#" + height + "#" + age + "#" + x + "#" + y + "#" + encriptedPassword;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            String sql = "INSERT INTO nurse (info) VALUES (?)";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, userInfo);
+
+            int rowsInserted = stmt.executeUpdate();
+
+            if (rowsInserted > 0) {
+                System.out.println("A new row has been inserted successfully!");
+                return true;
+            } else {
+                System.out.println("Failed to insert a new row!");
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean pastOrderAssign(String userName, int price, int medName, String time){
+        String userInfo = medName + "#" + time + "#" + price;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            String sql = "UPDATE Patients SET pastOrder = ? WHERE userName = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, userInfo);
+            stmt.setString(2, userName);
+
+            int rowsUpdated = stmt.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                System.out.println("Patient's info has been updated successfully!");
+                return true;
+            } else {
+                System.out.println("Failed to update patient's info!");
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * userName + "#" + weight + "#" + height + "#" + age + "#" + x + "#" + y + "#" + encriptedPassword;
+     * @param userName
+     * @return
+     */
+
+    public static String[] getUserInfo(String userName) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            String sql = "SELECT info FROM Patients WHERE userName = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, userName);
+
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                String userInfo = rs.getString("info");
+                System.out.println("Retrieved user info successfully!");
+                return userInfo.split("#");
+            } else {
+                System.out.println("No user found with the provided username.");
+                return null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }
