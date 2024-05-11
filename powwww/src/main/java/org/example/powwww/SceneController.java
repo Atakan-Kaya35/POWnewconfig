@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.event.Event;
 import org.example.powwww.DiagnosisTest.*;
 import javafx.fxml.Initializable;
+import org.example.powwww.Database.*;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import org.example.powwww.DiagnosisTest.Menu;
@@ -37,10 +38,6 @@ public class SceneController {
     private Button signUpButtonTwo;
     @FXML
     private Button signUpButtonThree;
-    @FXML
-    private Button homePage;
-    @FXML
-    private Button personalInfoPage;
     @FXML
     private Button pillsPage;
     @FXML
@@ -83,11 +80,25 @@ public class SceneController {
     private Label A_Height;
     @FXML
     private Text A_Remainder;
+    @FXML
+    private TextField name_p;
+    @FXML
+    private TextField age_p;
+    @FXML
+    private TextField address_p;
+    @FXML
+    private TextField weigth_p;
+    @FXML
+    private TextField height_p;
+    @FXML
+    private TextField bmi_p;
+
     City city = new City(20,20);
     private ArrayList<String> choices = new ArrayList<String>();
     public static ArrayList<Stationary> everyOne = new ArrayList<>();
     public static ArrayList<String> usernames = new ArrayList<>();
     public static ArrayList<String> passwords = new ArrayList<>();
+    public static String userName;
     static ArrayList<User> users = new ArrayList<>();
 
     private Stage stage;
@@ -143,6 +154,10 @@ public class SceneController {
             alert.setContentText("Password must be at least 8 characters long.");
             alert.showAndWait();
         }
+        else{
+            usernames.add(SU_Username.getText());
+            passwords.add(SU_Password.getText());
+        }
 
         String[] address = SU_Address.getText().split(",");
         int x = Integer.parseInt(address[0]);
@@ -152,6 +167,7 @@ public class SceneController {
 
         // Add the new user to the list of users
         everyOne.add(newUser);
+        SQLTest.userAdder(SU_Username.getText(),SU_Password.getText(),Integer.parseInt(SU_Age.getText()),SU_Name.getText(),Integer.parseInt(SU_Weight.getText()),Integer.parseInt(SU_Height.getText()),x,y);
         usernames.add(SU_Username.getText());
         passwords.add(SU_Password.getText());
 
@@ -170,12 +186,15 @@ public class SceneController {
     }
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
         //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
+
+            userName = userNameTextField.getText();
             fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
             root = fxmlLoader.load();
             scene = new Scene(root);
             scene.setRoot(root);
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
+            setInfos();
             stage.show();
         //}
         /*else{
@@ -193,6 +212,7 @@ public class SceneController {
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        setInfos();
         stage.show();
     }
     public void switchToPersonalInfoPage(ActionEvent event) throws IOException {
@@ -202,6 +222,12 @@ public class SceneController {
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        setInfos();
+        name_p.setText(SQLTest.getUserInfo(userName)[0]);
+        age_p.setText(SQLTest.getUserInfo(userName)[3]);
+        address_p.setText(SQLTest.getUserInfo(userName)[4]+SQLTest.getUserInfo(userName)[5]);
+        weigth_p.setText(SQLTest.getUserInfo(userName)[1]);
+        height_p.setText(SQLTest.getUserInfo(userName)[2]);
         stage.show();
     }
     public void switchToPillsPage(ActionEvent event) throws IOException {
@@ -211,6 +237,7 @@ public class SceneController {
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        setInfos();
         stage.show();
     }
     public void switchToQDTPage(ActionEvent event) throws IOException {
@@ -220,6 +247,7 @@ public class SceneController {
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        setInfos();
         stage.show();
     }
     public void switchToOrdersPage(ActionEvent event) throws IOException {
@@ -229,6 +257,7 @@ public class SceneController {
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        setInfos();
         stage.show();
     }
     public void switchToCurrentOrdersPage(ActionEvent event) throws IOException {
@@ -238,6 +267,7 @@ public class SceneController {
         scene.setRoot(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        setInfos();
         stage.show();
     }
     public void Exit(ActionEvent event) throws IOException {
@@ -255,6 +285,16 @@ public class SceneController {
         choices.add("Courier");
         occupationSelectionBox.getItems().addAll(choices);
         System.out.println("sevgi");
+    }
+    public void setInfos(){
+        String userName_ = SQLTest.getUserInfo(userName)[0];
+        A_Name.setText(userName_);
+        String weight_ = SQLTest.getUserInfo(userName)[1];
+        A_Weight.setText(weight_);
+        String height_ = SQLTest.getUserInfo(userName)[2];
+        A_Height.setText(height_);
+        String age_ = SQLTest.getUserInfo(userName)[3];
+        A_Name.setText(age_);
     }
     public void openQDT(ActionEvent event) {
         // Instantiate a Swing JFrame
