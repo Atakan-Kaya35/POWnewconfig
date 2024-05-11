@@ -80,7 +80,7 @@ public class SQLTest {
 
     public static boolean addUser(String userName, String password, int age, String name, int weight, int height, int x, int y){
         String encriptedPassword = encryptPassword(password);
-        String userInfo =weight + "#" + height + "#" + age + "#" + x + "#" + y + "#" + encriptedPassword;
+        String userInfo =weight + "#" + height + "#" + age + "#" + name + "#" + x + "#" + y + "#" + encriptedPassword;
         Connection conn = null;
         PreparedStatement stmt = null;
 
