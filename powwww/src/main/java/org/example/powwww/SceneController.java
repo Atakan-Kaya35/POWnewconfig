@@ -259,6 +259,7 @@ public class SceneController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         controller.setInfos();
+        controller.setInfoPIP();
 
         // Call setItems() after the ComboBox is initialized
         /*controller.setInfos();
@@ -268,12 +269,7 @@ public class SceneController {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         setInfos();*/
-        String[] userInfo = SQLTest.getUserInfo(userName);
-        name_p.setText(userInfo[0]);
-        age_p.setText(userInfo[3]);
-        address_p.setText(userInfo[4]+userInfo[5]);
-        weigth_p.setText(userInfo[1]);
-        height_p.setText(userInfo[2]);
+
         stage.show();
     }
     public void switchToPillsPage(ActionEvent event) throws IOException {
@@ -432,5 +428,13 @@ public class SceneController {
         city.viewMap(false);
         ((GridFrame)grid).showTime(10);
         ((GridFrame)grid).getPanel().repaint();
+    }
+    public void setInfoPIP(){
+        String[] userInfo = SQLTest.getUserInfo(userName);
+        name_p.setText(userInfo[0]);
+        age_p.setText(userInfo[3]);
+        address_p.setText(userInfo[4]+userInfo[5]);
+        weigth_p.setText(userInfo[1]);
+        height_p.setText(userInfo[2]);
     }
 }
