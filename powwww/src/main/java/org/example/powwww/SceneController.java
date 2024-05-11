@@ -328,6 +328,7 @@ public class SceneController {
     public static String userName;
     public static ArrayList<Medicine> cart = new ArrayList<Medicine>();
     static ArrayList<User> users = new ArrayList<>();
+    Patients currentUserPatient;
 
     private Stage stage;
     private Scene scene;
@@ -417,6 +418,8 @@ public class SceneController {
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
         //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
         userName = userNameTextField.getText();
+        currentUserPatient = new Patients();
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
         Parent root = loader.load();
 
@@ -638,6 +641,9 @@ public class SceneController {
         A_Height.setText(height_);
         String age_ = userInfo[2] + " years";
         A_Age.setText(age_);
+
+        // create the patient as soon as the information is made available
+        currentUserPatient = new Patients(userInfo[3], Integer.parseInt(userInfo[4]), Integer.parseInt(userInfo[5]), city);
     }
     public void openQDT(ActionEvent event) {
         // Instantiate a Swing JFrame
@@ -832,7 +838,7 @@ public class SceneController {
     }
 
     public void giveOrder(ActionEvent event){
-        //Order newOrder = new Order(Patients patient, cart);
+        Order newOrder = new Order(currentUserPatient, cart);
     }
 
 }
