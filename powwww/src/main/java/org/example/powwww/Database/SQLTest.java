@@ -11,7 +11,7 @@ public class SQLTest {
 
     public static void main(String[] args) {
         // Örnek kullanım
-        int id = 0;
+        /*int id = 0;
         String newVarcharValue = coder(0, 0, "aaaggghhhh");
 
         // Metodu çağırarak varchar değerini güncelle
@@ -22,7 +22,7 @@ public class SQLTest {
             System.out.println("Data updated successfully.");
         } else {
             System.out.println("Data could not be updated.");
-        }
+        }*/
     }
 
     // Varchar değeri güncelleyen metot

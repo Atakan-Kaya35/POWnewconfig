@@ -189,8 +189,10 @@ public class SceneController {
     private static boolean isUsernameTaken(String username) {
         return usernames.contains(username);
     }
+
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
         //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
+        userName = userNameTextField.getText();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
         Parent root = loader.load();
 
@@ -205,7 +207,7 @@ public class SceneController {
         stage.setScene(scene);
 
         // Call setItems() after the ComboBox is initialized
-        controller.setInfos();;
+        controller.setInfos();
             /*userName = userNameTextField.getText();
             fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
             root = fxmlLoader.load();
@@ -242,11 +244,12 @@ public class SceneController {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         setInfos();
-        name_p.setText(SQLTest.getUserInfo(userName)[0]);
-        age_p.setText(SQLTest.getUserInfo(userName)[3]);
-        address_p.setText(SQLTest.getUserInfo(userName)[4]+SQLTest.getUserInfo(userName)[5]);
-        weigth_p.setText(SQLTest.getUserInfo(userName)[1]);
-        height_p.setText(SQLTest.getUserInfo(userName)[2]);
+        String[] userInfo = SQLTest.getUserInfo(userName);
+        name_p.setText(userInfo[0]);
+        age_p.setText(userInfo[3]);
+        address_p.setText(userInfo[4]+userInfo[5]);
+        weigth_p.setText(userInfo[1]);
+        height_p.setText(userInfo[2]);
         stage.show();
     }
     public void switchToPillsPage(ActionEvent event) throws IOException {
@@ -306,13 +309,14 @@ public class SceneController {
         System.out.println("sevgi");
     }
     public void setInfos(){
-        String userName_ = SQLTest.getUserInfo(userName)[0];
+        String[] userInfo = SQLTest.getUserInfo(userName);
+        String userName_ = userInfo[0];
         A_Name.setText(userName_);
-        String weight_ = SQLTest.getUserInfo(userName)[1];
+        String weight_ = userInfo[1];
         A_Weight.setText(weight_);
-        String height_ = SQLTest.getUserInfo(userName)[2];
+        String height_ = userInfo[2];
         A_Height.setText(height_);
-        String age_ = SQLTest.getUserInfo(userName)[3];
+        String age_ = userInfo[3];
         A_Name.setText(age_);
     }
     public void openQDT(ActionEvent event) {
