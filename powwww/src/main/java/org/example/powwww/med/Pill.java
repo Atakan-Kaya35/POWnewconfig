@@ -8,6 +8,8 @@ public class Pill extends Medicine {
     public static ArrayList<String[]> AllPills = new ArrayList();
     public static ArrayList<String[]> OTCpills = new ArrayList();
     public static ArrayList<String[]> prescribedPills = new ArrayList();
+    public static ArrayList<Medicine> allRealPills = new ArrayList();
+
     public int pillID;
 
     public Pill(int IDnumber) {
@@ -58,6 +60,7 @@ public class Pill extends Medicine {
         }
         System.out.println();*/
         // Adding pill information
+        /*
         String[] a = {"Paracetamol", "Acute", "No", "A common pain reliever and fever reducer"};
         AllPills.add(a);
 
@@ -212,6 +215,66 @@ public class Pill extends Medicine {
         String[] ay = {"Carvedilol", "Periodic", "Yes", "Beta-blocker used to treat high blood pressure heart failure and to improve survival after a heart attack"};
         AllPills.add(ay);
     }
+    */
+
+
+    // bütün pilleri obje olarak oluşturup bir arrayliste ekledik. buradan seçmek daha kolay olur simde ayrıca gui için bize
+    // böylesi gerekli.
+
+    public static void fillPills() {
+        Random random = new Random();
+        // Adding pill information
+        String[] pillsText = {
+                "Amoxicillin,Acute,Yes,Antibiotic used to treat bacterial infections such as pneumonia bronchitis and infections of the ear nose throat skin or urinary tract",
+                "Albuterol,Acute,Yes,Bronchodilator used to treat asthma chronic obstructive pulmonary disease (COPD) and other breathing problems",
+                "Diazepam,Acute,Yes,Benzodiazepine used to treat anxiety disorders alcohol withdrawal muscle spasms and seizures",
+                "Ciprofloxacin,Acute,Yes,Fluoroquinolone antibiotic used to treat bacterial infections such as urinary tract infections respiratory infections skin infections and bone/joint infections",
+                "Prednisone,Acute,Yes,Corticosteroid used to treat inflammatory conditions such as arthritis asthma skin conditions and allergic disorders",
+                "Metronidazole,Acute,Yes,Nitroimidazole antibiotic used to treat bacterial infections protozoal infections and infections of the vagina stomach skin joints and respiratory tract",
+                "Azithromycin,Acute,Yes,Macrolide antibiotic used to treat bacterial infections such as respiratory infections skin infections ear infections and sexually transmitted infections",
+                "Warfarin,Acute,Yes,Oral anticoagulant used to prevent blood clots in conditions such as atrial fibrillation deep vein thrombosis (DVT) and pulmonary embolism",
+                "Clopidogrel,Acute,Yes,Antiplatelet medication used to reduce the risk of heart attack and stroke in conditions such as acute coronary syndrome peripheral artery disease and after a recent heart attack or stroke",
+                "Levofloxacin,Acute,Yes,Fluoroquinolone antibiotic used to treat bacterial infections such as respiratory infections skin infections urinary tract infections and prostate infections",
+                "Cephalexin,Acute,Yes,Cephalosporin antibiotic used to treat bacterial infections such as respiratory tract infections skin infections ear infections and urinary tract infections",
+                "Naproxen,Acute,Yes,Nonsteroidal anti-inflammatory drug (NSAID) used to reduce pain inflammation and fever",
+                "Fluconazole,Acute,Yes,Antifungal medication used to treat fungal infections such as yeast infections of the mouth throat esophagus abdomen lungs blood and other organs",
+                "Hydrocodone,Acute,Yes,Opioid analgesic used to treat moderate to severe pain",
+                "Oxycodone,Acute,Yes,Opioid analgesic used to treat moderate to severe pain",
+                "Alprazolam,Acute,Yes,Benzodiazepine used to treat anxiety and panic disorders",
+                "Tramadol,Acute,Yes,Opioid analgesic used to treat moderate to severe pain",
+                "Doxycycline,Acute,Yes,Tetracycline antibiotic used to treat bacterial infections such as acne urinary tract infections and chlamydia",
+                "Lorazepam,Acute,Yes,Benzodiazepine used to treat anxiety disorders insomnia and seizures",
+                "Furosemide,Acute,Yes,Loop diuretic used to treat fluid retention (edema) and high blood pressure",
+                "Omeprazole,Periodic,Yes,Proton pump inhibitor (PPI) used to reduce stomach acid and treat conditions like heartburn acid reflux and ulcers",
+                "Simvastatin,Periodic,Yes,Statin medication used to lower cholesterol levels in the blood and reduce the risk of heart disease and stroke",
+                "Metformin,Periodic,Yes,Oral diabetes medicine used to control blood sugar levels in people with type 2 diabetes",
+                "Lisinopril,Periodic,Yes,Angiotensin-converting enzyme (ACE) inhibitor used to treat high blood pressure heart failure and to improve survival after a heart attack",
+                "Atorvastatin,Periodic,Yes,Statin medication used to lower cholesterol levels in the blood and reduce the risk of heart disease and stroke",
+        };
+
+        for (String pillText : pillsText) {
+            String[] pillInfo = pillText.split(",");
+            String name = pillInfo[0];
+            String description = pillInfo[3];
+
+            // Generate random cycles of taking between 3 and 7
+            int cyclesOfTaking = random.nextInt(5) + 3;
+
+            // Generate random taking frequency
+            boolean[] frequency = new boolean[3];
+            for (int i = 0; i < 3; i++) {
+                frequency[i] = random.nextBoolean();
+            }
+
+            Pill pill = new Pill(ID, cyclesOfTaking, frequency);
+
+            allRealPills.add(pill);
+
+            AllPills.add(pillInfo);
+            ID++;
+        }
+    }
+    
 
     public int getPillID() {
         return pillID;
