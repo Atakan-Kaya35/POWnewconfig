@@ -104,7 +104,11 @@ public class SceneController {
     public static ArrayList<String> passwords = new ArrayList<>();
     public static String userName;
     static ArrayList<User> users = new ArrayList<>();
-
+    String[] userInfo = SQLTest.getUserInfo(userName);
+    String AGE = userInfo[2] + " years";
+    String NAME = userInfo[3];
+    String WEIGHT = userInfo[0] + " kg";
+    String HEIGHT = userInfo[1] + " cm";
     private Stage stage;
     private Scene scene;
     private Parent root ;
@@ -403,15 +407,11 @@ public class SceneController {
         System.out.println("sevgi");
     }
     public void setInfos(){
-        String[] userInfo = SQLTest.getUserInfo(userName);
-        String userName_ = userInfo[3];
-        A_Name.setText(userName_);
-        String weight_ = userInfo[0] + " kg";
-        A_Weight.setText(weight_);
-        String height_ = userInfo[1] + " cm";
-        A_Height.setText(height_);
-        String age_ = userInfo[2] + " years";
-        A_Age.setText(age_);
+        
+        A_Name.setText(NAME);
+        A_Weight.setText(WEIGHT);
+        A_Height.setText(HEIGHT);
+        A_Age.setText(AGE);
     }
     public void openQDT(ActionEvent event) {
         // Instantiate a Swing JFrame
@@ -436,7 +436,7 @@ public class SceneController {
         bmi_p.setText(bmi);
         name_p.setText(userInfo[3]);
         age_p.setText(userInfo[2] + " years");
-        address_p.setText(userInfo[4]+userInfo[5]);
+        address_p.setText(userInfo[4]+","+userInfo[5]);
         weigth_p.setText(userInfo[0] + " kg");
         height_p.setText(userInfo[1] + " cm");
     }
