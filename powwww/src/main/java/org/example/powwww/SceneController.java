@@ -8,6 +8,8 @@ import org.example.powwww.Database.*;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import org.example.powwww.DiagnosisTest.Menu;
+import org.example.powwww.MapGridTaslak.GridFrame;
+import org.example.powwww.Sim.SimMethods;
 import org.example.powwww.Sim.UserMethods;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -95,7 +97,7 @@ public class SceneController {
     @FXML
     private TextField bmi_p;
 
-    City city = new City(20,20);
+    City city = new City(30,20);
     private ArrayList<String> choices = new ArrayList<String>();
     public static ArrayList<Stationary> everyOne = new ArrayList<>();
     public static ArrayList<String> usernames = new ArrayList<>();
@@ -169,7 +171,7 @@ public class SceneController {
 
             // Add the new user to the list of users
             everyOne.add(newUser);
-            SQLTest.userAdder(SU_Username.getText(), SU_Password.getText(), Integer.parseInt(SU_Age.getText()), SU_Name.getText(), Integer.parseInt(SU_Weight.getText()), Integer.parseInt(SU_Height.getText()), x, y);
+            SQLTest.addUser(SU_Username.getText(), SU_Password.getText(), Integer.parseInt(SU_Age.getText()), SU_Name.getText(), Integer.parseInt(SU_Weight.getText()), Integer.parseInt(SU_Height.getText()), x, y);
             usernames.add(SU_Username.getText());
             passwords.add(SU_Password.getText());
 
@@ -321,6 +323,12 @@ public class SceneController {
         menuFrame.setVisible(true);
     }
     public void openMap(ActionEvent event){
-        
+        SimMethods.buildBilkent(city);
+
+        JFrame grid = new GridFrame(city);
+
+        city.viewMap(false);
+        ((GridFrame)grid).showTime(10);
+        ((GridFrame)grid).getPanel().repaint();
     }
 }
