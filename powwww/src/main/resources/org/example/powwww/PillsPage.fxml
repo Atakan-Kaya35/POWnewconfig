@@ -134,9 +134,9 @@
             <Image url="@buyutec.png" />
          </image>
       </ImageView>
-      <ScrollPane layoutX="231.0" layoutY="82.0" prefHeight="677.0" prefWidth="612.0">
+      <ScrollPane layoutX="231.0" layoutY="134.0" prefHeight="569.0" prefWidth="613.0">
          <content>
-            <GridPane prefHeight="594.0" prefWidth="616.0">
+            <GridPane prefHeight="797.0" prefWidth="588.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.923828125" minWidth="10.0" prefWidth="270.5" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.923828125" minWidth="10.0" prefWidth="86.5" />
@@ -182,56 +182,56 @@
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Label text="Label" GridPane.rowIndex="1" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Label text="Label" GridPane.rowIndex="2" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Label text="Label" GridPane.rowIndex="3" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Label text="Label" GridPane.rowIndex="4" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                  <Label text="Label" GridPane.rowIndex="5" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                  <Label text="Label" GridPane.rowIndex="6" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                  <Label text="Label" GridPane.rowIndex="7" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                  <Label text="Label" GridPane.rowIndex="8" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                  <Label text="Label" GridPane.rowIndex="10" />
-                  <Label text="Label" GridPane.rowIndex="9" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-                  <Label text="Label" GridPane.rowIndex="11" />
-                  <Label text="Label" GridPane.rowIndex="12" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="12" />
-                  <Label text="Label" GridPane.rowIndex="13" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="13" />
-                  <Label text="Label" GridPane.rowIndex="14" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="14" />
-                  <Label text="Label" GridPane.rowIndex="15" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="15" />
-                  <Label text="Label" GridPane.rowIndex="16" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="16" />
-                  <Label text="Label" GridPane.rowIndex="17" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="17" />
-                  <Label text="Label" GridPane.rowIndex="19" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="18" />
-                  <Label text="Label" GridPane.rowIndex="18" />
-                  <Label text="Label" GridPane.rowIndex="20" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="19" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="20" />
-                  <Label text="Label" GridPane.rowIndex="21" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="21" />
-                  <Label text="Label" GridPane.rowIndex="22" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="22" />
-                  <Label text="Label" GridPane.rowIndex="23" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="23" />
-                  <Label text="Label" GridPane.rowIndex="24" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="24" />
-                  <Label text="Label" GridPane.rowIndex="25" />
-                  <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="25" />
+                  <Label text="Amoxicillin" GridPane.rowIndex="1" />
+                  <Label fx:id="cost0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label text="Albuterol" GridPane.rowIndex="2" />
+                  <Label fx:id="cost1" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label text="Diazepam" GridPane.rowIndex="3" />
+                  <Label fx:id="cost2" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label text="Ciprofloxacin" GridPane.rowIndex="4" />
+                  <Label fx:id="cost3" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Label text="Prednisone" GridPane.rowIndex="5" />
+                  <Label fx:id="cost4" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <Label text="Metronidazole" GridPane.rowIndex="6" />
+                  <Label fx:id="cost5" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                  <Label text="Azithromycin" GridPane.rowIndex="7" />
+                  <Label fx:id="cost6" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <Label text="Warfarin" GridPane.rowIndex="8" />
+                  <Label fx:id="cost7" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                  <Label text="Levofloxacin" GridPane.rowIndex="10" />
+                  <Label text="Clopidogrel" GridPane.rowIndex="9" />
+                  <Label fx:id="cost8" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                  <Label fx:id="cost10" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                  <Label fx:id="cost9" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                  <Label text="Cephalexin" GridPane.rowIndex="11" />
+                  <Label text="Naproxen" GridPane.rowIndex="12" />
+                  <Label fx:id="cost11" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                  <Label text="Fluconazole" GridPane.rowIndex="13" />
+                  <Label fx:id="cost12" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                  <Label text="Hydrocodone" GridPane.rowIndex="14" />
+                  <Label fx:id="cost13" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="14" />
+                  <Label text="Oxycodone" GridPane.rowIndex="15" />
+                  <Label fx:id="cost14" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="15" />
+                  <Label text="Alprazolam" GridPane.rowIndex="16" />
+                  <Label fx:id="cost15" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="16" />
+                  <Label text="Tramadol" GridPane.rowIndex="17" />
+                  <Label fx:id="cost16" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                  <Label text="Lorazepam" GridPane.rowIndex="19" />
+                  <Label fx:id="cost17" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="18" />
+                  <Label text="Doxycycline" GridPane.rowIndex="18" />
+                  <Label text="Furosemide" GridPane.rowIndex="20" />
+                  <Label fx:id="cost18" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="19" />
+                  <Label fx:id="cost19" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="20" />
+                  <Label text="Omeprazole" GridPane.rowIndex="21" />
+                  <Label fx:id="cost20" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="21" />
+                  <Label text="Simvastatin" GridPane.rowIndex="22" />
+                  <Label fx:id="cost21" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="22" />
+                  <Label text="Metformin" GridPane.rowIndex="23" />
+                  <Label fx:id="cost22" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="23" />
+                  <Label text="Lisinopril" GridPane.rowIndex="24" />
+                  <Label fx:id="cost23" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="24" />
+                  <Label text="Atorvastatin" GridPane.rowIndex="25" />
+                  <Label fx:id="cost24" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="25" />
                   <Button fx:id="buttonformed1" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                   <Button fx:id="buttonformed0" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <Button fx:id="buttonformed2" mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
