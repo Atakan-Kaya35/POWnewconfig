@@ -406,12 +406,12 @@ public class SceneController {
         String[] userInfo = SQLTest.getUserInfo(userName);
         String userName_ = userInfo[3];
         A_Name.setText(userName_);
-        String weight_ = userInfo[0];
+        String weight_ = userInfo[0] + " kg";
         A_Weight.setText(weight_);
-        String height_ = userInfo[1];
+        String height_ = userInfo[1] + " cm";
         A_Height.setText(height_);
-        String age_ = userInfo[2];
-        A_Name.setText(age_);
+        String age_ = userInfo[2] + " years";
+        A_Age.setText(age_);
     }
     public void openQDT(ActionEvent event) {
         // Instantiate a Swing JFrame
@@ -431,10 +431,13 @@ public class SceneController {
     }
     public void setInfoPIP(){
         String[] userInfo = SQLTest.getUserInfo(userName);
-        name_p.setText(userInfo[0]);
-        age_p.setText(userInfo[3]);
+        String bmi = String.format("%,2f",(Integer.parseInt(userInfo[2]) / (Integer.parseInt(userInfo[1]) / 100.0)));
+        bmi += ((Integer.parseInt(userInfo[2]) / (Integer.parseInt(userInfo[1]) / 100.0)) < 15 || (Integer.parseInt(userInfo[1]) / (Integer.parseInt(userInfo[2]) / 100.0)) > 25)? "(good)" : " (bad)";
+        bmi_p.setText(bmi);
+        name_p.setText(userInfo[3]);
+        age_p.setText(userInfo[2] + " years");
         address_p.setText(userInfo[4]+userInfo[5]);
-        weigth_p.setText(userInfo[1]);
-        height_p.setText(userInfo[2]);
+        weigth_p.setText(userInfo[0] + " kg");
+        height_p.setText(userInfo[1] + " cm");
     }
 }

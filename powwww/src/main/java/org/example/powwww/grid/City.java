@@ -584,6 +584,8 @@ public void createVansAndScooters() {
         killPatients();
     }
     public void killPatients(){
+    //TODO: erase fillpill
+        Pill.fillPills();
         Pill p = new Pill(0);
         for(int i = 0; i< getPatientList().size(); i++){
             if (Math.random() < 0.1) {
