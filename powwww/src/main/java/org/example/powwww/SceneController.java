@@ -51,6 +51,8 @@ public class SceneController {
     @FXML
     private Button QDTStart;
     @FXML
+    private Button seeMap;
+    @FXML
     private TextField userNameTextField;
     @FXML
     private TextField passwordTextField;
@@ -317,6 +319,8 @@ public class SceneController {
         menuFrame.setTitle("Pills on Wheels");
         menuFrame.setDefaultCloseOperation(menuFrame.DISPOSE_ON_CLOSE);
         menuFrame.setVisible(true);
-
+    }
+    public void openMap(ActionEvent event){
+        
     }
 }
