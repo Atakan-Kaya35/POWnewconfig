@@ -30,8 +30,15 @@ public class Pill extends Medicine {
         super.setCyclesOfTaking(cyclesOfTaking);
         super.setConsumeFreq(takeingFrequency);
     }
+    public Pill(int IDnumber, int cyclesOfTaking, boolean[] takeingFrequency, String name, String description) {
+        super();
+        this.pillID = IDnumber;
+        super.setCyclesOfTaking(cyclesOfTaking);
+        super.setConsumeFreq(takeingFrequency);
+    }
 
-    public static ArrayList<Pill> getPillObjects(){
+    public static ArrayList<Pill> getPillObjects() {
+        ArrayList<Pill> pills = new ArrayList<>();
         int ID = 0;
         Random random = new Random();
         // Adding pill information
@@ -81,9 +88,8 @@ public class Pill extends Medicine {
                 frequency[j] = random.nextBoolean();
             }
 
-            Pill pill = new Pill(ID, cyclesOfTaking, frequency);
+            Pill pill = new Pill(ID, cyclesOfTaking, frequency, name, description);
             pills.add(pill);
-            pill.setPrice(random.nextInt(10,50)/2);
             ID++;
         }
         return pills;

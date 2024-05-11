@@ -474,6 +474,8 @@ public class SceneController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
 
+        System.out.println(pills.get(5).getPrice());
+        System.out.println("dlhrefo");
         cost0.setText(""+ pills.get(0).getPrice());
         cost1.setText(""+ pills.get(1).getPrice());
         cost2.setText(""+ pills.get(2).getPrice());
