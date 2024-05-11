@@ -171,7 +171,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Purchase" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
+                  <Button fx:id="Purchase" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#giveOrder" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
                </children>
             </Pane>
          </children>

@@ -2,11 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -119,9 +123,57 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
+                  <Button fx:id="Purchase" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#giveOrder" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
                </children>
             </Pane>
+            <ScrollPane layoutX="18.0" layoutY="76.0" prefHeight="130.0" prefWidth="185.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutY="4.0" prefHeight="358.0" prefWidth="168.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text fx:id="cart1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="cart2" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="1" />
+                              <Text fx:id="cart3" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="2" />
+                              <Text fx:id="cart4" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="3" />
+                              <Text fx:id="cart5" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="4" />
+                              <Text fx:id="cart6" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="5" />
+                              <Text fx:id="cart7" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="6" />
+                              <Text fx:id="cart8" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="7" />
+                              <Text fx:id="cart9" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="8" />
+                              <Text fx:id="cart10" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="9" />
+                              <Text fx:id="cart11" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="10" />
+                              <Text fx:id="cart12" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="11" />
+                              <Text fx:id="cart13" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="12" />
+                              <Text fx:id="cart14" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="13" />
+                              <Text fx:id="cart15" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="14" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
          </children>
       </Pane>
       <Pane layoutY="65.0" prefHeight="27.0" prefWidth="1080.0" style="-fx-background-color: #94ACFF;" />
