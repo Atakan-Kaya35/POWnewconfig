@@ -13,17 +13,27 @@ public class Pill extends Medicine {
     public static ArrayList<Pill> pills = new ArrayList();
 
     public int pillID;
+    static int IDsoFar = 0;
 
     public Pill(int IDnumber) {
         super(AllPills.get(IDnumber)[0], AllPills.get(IDnumber)[3]);
         this.pillID = IDnumber;
         this.cyclesLeft = 5;
+        this.setPrice(5);
+    }
+
+    public Pill(int IDnumber, double price) {
+        super(AllPills.get(IDnumber)[0], AllPills.get(IDnumber)[3]);
+        this.pillID = IDnumber;
+        this.cyclesLeft = 5;
+        this.setPrice(price);
     }
 
     public Pill(int IDnumber, String name) {
         super(name, AllPills.get(IDnumber)[3]);
         this.pillID = IDnumber;
         this.cyclesLeft = 5;
+        this.setPrice(5);
     }
 
     public Pill(int IDnumber, int cyclesOfTaking, boolean[] takeingFrequency) {
@@ -31,6 +41,7 @@ public class Pill extends Medicine {
         this.pillID = IDnumber;
         super.setCyclesOfTaking(cyclesOfTaking);
         super.setConsumeFreq(takeingFrequency);
+        this.setPrice(5);
     }
     public Pill(int IDnumber, int cyclesOfTaking, boolean[] takeingFrequency, String name, String description) {
         super();
@@ -282,12 +293,34 @@ public class Pill extends Medicine {
         AllPills.add(ax);
 
         String[] ay = {"Carvedilol", "Periodic", "Yes", "Beta-blocker used to treat high blood pressure heart failure and to improve survival after a heart attack"};
-        AllPills.add(ay);
+        AllPills.add(ay);*/
     }
 
 
 
+    // bütün pilleri obje olarak oluşturup bir arrayliste ekledik. buradan seçmek daha kolay olur simde ayrıca gui için bize
+    // böylesi gerekli.
 
+
+
+            // Generate random cycles of taking between 3 and 7
+            int cyclesOfTaking = random.nextInt(5) + 3;
+
+            // Generate random taking frequency
+            boolean[] frequency = new boolean[3];
+            for (int i = 0; i < 3; i++) {
+                frequency[i] = random.nextBoolean();
+            }
+
+            Pill pill = new Pill(IDsoFar, cyclesOfTaking, frequency);
+
+            allRealPills.add(pill);
+
+            AllPills.add(pillInfo);
+            IDsoFar++;
+        }
+    }
+    
 
     public int getPillID() {
         return pillID;
@@ -301,4 +334,5 @@ public class Pill extends Medicine {
         return AllPills;
     }
 }
+
 
