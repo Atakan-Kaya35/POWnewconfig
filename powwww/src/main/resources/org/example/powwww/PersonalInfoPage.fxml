@@ -192,32 +192,32 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="bmi_p" alignment="CENTER" editable="false" text="252" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="bmi_p" alignment="CENTER" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="name_p" alignment="CENTER" text="Sinan Sonlu" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="name_p" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="age_p" alignment="CENTER" text="25" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="age_p" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="address_p" alignment="CENTER" text="Bilkent University" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <TextField fx:id="address_p" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="weigth_p" alignment="CENTER" text="72 kg" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <TextField fx:id="weigth_p" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="height_p" alignment="CENTER" text="185 cm" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <TextField fx:id="height_p" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <font>
                         <Font size="15.0" />
                      </font>
