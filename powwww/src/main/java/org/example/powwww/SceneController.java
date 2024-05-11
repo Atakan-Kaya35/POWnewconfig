@@ -321,6 +321,6 @@ public class SceneController {
         menuFrame.setVisible(true);
     }
     public void openMap(ActionEvent event){
-        
+
     }
 }
