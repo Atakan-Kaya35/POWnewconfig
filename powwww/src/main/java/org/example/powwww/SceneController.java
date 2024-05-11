@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 import org.example.powwww.DiagnosisTest.Menu;
 import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.Sim.SimMethods;
+import org.example.powwww.Sim.Simulation;
 import org.example.powwww.Sim.UserMethods;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
