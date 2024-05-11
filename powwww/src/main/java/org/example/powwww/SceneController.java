@@ -96,6 +96,190 @@ public class SceneController {
     private TextField height_p;
     @FXML
     private TextField bmi_p;
+    @FXML
+    private Label totalCostLabel;
+    @FXML
+    private Label totalProductLabel;
+    @FXML
+    private Label totalCostPrev;
+    @FXML
+    private Label totalProductPrev;
+    @FXML
+    private Label med1;
+    @FXML
+    private Label cost1;
+
+    @FXML
+    private Label med2;
+    @FXML
+    private Label cost2;
+
+    @FXML
+    private Label med3;
+    @FXML
+    private Label cost3;
+
+    @FXML
+    private Label med4;
+    @FXML
+    private Label cost4;
+
+    @FXML
+    private Label med5;
+    @FXML
+    private Label cost5;
+
+    @FXML
+    private Label med6;
+    @FXML
+    private Label cost6;
+
+    @FXML
+    private Label med7;
+    @FXML
+    private Label cost7;
+
+    @FXML
+    private Label med8;
+    @FXML
+    private Label cost8;
+
+    @FXML
+    private Label med9;
+    @FXML
+    private Label cost9;
+
+    @FXML
+    private Label med10;
+    @FXML
+    private Label cost10;
+
+    @FXML
+    private Label med11;
+    @FXML
+    private Label cost11;
+
+    @FXML
+    private Label med12;
+    @FXML
+    private Label cost12;
+
+    @FXML
+    private Label med13;
+    @FXML
+    private Label cost13;
+
+    @FXML
+    private Label med14;
+    @FXML
+    private Label cost14;
+
+    @FXML
+    private Label med15;
+    @FXML
+    private Label cost15;
+
+    @FXML
+    private Label med16;
+    @FXML
+    private Label cost16;
+
+    @FXML
+    private Label med17;
+    @FXML
+    private Label cost17;
+
+    @FXML
+    private Label med18;
+    @FXML
+    private Label cost18;
+
+    @FXML
+    private Label med19;
+    @FXML
+    private Label cost19;
+
+    @FXML
+    private Label med20;
+    @FXML
+    private Label cost20;
+
+    @FXML
+    private Label med21;
+    @FXML
+    private Label cost21;
+
+    @FXML
+    private Label med22;
+    @FXML
+    private Label cost22;
+
+    @FXML
+    private Label med23;
+    @FXML
+    private Label cost23;
+
+    @FXML
+    private Label med24;
+    @FXML
+    private Label cost24;
+
+    @FXML
+    private Label med0;
+    @FXML
+    private Label cost0;
+    @FXML
+    private Button buttonformed0;
+    @FXML
+    private Button buttonformed1;
+    @FXML
+    private Button buttonformed2;
+    @FXML
+    private Button buttonformed3;
+    @FXML
+    private Button buttonformed4;
+    @FXML
+    private Button buttonformed5;
+    @FXML
+    private Button buttonformed6;
+    @FXML
+    private Button buttonformed7;
+    @FXML
+    private Button buttonformed8;
+    @FXML
+    private Button buttonformed9;
+    @FXML
+    private Button buttonformed10;
+    @FXML
+    private Button buttonformed11;
+    @FXML
+    private Button buttonformed12;
+    @FXML
+    private Button buttonformed13;
+    @FXML
+    private Button buttonformed14;
+    @FXML
+    private Button buttonformed15;
+    @FXML
+    private Button buttonformed16;
+    @FXML
+    private Button buttonformed17;
+    @FXML
+    private Button buttonformed18;
+    @FXML
+    private Button buttonformed19;
+    @FXML
+    private Button buttonformed20;
+    @FXML
+    private Button buttonformed21;
+    @FXML
+    private Button buttonformed22;
+    @FXML
+    private Button buttonformed23;
+    @FXML
+    private Button buttonformed24;
+
+
 
     City city = new City(30,20);
     private ArrayList<String> choices = new ArrayList<String>();
