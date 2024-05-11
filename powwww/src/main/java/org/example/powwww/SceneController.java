@@ -154,32 +154,33 @@ public class SceneController {
             alert.setContentText("Password must be at least 8 characters long.");
             alert.showAndWait();
         }
-        else{
+        else {
             usernames.add(SU_Username.getText());
             passwords.add(SU_Password.getText());
+
+
+            String[] address = SU_Address.getText().split(",");
+            int x = Integer.parseInt(address[0]);
+            int y = Integer.parseInt(address[1]);
+            // Create a new user(address problem)
+            Stationary newUser = new Patients(SU_Name.getText(), x, y, city);
+
+            // Add the new user to the list of users
+            everyOne.add(newUser);
+            SQLTest.userAdder(SU_Username.getText(), SU_Password.getText(), Integer.parseInt(SU_Age.getText()), SU_Name.getText(), Integer.parseInt(SU_Weight.getText()), Integer.parseInt(SU_Height.getText()), x, y);
+            usernames.add(SU_Username.getText());
+            passwords.add(SU_Password.getText());
+
+            System.out.println("User signed up successfully.");
+            System.out.println(usernames.get(0));
+            fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/Merhaba.fxml"));
+            root = fxmlLoader.load();
+            scene = new Scene(root);
+            scene.setRoot(root);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
         }
-
-        String[] address = SU_Address.getText().split(",");
-        int x = Integer.parseInt(address[0]);
-        int y = Integer.parseInt(address[1]);
-        // Create a new user(address problem)
-        Stationary newUser = new Patients(SU_Name.getText(), x, y, city);
-
-        // Add the new user to the list of users
-        everyOne.add(newUser);
-        SQLTest.userAdder(SU_Username.getText(),SU_Password.getText(),Integer.parseInt(SU_Age.getText()),SU_Name.getText(),Integer.parseInt(SU_Weight.getText()),Integer.parseInt(SU_Height.getText()),x,y);
-        usernames.add(SU_Username.getText());
-        passwords.add(SU_Password.getText());
-
-        System.out.println("User signed up successfully.");
-        System.out.println(usernames.get(0));
-        fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/Merhaba.fxml"));
-        root = fxmlLoader.load();
-        scene = new Scene(root);
-        scene.setRoot(root);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
     }
     private static boolean isUsernameTaken(String username) {
         return usernames.contains(username);
