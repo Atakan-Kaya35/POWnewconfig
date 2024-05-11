@@ -60,6 +60,7 @@ public class Pill extends Medicine {
         }
         System.out.println();*/
         // Adding pill information
+        /*
         String[] a = {"Paracetamol", "Acute", "No", "A common pain reliever and fever reducer"};
         AllPills.add(a);
 
@@ -214,11 +215,12 @@ public class Pill extends Medicine {
         String[] ay = {"Carvedilol", "Periodic", "Yes", "Beta-blocker used to treat high blood pressure heart failure and to improve survival after a heart attack"};
         AllPills.add(ay);
     }
+    */
 
 
     // bütün pilleri obje olarak oluşturup bir arrayliste ekledik. buradan seçmek daha kolay olur simde ayrıca gui için bize
     // böylesi gerekli.
-    /*
+
     public static void fillPills() {
         Random random = new Random();
         // Adding pill information
@@ -272,7 +274,7 @@ public class Pill extends Medicine {
             ID++;
         }
     }
-    */
+    
 
     public int getPillID() {
         return pillID;
