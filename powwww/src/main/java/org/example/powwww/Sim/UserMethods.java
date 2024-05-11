@@ -117,7 +117,6 @@ public class UserMethods {
             System.out.println(medicine.getName() + " added to cart.");
         }
     }
-
     public static void printCart(Patients patient) {
         System.out.println("Items in cart:");
         for (Medicine medicine : patient.getCart()) {

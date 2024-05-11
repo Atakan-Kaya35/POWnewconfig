@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -70,7 +69,7 @@
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="7.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="176.8840789794922" />
+                  <Text layoutX="11.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="141.8840789794922" />
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">
                      <image>
                         <Image url="@Adsız tasarım-3.png" />
@@ -90,11 +89,59 @@
                      </image>
                   </ImageView>
                   <Label layoutX="56.0" layoutY="20.0" prefHeight="27.0" prefWidth="148.0" text="MY PHARMACY CART" />
+                  <ScrollPane layoutX="8.0" layoutY="66.0" prefHeight="130.0" prefWidth="185.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutY="4.0" prefHeight="365.0" prefWidth="200.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Text fx:id="cart1" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                                    <Text fx:id="cart2" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="1" />
+                                    <Text fx:id="cart3" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="2" />
+                                    <Text fx:id="cart4" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="3" />
+                                    <Text fx:id="cart5" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="4" />
+                                    <Text fx:id="cart6" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="5" />
+                                    <Text fx:id="cart7" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="6" />
+                                    <Text fx:id="cart8" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="7" />
+                                    <Text fx:id="cart9" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="8" />
+                                    <Text fx:id="cart10" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="9" />
+                                    <Text fx:id="cart11" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="10" />
+                                    <Text fx:id="cart12" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="11" />
+                                    <Text fx:id="cart13" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="12" />
+                                    <Text fx:id="cart14" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="13" />
+                                    <Text fx:id="cart15" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.rowIndex="14" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
                </children></Pane>
             <Pane layoutX="14.0" layoutY="216.0" prefHeight="80.0" prefWidth="207.0" style="-fx-background-color: white; -fx-border-color: black;">
                <children>
                   <Label layoutX="14.0" layoutY="16.0" prefHeight="17.0" prefWidth="82.0" text="Total Cost:" />
-                  <Label layoutX="14.0" layoutY="46.0" text="Total Product:" />
+                  <Label layoutX="14.0" layoutY="46.0" text="Num of Products" />
                   <Label layoutX="184.0" layoutY="8.0" text="\$">
                      <font>
                         <Font size="20.0" />
@@ -135,12 +182,13 @@
             <Image url="@buyutec.png" />
          </image>
       </ImageView>
-      <ScrollPane layoutX="231.0" layoutY="82.0" prefHeight="677.0" prefWidth="612.0">
+      <ScrollPane layoutX="231.0" layoutY="134.0" prefHeight="569.0" prefWidth="613.0">
          <content>
-            <GridPane prefHeight="594.0" prefWidth="616.0">
+            <GridPane prefHeight="797.0" prefWidth="588.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.923828125" minWidth="10.0" prefWidth="311.208984375" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="188.291015625" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.923828125" minWidth="10.0" prefWidth="270.5" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.923828125" minWidth="10.0" prefWidth="86.5" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="181.5" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.208984375" minWidth="0.0" prefWidth="115.1640625" />
               </columnConstraints>
               <rowConstraints>
@@ -172,96 +220,221 @@
                   <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine Cost" GridPane.columnIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine Cost" GridPane.columnIndex="2">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add to Cart" GridPane.columnIndex="2">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add to Cart" GridPane.columnIndex="3">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Label text="Label" GridPane.rowIndex="1" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Label" GridPane.rowIndex="2" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label text="Label" GridPane.rowIndex="3" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label text="Label" GridPane.rowIndex="4" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Label text="Label" GridPane.rowIndex="5" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <Label text="Label" GridPane.rowIndex="6" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                  <Label text="Label" GridPane.rowIndex="7" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                  <Label text="Label" GridPane.rowIndex="8" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                  <Label text="Label" GridPane.rowIndex="10" />
-                  <Label text="Label" GridPane.rowIndex="9" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                  <Label text="Label" GridPane.rowIndex="11" />
-                  <Label text="Label" GridPane.rowIndex="12" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-                  <Label text="Label" GridPane.rowIndex="13" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-                  <Label text="Label" GridPane.rowIndex="14" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="14" />
-                  <Label text="Label" GridPane.rowIndex="15" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="15" />
-                  <Label text="Label" GridPane.rowIndex="16" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="16" />
-                  <Label text="Label" GridPane.rowIndex="17" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="17" />
-                  <Label text="Label" GridPane.rowIndex="19" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="18" />
-                  <Label text="Label" GridPane.rowIndex="18" />
-                  <Label text="Label" GridPane.rowIndex="20" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="19" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="20" />
-                  <Label text="Label" GridPane.rowIndex="21" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="21" />
-                  <Label text="Label" GridPane.rowIndex="22" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="22" />
-                  <Label text="Label" GridPane.rowIndex="23" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="23" />
-                  <Label text="Label" GridPane.rowIndex="24" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="24" />
-                  <Label text="Label" GridPane.rowIndex="25" />
-                  <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="25" />
-                  <Button fx:id="buttonformed1" mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Button fx:id="buttonformed0" mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button fx:id="buttonformed2" mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Button fx:id="buttonformed3" mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                  <Button fx:id="buttonformed4" mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                  <BottomNavigationButton text="+" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                  <BottomNavigationButton text="+" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="12" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="14" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="15" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="16" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="17" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="18" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="19" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="20" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="21" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="22" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="24" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="25" />
+                  <Label text="Amoxicillin" GridPane.rowIndex="1" />
+                  <Label fx:id="cost0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label text="Albuterol" GridPane.rowIndex="2" />
+                  <Label fx:id="cost1" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label text="Diazepam" GridPane.rowIndex="3" />
+                  <Label fx:id="cost2" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label text="Ciprofloxacin" GridPane.rowIndex="4" />
+                  <Label fx:id="cost3" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Label text="Prednisone" GridPane.rowIndex="5" />
+                  <Label fx:id="cost4" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <Label text="Metronidazole" GridPane.rowIndex="6" />
+                  <Label fx:id="cost5" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                  <Label text="Azithromycin" GridPane.rowIndex="7" />
+                  <Label fx:id="cost6" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <Label text="Warfarin" GridPane.rowIndex="8" />
+                  <Label fx:id="cost7" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                  <Label text="Levofloxacin" GridPane.rowIndex="10" />
+                  <Label text="Clopidogrel" GridPane.rowIndex="9" />
+                  <Label fx:id="cost8" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                  <Label fx:id="cost10" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                  <Label fx:id="cost9" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                  <Label text="Cephalexin" GridPane.rowIndex="11" />
+                  <Label text="Naproxen" GridPane.rowIndex="12" />
+                  <Label fx:id="cost11" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                  <Label text="Fluconazole" GridPane.rowIndex="13" />
+                  <Label fx:id="cost12" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                  <Label text="Hydrocodone" GridPane.rowIndex="14" />
+                  <Label fx:id="cost13" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="14" />
+                  <Label text="Oxycodone" GridPane.rowIndex="15" />
+                  <Label fx:id="cost14" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="15" />
+                  <Label text="Alprazolam" GridPane.rowIndex="16" />
+                  <Label fx:id="cost15" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="16" />
+                  <Label text="Tramadol" GridPane.rowIndex="17" />
+                  <Label fx:id="cost16" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+                  <Label text="Lorazepam" GridPane.rowIndex="19" />
+                  <Label fx:id="cost17" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="18" />
+                  <Label text="Doxycycline" GridPane.rowIndex="18" />
+                  <Label text="Furosemide" GridPane.rowIndex="20" />
+                  <Label fx:id="cost18" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="19" />
+                  <Label fx:id="cost19" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="20" />
+                  <Label text="Omeprazole" GridPane.rowIndex="21" />
+                  <Label fx:id="cost20" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="21" />
+                  <Label text="Simvastatin" GridPane.rowIndex="22" />
+                  <Label fx:id="cost21" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="22" />
+                  <Label text="Metformin" GridPane.rowIndex="23" />
+                  <Label fx:id="cost22" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="23" />
+                  <Label text="Lisinopril" GridPane.rowIndex="24" />
+                  <Label fx:id="cost23" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="24" />
+                  <Label text="Atorvastatin" GridPane.rowIndex="25" />
+                  <Label fx:id="cost24" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="25" />
+                  <Button fx:id="buttonformed1" mnemonicParsing="false" onAction="#setMedInCart1" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Button fx:id="buttonformed0" mnemonicParsing="false" onAction="#setMedInCart0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button fx:id="buttonformed2" mnemonicParsing="false" onAction="#setMedInCart2" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Button fx:id="buttonformed3" mnemonicParsing="false" onAction="#setMedInCart3" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Button fx:id="buttonformed4" mnemonicParsing="false" onAction="#setMedInCart4" text="+" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                  <Button fx:id="buttonformed5" mnemonicParsing="false" onAction="#setMedInCart5" text="+" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                  <Button fx:id="buttonformed7" mnemonicParsing="false" onAction="#setMedInCart7" text="+" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                  <Button fx:id="buttonformed8" mnemonicParsing="false" onAction="#setMedInCart8" text="+" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                  <Button fx:id="buttonformed10" mnemonicParsing="false" onAction="#setMedInCart10" text="+" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+                  <Button fx:id="buttonformed11" mnemonicParsing="false" onAction="#setMedInCart11" text="+" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+                  <Button fx:id="buttonformed13" mnemonicParsing="false" onAction="#setMedInCart13" text="+" GridPane.columnIndex="3" GridPane.rowIndex="14" />
+                  <Button fx:id="buttonformed14" mnemonicParsing="false" onAction="#setMedInCart14" text="+" GridPane.columnIndex="3" GridPane.rowIndex="15" />
+                  <Button fx:id="buttonformed15" mnemonicParsing="false" onAction="#setMedInCart15" text="+" GridPane.columnIndex="3" GridPane.rowIndex="16" />
+                  <Button fx:id="buttonformed16" mnemonicParsing="false" onAction="#setMedInCart16" text="+" GridPane.columnIndex="3" GridPane.rowIndex="17" />
+                  <Button fx:id="buttonformed17" mnemonicParsing="false" onAction="#setMedInCart17" text="+" GridPane.columnIndex="3" GridPane.rowIndex="18" />
+                  <Button fx:id="buttonformed18" mnemonicParsing="false" onAction="#setMedInCart18" text="+" GridPane.columnIndex="3" GridPane.rowIndex="19" />
+                  <Button fx:id="buttonformed19" mnemonicParsing="false" onAction="#setMedInCart19" text="+" GridPane.columnIndex="3" GridPane.rowIndex="20" />
+                  <Button fx:id="buttonformed20" mnemonicParsing="false" onAction="#setMedInCart20" text="+" GridPane.columnIndex="3" GridPane.rowIndex="21" />
+                  <Button fx:id="buttonformed21" mnemonicParsing="false" onAction="#setMedInCart21" text="+" GridPane.columnIndex="3" GridPane.rowIndex="22" />
+                  <Button fx:id="buttonformed23" mnemonicParsing="false" onAction="#setMedInCart23" text="+" GridPane.columnIndex="3" GridPane.rowIndex="24" />
+                  <Button fx:id="buttonformed24" mnemonicParsing="false" onAction="#setMedInCart24" text="+" GridPane.columnIndex="3" GridPane.rowIndex="25" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine Name" wrappingWidth="173.06370162963867">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="13" />
-                  <Button mnemonicParsing="false" text="+" GridPane.columnIndex="2" GridPane.rowIndex="23" />
+                  <Button fx:id="buttonformed12" mnemonicParsing="false" onAction="#setMedInCart12" text="+" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+                  <Button fx:id="buttonformed22" mnemonicParsing="false" onAction="#setMedInCart22" text="+" GridPane.columnIndex="3" GridPane.rowIndex="23" />
+                  <Button fx:id="buttonformed9" mnemonicParsing="false" onAction="#setMedInCart9" text="+" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                  <Button fx:id="buttonformed6" mnemonicParsing="false" onAction="#setMedInCart6" text="+" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <image>
+                        <Image url="@../../../pill1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@../../../pill2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <image>
+                        <Image url="@../../../pill3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <image>
+                        <Image url="@../../../pill4.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <image>
+                        <Image url="@../../../pill5.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@../../../pill6.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <image>
+                        <Image url="@../../../pill7.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@../../../serum.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                     <image>
+                        <Image url="@../../../med13.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                     <image>
+                        <Image url="@../../../med12.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                     <image>
+                        <Image url="@../../../med11.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                     <image>
+                        <Image url="@../../../med10.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                     <image>
+                        <Image url="@../../../med9.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="14">
+                     <image>
+                        <Image url="@../../../med8.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="15">
+                     <image>
+                        <Image url="@../../../med7.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="16">
+                     <image>
+                        <Image url="@../../../med6.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="17">
+                     <image>
+                        <Image url="@../../../med5.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="18">
+                     <image>
+                        <Image url="@../../../med4.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="19">
+                     <image>
+                        <Image url="@../../../med3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="20">
+                     <image>
+                        <Image url="@../../../med2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="21">
+                     <image>
+                        <Image url="@../../../med1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="22">
+                     <image>
+                        <Image url="@../../../medic1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="23">
+                     <image>
+                        <Image url="@../../../medic2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="24">
+                     <image>
+                        <Image url="@../../../medic3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="25">
+                     <image>
+                        <Image url="@../../../medic4.png" />
+                     </image>
+                  </ImageView>
                </children>
             </GridPane>
          </content>
