@@ -134,7 +134,7 @@ public class UserMethods {
 
     // Uİda gösterdiğimiz arama metodu. trendyol vb. gibi harf harf yazdıkça öneri yapmasına gerek yok
     // o zor olur. ama ilacın adını tam yazıp enterlayınca sadece o ilacın simgesinin bulunduğu bir sayfa açılmalı
-    public static Medicine searchForMedicine(String keyword, Patients patient) {
+    /*public static Medicine searchForMedicine(String keyword, Patients patient) {
         String[] result = null;
         for (String[] s: Pill.getAllPills()){
             if(s.equals(keyword)){
@@ -142,7 +142,7 @@ public class UserMethods {
             }
         }
         return new Pill(patient.getOrderList().size(), keyword);
-    }
+    }*/
 
     //medicine isimleri farklı medicine objesi farklı
 

@@ -5,8 +5,8 @@ import java.io.File;
 
 public class Pill extends Medicine {
 
-    public static double[] prices = {9.5,10,17.25,20.5,12.5,7,8.5,17,18.75,19.25,8,11.25,14,15.75,
-    16.5,18,21.5,24.75,16,21.5,11.25,6,5.25,13.5,12};
+    public static double[] prices = {9.5, 10, 17.25, 20.5, 12.5, 7, 8.5, 17, 18.75, 19.25, 8, 11.25, 14, 15.75,
+            16.5, 18, 21.5, 24.75, 16, 21.5, 11.25, 6, 5.25, 13.5, 12};
     public static ArrayList<String[]> AllPills = new ArrayList();
     public static ArrayList<String[]> OTCpills = new ArrayList();
     public static ArrayList<String[]> prescribedPills = new ArrayList();
@@ -43,9 +43,12 @@ public class Pill extends Medicine {
         super.setConsumeFreq(takeingFrequency);
         this.setPrice(5);
     }
+
     public Pill(int IDnumber, int cyclesOfTaking, boolean[] takeingFrequency, String name, String description) {
         super();
         this.pillID = IDnumber;
+        this.name = name;
+        this.description = description;
         super.setCyclesOfTaking(cyclesOfTaking);
         super.setConsumeFreq(takeingFrequency);
     }
@@ -108,8 +111,6 @@ public class Pill extends Medicine {
         }
         return pills;
     }
-
-
 
 
     public static void fillPills() {
@@ -293,18 +294,16 @@ public class Pill extends Medicine {
         AllPills.add(ax);
 
         String[] ay = {"Carvedilol", "Periodic", "Yes", "Beta-blocker used to treat high blood pressure heart failure and to improve survival after a heart attack"};
-        AllPills.add(ay);*/
+        AllPills.add(ay);
     }
-
 
 
     // bütün pilleri obje olarak oluşturup bir arrayliste ekledik. buradan seçmek daha kolay olur simde ayrıca gui için bize
     // böylesi gerekli.
 
 
-
-            // Generate random cycles of taking between 3 and 7
-            int cyclesOfTaking = random.nextInt(5) + 3;
+    // Generate random cycles of taking between 3 and 7
+           /* int cyclesOfTaking = random.nextInt(5) + 3;
 
             // Generate random taking frequency
             boolean[] frequency = new boolean[3];
@@ -318,8 +317,8 @@ public class Pill extends Medicine {
 
             AllPills.add(pillInfo);
             IDsoFar++;
-        }
-    }
+        }*/
+
     
 
     public int getPillID() {
@@ -334,5 +333,6 @@ public class Pill extends Medicine {
         return AllPills;
     }
 }
+
 
 
