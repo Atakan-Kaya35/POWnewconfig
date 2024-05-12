@@ -843,7 +843,7 @@ public class SceneController {
         setMedInCart(24);
     }
 
-    
+
     public boolean isThereSameMedicine(String name){
         for (int i = 0; i < cart.size(); i++) {
             String[] med = textarr.get(i).getText().split(" ");
@@ -854,7 +854,7 @@ public class SceneController {
         return false;
     }
     public String countOfMedicine(String name){
-        int counter = 0;
+        int counter = 1;
 
         for (int i = 0; i < cart.size(); i++) {
             String[] med = textarr.get(i).getText().split(" ");
