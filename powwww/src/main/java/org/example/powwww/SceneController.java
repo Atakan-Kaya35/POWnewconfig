@@ -19,6 +19,7 @@ import org.example.powwww.grid.City;
 import org.example.powwww.grid.Order;
 import org.example.powwww.entity.stationary.Stationary;
 import org.example.powwww.med.Medicine;
+import org.example.powwww.med.Pill;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -328,6 +329,8 @@ public class SceneController {
     public static ArrayList<String> usernames = new ArrayList<>();
     public static ArrayList<String> passwords = new ArrayList<>();
     public static ArrayList<Text> textarr = new ArrayList<>();
+    public static ArrayList<Order> lastOrder = new ArrayList<>();
+    public static ArrayList<Order> currentOrder = new ArrayList<>();
     public static String userName;
     public static ArrayList<Medicine> cart = new ArrayList<Medicine>();
     static ArrayList<User> users = new ArrayList<>();
@@ -901,6 +904,7 @@ public class SceneController {
         for (int i = 0; i < cart.size(); i++) {
             totalCost += cart.get(i).getPrice();
         }
+
         TotalCost.setText(""+totalCost );
     }
     public void changeNoOfProducts(){
@@ -909,8 +913,26 @@ public class SceneController {
 
     public void giveOrder(ActionEvent event){
         Order newOrder = new Order(currentUserPatient, cart);
+        lastOrder.set(0, currentOrder.get(0));
+        currentOrder.set(0,newOrder);
+        cart.clear();
+        changeTotalCost();
+        changeNoOfProducts();
+        for (int i = 0; i < textarr.size(); i++) {
+            textarr.get(i).setText("");
+        }
     }
 
-
-
+    public void printCurrentOrderInfo() {
+        String allProducts = "";
+        for (Pill p : currentOrder.get(0).getCarriedPills()) {
+            allProducts += p + " ";
+        }
+        int totalCost = 0;
+        for (Pill p : currentOrder.get(0).getCarriedPills()) {
+            totalCost += p.getPrice();
+        }
+        String prevTotalCost = String.valueOf(totalCost);
+        String prevNoOfProducts = String.valueOf(currentOrder.get(0).getCarriedPills().size());
+    }
 }
