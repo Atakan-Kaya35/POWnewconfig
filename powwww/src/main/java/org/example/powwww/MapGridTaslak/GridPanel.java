@@ -7,6 +7,7 @@ import java.util.*;
 import javax.swing.Timer;
 
 import org.example.powwww.Sim.Simulation;
+import org.example.powwww.entity.mobile.Animations;
 import org.example.powwww.entity.mobile.physcian.Van;
 import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.grid.City;
@@ -23,12 +24,14 @@ public class GridPanel extends JComponent
     //Timer t;
     ActionListener listener;
     public static ArrayList<int[]> obstanceList = new ArrayList<>();
+    Animations animations;
 
     public GridPanel(GridFrame ref, City c)
     {
         this.setCity(c);
         gridFrame = ref;
         homes = createHomes();
+         animations = new Animations();
         //obstacles = createObstacles();
         //van = new Van(city);
 
@@ -174,6 +177,8 @@ public class GridPanel extends JComponent
         a.setFont(new Font("Arial", Font.BOLD, 20));
         a.drawString(String.format("%02d:%02d", Simulation.tick / 60, Simulation.tick % 60), (int)(27.8 * GridFrame.EACH_SQUARE), (int)(21.2 * GridFrame.EACH_SQUARE));
 
+        animations.movePlanes();
+        animations.draw(g, this);
     }
     public static void addObstacle(int[] newObstacle){
         obstanceList.add(newObstacle);
