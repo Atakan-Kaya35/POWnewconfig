@@ -1,17 +1,11 @@
 package org.example.powwww;
 
-import javafx.collections.FXCollections;
-import javafx.event.Event;
-import org.example.powwww.DiagnosisTest.*;
-import javafx.fxml.Initializable;
 import org.example.powwww.Database.*;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import org.example.powwww.DiagnosisTest.Menu;
 import org.example.powwww.MapGridTaslak.GridFrame;
-import org.example.powwww.Sim.SimMethods;
 import org.example.powwww.Sim.Simulation;
-import org.example.powwww.Sim.UserMethods;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,21 +13,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.example.powwww.Sim.UserMethods;
 import org.example.powwww.entity.User;
 import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.grid.City;
 import org.example.powwww.grid.Order;
-import org.example.powwww.grid.Stationary;
+import org.example.powwww.entity.stationary.Stationary;
 import org.example.powwww.med.Medicine;
 
 import javax.swing.*;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
-import static org.example.powwww.Sim.Simulation.city;
 import static org.example.powwww.Sim.Simulation.pills;
 
 
@@ -393,7 +383,7 @@ public class SceneController{
             int x = Integer.parseInt(address[0]);
             int y = Integer.parseInt(address[1]);
             // Create a new user(address problem)
-            Stationary newUser = new Patients(SU_Name.getText(), x, y, Simulation.city);
+            Patients newUser = new Patients(SU_Name.getText(), x, y, Simulation.city);
             city.addStationary(newUser);
 
             // Add the new user to the list of users
@@ -661,8 +651,6 @@ public class SceneController{
     }
 
     public void openMap(ActionEvent event){
-        SimMethods.buildBilkent(city);
-
         JFrame grid = new GridFrame(city);
 
         Simulation.city.viewMap(false);

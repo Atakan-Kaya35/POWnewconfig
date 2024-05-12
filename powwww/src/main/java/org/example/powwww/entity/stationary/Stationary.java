@@ -1,17 +1,19 @@
-package org.example.powwww.grid;
+package org.example.powwww.entity.stationary;
 
 import org.example.powwww.entity.*;
+import org.example.powwww.grid.City;
+import org.example.powwww.grid.Road;
 
 import java.awt.*;
 
 
-public class Stationary extends User{
+public abstract class Stationary extends User{
     
     int[] coordinates;
     Road[] surroundingRoads;
     Stationary contained;
     String inital;
-    City insideOf;
+    protected City insideOf;
     int startX;
     int startY;
     int endX;
@@ -37,7 +39,6 @@ public class Stationary extends User{
         coordinates[0] = x;
         coordinates[1] = y;
         this.insideOf = insideOf;
-        insideOf.addStationary(this);
         meaningful = true;
         this.contained = null;
     }

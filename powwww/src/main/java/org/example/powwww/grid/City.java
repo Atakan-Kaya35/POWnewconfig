@@ -3,7 +3,6 @@ package org.example.powwww.grid;
 import java.util.*;
 
 
-import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.MapGridTaslak.GridPanel;
 import org.example.powwww.Sim.SimMethods;
 import org.example.powwww.entity.mobile.*;
@@ -11,10 +10,8 @@ import org.example.powwww.entity.mobile.physcian.*;
 import org.example.powwww.entity.mobile.physcian.Scooter;
 import org.example.powwww.entity.mobile.physcian.Van;
 import org.example.powwww.entity.stationary.*;
-import org.example.powwww.med.AcutSickness;
 import org.example.powwww.med.Pill;
 
-import static org.example.powwww.Sim.SimMethods.getRandomStationaryCoordinates;
 import static org.example.powwww.Sim.SimMethods.getTurkishNames;
 
 /**
@@ -24,7 +21,7 @@ public class City {
 
     Road[][] roads;
     Mobile[][] mobiles;
-    org.example.powwww.grid.Stationary[][] stationarys;
+    Patients[][] patients;
     ArrayList<Order> orders;
     public ArrayList<ArrayList<Integer>> wholeWay = new ArrayList<ArrayList<Integer>>();
     int width;
@@ -48,7 +45,7 @@ public class City {
         this.orders = new ArrayList<Order>();
 
         roads = new Road[ width + 1][ height + 1];
-        stationarys = new Stationary[ width ][ height];
+        patients = new Patients[ width ][ height];
 
         for (int x = 0; x < width + 1; x++) {
             for (int y = 0; y < height + 1; y++) {
@@ -121,7 +118,7 @@ public class City {
      * @return The coordinates of the nearest mobile entity.
      */
     public int[] findMobile(int[] coordinates){
-        return this.findMobile(stationarys[coordinates[0]][coordinates[1]]);
+        return this.findMobile(patients[coordinates[0]][coordinates[1]]);
     }
 
     /**
@@ -130,7 +127,7 @@ public class City {
      * @param stationary The stationary entity.
      * @return The list of roads representing the shortest path.
      */
-    public ArrayList<Road> findPath(Mobile mobile, org.example.powwww.grid.Stationary stationary){
+    public ArrayList<Road> findPath(Mobile mobile, Patients stationary){
         // Create open and closed lists
         List<Road> open = new ArrayList<>();
         Set<Road> closed = new HashSet<>();
@@ -283,7 +280,7 @@ public class City {
     /**
      * Builds a stationary at a given coordinate the size and width wanted
      */
-    public Stationary buildCustomeStationary(int x, int y, int width, int height, org.example.powwww.grid.Stationary stationaryInside){
+    public Stationary buildCustomeStationary(int x, int y, int width, int height){
 
         if(x+width >= this.width){
             width = this.width - x;
@@ -300,10 +297,7 @@ public class City {
             }
         }
 
-        // creating and allocating a stationary to the monstrocity
-        stationarys[x][y] = new Stationary(x, y, this);
-
-        return stationarys[x][y];
+        return patients[x][y];
     }
 
     public Road getRoad(int x, int y){
@@ -450,9 +444,9 @@ public ArrayList<Stationary> getStationaryList(){
     return stationaryList;
 }
 
-public void addStationary(Stationary newStationary){
-    this.stationaryList.add(newStationary);
-    stationarys[newStationary.getCoordinates()[0]][newStationary.getCoordinates()[1]] = newStationary;
+public void addStationary(Patients newStationary){
+    this.patientList.add(newStationary);
+    patients[newStationary.getCoordinates()[0]][newStationary.getCoordinates()[1]] = newStationary;
 }
 
 public ArrayList<Scooter> getScooterList(){
@@ -486,7 +480,7 @@ public void createRandomBuildings(int numBuildings, double portionOfCity) {
         boolean isOverlap = false;
         for (int x = startX; x < startX + buildingWidth; x++) {
             for (int y = startY; y < startY + buildingHeight; y++) {
-                if (stationarys[x][y] != null) {
+                if (patients[x][y] != null) {
                     isOverlap = true;
                     break;
                 }
@@ -495,10 +489,10 @@ public void createRandomBuildings(int numBuildings, double portionOfCity) {
 
         if (!isOverlap) {
             // Build the stationary object for the building
-            Stationary building = new Stationary(startX, startY, this);
+            Stationary building = new Patients(startX, startY, this);
             stationaryList.add(building);
             // Place the building in the city org.example.powwww.grid
-            buildCustomeStationary(startX, startY, buildingWidth, buildingHeight, building);
+            buildCustomeStationary(startX, startY, buildingWidth, buildingHeight);
 
             int[] newObstacle = {startX, startY, buildingWidth, buildingHeight};
             GridPanel.addObstacle(newObstacle);
@@ -554,7 +548,7 @@ public void createVansAndScooters() {
 }
 
     public Stationary[][] getStationaries() {
-        return this.stationarys;
+        return this.patients;
     }
 
     public void createBilkent(int numPatients) {
@@ -565,9 +559,7 @@ public void createVansAndScooters() {
         int[] tempHeight ={2,2,3,2,4,4,4,2,2,4,6};
 
         for(int i = 0; i<tempX.length; i++){
-            Stationary building = new Stationary(tempX[i], tempY[i], this);
-            stationaryList.add(building);
-            buildCustomeStationary(tempX[i], tempY[i], tempWidth[i],tempHeight[i], building);
+            buildCustomeStationary(tempX[i], tempY[i], tempWidth[i],tempHeight[i]);
             int[] newObstacle = {tempX[i], tempY[i], tempWidth[i], tempHeight[i]};
             GridPanel.addObstacle(newObstacle);
         }
@@ -581,9 +573,9 @@ public void createVansAndScooters() {
             Patients patient = new Patients(name, temporX[i], temporY[i], this);
             this.getPatientList().add(patient);
         }
-        killPatients();
+        //killPatients();
     }
-    public void killPatients(){
+    public void stimulateOrders(){
     //TODO: erase fillpill
         Pill.fillPills();
         Pill p = new Pill(0);

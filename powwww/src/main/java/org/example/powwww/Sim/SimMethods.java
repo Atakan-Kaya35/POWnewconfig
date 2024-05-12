@@ -3,10 +3,8 @@ package org.example.powwww.Sim;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.grid.City;
 import org.example.powwww.grid.Order;
-import org.example.powwww.grid.Stationary;
 import org.example.powwww.med.AcutSickness;
 import org.example.powwww.med.PeriodicSickness;
 import org.example.powwww.med.Serum;
@@ -15,8 +13,6 @@ import org.example.powwww.med.Medicine;
 import org.example.powwww.med.Pill;
 import org.example.powwww.entity.mobile.physcian.*;
 import org.example.powwww.entity.stationary.Patients;
-
-import javax.swing.*;
 
 public class SimMethods {
 

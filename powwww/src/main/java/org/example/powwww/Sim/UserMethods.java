@@ -3,10 +3,8 @@ package org.example.powwww.Sim;
 import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.grid.City;
 import org.example.powwww.grid.Order;
-import org.example.powwww.grid.Stationary;
+import org.example.powwww.entity.stationary.Stationary;
 import org.example.powwww.med.Medicine;
-import org.example.powwww.med.Pill;
-import org.example.powwww.Sim.SimMethods;
 import org.example.powwww.entity.User;
 
 
