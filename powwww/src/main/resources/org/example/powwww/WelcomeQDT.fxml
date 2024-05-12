@@ -20,7 +20,7 @@
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <Pane layoutX="52.0" layoutY="92.0" prefHeight="628.0" prefWidth="180.0" style="-fx-background-color: #94ACFF; -fx-border-color: black;">
+      <Pane layoutX="52.0" layoutY="92.0" prefHeight="628.0" prefWidth="180.0" style="-fx-background-color: #FFBD59; -fx-border-color: black;">
          <children>
             <Label fx:id="A_Name" layoutX="5.0" layoutY="14.0" prefHeight="44.0" prefWidth="169.0" text=" ">
                <font>
@@ -79,7 +79,7 @@
             </Pane>
          </children>
       </Pane>
-      <Pane layoutX="845.0" layoutY="92.0" prefHeight="628.0" prefWidth="237.0" style="-fx-background-color: #94ACFF; -fx-border-color: black;">
+      <Pane layoutX="845.0" layoutY="92.0" prefHeight="628.0" prefWidth="237.0" style="-fx-background-color: #FFBD59; -fx-border-color: black;">
          <children>
             <Pane layoutX="13.0" layoutY="9.0" prefHeight="201.0" prefWidth="207.0" style="-fx-background-color: white; -fx-border-color: black;">
                <children>
@@ -118,7 +118,7 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Purchase" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#giveOrder" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
+                  <Button fx:id="Purchase" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#giveOrder" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #FFBD59;" text="PURCHASE" />
                </children>
             </Pane>
             <ScrollPane layoutX="18.0" layoutY="76.0" prefHeight="130.0" prefWidth="185.0">
@@ -171,7 +171,7 @@
             </ScrollPane>
          </children>
       </Pane>
-      <Pane layoutY="65.0" prefHeight="27.0" prefWidth="1080.0" style="-fx-background-color: #94ACFF;" />
+      <Pane layoutY="65.0" prefHeight="27.0" prefWidth="1080.0" style="-fx-background-color: #FFBD59;" />
       <Text layoutX="277.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning: It is just provide a medical advice. For real results please contact with your doctor!" textAlignment="CENTER" wrappingWidth="532.3437887002787">
          <font>
             <Font size="30.0" />
@@ -182,7 +182,7 @@
             <Font size="34.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="278.0" layoutY="198.0" prefHeight="98.0" prefWidth="518.0" style="-fx-background-color: #94ACFF;" text="Welcome to Quick Diagnosis Tets!">
+      <Label alignment="CENTER" layoutX="278.0" layoutY="198.0" prefHeight="98.0" prefWidth="518.0" style="-fx-background-color: #FFBD59;" text="Welcome to Quick Diagnosis Tets!">
          <font>
             <Font size="30.0" />
          </font>
