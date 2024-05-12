@@ -1,5 +1,7 @@
 package org.example.powwww.Database;
 
+import org.example.powwww.med.Pill;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -112,10 +114,10 @@ public class SQLTest {
         }
     }
 
-    public static boolean pastOrderAssign(String userName, int price, String product, ArrayList<String> meds){
+    public static boolean pastOrderAssign(String userName, int price, String product, ArrayList<Pill> meds){
         StringBuilder userInfoBuild = new StringBuilder(product + "#" + price);
-        for(String med : meds){
-            userInfoBuild.append("#" + med);
+        for(Pill med : meds){
+            userInfoBuild.append("#" + med.getName());
         }
         String userInfo = userInfoBuild.toString();
         Connection conn = null;
