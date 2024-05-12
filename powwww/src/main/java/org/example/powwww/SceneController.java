@@ -640,8 +640,8 @@ public class SceneController {
         stage.setScene(scene);
 
         // Call setItems() after the ComboBox is initialized
-        
-        controller.setInfos();
+
+        //controller.setInfos();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
@@ -948,6 +948,19 @@ public class SceneController {
             totalNumberOfProducts.setText(currentNoOfProducts);
         }
     }
+
+    public void printPrevOrderInfo() {
+        String allPrevProducts = "";
+        if(SQLTest.getPastOrder(userName).length != 0) {
+            String[] arr = SQLTest.getPastOrder(userName);
+            String[] names = arr[2].split("#");
+            for( int i = 0; i < names.length; i++){
+                allPrevProducts += names[i] + " ";
+            }
+            totalCostOfProductsPrev.setText(arr[1]);
+            totalNumberOfProductsPrev.setText(arr[0]);
+        }
+    }
     public void sqlDownload(){
         int totalCost = 0;
         if(lastOrder.size()==1) {
@@ -966,5 +979,8 @@ public class SceneController {
             lastOrder.add(currentOrder.get(0));
             currentOrder.clear();
         }
+        printCurrentOrderInfo();
+        printPrevOrderInfo();
+        sqlDownload();
     }
 }
