@@ -4,13 +4,11 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import java.util.*;
-import javax.swing.Timer;
 
 import org.example.powwww.Sim.Simulation;
 import org.example.powwww.entity.mobile.physcian.Van;
 import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.grid.City;
-import org.example.powwww.grid.Stationary;
 
 public class GridPanel extends JComponent
 {

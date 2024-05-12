@@ -7,7 +7,7 @@ import org.example.powwww.grid.Order;
 import org.example.powwww.med.Medicine;
 import org.example.powwww.med.Sickness;
 
-public class Patients extends org.example.powwww.grid.Stationary {
+public class Patients extends Stationary {
     public Patients(){}
     protected ArrayList<Medicine> cart = new ArrayList<Medicine>();
     protected ArrayList<Sickness> sicknesses = new ArrayList<Sickness>();
@@ -26,8 +26,17 @@ public class Patients extends org.example.powwww.grid.Stationary {
     public Patients(String name, int x, int y, City city){
         super(x, y,city);
         this.name = name;
+        this.insideOf.addStationary(this);
         this.city = city;
     }
+
+    public Patients(int x, int y, City city) {
+        super(x, y,city);
+        this.insideOf.addStationary(this);
+        this.city = city;
+        System.out.println(x + " ! " + y);
+    }
+
     public void draw(Graphics g, Color color){
         g.setColor(color);
         g.fillOval(getCoordinates()[0]*36+54, getCoordinates()[1]*36+54, RADIUS * 2, RADIUS * 2);
