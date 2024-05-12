@@ -196,8 +196,8 @@
                         </ImageView>
                         <GridPane layoutX="8.0" layoutY="7.0" prefHeight="219.0" prefWidth="537.0">
                           <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="283.0" minWidth="10.0" prefWidth="276.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="261.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -250,17 +250,22 @@
                                     </ImageView>
                                  </children>
                               </GridPane>
-                              <Label text="135" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Label fx:id="totalNumberOfProducts" prefHeight="27.0" prefWidth="119.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="totalProductLabel" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <Label fx:id="totalCostOfProducts" alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="112.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="totalCostLabel" alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="112.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Label fx:id="nameOfproducts" alignment="CENTER" prefHeight="27.0" prefWidth="275.0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="275.0" text="Products:">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -288,7 +293,7 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <GridPane layoutX="41.0" layoutY="430.0" prefHeight="273.0" prefWidth="535.0">
+                  <GridPane layoutX="41.0" layoutY="446.0" prefHeight="257.0" prefWidth="535.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -349,17 +354,22 @@
                               </Label>
                            </children>
                         </GridPane>
-                        <Label text="140" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="totalNumberOfProductsPrev" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="totalProductPrev" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="totalCostOfProductsPrev" alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="88.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="totalCostPrev" alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="88.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="275.0" text="Products:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nameOfproductsPrev" alignment="CENTER" prefHeight="27.0" prefWidth="275.0" GridPane.columnIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>

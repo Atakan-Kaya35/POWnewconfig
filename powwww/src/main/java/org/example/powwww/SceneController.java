@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import static org.example.powwww.Sim.Simulation.pills;
 
 
-public class SceneController{
+public class SceneController {
     @FXML
     private Button loginButton;
     @FXML
@@ -228,6 +228,18 @@ public class SceneController{
     private Label med0;
     @FXML
     private Label cost0;
+    @FXML
+    private Label nameOfproducts;
+    @FXML
+    private Label totalCostOfProducts;
+    @FXML
+    private Label totalNumberOfProducts;
+    @FXML
+    private Label nameOfproductsPrev;
+    @FXML
+    private Label totalCostOfProductsPrev;
+    @FXML
+    private Label totalNumberOfProductsPrev;
     @FXML
     private Button buttonformed0;
     @FXML
@@ -464,6 +476,8 @@ public class SceneController{
 
         // Call setItems() after the ComboBox is initialized
         controller.setInfos();
+        controller.changeTotalCost();
+        controller.changeNoOfProducts();
         stage.show();
     }
     public void switchToPersonalInfoPage(ActionEvent event) throws IOException {
@@ -482,6 +496,8 @@ public class SceneController{
         stage.setScene(scene);
         controller.setInfos();
         controller.setInfoPIP();
+        controller.changeTotalCost();
+        controller.changeNoOfProducts();
 
         // Call setItems() after the ComboBox is initialized
         /*controller.setInfos();
@@ -538,6 +554,8 @@ public class SceneController{
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         // Call setItems() after the ComboBox is initialized
+        controller.changeTotalCost();
+        controller.changeNoOfProducts();
         controller.setInfos();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
@@ -563,6 +581,8 @@ public class SceneController{
         stage.setScene(scene);
 
         // Call setItems() after the ComboBox is initialized
+        controller.changeTotalCost();
+        controller.changeNoOfProducts();
         controller.setInfos();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
@@ -588,6 +608,8 @@ public class SceneController{
         stage.setScene(scene);
 
         // Call setItems() after the ComboBox is initialized
+        controller.changeTotalCost();
+        controller.changeNoOfProducts();
         controller.setInfos();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
@@ -613,6 +635,7 @@ public class SceneController{
         stage.setScene(scene);
 
         // Call setItems() after the ComboBox is initialized
+        
         controller.setInfos();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
