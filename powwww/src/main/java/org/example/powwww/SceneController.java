@@ -978,7 +978,7 @@ public class SceneController {
     }
     public boolean isThereSameMedicine(String name){
         for (int i = 0; i < cart.size(); i++) {
-            String[] med = cart.get(i).getName().split(" ");
+            String[] med = textarr.get(i).getText().split(" ");
             if(med[0].equals(name)){
                 return true;
             }
@@ -989,22 +989,22 @@ public class SceneController {
         int counter = 0;
 
         for (int i = 0; i < cart.size(); i++) {
-            String[] med = cart.get(i).getName().split(" ");
-            if(med.length>1){
-                counter += Integer.parseInt(med[2]);
+            String[] med = textarr.get(i).getText().split(" ");
+            if(med.length>1 && med[0].equals(name)){
+                counter = Integer.parseInt(med[2]) + 1;
             }
-            if(med[0].equals(name)){
+            else if(med[0].equals(name)){
                 counter++;
             }
         }
         if(counter == 0){
             return name;
         }
-        return name + " x " + (counter+1);
+        return name + " x " + (counter);
     }
     public Text findText(String name){
         for (int i = 0; i < cart.size(); i++) {
-            String[] med = cart.get(i).getName().split(" ");
+            String[] med = textarr.get(i).getText().split(" ");
             if(med[0].equals(name)){
                 return textarr.get(i);
             }
