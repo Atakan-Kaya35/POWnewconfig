@@ -124,9 +124,57 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Purchase" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
+                  <Button fx:id="Purchase" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#giveOrder" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #94ACFF;" text="PURCHASE" />
                </children>
             </Pane>
+            <ScrollPane layoutX="18.0" layoutY="76.0" prefHeight="130.0" prefWidth="185.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutY="4.0" prefHeight="358.0" prefWidth="168.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text fx:id="cart1" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <Text fx:id="cart2" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="1" />
+                              <Text fx:id="cart3" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="2" />
+                              <Text fx:id="cart4" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="3" />
+                              <Text fx:id="cart5" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="4" />
+                              <Text fx:id="cart6" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="5" />
+                              <Text fx:id="cart7" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="6" />
+                              <Text fx:id="cart8" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="7" />
+                              <Text fx:id="cart9" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="8" />
+                              <Text fx:id="cart10" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="9" />
+                              <Text fx:id="cart11" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="10" />
+                              <Text fx:id="cart12" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="11" />
+                              <Text fx:id="cart13" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="12" />
+                              <Text fx:id="cart14" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="13" />
+                              <Text fx:id="cart15" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="14" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
          </children>
       </Pane>
       <Pane layoutY="65.0" prefHeight="27.0" prefWidth="1080.0" style="-fx-background-color: #94ACFF;" />
@@ -137,21 +185,21 @@
       </ImageView>
       <ScrollPane layoutX="238.0" layoutY="108.0" prefHeight="604.0" prefWidth="602.0">
          <content>
-            <AnchorPane prefHeight="837.0" prefWidth="597.0">
+            <AnchorPane prefHeight="837.0" prefWidth="581.0">
                <children>
-                  <Label alignment="CENTER" layoutX="192.0" layoutY="85.0" prefHeight="39.0" prefWidth="171.0" style="-fx-border-color: black;" text="Current Orders">
+                  <Label alignment="CENTER" layoutX="46.0" layoutY="89.0" prefHeight="39.0" prefWidth="181.0" style="-fx-border-color: black; -fx-background-color: #94ACFF;" text="Current Order">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="25.0" layoutY="145.0" prefHeight="196.0" prefWidth="554.0" style="-fx-border-color: black;">
+                  <Pane layoutX="25.0" layoutY="145.0" prefHeight="239.0" prefWidth="554.0" style="-fx-border-color: black;">
                      <children>
                         <ImageView fitHeight="75.0" fitWidth="74.0" layoutX="15.0" layoutY="14.0">
                            <image>
                               <Image url="@sepet.png" />
                            </image>
                         </ImageView>
-                        <GridPane layoutX="8.0" layoutY="7.0" prefHeight="186.0" prefWidth="537.0">
+                        <GridPane layoutX="8.0" layoutY="7.0" prefHeight="219.0" prefWidth="537.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -163,11 +211,6 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="291.0" text="Date:">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
                               <Label alignment="CENTER" prefHeight="27.0" prefWidth="275.0" text="Total Cost:" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="18.0" />
@@ -210,29 +253,19 @@
                                           <Image url="@pill2.png" />
                                        </image>
                                     </ImageView>
-                                    <Label alignment="CENTER" prefHeight="55.0" prefWidth="46.0" text="+" GridPane.columnIndex="4">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
                                  </children>
                               </GridPane>
-                              <Label text="13.03.2024" GridPane.columnIndex="1">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
                               <Label text="135" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <Label fx:id="totalProductLabel" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="88.0" text="\$" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Label fx:id="totalCostLabel" alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="112.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -246,12 +279,12 @@
                         </Button>
                      </children>
                   </Pane>
-                  <Label alignment="CENTER" layoutX="216.0" layoutY="345.0" prefHeight="39.0" prefWidth="141.0" style="-fx-border-color: black;" text="Past Orders">
+                  <Label alignment="CENTER" layoutX="203.0" layoutY="393.0" prefHeight="39.0" prefWidth="175.0" style="-fx-border-color: black;" text="Previous Order">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="30.0" layoutY="417.0" prefHeight="200.0" prefWidth="550.0" style="-fx-border-color: black;">
+                  <Pane layoutX="30.0" layoutY="444.0" prefHeight="276.0" prefWidth="550.0" style="-fx-border-color: black;">
                      <children>
                         <ImageView fitHeight="75.0" fitWidth="74.0" layoutX="15.0" layoutY="14.0">
                            <image>
@@ -260,7 +293,7 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <GridPane layoutX="41.0" layoutY="430.0" prefHeight="186.0" prefWidth="535.0">
+                  <GridPane layoutX="41.0" layoutY="430.0" prefHeight="273.0" prefWidth="535.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -321,136 +354,29 @@
                               </Label>
                            </children>
                         </GridPane>
-                        <Label text="08.03.2024" GridPane.columnIndex="1">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
                         <Label text="140" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="totalProductPrev" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="88.0" text="\$" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="291.0" text="Date:">
+                        <Label fx:id="totalCostPrev" alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="88.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
                      </children>
                   </GridPane>
-                  <Pane layoutX="30.0" layoutY="696.0" prefHeight="200.0" prefWidth="567.0" style="-fx-border-color: black;">
-                     <children>
-                        <ImageView fitHeight="75.0" fitWidth="74.0" layoutX="15.0" layoutY="14.0">
-                           <image>
-                              <Image url="@sepet.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <GridPane layoutX="43.0" layoutY="693.0" prefHeight="186.0" prefWidth="534.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="275.0" text="Total Cost:" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="268.0" text="Total Product:" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <GridPane GridPane.rowIndex="3">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <ImageView fitHeight="53.0" fitWidth="50.0">
-                                 <image>
-                                    <Image url="@serum.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="44.0" fitWidth="42.0" GridPane.columnIndex="1">
-                                 <image>
-                                    <Image url="@pill4.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="47.0" fitWidth="49.0" GridPane.columnIndex="2">
-                                 <image>
-                                    <Image url="@pill6.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="51.0" fitWidth="50.0" GridPane.columnIndex="3">
-                                 <image>
-                                    <Image url="@pill2.png" />
-                                 </image>
-                              </ImageView>
-                              <Label alignment="CENTER" prefHeight="55.0" prefWidth="46.0" text="+" GridPane.columnIndex="4">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </GridPane>
-                        <Label text="08.03.2024" GridPane.columnIndex="1">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label text="140" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="21.0" prefWidth="88.0" text="\$" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="291.0" text="Date:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </GridPane>
-                  <Label alignment="CENTER" layoutX="203.0" layoutY="14.0" prefHeight="55.0" prefWidth="132.0" style="-fx-background-color: #94ACFF; -fx-border-color: black;" text="Orders">
+                  <Label alignment="CENTER" layoutX="203.0" layoutY="14.0" prefHeight="55.0" prefWidth="175.0" style="-fx-border-color: black;" text="Orders">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="seeMap" layoutX="403.0" layoutY="84.0" mnemonicParsing="false" onAction="#openMap" style="-fx-background-color: #94ACFF;" text="See Map">
+                  <Button fx:id="seeMap" layoutX="358.0" layoutY="89.0" mnemonicParsing="false" onAction="#openMap" prefHeight="43.0" prefWidth="195.0" style="-fx-background-color: #94ACFF; -fx-border-color: black;" text="Where is my order?">
                      <font>
                         <Font size="19.0" />
                      </font>

@@ -111,11 +111,12 @@ public class UserMethods {
         return true;
     }
 
-    public static void addToCart(Patients patient, Medicine medicine) {
-        patient.getCart().add(medicine);
-        System.out.println(medicine.getName() + " added to cart.");
+    public static void addToCart(Patients patient, ArrayList<Medicine> medicineList) {
+        for (Medicine medicine : medicineList) {
+            patient.getCart().add(medicine);
+            System.out.println(medicine.getName() + " added to cart.");
+        }
     }
-
     public static void printCart(Patients patient) {
         System.out.println("Items in cart:");
         for (Medicine medicine : patient.getCart()) {
@@ -133,7 +134,7 @@ public class UserMethods {
 
     // Uİda gösterdiğimiz arama metodu. trendyol vb. gibi harf harf yazdıkça öneri yapmasına gerek yok
     // o zor olur. ama ilacın adını tam yazıp enterlayınca sadece o ilacın simgesinin bulunduğu bir sayfa açılmalı
-    public static Medicine searchForMedicine(String keyword, Patients patient) {
+    /*public static Medicine searchForMedicine(String keyword, Patients patient) {
         String[] result = null;
         for (String[] s: Pill.getAllPills()){
             if(s.equals(keyword)){
@@ -141,7 +142,7 @@ public class UserMethods {
             }
         }
         return new Pill(patient.getOrderList().size(), keyword);
-    }
+    }*/
 
     //medicine isimleri farklı medicine objesi farklı
 

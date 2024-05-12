@@ -16,6 +16,9 @@ public abstract class Medicine {
         this.name = name;
         this.description = desciption;
     }
+    Medicine(){
+
+    }
 
     /**
      * Action when a pill is taken

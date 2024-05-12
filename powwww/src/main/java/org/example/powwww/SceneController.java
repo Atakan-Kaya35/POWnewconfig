@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 import org.example.powwww.DiagnosisTest.Menu;
 import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.Sim.SimMethods;
+import org.example.powwww.Sim.Simulation;
 import org.example.powwww.Sim.UserMethods;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,13 +23,17 @@ import org.example.powwww.Sim.UserMethods;
 import org.example.powwww.entity.User;
 import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.grid.City;
+import org.example.powwww.grid.Order;
 import org.example.powwww.grid.Stationary;
+import org.example.powwww.med.Medicine;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import static org.example.powwww.Sim.Simulation.pills;
 
 
 public class SceneController {
@@ -57,7 +62,7 @@ public class SceneController {
     @FXML
     private TextField userNameTextField;
     @FXML
-    private TextField passwordTextField;
+    private PasswordField passwordTextField;
     @FXML
     private TextField SU_Name;
     @FXML
@@ -83,6 +88,10 @@ public class SceneController {
     @FXML
     private Label A_Height;
     @FXML
+    private Label TotalCost;
+    @FXML
+    private Label NoOfProducts;
+    @FXML
     private Text A_Remainder;
     @FXML
     private TextField name_p;
@@ -96,13 +105,228 @@ public class SceneController {
     private TextField height_p;
     @FXML
     private TextField bmi_p;
+    @FXML
+    private Label totalCostLabel;
+    @FXML
+    private Label totalProductLabel;
+    @FXML
+    private Label totalCostPrev;
+    @FXML
+    private Label totalProductPrev;
+    @FXML
+    private Label med1;
+    @FXML
+    private Label cost1;
+
+    @FXML
+    private Label med2;
+    @FXML
+    private Label cost2;
+
+    @FXML
+    private Label med3;
+    @FXML
+    private Label cost3;
+
+    @FXML
+    private Label med4;
+    @FXML
+    private Label cost4;
+
+    @FXML
+    private Label med5;
+    @FXML
+    private Label cost5;
+
+    @FXML
+    private Label med6;
+    @FXML
+    private Label cost6;
+
+    @FXML
+    private Label med7;
+    @FXML
+    private Label cost7;
+
+    @FXML
+    private Label med8;
+    @FXML
+    private Label cost8;
+
+    @FXML
+    private Label med9;
+    @FXML
+    private Label cost9;
+
+    @FXML
+    private Label med10;
+    @FXML
+    private Label cost10;
+
+    @FXML
+    private Label med11;
+    @FXML
+    private Label cost11;
+
+    @FXML
+    private Label med12;
+    @FXML
+    private Label cost12;
+
+    @FXML
+    private Label med13;
+    @FXML
+    private Label cost13;
+
+    @FXML
+    private Label med14;
+    @FXML
+    private Label cost14;
+
+    @FXML
+    private Label med15;
+    @FXML
+    private Label cost15;
+
+    @FXML
+    private Label med16;
+    @FXML
+    private Label cost16;
+
+    @FXML
+    private Label med17;
+    @FXML
+    private Label cost17;
+
+    @FXML
+    private Label med18;
+    @FXML
+    private Label cost18;
+
+    @FXML
+    private Label med19;
+    @FXML
+    private Label cost19;
+
+    @FXML
+    private Label med20;
+    @FXML
+    private Label cost20;
+
+    @FXML
+    private Label med21;
+    @FXML
+    private Label cost21;
+
+    @FXML
+    private Label med22;
+    @FXML
+    private Label cost22;
+
+    @FXML
+    private Label med23;
+    @FXML
+    private Label cost23;
+
+    @FXML
+    private Label med24;
+    @FXML
+    private Label cost24;
+
+    @FXML
+    private Label med0;
+    @FXML
+    private Label cost0;
+    @FXML
+    private Button buttonformed0;
+    @FXML
+    private Button buttonformed1;
+    @FXML
+    private Button buttonformed2;
+    @FXML
+    private Button buttonformed3;
+    @FXML
+    private Button buttonformed4;
+    @FXML
+    private Button buttonformed5;
+    @FXML
+    private Button buttonformed6;
+    @FXML
+    private Button buttonformed7;
+    @FXML
+    private Button buttonformed8;
+    @FXML
+    private Button buttonformed9;
+    @FXML
+    private Button buttonformed10;
+    @FXML
+    private Button buttonformed11;
+    @FXML
+    private Button buttonformed12;
+    @FXML
+    private Button buttonformed13;
+    @FXML
+    private Button buttonformed14;
+    @FXML
+    private Button buttonformed15;
+    @FXML
+    private Button buttonformed16;
+    @FXML
+    private Button buttonformed17;
+    @FXML
+    private Button buttonformed18;
+    @FXML
+    private Button buttonformed19;
+    @FXML
+    private Button buttonformed20;
+    @FXML
+    private Button buttonformed21;
+    @FXML
+    private Button buttonformed22;
+    @FXML
+    private Button buttonformed23;
+    @FXML
+    private Button buttonformed24;
+    @FXML
+    private Text cart1;
+    @FXML
+    private Text cart2;
+    @FXML
+    private Text cart3;
+    @FXML
+    private Text cart4;
+    @FXML
+    private Text cart5;
+    @FXML
+    private Text cart6;
+    @FXML
+    private Text cart7;
+    @FXML
+    private Text cart8;
+    @FXML
+    private Text cart9;
+    @FXML
+    private Text cart10;
+    @FXML
+    private Text cart11;
+    @FXML
+    private Text cart12;
+    @FXML
+    private Text cart13;
+    @FXML
+    private Text cart14;
+    @FXML
+    private Text cart15;
+
 
     City city = new City(30,20);
     private ArrayList<String> choices = new ArrayList<String>();
     public static ArrayList<Stationary> everyOne = new ArrayList<>();
     public static ArrayList<String> usernames = new ArrayList<>();
     public static ArrayList<String> passwords = new ArrayList<>();
+    public static ArrayList<Text> textarr = new ArrayList<>();
     public static String userName;
+    public static ArrayList<Medicine> cart = new ArrayList<Medicine>();
     static ArrayList<User> users = new ArrayList<>();
     String[] userInfo = SQLTest.getUserInfo(userName);
     String AGE = userInfo[2] + " years";
@@ -111,6 +335,8 @@ public class SceneController {
     String HEIGHT = userInfo[1] + " cm";
     String ADDRESS = userInfo[4]+","+userInfo[5];
     
+    Patients currentUserPatient;
+
     private Stage stage;
     private Scene scene;
     private Parent root ;
@@ -199,6 +425,8 @@ public class SceneController {
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
         //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
         userName = userNameTextField.getText();
+        currentUserPatient = new Patients();
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
         Parent root = loader.load();
 
@@ -293,8 +521,10 @@ public class SceneController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
 
+
         // Call setItems() after the ComboBox is initialized
         controller.setInfos();
+        controller.setCost();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
@@ -416,8 +646,11 @@ public class SceneController {
         A_Weight.setText(weight_);
         String height_ = userInfo[1];
         A_Height.setText(height_);
-        String age_ = userInfo[2];
-        A_Name.setText(age_);
+        String age_ = userInfo[2] + " years";
+        A_Age.setText(age_);
+
+        // create the patient as soon as the information is made available
+        currentUserPatient = new Patients(userInfo[3], Integer.parseInt(userInfo[4]), Integer.parseInt(userInfo[5]), city);
     }
     public void openQDT(ActionEvent event) {
         // Instantiate a Swing JFrame
@@ -443,4 +676,358 @@ public class SceneController {
         weigth_p.setText(userInfo[1]);
         height_p.setText(userInfo[2]);
     }
+    public void setCost(){
+        cost0.setText(""+ pills.get(0).getPrice());
+        cost1.setText(""+ pills.get(1).getPrice());
+        cost2.setText(""+ pills.get(2).getPrice());
+        cost3.setText(""+ pills.get(3).getPrice());
+        cost4.setText(""+ pills.get(4).getPrice());
+        cost5.setText(""+ pills.get(5).getPrice());
+        cost6.setText(""+ pills.get(6).getPrice());
+        cost7.setText(""+ pills.get(7).getPrice());
+        cost8.setText(""+ pills.get(8).getPrice());
+        cost9.setText(""+ pills.get(9).getPrice());
+        cost10.setText(""+ pills.get(10).getPrice());
+        cost11.setText(""+ pills.get(11).getPrice());
+        cost12.setText(""+ pills.get(12).getPrice());
+        cost13.setText(""+ pills.get(13).getPrice());
+        cost14.setText(""+ pills.get(14).getPrice());
+        cost15.setText(""+ pills.get(15).getPrice());
+        cost16.setText(""+ pills.get(16).getPrice());
+        cost17.setText(""+ pills.get(17).getPrice());
+        cost18.setText(""+ pills.get(18).getPrice());
+        cost19.setText(""+ pills.get(19).getPrice());
+        cost20.setText(""+ pills.get(20).getPrice());
+        cost21.setText(""+ pills.get(21).getPrice());
+        cost22.setText(""+ pills.get(22).getPrice());
+        cost23.setText(""+ pills.get(23).getPrice());
+        cost24.setText(""+ pills.get(24).getPrice());
+    }
+    public void textArray(){
+        textarr.add(cart1);
+        textarr.add(cart2);
+        textarr.add(cart3);
+        textarr.add(cart4);
+        textarr.add(cart5);
+        textarr.add(cart6);
+        textarr.add(cart7);
+        textarr.add(cart8);
+        textarr.add(cart9);
+        textarr.add(cart10);
+        textarr.add(cart11);
+        textarr.add(cart12);
+        textarr.add(cart13);
+        textarr.add(cart14);
+        textarr.add(cart15);
+    }
+    public Text getEmptyText(){
+        textArray();
+        for(Text t : textarr){
+            if(t.getText().equals("")){
+                return t;
+            }
+        }
+        System.out.println("null hatası salakakk");
+        return null;
+    }
+
+    public void setMedInCart0(ActionEvent event){
+        if(isThereSameMedicine(pills.get(0).getName())){
+            findText(pills.get(0).getName()).setText(countOfMedicine(pills.get(0).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(0).getName());
+            cart.add(pills.get(0));
+        }
+    }
+
+    public void setMedInCart1(ActionEvent event){
+        if(isThereSameMedicine(pills.get(1).getName())){
+            findText(pills.get(1).getName()).setText(countOfMedicine(pills.get(1).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(1).getName());
+            cart.add(pills.get(1));
+        }
+    }
+
+    public void setMedInCart2(ActionEvent event){
+        if(isThereSameMedicine(pills.get(2).getName())){
+            findText(pills.get(2).getName()).setText(countOfMedicine(pills.get(2).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(2).getName());
+            cart.add(pills.get(2));
+        }
+    }
+
+    public void setMedInCart3(ActionEvent event){
+        if(isThereSameMedicine(pills.get(3).getName())){
+            findText(pills.get(3).getName()).setText(countOfMedicine(pills.get(3).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(3).getName());
+            cart.add(pills.get(3));
+        }
+    }
+
+    public void setMedInCart4(ActionEvent event){
+        if(isThereSameMedicine(pills.get(4).getName())){
+            findText(pills.get(4).getName()).setText(countOfMedicine(pills.get(4).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(4).getName());
+            cart.add(pills.get(4));
+        }
+    }
+
+    public void setMedInCart5(ActionEvent event){
+        if(isThereSameMedicine(pills.get(5).getName())){
+            findText(pills.get(5).getName()).setText(countOfMedicine(pills.get(5).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(5).getName());
+            cart.add(pills.get(5));
+        }
+    }
+
+    public void setMedInCart6(ActionEvent event){
+        if(isThereSameMedicine(pills.get(6).getName())){
+            findText(pills.get(6).getName()).setText(countOfMedicine(pills.get(6).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(6).getName());
+            cart.add(pills.get(6));
+        }
+    }
+
+    public void setMedInCart7(ActionEvent event){
+        if(isThereSameMedicine(pills.get(7).getName())){
+            findText(pills.get(7).getName()).setText(countOfMedicine(pills.get(7).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(7).getName());
+            cart.add(pills.get(7));
+        }
+    }
+
+    public void setMedInCart8(ActionEvent event){
+        if(isThereSameMedicine(pills.get(8).getName())){
+            findText(pills.get(8).getName()).setText(countOfMedicine(pills.get(8).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(8).getName());
+            cart.add(pills.get(8));
+        }
+    }
+
+    public void setMedInCart9(ActionEvent event){
+        if(isThereSameMedicine(pills.get(9).getName())){
+            findText(pills.get(9).getName()).setText(countOfMedicine(pills.get(9).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(9).getName());
+            cart.add(pills.get(9));
+        }
+    }
+
+    public void setMedInCart10(ActionEvent event){
+        if(isThereSameMedicine(pills.get(10).getName())){
+            findText(pills.get(10).getName()).setText(countOfMedicine(pills.get(10).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(10).getName());
+            cart.add(pills.get(10));
+        }
+    }
+
+    public void setMedInCart11(ActionEvent event){
+        if(isThereSameMedicine(pills.get(11).getName())){
+            findText(pills.get(11).getName()).setText(countOfMedicine(pills.get(11).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(11).getName());
+            cart.add(pills.get(11));
+        }
+    }
+
+    public void setMedInCart12(ActionEvent event){
+        if(isThereSameMedicine(pills.get(12).getName())){
+            findText(pills.get(12).getName()).setText(countOfMedicine(pills.get(12).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(12).getName());
+            cart.add(pills.get(12));
+        }
+    }
+
+    public void setMedInCart13(ActionEvent event){
+        if(isThereSameMedicine(pills.get(13).getName())){
+            findText(pills.get(13).getName()).setText(countOfMedicine(pills.get(13).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(13).getName());
+            cart.add(pills.get(13));
+        }
+    }
+
+    public void setMedInCart14(ActionEvent event){
+        if(isThereSameMedicine(pills.get(14).getName())){
+            findText(pills.get(14).getName()).setText(countOfMedicine(pills.get(14).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(14).getName());
+            cart.add(pills.get(14));
+        }
+    }
+
+    public void setMedInCart15(ActionEvent event){
+        if(isThereSameMedicine(pills.get(15).getName())){
+            findText(pills.get(15).getName()).setText(countOfMedicine(pills.get(15).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(15).getName());
+            cart.add(pills.get(15));
+        }
+    }
+
+    public void setMedInCart16(ActionEvent event){
+        if(isThereSameMedicine(pills.get(16).getName())){
+            findText(pills.get(16).getName()).setText(countOfMedicine(pills.get(16).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(16).getName());
+            cart.add(pills.get(16));
+        }
+    }
+
+    public void setMedInCart17(ActionEvent event){
+        if(isThereSameMedicine(pills.get(17).getName())){
+            findText(pills.get(17).getName()).setText(countOfMedicine(pills.get(17).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(17).getName());
+            cart.add(pills.get(17));
+        }
+    }
+
+    public void setMedInCart18(ActionEvent event){
+        if(isThereSameMedicine(pills.get(18).getName())){
+            findText(pills.get(18).getName()).setText(countOfMedicine(pills.get(18).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(18).getName());
+            cart.add(pills.get(18));
+        }
+    }
+
+    public void setMedInCart19(ActionEvent event){
+        if(isThereSameMedicine(pills.get(19).getName())){
+            findText(pills.get(19).getName()).setText(countOfMedicine(pills.get(19).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(19).getName());
+            cart.add(pills.get(19));
+        }
+    }
+
+    public void setMedInCart20(ActionEvent event){
+        if(isThereSameMedicine(pills.get(20).getName())){
+            findText(pills.get(20).getName()).setText(countOfMedicine(pills.get(20).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(20).getName());
+            cart.add(pills.get(20));
+        }
+    }
+
+    public void setMedInCart21(ActionEvent event){
+        if(isThereSameMedicine(pills.get(21).getName())){
+            findText(pills.get(21).getName()).setText(countOfMedicine(pills.get(21).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(21).getName());
+            cart.add(pills.get(21));
+        }
+    }
+
+    public void setMedInCart22(ActionEvent event){
+        if(isThereSameMedicine(pills.get(22).getName())){
+            findText(pills.get(22).getName()).setText(countOfMedicine(pills.get(22).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(22).getName());
+            cart.add(pills.get(22));
+        }
+    }
+
+    public void setMedInCart23(ActionEvent event){
+        if(isThereSameMedicine(pills.get(23).getName())){
+            findText(pills.get(23).getName()).setText(countOfMedicine(pills.get(23).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(23).getName());
+            cart.add(pills.get(23));
+        }
+    }
+
+    public void setMedInCart24(ActionEvent event){
+        if(isThereSameMedicine(pills.get(24).getName())){
+            findText(pills.get(24).getName()).setText(countOfMedicine(pills.get(24).getName()));
+        }
+        else {
+            getEmptyText().setText(pills.get(24).getName());
+            cart.add(pills.get(24));
+        }
+    }
+    public boolean isThereSameMedicine(String name){
+        for (int i = 0; i < cart.size(); i++) {
+            String[] med = cart.get(i).getName().split(" ");
+            if(med[0].equals(name)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public String countOfMedicine(String name){
+        int counter = 0;
+
+        for (int i = 0; i < cart.size(); i++) {
+            String[] med = cart.get(i).getName().split(" ");
+            if(med.length>1){
+                counter += Integer.parseInt(med[2]);
+            }
+            if(med[0].equals(name)){
+                counter++;
+            }
+        }
+        if(counter == 0){
+            return name;
+        }
+        return name + " x " + (counter+1);
+    }
+    public Text findText(String name){
+        for (int i = 0; i < cart.size(); i++) {
+            String[] med = cart.get(i).getName().split(" ");
+            if(med[0].equals(name)){
+                return textarr.get(i);
+            }
+        }
+        return getEmptyText();
+    }
+    public void changeTotalCost(){
+        double totalCost = 0;
+        for (int i = 0; i < cart.size(); i++) {
+            totalCost += cart.get(i).getPrice();
+        }
+        TotalCost.setText(""+totalCost );
+    }
+    public void changeNoOfProducts(){
+        TotalCost.setText(""+cart.size() );
+    }
+
+    public void giveOrder(ActionEvent event){
+        Order newOrder = new Order(currentUserPatient, cart);
+    }
+
 }

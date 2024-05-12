@@ -5,21 +5,35 @@ import java.io.File;
 
 public class Pill extends Medicine {
 
+    public static double[] prices = {9.5, 10, 17.25, 20.5, 12.5, 7, 8.5, 17, 18.75, 19.25, 8, 11.25, 14, 15.75,
+            16.5, 18, 21.5, 24.75, 16, 21.5, 11.25, 6, 5.25, 13.5, 12};
     public static ArrayList<String[]> AllPills = new ArrayList();
     public static ArrayList<String[]> OTCpills = new ArrayList();
     public static ArrayList<String[]> prescribedPills = new ArrayList();
+    public static ArrayList<Pill> pills = new ArrayList();
+
     public int pillID;
+    static int IDsoFar = 0;
 
     public Pill(int IDnumber) {
         super(AllPills.get(IDnumber)[0], AllPills.get(IDnumber)[3]);
         this.pillID = IDnumber;
         this.cyclesLeft = 5;
+        this.setPrice(5);
+    }
+
+    public Pill(int IDnumber, double price) {
+        super(AllPills.get(IDnumber)[0], AllPills.get(IDnumber)[3]);
+        this.pillID = IDnumber;
+        this.cyclesLeft = 5;
+        this.setPrice(price);
     }
 
     public Pill(int IDnumber, String name) {
         super(name, AllPills.get(IDnumber)[3]);
         this.pillID = IDnumber;
         this.cyclesLeft = 5;
+        this.setPrice(5);
     }
 
     public Pill(int IDnumber, int cyclesOfTaking, boolean[] takeingFrequency) {
@@ -27,7 +41,77 @@ public class Pill extends Medicine {
         this.pillID = IDnumber;
         super.setCyclesOfTaking(cyclesOfTaking);
         super.setConsumeFreq(takeingFrequency);
+        this.setPrice(5);
     }
+
+    public Pill(int IDnumber, int cyclesOfTaking, boolean[] takeingFrequency, String name, String description) {
+        super();
+        this.pillID = IDnumber;
+        this.name = name;
+        this.description = description;
+        super.setCyclesOfTaking(cyclesOfTaking);
+        super.setConsumeFreq(takeingFrequency);
+    }
+
+    public static ArrayList<Pill> getPillObjects() {
+        ArrayList<Pill> pills = new ArrayList<>();
+        int ID = 0;
+        Random random = new Random();
+        // Adding pill information
+        String[] pillsText = {
+                // Provided pill information
+                // "PillName,CyclesOfTaking,TakingFrequency,Description"
+                "Amoxicillin,7,true,true,Antibiotic used to treat bacterial infections such as pneumonia bronchitis and infections of the ear nose throat skin or urinary tract",
+                "Albuterol,5,true,false,Bronchodilator used to treat asthma chronic obstructive pulmonary disease (COPD) and other breathing problems",
+                "Diazepam,6,true,true,Benzodiazepine used to treat anxiety disorders alcohol withdrawal muscle spasms and seizures",
+                "Ciprofloxacin,7,true,false,Fluoroquinolone antibiotic used to treat bacterial infections such as urinary tract infections respiratory infections skin infections and bone/joint infections",
+                "Prednisone,5,false,false,Corticosteroid used to treat inflammatory conditions such as arthritis asthma skin conditions and allergic disorders",
+                // Add more pills as needed...
+                "Metronidazole,6,true,false,Nitroimidazole antibiotic used to treat bacterial infections protozoal infections and infections of the vagina stomach skin joints and respiratory tract",
+                "Azithromycin,7,false,true,Macrolide antibiotic used to treat bacterial infections such as respiratory infections skin infections ear infections and sexually transmitted infections",
+                "Warfarin,4,true,false,Oral anticoagulant used to prevent blood clots in conditions such as atrial fibrillation deep vein thrombosis (DVT) and pulmonary embolism",
+                "Clopidogrel,5,false,true,Antiplatelet medication used to reduce the risk of heart attack and stroke in conditions such as acute coronary syndrome peripheral artery disease and after a recent heart attack or stroke",
+                "Levofloxacin,6,false,false,Fluoroquinolone antibiotic used to treat bacterial infections such as respiratory infections skin infections urinary tract infections and prostate infections",
+                "Cephalexin,7,true,true,Cephalosporin antibiotic used to treat bacterial infections such as respiratory tract infections skin infections ear infections and urinary tract infections",
+                "Naproxen,6,false,false,Nonsteroidal anti-inflammatory drug (NSAID) used to reduce pain inflammation and fever",
+                "Fluconazole,7,true,true,Antifungal medication used to treat fungal infections such as yeast infections of the mouth throat esophagus abdomen lungs blood and other organs",
+                "Hydrocodone,5,false,false,Opioid analgesic used to treat moderate to severe pain",
+                "Oxycodone,4,true,true,Opioid analgesic used to treat moderate to severe pain",
+                "Alprazolam,6,false,false,Benzodiazepine used to treat anxiety and panic disorders",
+                "Tramadol,7,true,true,Opioid analgesic used to treat moderate to severe pain",
+                "Doxycycline,5,false,true,Tetracycline antibiotic used to treat bacterial infections such as acne urinary tract infections and chlamydia",
+                "Lorazepam,6,false,false,Benzodiazepine used to treat anxiety disorders insomnia and seizures",
+                "Furosemide,7,true,true,Loop diuretic used to treat fluid retention (edema) and high blood pressure",
+                "Omeprazole,5,false,false,Proton pump inhibitor (PPI) used to reduce stomach acid and treat conditions like heartburn acid reflux and ulcers",
+                "Simvastatin,6,false,true,Statin medication used to lower cholesterol levels in the blood and reduce the risk of heart disease and stroke",
+                "Metformin,7,true,false,Oral diabetes medicine used to control blood sugar levels in people with type 2 diabetes",
+                "Lisinopril,4,true,true,Angiotensin-converting enzyme (ACE) inhibitor used to treat high blood pressure heart failure and to improve survival after a heart attack",
+                "Atorvastatin,5,false,false,Statin medication used to lower cholesterol levels in the blood and reduce the risk of heart disease and stroke"
+        };
+
+        // Take the first 25 pills from the provided list
+        for (int i = 0; i < 25 && i < pillsText.length; i++) {
+            String[] pillInfo = pillsText[i].split(",");
+            String name = pillInfo[0];
+            String description = pillInfo[4];
+
+            // Generate random cycles of taking between 3 and 7
+            int cyclesOfTaking = random.nextInt(5) + 3;
+
+            // Generate random taking frequency
+            boolean[] frequency = new boolean[3];
+            for (int j = 0; j < 3; j++) {
+                frequency[j] = random.nextBoolean();
+            }
+
+            Pill pill = new Pill(ID, cyclesOfTaking, frequency, name, description);
+            pills.add(pill);
+            pill.setPrice(prices[i]);
+            ID++;
+        }
+        return pills;
+    }
+
 
     public static void fillPills() {
         // Get the file path relative to the current package
@@ -213,6 +297,30 @@ public class Pill extends Medicine {
         AllPills.add(ay);
     }
 
+
+    // bütün pilleri obje olarak oluşturup bir arrayliste ekledik. buradan seçmek daha kolay olur simde ayrıca gui için bize
+    // böylesi gerekli.
+
+
+    // Generate random cycles of taking between 3 and 7
+           /* int cyclesOfTaking = random.nextInt(5) + 3;
+
+            // Generate random taking frequency
+            boolean[] frequency = new boolean[3];
+            for (int i = 0; i < 3; i++) {
+                frequency[i] = random.nextBoolean();
+            }
+
+            Pill pill = new Pill(IDsoFar, cyclesOfTaking, frequency);
+
+            allRealPills.add(pill);
+
+            AllPills.add(pillInfo);
+            IDsoFar++;
+        }*/
+
+    
+
     public int getPillID() {
         return pillID;
     }
@@ -225,4 +333,6 @@ public class Pill extends Medicine {
         return AllPills;
     }
 }
+
+
 

@@ -72,9 +72,9 @@ public class Order {
         this.finishingCord = patient.getCoordinates();
         for (Medicine med : medList) {
             if (med instanceof Serum){
-                carriedSerums.add((Serum) med);
+                carriedSerums.add(new Serum());
             } else {
-                carriedPills.add((Pill) med);
+                carriedPills.add(new Pill(((Pill)med).getPillID()));
             }
         }
         orderPatient = patient;

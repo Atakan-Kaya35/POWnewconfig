@@ -11,10 +11,12 @@ import org.example.powwww.med.Pill;
 import javax.swing.*;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Simulation extends SimMethods {
 
     public static int tick;
+    public static ArrayList<Pill> pills = Pill.getPillObjects();
 
     public static void main(String[] args) {
 
@@ -23,6 +25,8 @@ public class Simulation extends SimMethods {
         Pill.fillPills();
         Pill a = new Pill(0);
         System.out.println();
+
+
 
         JFrame grid = new GridFrame(city);
         grid.setTitle("MAP");
