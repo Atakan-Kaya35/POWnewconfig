@@ -1,20 +1,15 @@
 package org.example.powwww;
 
-import com.almasb.fxgl.cutscene.dialogue.BranchNode;
 import javafx.application.Application;
-import org.example.powwww.SceneController;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.example.powwww.Sim.Simulation;
 
 import java.io.IOException;
 
-public class Applic extends Application {
+public class Applic extends Application implements Runnable {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -25,8 +20,19 @@ public class Applic extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+        // Create a separate thread for your simulation
+        Thread simulationThread = new Thread(new Simulation());
+        simulationThread.start();
 
+        // Launch the JavaFX application
+        launch(args);
     }
 
+    @Override
+    public void run() {
+        // Your custom behavior for the simulation goes here
+        // This method will be executed in a separate thread
+        Simulation.runThisShit(); // Assuming this method exists in your code
+    }
 }
+
