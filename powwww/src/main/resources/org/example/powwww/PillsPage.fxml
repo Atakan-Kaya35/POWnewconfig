@@ -69,7 +69,7 @@
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="11.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="141.8840789794922" />
+                  <Text fx:id="A_Remainder" layoutX="11.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="141.8840789794922" />
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">
                      <image>
                         <Image url="@Adsız tasarım-3.png" />
@@ -147,12 +147,12 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="159.0" layoutY="39.0" text="0">
+                  <Label fx:id="NoOfProducts" layoutX="159.0" layoutY="39.0" text="0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="159.0" layoutY="9.0" text="0">
+                  <Label fx:id="TotalCost" layoutX="159.0" layoutY="9.0" text="0">
                      <font>
                         <Font size="20.0" />
                      </font>
