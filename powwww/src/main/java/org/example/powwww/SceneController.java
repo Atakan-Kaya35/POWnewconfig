@@ -239,6 +239,8 @@ public class SceneController {
     @FXML
     private Label cost0;
     @FXML
+    private Label nameOfproducts;
+    @FXML
     private Button buttonformed0;
     @FXML
     private Button buttonformed1;
