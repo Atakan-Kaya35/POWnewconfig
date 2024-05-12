@@ -486,6 +486,8 @@ public class SceneController {
 
         // Call setItems() after the ComboBox is initialized
         controller.setInfos();
+        controller.changeTotalCost();
+        controller.changeNoOfProducts();
         stage.show();
     }
     public void switchToPersonalInfoPage(ActionEvent event) throws IOException {
@@ -504,6 +506,8 @@ public class SceneController {
         stage.setScene(scene);
         controller.setInfos();
         controller.setInfoPIP();
+        controller.changeTotalCost();
+        controller.changeNoOfProducts();
 
         // Call setItems() after the ComboBox is initialized
         /*controller.setInfos();
@@ -560,6 +564,8 @@ public class SceneController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         // Call setItems() after the ComboBox is initialized
+        controller.changeTotalCost();
+        controller.changeNoOfProducts();
         controller.setInfos();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
@@ -585,6 +591,8 @@ public class SceneController {
         stage.setScene(scene);
 
         // Call setItems() after the ComboBox is initialized
+        controller.changeTotalCost();
+        controller.changeNoOfProducts();
         controller.setInfos();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
@@ -610,6 +618,8 @@ public class SceneController {
         stage.setScene(scene);
 
         // Call setItems() after the ComboBox is initialized
+        controller.changeTotalCost();
+        controller.changeNoOfProducts();
         controller.setInfos();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
@@ -635,6 +645,7 @@ public class SceneController {
         stage.setScene(scene);
 
         // Call setItems() after the ComboBox is initialized
+        
         controller.setInfos();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
