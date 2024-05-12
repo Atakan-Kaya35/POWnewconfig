@@ -518,6 +518,7 @@ public class SceneController {
         // Call setItems() after the ComboBox is initialized
         controller.setInfos();
         controller.setCost();
+        controller.changeTotalCost();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
@@ -1019,7 +1020,7 @@ public class SceneController {
         TotalCost.setText(""+totalCost );
     }
     public void changeNoOfProducts(){
-        TotalCost.setText(""+cart.size() );
+        NoOfProducts.setText(""+cart.size() );
     }
 
     public void giveOrder(ActionEvent event){
