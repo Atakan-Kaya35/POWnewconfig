@@ -1,5 +1,6 @@
 package org.example.powwww.entity.mobile.physcian;
 import java.util.ArrayList;
+import java.util.Random;
 
 import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.Sim.SimMethods;
@@ -20,6 +21,7 @@ public class Nurses extends Mobile {
     protected int x;
     protected int y;
     protected int currentTrafic;
+    Random rand = new Random();
 
     public enum ArrowKey {
         UP,
@@ -57,8 +59,13 @@ public class Nurses extends Mobile {
             return roadUpdateNecessaryCheck();
         }
         else{
-            x = this.getContainedIn().getCoords()[0]*36;
-            y = this.getContainedIn().getCoords()[1]*36;
+            /*try {
+                this.moveForth(city.getRoad(getContainedIn().getCoords()[0] + rand.nextInt(-1,2), getContainedIn().getCoords()[1]+ rand.nextInt(-1,2)));
+                x = this.getContainedIn().getCoords()[0] * 36;
+                y = this.getContainedIn().getCoords()[1] * 36;
+            } catch (Exception e){}*/
+            x = this.getContainedIn().getCoords()[0] * 36;
+            y = this.getContainedIn().getCoords()[1] * 36;
             direction = ArrowKey.STAY;
         }
         return false;

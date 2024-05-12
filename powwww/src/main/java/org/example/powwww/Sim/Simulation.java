@@ -13,16 +13,16 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Simulation extends SimMethods {
+public class Simulation extends SimMethods implements Runnable{
 
     public static int tick;
     public static ArrayList<Pill> pills = Pill.getPillObjects();
     public static City city = createCity();
 
-    public static void main(String[] args) {
+
+    public static void runThisShit() {
 
         // Initialize the city with desired parameters
-
         Pill.fillPills();
         Pill a = new Pill(0);
         System.out.println();
@@ -33,7 +33,7 @@ public class Simulation extends SimMethods {
         grid.setTitle("MAP");
         grid.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         grid.setVisible(true);
-//
+
 //        Patients p1 = new Patients("p1", 0,0,city);
 //        city.addStationary(p1);
 //        Patients p2 = new Patients("p1", 28,0,city);
@@ -240,5 +240,10 @@ public class Simulation extends SimMethods {
             // Check the progress of activities
             //checkActivityProgress();
         }
+    }
+
+    @Override
+    public void run() {
+        runThisShit();
     }
 }

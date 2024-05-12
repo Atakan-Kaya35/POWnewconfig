@@ -16,8 +16,8 @@ public class Order {
     ArrayList<Road> path;
     int progressIndex;
     Medicine carriedMedicine;
-    ArrayList<Serum> carriedSerums;
-    ArrayList<Pill> carriedPills;
+    ArrayList<Serum> carriedSerums = new ArrayList();
+    ArrayList<Pill> carriedPills = new ArrayList();
     public static ArrayList<Order> assignedOrders = new ArrayList<Order>();
     public static ArrayList<Order> completedOrders = new ArrayList<Order>();
     Patients orderPatient;

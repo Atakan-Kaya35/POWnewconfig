@@ -37,7 +37,7 @@ import static org.example.powwww.Sim.Simulation.city;
 import static org.example.powwww.Sim.Simulation.pills;
 
 
-public class SceneController {
+public class SceneController{
     @FXML
     private Button loginButton;
     @FXML
@@ -322,6 +322,7 @@ public class SceneController {
     private Text cart15;
 
 
+    City city = Simulation.city;
     private ArrayList<String> choices = new ArrayList<String>();
     public static ArrayList<Stationary> everyOne = new ArrayList<>();
     public static ArrayList<String> usernames = new ArrayList<>();
@@ -395,6 +396,7 @@ public class SceneController {
             int y = Integer.parseInt(address[1]);
             // Create a new user(address problem)
             Stationary newUser = new Patients(SU_Name.getText(), x, y, Simulation.city);
+            city.addStationary(newUser);
 
             // Add the new user to the list of users
             everyOne.add(newUser);
@@ -419,12 +421,12 @@ public class SceneController {
 
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
         //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
+        userName = userNameTextField.getText();
 
         String[] userInfo = SQLTest.getUserInfo(userName);
 
-        userName = userNameTextField.getText();
         currentUserPatient = new Patients(userInfo[3],Integer.parseInt(userInfo[4]),Integer.parseInt(userInfo[5]),Simulation.city);
-
+        city.addStationary(currentUserPatient);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
         Parent root = loader.load();
 
@@ -661,8 +663,9 @@ public class SceneController {
     }
 
     public void openMap(ActionEvent event){
+        SimMethods.buildBilkent(city);
 
-        JFrame grid = new GridFrame(Simulation.city);
+        JFrame grid = new GridFrame(city);
 
         Simulation.city.viewMap(false);
         ((GridFrame)grid).showTime(10);
@@ -730,7 +733,7 @@ public class SceneController {
                 return t;
             }
         }
-        System.out.println("null hatası salakakk");
+        System.out.println("null hatası");
         return null;
     }
 
@@ -898,5 +901,7 @@ public class SceneController {
     public void giveOrder(ActionEvent event){
         Order newOrder = new Order(currentUserPatient, cart);
     }
+
+
 
 }
