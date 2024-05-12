@@ -587,6 +587,8 @@ public class SceneController {
         controller.changeTotalCost();
         controller.changeNoOfProducts();
         controller.setInfos();
+        controller.printCurrentOrderInfo();
+        controller.sqlDownload();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
@@ -638,8 +640,8 @@ public class SceneController {
         stage.setScene(scene);
 
         // Call setItems() after the ComboBox is initialized
-        
-        controller.setInfos();
+
+        //controller.setInfos();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
@@ -913,8 +915,12 @@ public class SceneController {
 
     public void giveOrder(ActionEvent event){
         Order newOrder = new Order(currentUserPatient, cart);
-        lastOrder.set(0, currentOrder.get(0));
-        currentOrder.set(0,newOrder);
+        if(currentOrder.size() != 0){
+            lastOrder.clear();
+            lastOrder.add(currentOrder.get(0));
+            currentOrder.clear();
+        }
+        currentOrder.add(newOrder);
         cart.clear();
         changeTotalCost();
         changeNoOfProducts();
@@ -923,16 +929,58 @@ public class SceneController {
         }
     }
 
+
+
     public void printCurrentOrderInfo() {
         String allProducts = "";
-        for (Pill p : currentOrder.get(0).getCarriedPills()) {
-            allProducts += p + " ";
+        if(currentOrder.size() != 0) {
+            for (Pill p : currentOrder.get(0).getCarriedPills()) {
+                allProducts += p.getName() + " ";
+            }
+            nameOfproducts.setText(allProducts);
+            int totalCost = 0;
+            for (Pill p : currentOrder.get(0).getCarriedPills()) {
+                totalCost += p.getPrice();
+            }
+            String currentTotalCost = String.valueOf(totalCost);
+            totalCostOfProducts.setText(currentTotalCost);
+            String currentNoOfProducts = String.valueOf(currentOrder.get(0).getCarriedPills().size());
+            totalNumberOfProducts.setText(currentNoOfProducts);
         }
+    }
+
+    public void printPrevOrderInfo() {
+        String allPrevProducts = "";
+        if(SQLTest.getPastOrder(userName).length != 0) {
+            String[] arr = SQLTest.getPastOrder(userName);
+            String[] names = arr[2].split("#");
+            for( int i = 0; i < names.length; i++){
+                allPrevProducts += names[i] + " ";
+            }
+            totalCostOfProductsPrev.setText(arr[1]);
+            totalNumberOfProductsPrev.setText(arr[0]);
+        }
+    }
+    public void sqlDownload(){
         int totalCost = 0;
-        for (Pill p : currentOrder.get(0).getCarriedPills()) {
-            totalCost += p.getPrice();
+        if(lastOrder.size()==1) {
+            for (Pill p : lastOrder.get(0).getCarriedPills()) {
+                totalCost += p.getPrice();
+            }
+            String[] userInfo = SQLTest.getUserInfo(userName);
+            String userName_ = userInfo[3];
+            SQLTest.pastOrderAssign(userName_, totalCost, "" + lastOrder.get(0).getCarriedPills().size(), lastOrder.get(0).getCarriedPills());
         }
-        String prevTotalCost = String.valueOf(totalCost);
-        String prevNoOfProducts = String.valueOf(currentOrder.get(0).getCarriedPills().size());
+    }
+    
+    public void changeToPrevOrder(ActionEvent event){
+        if(currentOrder.size() != 0){
+            lastOrder.clear();
+            lastOrder.add(currentOrder.get(0));
+            currentOrder.clear();
+        }
+        printCurrentOrderInfo();
+        printPrevOrderInfo();
+        sqlDownload();
     }
 }
