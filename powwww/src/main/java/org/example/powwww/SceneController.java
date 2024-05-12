@@ -519,6 +519,7 @@ public class SceneController {
         controller.setInfos();
         controller.setCost();
         controller.changeTotalCost();
+        controller.changeNoOfProducts();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
@@ -728,255 +729,121 @@ public class SceneController {
         return null;
     }
 
-    public void setMedInCart0(ActionEvent event){
-        if(isThereSameMedicine(pills.get(0).getName())){
-            findText(pills.get(0).getName()).setText(countOfMedicine(pills.get(0).getName()));
+    public void setMedInCart(int index) {
+        String pillName = pills.get(index).getName();
+        if (isThereSameMedicine(pillName)) {
+            findText(pillName).setText(countOfMedicine(pillName));
+            cart.add(pills.get(index));
+            changeTotalCost();
+            changeNoOfProducts();
+        } else {
+            getEmptyText().setText(pillName);
+            cart.add(pills.get(index));
+            changeTotalCost();
+            changeNoOfProducts();
         }
-        else {
-            getEmptyText().setText(pills.get(0).getName());
-            cart.add(pills.get(0));
-        }
+    }
+    public void setMedInCart0(ActionEvent event) {
+        setMedInCart(0);
     }
 
-    public void setMedInCart1(ActionEvent event){
-        if(isThereSameMedicine(pills.get(1).getName())){
-            findText(pills.get(1).getName()).setText(countOfMedicine(pills.get(1).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(1).getName());
-            cart.add(pills.get(1));
-        }
+    public void setMedInCart1(ActionEvent event) {
+        setMedInCart(1);
     }
 
-    public void setMedInCart2(ActionEvent event){
-        if(isThereSameMedicine(pills.get(2).getName())){
-            findText(pills.get(2).getName()).setText(countOfMedicine(pills.get(2).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(2).getName());
-            cart.add(pills.get(2));
-        }
+    public void setMedInCart2(ActionEvent event) {
+        setMedInCart(2);
     }
 
-    public void setMedInCart3(ActionEvent event){
-        if(isThereSameMedicine(pills.get(3).getName())){
-            findText(pills.get(3).getName()).setText(countOfMedicine(pills.get(3).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(3).getName());
-            cart.add(pills.get(3));
-        }
+    public void setMedInCart3(ActionEvent event) {
+        setMedInCart(3);
     }
 
-    public void setMedInCart4(ActionEvent event){
-        if(isThereSameMedicine(pills.get(4).getName())){
-            findText(pills.get(4).getName()).setText(countOfMedicine(pills.get(4).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(4).getName());
-            cart.add(pills.get(4));
-        }
+    public void setMedInCart4(ActionEvent event) {
+        setMedInCart(4);
     }
 
-    public void setMedInCart5(ActionEvent event){
-        if(isThereSameMedicine(pills.get(5).getName())){
-            findText(pills.get(5).getName()).setText(countOfMedicine(pills.get(5).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(5).getName());
-            cart.add(pills.get(5));
-        }
+    public void setMedInCart5(ActionEvent event) {
+        setMedInCart(5);
     }
 
-    public void setMedInCart6(ActionEvent event){
-        if(isThereSameMedicine(pills.get(6).getName())){
-            findText(pills.get(6).getName()).setText(countOfMedicine(pills.get(6).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(6).getName());
-            cart.add(pills.get(6));
-        }
+    public void setMedInCart6(ActionEvent event) {
+        setMedInCart(6);
     }
 
-    public void setMedInCart7(ActionEvent event){
-        if(isThereSameMedicine(pills.get(7).getName())){
-            findText(pills.get(7).getName()).setText(countOfMedicine(pills.get(7).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(7).getName());
-            cart.add(pills.get(7));
-        }
+    public void setMedInCart7(ActionEvent event) {
+        setMedInCart(7);
     }
 
-    public void setMedInCart8(ActionEvent event){
-        if(isThereSameMedicine(pills.get(8).getName())){
-            findText(pills.get(8).getName()).setText(countOfMedicine(pills.get(8).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(8).getName());
-            cart.add(pills.get(8));
-        }
+    public void setMedInCart8(ActionEvent event) {
+        setMedInCart(8);
     }
 
-    public void setMedInCart9(ActionEvent event){
-        if(isThereSameMedicine(pills.get(9).getName())){
-            findText(pills.get(9).getName()).setText(countOfMedicine(pills.get(9).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(9).getName());
-            cart.add(pills.get(9));
-        }
+    public void setMedInCart9(ActionEvent event) {
+        setMedInCart(9);
     }
 
-    public void setMedInCart10(ActionEvent event){
-        if(isThereSameMedicine(pills.get(10).getName())){
-            findText(pills.get(10).getName()).setText(countOfMedicine(pills.get(10).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(10).getName());
-            cart.add(pills.get(10));
-        }
+    public void setMedInCart10(ActionEvent event) {
+        setMedInCart(10);
     }
 
-    public void setMedInCart11(ActionEvent event){
-        if(isThereSameMedicine(pills.get(11).getName())){
-            findText(pills.get(11).getName()).setText(countOfMedicine(pills.get(11).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(11).getName());
-            cart.add(pills.get(11));
-        }
+    public void setMedInCart11(ActionEvent event) {
+        setMedInCart(11);
     }
 
-    public void setMedInCart12(ActionEvent event){
-        if(isThereSameMedicine(pills.get(12).getName())){
-            findText(pills.get(12).getName()).setText(countOfMedicine(pills.get(12).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(12).getName());
-            cart.add(pills.get(12));
-        }
+    public void setMedInCart12(ActionEvent event) {
+        setMedInCart(12);
     }
 
-    public void setMedInCart13(ActionEvent event){
-        if(isThereSameMedicine(pills.get(13).getName())){
-            findText(pills.get(13).getName()).setText(countOfMedicine(pills.get(13).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(13).getName());
-            cart.add(pills.get(13));
-        }
+    public void setMedInCart13(ActionEvent event) {
+        setMedInCart(13);
     }
 
-    public void setMedInCart14(ActionEvent event){
-        if(isThereSameMedicine(pills.get(14).getName())){
-            findText(pills.get(14).getName()).setText(countOfMedicine(pills.get(14).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(14).getName());
-            cart.add(pills.get(14));
-        }
+    public void setMedInCart14(ActionEvent event) {
+        setMedInCart(14);
     }
 
-    public void setMedInCart15(ActionEvent event){
-        if(isThereSameMedicine(pills.get(15).getName())){
-            findText(pills.get(15).getName()).setText(countOfMedicine(pills.get(15).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(15).getName());
-            cart.add(pills.get(15));
-        }
+    public void setMedInCart15(ActionEvent event) {
+        setMedInCart(15);
     }
 
-    public void setMedInCart16(ActionEvent event){
-        if(isThereSameMedicine(pills.get(16).getName())){
-            findText(pills.get(16).getName()).setText(countOfMedicine(pills.get(16).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(16).getName());
-            cart.add(pills.get(16));
-        }
+    public void setMedInCart16(ActionEvent event) {
+        setMedInCart(16);
     }
 
-    public void setMedInCart17(ActionEvent event){
-        if(isThereSameMedicine(pills.get(17).getName())){
-            findText(pills.get(17).getName()).setText(countOfMedicine(pills.get(17).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(17).getName());
-            cart.add(pills.get(17));
-        }
+    public void setMedInCart17(ActionEvent event) {
+        setMedInCart(17);
     }
 
-    public void setMedInCart18(ActionEvent event){
-        if(isThereSameMedicine(pills.get(18).getName())){
-            findText(pills.get(18).getName()).setText(countOfMedicine(pills.get(18).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(18).getName());
-            cart.add(pills.get(18));
-        }
+    public void setMedInCart18(ActionEvent event) {
+        setMedInCart(18);
     }
 
-    public void setMedInCart19(ActionEvent event){
-        if(isThereSameMedicine(pills.get(19).getName())){
-            findText(pills.get(19).getName()).setText(countOfMedicine(pills.get(19).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(19).getName());
-            cart.add(pills.get(19));
-        }
+    public void setMedInCart19(ActionEvent event) {
+        setMedInCart(19);
     }
 
-    public void setMedInCart20(ActionEvent event){
-        if(isThereSameMedicine(pills.get(20).getName())){
-            findText(pills.get(20).getName()).setText(countOfMedicine(pills.get(20).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(20).getName());
-            cart.add(pills.get(20));
-        }
+    public void setMedInCart20(ActionEvent event) {
+        setMedInCart(20);
     }
 
-    public void setMedInCart21(ActionEvent event){
-        if(isThereSameMedicine(pills.get(21).getName())){
-            findText(pills.get(21).getName()).setText(countOfMedicine(pills.get(21).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(21).getName());
-            cart.add(pills.get(21));
-        }
+    public void setMedInCart21(ActionEvent event) {
+        setMedInCart(21);
     }
 
-    public void setMedInCart22(ActionEvent event){
-        if(isThereSameMedicine(pills.get(22).getName())){
-            findText(pills.get(22).getName()).setText(countOfMedicine(pills.get(22).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(22).getName());
-            cart.add(pills.get(22));
-        }
+    public void setMedInCart22(ActionEvent event) {
+        setMedInCart(22);
     }
 
-    public void setMedInCart23(ActionEvent event){
-        if(isThereSameMedicine(pills.get(23).getName())){
-            findText(pills.get(23).getName()).setText(countOfMedicine(pills.get(23).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(23).getName());
-            cart.add(pills.get(23));
-        }
+    public void setMedInCart23(ActionEvent event) {
+        setMedInCart(23);
     }
 
-    public void setMedInCart24(ActionEvent event){
-        if(isThereSameMedicine(pills.get(24).getName())){
-            findText(pills.get(24).getName()).setText(countOfMedicine(pills.get(24).getName()));
-        }
-        else {
-            getEmptyText().setText(pills.get(24).getName());
-            cart.add(pills.get(24));
-        }
+    public void setMedInCart24(ActionEvent event) {
+        setMedInCart(24);
     }
+
+    
     public boolean isThereSameMedicine(String name){
         for (int i = 0; i < cart.size(); i++) {
             String[] med = textarr.get(i).getText().split(" ");
