@@ -37,7 +37,7 @@ import static org.example.powwww.Sim.Simulation.city;
 import static org.example.powwww.Sim.Simulation.pills;
 
 
-public class SceneController{
+public class SceneController {
     @FXML
     private Button loginButton;
     @FXML
@@ -240,6 +240,16 @@ public class SceneController{
     private Label cost0;
     @FXML
     private Label nameOfproducts;
+    @FXML
+    private Label totalCostOfProducts;
+    @FXML
+    private Label totalNumberOfProducts;
+    @FXML
+    private Label nameOfproductsPrev;
+    @FXML
+    private Label totalCostOfProductsPrev;
+    @FXML
+    private Label totalNumberOfProductsPrev;
     @FXML
     private Button buttonformed0;
     @FXML
