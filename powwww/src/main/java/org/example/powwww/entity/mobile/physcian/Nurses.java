@@ -59,11 +59,6 @@ public class Nurses extends Mobile {
             return roadUpdateNecessaryCheck();
         }
         else{
-            /*try {
-                this.moveForth(city.getRoad(getContainedIn().getCoords()[0] + rand.nextInt(-1,2), getContainedIn().getCoords()[1]+ rand.nextInt(-1,2)));
-                x = this.getContainedIn().getCoords()[0] * 36;
-                y = this.getContainedIn().getCoords()[1] * 36;
-            } catch (Exception e){}*/
             x = this.getContainedIn().getCoords()[0] * 36;
             y = this.getContainedIn().getCoords()[1] * 36;
             direction = ArrowKey.STAY;

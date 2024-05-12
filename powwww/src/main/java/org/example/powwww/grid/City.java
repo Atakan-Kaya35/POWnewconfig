@@ -72,7 +72,7 @@ public class City {
         boolean control = true;
         int x = stationary.getCoordinates()[0];
         int y = stationary.getCoordinates()[1];
-        int distance = 1;
+        int distance = -1;
         int[] coord = new int[2];
 
         while (control && distance <= this.height && distance <= this.width) {
@@ -109,6 +109,7 @@ public class City {
                 // It is possible that an object is in the way
             }
         }
+        System.out.println("Could not find an available nurse" + stationary.getCoordinates()[0] + " " + stationary.getCoordinates()[1]);
         return null;
     }
 
@@ -571,7 +572,6 @@ public void createVansAndScooters() {
         for (int i = 0; i < temporX.length; i++) {
             String name = turkishNames.get(random.nextInt(turkishNames.size())); // her bir patientı bir stationary ile aynı lokasyona atıyoruz
             Patients patient = new Patients(name, temporX[i], temporY[i], this);
-            this.getPatientList().add(patient);
         }
         //killPatients();
     }
