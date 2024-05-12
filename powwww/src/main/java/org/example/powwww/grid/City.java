@@ -574,8 +574,8 @@ public void createVansAndScooters() {
         ArrayList<String> turkishNames = getTurkishNames(); // Get a list of Turkish names
 
         Random random = new Random();
-        int[] temporX= {11,1,2,28,25,26,17,19,6,6,19};
-        int[] temporY= {0,1,17,0,8,15,15,1,7,14,12};
+        int[] temporX= {11,2,28,25,26,17,19,6,6,19};
+        int[] temporY= {0,17,0,8,15,15,1,7,14,12};
         for (int i = 0; i < temporX.length; i++) {
             String name = turkishNames.get(random.nextInt(turkishNames.size())); // her bir patientı bir stationary ile aynı lokasyona atıyoruz
             Patients patient = new Patients(name, temporX[i], temporY[i], this);

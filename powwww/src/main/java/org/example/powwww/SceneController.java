@@ -394,6 +394,7 @@ public class SceneController{
             int y = Integer.parseInt(address[1]);
             // Create a new user(address problem)
             Stationary newUser = new Patients(SU_Name.getText(), x, y, Simulation.city);
+            city.addStationary(newUser);
 
             // Add the new user to the list of users
             everyOne.add(newUser);
@@ -418,12 +419,12 @@ public class SceneController{
 
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
         //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
+        userName = userNameTextField.getText();
 
         String[] userInfo = SQLTest.getUserInfo(userName);
 
-        userName = userNameTextField.getText();
         currentUserPatient = new Patients(userInfo[3],Integer.parseInt(userInfo[4]),Integer.parseInt(userInfo[5]),Simulation.city);
-
+        city.addStationary(currentUserPatient);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
         Parent root = loader.load();
 
