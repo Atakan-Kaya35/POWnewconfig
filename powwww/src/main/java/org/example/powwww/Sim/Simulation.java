@@ -17,11 +17,12 @@ public class Simulation extends SimMethods {
 
     public static int tick;
     public static ArrayList<Pill> pills = Pill.getPillObjects();
+    public static City city = createCity();
 
     public static void main(String[] args) {
 
         // Initialize the city with desired parameters
-        City city = createCity();
+
         Pill.fillPills();
         Pill a = new Pill(0);
         System.out.println();

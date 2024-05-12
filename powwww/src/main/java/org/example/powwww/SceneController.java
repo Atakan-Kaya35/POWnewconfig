@@ -33,6 +33,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static org.example.powwww.Sim.Simulation.city;
 import static org.example.powwww.Sim.Simulation.pills;
 
 
@@ -319,7 +320,6 @@ public class SceneController {
     private Text cart15;
 
 
-    City city = new City(30,20);
     private ArrayList<String> choices = new ArrayList<String>();
     public static ArrayList<Stationary> everyOne = new ArrayList<>();
     public static ArrayList<String> usernames = new ArrayList<>();
@@ -392,7 +392,7 @@ public class SceneController {
             int x = Integer.parseInt(address[0]);
             int y = Integer.parseInt(address[1]);
             // Create a new user(address problem)
-            Stationary newUser = new Patients(SU_Name.getText(), x, y, city);
+            Stationary newUser = new Patients(SU_Name.getText(), x, y, Simulation.city);
 
             // Add the new user to the list of users
             everyOne.add(newUser);
@@ -417,8 +417,11 @@ public class SceneController {
 
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
         //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
+
+        String[] userInfo = SQLTest.getUserInfo(userName);
+
         userName = userNameTextField.getText();
-        currentUserPatient = new Patients();
+        currentUserPatient = new Patients(userInfo[3],Integer.parseInt(userInfo[4]),Integer.parseInt(userInfo[5]),Simulation.city);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
         Parent root = loader.load();
@@ -645,7 +648,7 @@ public class SceneController {
         A_Age.setText(age_);
 
         // create the patient as soon as the information is made available
-        currentUserPatient = new Patients(userInfo[3], Integer.parseInt(userInfo[4]), Integer.parseInt(userInfo[5]), city);
+        currentUserPatient = new Patients(userInfo[3], Integer.parseInt(userInfo[4]), Integer.parseInt(userInfo[5]), Simulation.city);
     }
     public void openQDT(ActionEvent event) {
         // Instantiate a Swing JFrame
@@ -654,12 +657,12 @@ public class SceneController {
         menuFrame.setDefaultCloseOperation(menuFrame.DISPOSE_ON_CLOSE);
         menuFrame.setVisible(true);
     }
+
     public void openMap(ActionEvent event){
-        SimMethods.buildBilkent(city);
 
-        JFrame grid = new GridFrame(city);
+        JFrame grid = new GridFrame(Simulation.city);
 
-        city.viewMap(false);
+        Simulation.city.viewMap(false);
         ((GridFrame)grid).showTime(10);
         ((GridFrame)grid).getPanel().repaint();
     }
