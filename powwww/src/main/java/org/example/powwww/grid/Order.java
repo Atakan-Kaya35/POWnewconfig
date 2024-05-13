@@ -31,17 +31,7 @@ public class Order {
     }
 
     // constructors
-    public Order(Patients patient, Pill carriedPill){
-        patient.setCurrentOrder(this);
-
-        this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
-        path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
-        this.finishingCord = patient.getCoordinates();
-        this.carriedMedicine = new Pill(carriedPill.getPillID());
-        orderPatient = patient;
-    }
-
-    public Order(Patients patient, Serum carriedPill){
+/*    public Order(Patients patient, Serum carriedPill){
         patient.setCurrentOrder(this);
 
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
@@ -49,26 +39,19 @@ public class Order {
         this.finishingCord = patient.getCoordinates();
         this.carriedMedicine = new Serum();
         orderPatient = patient;
-    }
+    }*/
 
     public Order(Patients patient, Medicine carriedPill){
-        patient.setCurrentOrder(this);
-
-        this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
-        if(startingCord != null){
-            path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained(), patient);
-            this.finishingCord = patient.getCoordinates();
-            this.carriedMedicine = carriedPill;
-            if (startingCord != null)
-                ((Nurses)(patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained())).receiveOrder(this);
-        }
         orderPatient = patient;
+        this.finishingCord = patient.getCoordinates();
+        this.carriedMedicine = carriedPill;
+        int[] initialGuy = orderPatient.getCity().findMobile(orderPatient.getCoordinates());
+        if (initialGuy != null)
+            ((Nurses)(orderPatient.getCity().getRoad(initialGuy[0], initialGuy[1]).getContained())).receiveOrder(this);
     }
 
     public Order(Patients patient, ArrayList<Medicine> medList){
-        patient.setCurrentOrder(this);
-        this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
-        path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
+        orderPatient = patient;
         this.finishingCord = patient.getCoordinates();
         for (Medicine med : medList) {
             if (med instanceof Serum){
@@ -77,7 +60,15 @@ public class Order {
                 carriedPills.add(new Pill(((Pill)med).getPillID()));
             }
         }
-        orderPatient = patient;
+        int[] initialGuy = orderPatient.getCity().findMobile(orderPatient.getCoordinates());
+        if (initialGuy != null)
+            ((Nurses)(orderPatient.getCity().getRoad(initialGuy[0], initialGuy[1]).getContained())).receiveOrder(this);
+    }
+
+    public void manifestOrder(){
+        orderPatient.setCurrentOrder(this);
+        this.startingCord = orderPatient.getCity().findMobile(orderPatient.getCoordinates());
+        path = orderPatient.getCity().findPath(orderPatient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), orderPatient);
     }
 
     // manifest order path dolacak??

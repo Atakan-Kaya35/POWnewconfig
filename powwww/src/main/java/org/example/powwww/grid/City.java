@@ -68,49 +68,40 @@ public class City {
      * @param stationary The stationary entity to find the nearest mobile to.
      * @return The coordinates of the nearest mobile entity.
      */
-    public int[] findMobile(Stationary stationary){
-        boolean control = true;
+    public int[] findMobile(Stationary stationary) {
         int x = stationary.getCoordinates()[0];
         int y = stationary.getCoordinates()[1];
-        int distance = -1;
-        int[] coord = new int[2];
 
-        while (control && distance <= this.height && distance <= this.width) {
-            distance++;
+        // Initialize the minimum distance to a large value
+        int minDistance = Integer.MAX_VALUE;
+        int[] nearestCoord = null;
 
-            try{
-                for (int i = 0; i < distance; i++) {
-                    if (x + i < this.width && y - (distance - i) >= 0 && roads[x + i][y - (distance - i)].getContained() instanceof Nurses) {
-                        coord[0] = x + i;
-                        coord[1] = y - (distance - i);
-                        control = false;
-                        return coord;
+        // Iterate over all positions in the grid
+        for (int i = 0; i < this.width; i++) {
+            for (int j = 0; j < this.height; j++) {
+                try {
+                    // Check if the current position contains a nurse
+                    if (roads[i][j].getContained() instanceof Nurses) {
+                        // Calculate the distance to the current nurse
+                        int distance = Math.abs(x - i) + Math.abs(y - j);
+                        if (distance < minDistance) {
+                            // Update the minimum distance and nearest coordinates
+                            minDistance = distance;
+                            nearestCoord = new int[]{i, j};
+                        }
                     }
-                    if (x - i >= 0 && y - (distance - i) >= 0 && roads[x - i][y - (distance - i)].getContained() instanceof Nurses) {
-                        coord[0] = x - i;
-                        coord[1] = y - (distance - i);
-                        control = false;
-                        return coord;
-                    }
-                    if (x + i < this.width && y + (distance - i) < this.height && roads[x + i][y + (distance - i)].getContained() instanceof Nurses) {
-                        coord[0] = x + i;
-                        coord[1] = y + (distance - i);
-                        control = false;
-                        return coord;
-                    }
-                    if (x - i >= 0 && y + (distance - i) < this.height && roads[x - i][y + (distance - i)].getContained() instanceof Nurses) {
-                        coord[0] = x - i;
-                        coord[1] = y + (distance - i);
-                        control = false;
-                        return coord;
-                    }
-                }
-            } catch(NullPointerException e){
-                // It is possible that an object is in the way
+                }catch (NullPointerException e){}
             }
         }
-        System.out.println("Could not find an available nurse" + stationary.getCoordinates()[0] + " " + stationary.getCoordinates()[1]);
-        return null;
+
+        if (nearestCoord != null) {
+            System.out.println(nearestCoord[0] + "  " + nearestCoord[1]);
+            return nearestCoord;
+        } else {
+            // No nurse found
+            System.out.println("Could not find an available nurse");
+            return null;
+        }
     }
 
     /**
@@ -515,8 +506,8 @@ public void createVansAndScooters() {
     // Determine the number of vans and scooters based on city parameters
     /*int numVans = 1 + width * height / 100; // Adjust the factor as needed. en az 1 olmalı
     int numScooters = 1  + width * height / 50;*/ // Adjust the factor as needed
-    int numVans = 5;
-    int numScooters = 5;
+    int numVans = 4;
+    int numScooters = 4;
     
     // Place vans randomly in the city
     for (int i = 0; i < numVans; i++) {
@@ -567,8 +558,8 @@ public void createVansAndScooters() {
         ArrayList<String> turkishNames = getTurkishNames(); // Get a list of Turkish names
 
         Random random = new Random();
-        int[] temporX= {11,2,28,25,26,17,19,6,6,19};
-        int[] temporY= {0,17,0,8,15,15,1,7,14,12};
+        int[] temporX= {11,12,2,28,25,24,17,19,6,6,19,1,14,23,27};
+        int[] temporY= {0,3,17,0,8,13,15,1,7,14,12,10,8,16,17};
         for (int i = 0; i < temporX.length; i++) {
             String name = turkishNames.get(random.nextInt(turkishNames.size())); // her bir patientı bir stationary ile aynı lokasyona atıyoruz
             Patients patient = new Patients(name, temporX[i], temporY[i], this);
@@ -580,7 +571,7 @@ public void createVansAndScooters() {
         Pill.fillPills();
         Pill p = new Pill(0);
         for(int i = 0; i< getPatientList().size(); i++){
-            if (Math.random() < 0.1) {
+            if (Math.random() < 0.03) {
                 SimMethods.getRandomSickness(getPatientList().get(i));
             }
         }
