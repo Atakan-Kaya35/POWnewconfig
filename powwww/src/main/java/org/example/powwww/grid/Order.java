@@ -56,10 +56,10 @@ public class Order {
         orderPatient = patient;
         this.finishingCord = patient.getCoordinates();
         for (Medicine med : medList) {
-            if (med instanceof Serum){
-                carriedSerums.add(new Serum());
+            if (med instanceof Pill){
+                carriedPills.add((Pill)med);
             } else {
-                carriedPills.add(new Pill(((Pill)med).getPillID()));
+
             }
         }
         int[] initialGuy = orderPatient.getCity().findMobile(orderPatient.getCoordinates());

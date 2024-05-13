@@ -640,6 +640,7 @@ public class SceneController {
         stage.setScene(scene);
 
         // Call setItems() after the ComboBox is initialized
+        controller.changeToPrevOrder();
 
         //controller.setInfos();
         /*root = fxmlLoader.load();
@@ -930,9 +931,10 @@ public class SceneController {
     }
 
 
-
     public void printCurrentOrderInfo() {
         String allProducts = "";
+        String currentTotalCost = "";
+        String currentNoOfProducts = "";
         if(currentOrder.size() != 0) {
             for (Pill p : currentOrder.get(0).getCarriedPills()) {
                 allProducts += p.getName() + " ";
@@ -942,22 +944,31 @@ public class SceneController {
             for (Pill p : currentOrder.get(0).getCarriedPills()) {
                 totalCost += p.getPrice();
             }
-            String currentTotalCost = String.valueOf(totalCost);
+            currentTotalCost = String.valueOf(totalCost);
             totalCostOfProducts.setText(currentTotalCost);
-            String currentNoOfProducts = String.valueOf(currentOrder.get(0).getCarriedPills().size());
+            currentNoOfProducts = String.valueOf(currentOrder.get(0).getCarriedPills().size());
+            totalNumberOfProducts.setText(currentNoOfProducts);
+        } else if (currentOrder.size() == 0) {
+            allProducts = "";
+            nameOfproducts.setText(allProducts);
+            currentTotalCost = "";
+            totalCostOfProducts.setText(currentTotalCost);
+            currentNoOfProducts = "";
             totalNumberOfProducts.setText(currentNoOfProducts);
         }
     }
 
     public void printPrevOrderInfo() {
         String allPrevProducts = "";
-        if(SQLTest.getPastOrder(userName).length != 0) {
+        String[] userInfo = SQLTest.getUserInfo(userName);
+        String userName_ = userInfo[3];
+        if(SQLTest.getPastOrder(userName_).length != 0) {
             String[] arr = SQLTest.getPastOrder(userName);
             String[] names = arr[2].split("#");
             for( int i = 0; i < names.length; i++){
                 allPrevProducts += names[i] + " ";
             }
-            totalCostOfProductsPrev.setText(arr[1]);
+            totalCostOfProductsPrev.setText("");
             totalNumberOfProductsPrev.setText(arr[0]);
         }
     }
@@ -973,14 +984,14 @@ public class SceneController {
         }
     }
     
-    public void changeToPrevOrder(ActionEvent event){
+    public void changeToPrevOrder(){
         if(currentOrder.size() != 0){
             lastOrder.clear();
             lastOrder.add(currentOrder.get(0));
             currentOrder.clear();
         }
-        printCurrentOrderInfo();
-        printPrevOrderInfo();
         sqlDownload();
+        printPrevOrderInfo();
+        printCurrentOrderInfo();
     }
 }
