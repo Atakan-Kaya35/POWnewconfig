@@ -332,6 +332,7 @@ public class SceneController {
     public static ArrayList<Order> lastOrder = new ArrayList<>();
     public static ArrayList<Order> currentOrder = new ArrayList<>();
     public static String userName;
+    public static String password;
     public static ArrayList<Medicine> cart = new ArrayList<Medicine>();
     static ArrayList<User> users = new ArrayList<>();
     String[] userInfo = SQLTest.getUserInfo(userName);
@@ -433,43 +434,36 @@ public class SceneController {
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
         //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
         userName = userNameTextField.getText();
+        password = passwordTextField.getText();
+        if(SQLTest.isUserAuthorised(userName,password)) {
+            String[] userInfo = SQLTest.getUserInfo(userName);
 
-        String[] userInfo = SQLTest.getUserInfo(userName);
+            currentUserPatient = new Patients(userInfo[3], Integer.parseInt(userInfo[4]), Integer.parseInt(userInfo[5]), Simulation.city);
+            city.addStationary(currentUserPatient);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
+            Parent root = loader.load();
 
-        currentUserPatient = new Patients(userInfo[3],Integer.parseInt(userInfo[4]),Integer.parseInt(userInfo[5]),Simulation.city);
-        city.addStationary(currentUserPatient);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
-        Parent root = loader.load();
+            // Set the scene
+            Scene scene = new Scene(root);
 
-        // Set the scene
-        Scene scene = new Scene(root);
+            // Set the controller
+            SceneController controller = loader.getController();
 
-        // Set the controller
-        SceneController controller = loader.getController();
-
-        // Set the stage
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-
-        // Call setItems() after the ComboBox is initialized
-        controller.setInfos();
-            /*userName = userNameTextField.getText();
-            fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
-            root = fxmlLoader.load();
-            scene = new Scene(root);
-            scene.setRoot(root);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            // Set the stage
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
-            setInfos();*/
+
+            // Call setItems() after the ComboBox is initialized
+            controller.setInfos();
             stage.show();
-        //}
-        /*else{
+        }
+        else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Check your personal information, and try to Login");
             alert.setContentText("You might type wrong user name or password");
             alert.setHeaderText("Information Error");
             alert.showAndWait();
-        }*/
+        }
     }
     public void switchToHomePageInApp(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
