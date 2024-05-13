@@ -21,6 +21,7 @@ public class Order {
     public static ArrayList<Order> assignedOrders = new ArrayList<Order>();
     public static ArrayList<Order> completedOrders = new ArrayList<Order>();
     Patients orderPatient;
+    Nurses assignedNurse;
 
     //atakan biz burda pathi array arraylisti yaptık da, biz citydeki 
     //find pathde road array listi olarak kullandık sıkıntı çıkarmaz mı bu????
@@ -47,7 +48,8 @@ public class Order {
         this.carriedMedicine = carriedPill;
         int[] initialGuy = orderPatient.getCity().findMobile(orderPatient.getCoordinates());
         if (initialGuy != null)
-            ((Nurses)(orderPatient.getCity().getRoad(initialGuy[0], initialGuy[1]).getContained())).receiveOrder(this);
+            assignedNurse = ((Nurses)(orderPatient.getCity().getRoad(initialGuy[0], initialGuy[1]).getContained()));
+            assignedNurse.receiveOrder(this);
     }
 
     public Order(Patients patient, ArrayList<Medicine> medList){
@@ -62,12 +64,13 @@ public class Order {
         }
         int[] initialGuy = orderPatient.getCity().findMobile(orderPatient.getCoordinates());
         if (initialGuy != null)
-            ((Nurses)(orderPatient.getCity().getRoad(initialGuy[0], initialGuy[1]).getContained())).receiveOrder(this);
+            assignedNurse = ((Nurses)(orderPatient.getCity().getRoad(initialGuy[0], initialGuy[1]).getContained()));
+            assignedNurse.receiveOrder(this);
     }
 
     public void manifestOrder(){
         orderPatient.setCurrentOrder(this);
-        this.startingCord = orderPatient.getCity().findMobile(orderPatient.getCoordinates());
+        this.startingCord = assignedNurse.getContainedIn().getCoords();
         path = orderPatient.getCity().findPath(orderPatient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), orderPatient);
     }
 
