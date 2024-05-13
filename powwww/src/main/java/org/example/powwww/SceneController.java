@@ -341,7 +341,8 @@ public class SceneController {
     String WEIGHT = userInfo[0] + " kg";
     String HEIGHT = userInfo[1] + " cm";
     String ADDRESS = userInfo[4]+","+userInfo[5];*/
-    
+
+    boolean isThereCurrentOrder = false;
     Patients currentUserPatient;
     String reminderString = "";
     String[] userInfo;
