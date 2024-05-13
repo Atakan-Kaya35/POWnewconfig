@@ -38,6 +38,6 @@
       </ImageView>
       <TextField fx:id="userNameTextField" layoutX="138.0" layoutY="177.0" />
       <Label layoutX="51.0" layoutY="322.0" text="If you do not have an account:" />
-      <PasswordField layoutX="138.0" layoutY="227.0" />
+      <PasswordField fx:id="passwordTextField" layoutX="138.0" layoutY="227.0" />
    </children>
 </AnchorPane>
