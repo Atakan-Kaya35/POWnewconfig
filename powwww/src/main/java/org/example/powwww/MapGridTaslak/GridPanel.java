@@ -6,6 +6,7 @@ import java.awt.*;
 import java.util.*;
 
 import org.example.powwww.Sim.Simulation;
+import org.example.powwww.entity.mobile.Animations;
 import org.example.powwww.entity.mobile.physcian.Van;
 import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.grid.City;
@@ -21,12 +22,14 @@ public class GridPanel extends JComponent
     //Timer t;
     ActionListener listener;
     public static ArrayList<int[]> obstanceList = new ArrayList<>();
+    Animations animations;
 
     public GridPanel(GridFrame ref, City c)
     {
         this.setCity(c);
         gridFrame = ref;
         homes = createHomes();
+         animations = new Animations();
         //obstacles = createObstacles();
         //van = new Van(city);
 
@@ -100,6 +103,8 @@ public class GridPanel extends JComponent
         //g.drawImage(image, -16, -12, 650, 650, this);
         setBackground(Color.BLACK);
 
+
+
         g.setColor(Color.WHITE);
         for(int j = 1; j <= 20; j++)
         {
@@ -146,6 +151,67 @@ public class GridPanel extends JComponent
             }
         }
 
+        g.setColor(new Color(19,109,21)); // grass color
+        g.fillRect(684, 288,252,72); //mayfest
+        g.fillRect(72,252,144,144); //n building grass
+        g.fillRect(936,144,72,72); //dorm grass
+
+        g.setColor(new Color(1,50,32)); //forest color
+        g.fillRect(324,216,288,72); //forest near the river
+        g.fillRect(432,288,72,144); //forest near the river
+        g.fillRect(324,32,72,144); //mssf left forest
+        g.fillRect(540,32,72,144); //mssf left forest
+
+        g.setColor(new Color(180,180,170)); // marble color
+        g.fillRect(648, 432,72,108); // odeon
+
+        g.setColor(new Color(6,66,150)); // ocean color
+        g.fillRect(396,432,144,72); //lake
+        g.fillRect(432,504,72,72); //lake
+
+        g.setColor(Color.GREEN); // center color1
+        g.fillRect(360, 648,36,36);
+        g.fillRect(612, 648,72,36);
+        g.fillRect(504, 684,72,36);
+
+        g.setColor(Color.RED); // center color2
+        g.fillRect(396, 648,72,36);
+        g.fillRect(576, 684,72,36);
+
+        g.setColor(Color.ORANGE); // center color2
+        g.fillRect(360, 684,72,36);
+        g.fillRect(540, 648,72,36);
+
+        g.setColor(new Color(6,66,150)); // ocean color
+        g.fillRect(468, 648,72,36);
+        g.fillRect(648, 684,36,36);
+        g.setColor(Color.YELLOW); // center color2
+
+        g.fillRect(432, 684,72,36);
+
+
+
+        g.setFont(new Font("Arial", Font.PLAIN, 18));
+
+
+        g.setColor(Color.BLACK); // Set the font color
+        g.drawString("Odeon", 655, 500);
+        g.drawString("Mayfest", 770, 330);
+        g.drawString("Dorm", 950, 180);
+        g.drawString("Grass", 950, 200);
+        g.drawString("N building", 100, 320);
+        g.drawString("Grass Area", 100, 340);
+        g.drawString("Bilkent Lake", 420, 470);
+
+        g.setFont(new Font("Arial", Font.PLAIN, 32));
+
+        g.drawString("Bilkent Center", 430, 690);
+        g.drawString("Forest", 425, 260);
+
+
+        g.setFont(new Font("Arial", Font.PLAIN, 18));
+
+
         for(Van v : city.getVanList()){
             if(v.getCurrentOrder()!=null) { //null degilse
                 v.draw(g);
@@ -172,6 +238,8 @@ public class GridPanel extends JComponent
         a.setFont(new Font("Arial", Font.BOLD, 20));
         a.drawString(String.format("%02d:%02d", Simulation.tick / 60, Simulation.tick % 60), (int)(27.8 * GridFrame.EACH_SQUARE), (int)(21.2 * GridFrame.EACH_SQUARE));
 
+        animations.movePlanes();
+        animations.draw(g, this);
     }
     public static void addObstacle(int[] newObstacle){
         obstanceList.add(newObstacle);

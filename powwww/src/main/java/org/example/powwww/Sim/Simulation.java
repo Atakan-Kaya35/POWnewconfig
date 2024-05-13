@@ -15,8 +15,11 @@ public class Simulation extends SimMethods implements Runnable{
     public static ArrayList<Pill> pills = Pill.getPillObjects();
     public static City city = createCity();
 
+    public static void main(String[] args) {
+        playSimulation();
+    }
 
-    public static void runThisShit() {
+    public static void playSimulation() {
 
         // Initialize the city with desired parameters
         Pill.fillPills();
@@ -134,6 +137,6 @@ public class Simulation extends SimMethods implements Runnable{
 
     @Override
     public void run() {
-        runThisShit();
+        playSimulation();
     }
 }

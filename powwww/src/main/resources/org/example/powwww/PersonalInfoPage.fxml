@@ -60,7 +60,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="8.0" layoutY="469.0" prefHeight="155.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-color: black;">
+                  <Pane layoutX="8.0" layoutY="193.0" prefHeight="431.0" prefWidth="164.0" style="-fx-background-color: white; -fx-border-color: black;">
                      <children>
                         <Label layoutX="47.0" layoutY="13.0" prefHeight="34.0" prefWidth="125.0" text="Remainder">
                            <font>
