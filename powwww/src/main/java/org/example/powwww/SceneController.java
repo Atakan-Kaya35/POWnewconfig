@@ -332,8 +332,16 @@ public class SceneController {
     public static ArrayList<Order> lastOrder = new ArrayList<>();
     public static ArrayList<Order> currentOrder = new ArrayList<>();
     public static String userName;
+    public static String password;
     public static ArrayList<Medicine> cart = new ArrayList<Medicine>();
     static ArrayList<User> users = new ArrayList<>();
+    String[] userInfo = SQLTest.getUserInfo(userName);
+    String AGE = userInfo[2] + " years";
+    String NAME = userInfo[3];
+    String WEIGHT = userInfo[0] + " kg";
+    String HEIGHT = userInfo[1] + " cm";
+    String ADDRESS = userInfo[4]+","+userInfo[5];
+    
     Patients currentUserPatient;
     String reminderString = "";
     String[] userInfo;
@@ -427,43 +435,37 @@ public class SceneController {
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
         //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
         userName = userNameTextField.getText();
+        password = passwordTextField.getText();
+        if(SQLTest.isUserAuthorised(userName,password)) {
+            String[] userInfo = SQLTest.getUserInfo(userName);
 
+            currentUserPatient = new Patients(userInfo[3], Integer.parseInt(userInfo[4]), Integer.parseInt(userInfo[5]), Simulation.city);
+            city.addStationary(currentUserPatient);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
+            Parent root = loader.load();
         userInfo = SQLTest.getUserInfo(userName);
 
-        currentUserPatient = new Patients(userInfo[3],Integer.parseInt(userInfo[4]),Integer.parseInt(userInfo[5]),Simulation.city);
-        city.addStationary(currentUserPatient);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
-        Parent root = loader.load();
+            // Set the scene
+            Scene scene = new Scene(root);
 
-        // Set the scene
-        Scene scene = new Scene(root);
+            // Set the controller
+            SceneController controller = loader.getController();
 
-        // Set the controller
-        SceneController controller = loader.getController();
-
-        // Set the stage
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-
-        // Call setItems() after the ComboBox is initialized
-        controller.setInfos();
-            /*userName = userNameTextField.getText();
-            fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
-            root = fxmlLoader.load();
-            scene = new Scene(root);
-            scene.setRoot(root);
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            // Set the stage
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
-            setInfos();*/
+
+            // Call setItems() after the ComboBox is initialized
+            controller.setInfos();
             stage.show();
-        //}
-        /*else{
+        }
+        else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Check your personal information, and try to Login");
             alert.setContentText("You might type wrong user name or password");
             alert.setHeaderText("Information Error");
             alert.showAndWait();
-        }*/
+        }
     }
     public void switchToHomePageInApp(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
@@ -675,9 +677,9 @@ public class SceneController {
         String[] userInfo = SQLTest.getUserInfo(userName);
         String userName_ = userInfo[3];
         A_Name.setText(userName_);
-        String weight_ = userInfo[0] + " kg";
+        String weight_ = userInfo[0];
         A_Weight.setText(weight_);
-        String height_ = userInfo[1] + " cm";
+        String height_ = userInfo[1];
         A_Height.setText(height_);
         String age_ = userInfo[2] + " years";
         A_Age.setText(age_);
@@ -710,8 +712,8 @@ public class SceneController {
         name_p.setText(userInfo[3]);
         age_p.setText(userInfo[2] + " years");
         address_p.setText(userInfo[4]+userInfo[5]);
-        weigth_p.setText(userInfo[0] + " kg");
-        height_p.setText(userInfo[1] + " cm");
+        weigth_p.setText(userInfo[1]);
+        height_p.setText(userInfo[2]);
     }
     public void setCost(){
         cost0.setText(""+ pills.get(0).getPrice());
