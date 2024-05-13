@@ -1,6 +1,9 @@
 package org.example.powwww.Database;
 
+import org.example.powwww.med.Pill;
+
 import java.sql.*;
+import java.util.ArrayList;
 
 public class SQLTest {
     // Database connection details
@@ -111,8 +114,12 @@ public class SQLTest {
         }
     }
 
-    public static boolean pastOrderAssign(String userName, int price, int medName, String time){
-        String userInfo = medName + "#" + time + "#" + price;
+    public static boolean pastOrderAssign(String userName, int price, String product, ArrayList<Pill> meds){
+        StringBuilder userInfoBuild = new StringBuilder(product + "#" + price);
+        for(Pill med : meds){
+            userInfoBuild.append("#" + med.getName());
+        }
+        String userInfo = userInfoBuild.toString();
         Connection conn = null;
         PreparedStatement stmt = null;
 
@@ -139,6 +146,49 @@ public class SQLTest {
             return false;
         } finally {
             try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public static String[] getPastOrder(String userName) throws NullPointerException{
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            String sql = "SELECT pastOrder FROM Patients WHERE userName = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, userName);
+
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                String userInfo = rs.getString("pastOrder");
+                System.out.println("Retrieved user info successfully!");
+                return userInfo.split("#");
+            } else {
+                System.out.println("No user found with the provided username.");
+                return null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
                 if (stmt != null) {
                     stmt.close();
                 }

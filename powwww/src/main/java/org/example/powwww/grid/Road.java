@@ -1,6 +1,7 @@
 package org.example.powwww.grid;
 
 import org.example.powwww.entity.mobile.Mobile;
+import org.example.powwww.entity.stationary.Stationary;
 
 public class Road {
     

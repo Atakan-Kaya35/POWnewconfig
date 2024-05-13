@@ -1,27 +1,27 @@
 package org.example.powwww.Sim;
 
 
-import org.example.powwww.entity.mobile.physcian.Van;
-import org.example.powwww.entity.stationary.Patients;
 import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.grid.City;
-import org.example.powwww.med.AcutSickness;
 import org.example.powwww.med.Pill;
 
 import javax.swing.*;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Random;
 
-public class Simulation extends SimMethods {
+public class Simulation extends SimMethods implements Runnable{
 
     public static int tick;
     public static ArrayList<Pill> pills = Pill.getPillObjects();
+    public static City city = createCity();
 
     public static void main(String[] args) {
+        playSimulation();
+    }
+
+    public static void playSimulation() {
 
         // Initialize the city with desired parameters
-        City city = createCity();
         Pill.fillPills();
         Pill a = new Pill(0);
         System.out.println();
@@ -32,33 +32,6 @@ public class Simulation extends SimMethods {
         grid.setTitle("MAP");
         grid.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         grid.setVisible(true);
-//
-//        Patients p1 = new Patients("p1", 0,0,city);
-//        city.addStationary(p1);
-//        Patients p2 = new Patients("p1", 28,0,city);
-//        city.addStationary(p1);
-//        Patients p3 = new Patients("p1", 28,18,city);
-//        city.addStationary(p1);
-//        Patients p4 = new Patients("p1", 0,18,city);
-//        city.addStationary(p1);
-//        Patients p5 = new Patients("p1", 0,5,city);
-//        city.addStationary(p1);
-//        Patients p6 = new Patients("p1", 5,5,city);
-//        city.addStationary(p1);
-//        Patients p7 = new Patients("p1", 10,10,city);
-//        city.addStationary(p1);
-//        Patients p8 = new Patients("p1", 15,10,city);
-//        city.addStationary(p1);
-//        Patients p9 = new Patients("p1", 0,18,city);
-//        city.addStationary(p1);
-//        Patients p10 = new Patients("p1", 3,15,city);
-//        city.addStationary(p1);
-//        Patients p11 = new Patients("p1", 25,8,city);
-//        city.addStationary(p1);
-//        Patients p12 = new Patients("p1", 28,11,city);
-//        city.addStationary(p1);
-//        Patients p13 = new Patients("p1", 27,6,city);
-//        city.addStationary(p1);
 
         int h = 1;
 
@@ -113,7 +86,7 @@ public class Simulation extends SimMethods {
         // In the simulation every tick is 6 minutes
         while (running) {
             long start = System.nanoTime();
-            city.killPatients();
+            city.stimulateOrders();
             if(tick >= (TICKPERDAY - 1)){
                 tick = 1;
                 day += 1;
@@ -134,85 +107,6 @@ public class Simulation extends SimMethods {
                     System.out.println(city.viewMap(true));
                 }
             }
-
-//            // For p1
-//            if (Math.random() < 0.1) {
-//                System.out.println("p1");
-//                p1.addSickness(new AcutSickness(5, 5, p1, p));
-//            }
-//
-//// For p2
-//            if (Math.random() < 0.1) {
-//                System.out.println("p2");
-//                p2.addSickness(new AcutSickness(5, 5, p2, p));
-//            }
-//
-//// For p3
-//            if (Math.random() < 0.1) {
-//                System.out.println("p3");
-//                p3.addSickness(new AcutSickness(5, 5, p3, p));
-//            }
-//
-//// For p4
-//            if (Math.random() < 0.1) {
-//                System.out.println("p4");
-//                p4.addSickness(new AcutSickness(5, 5, p4, p));
-//            }
-//
-//
-//// For p5
-//            if (Math.random() < 0.1) {
-//                System.out.println("p5");
-//                p5.addSickness(new AcutSickness(5, 5, p5, p));
-//            }
-//
-//// For p6
-//            if (Math.random() < 0.1) {
-//                System.out.println("p6");
-//                p6.addSickness(new AcutSickness(5, 5, p6, p));
-//            }
-//
-//// For p7
-//            if (Math.random() < 0.1) {
-//                System.out.println("p7");
-//                p7.addSickness(new AcutSickness(5, 5, p7, p));
-//            }
-//
-//// For p8
-//            if (Math.random() < 0.1) {
-//                System.out.println("p8");
-//                p8.addSickness(new AcutSickness(5, 5, p8, p));
-//            }
-//
-//// For p9
-//            if (Math.random() < 0.1) {
-//                System.out.println("p9");
-//                p9.addSickness(new AcutSickness(5, 5, p9, p));
-//            }
-//
-//// For p10
-//            if (Math.random() < 0.1) {
-//                System.out.println("p10");
-//                p10.addSickness(new AcutSickness(5, 5, p10, p));
-//            }
-//
-//// For p11
-//            if (Math.random() < 0.1) {
-//                System.out.println("p11");
-//                p11.addSickness(new AcutSickness(5, 5, p11, p));
-//            }
-//
-//// For p12
-//            if (Math.random() < 0.1) {
-//                System.out.println("p12");
-//                p12.addSickness(new AcutSickness(5, 5, p12, p));
-//            }
-//
-//// For p13
-//            if (Math.random() < 0.1) {
-//                System.out.println("p13");
-//                p13.addSickness(new AcutSickness(5, 5, p13, p));
-//            }
 
 
             // moves all nurses
@@ -239,5 +133,10 @@ public class Simulation extends SimMethods {
             // Check the progress of activities
             //checkActivityProgress();
         }
+    }
+
+    @Override
+    public void run() {
+        playSimulation();
     }
 }

@@ -3,7 +3,6 @@ package org.example.powwww.grid;
 import java.util.*;
 
 
-import org.example.powwww.MapGridTaslak.GridFrame;
 import org.example.powwww.MapGridTaslak.GridPanel;
 import org.example.powwww.Sim.SimMethods;
 import org.example.powwww.entity.mobile.*;
@@ -11,10 +10,8 @@ import org.example.powwww.entity.mobile.physcian.*;
 import org.example.powwww.entity.mobile.physcian.Scooter;
 import org.example.powwww.entity.mobile.physcian.Van;
 import org.example.powwww.entity.stationary.*;
-import org.example.powwww.med.AcutSickness;
 import org.example.powwww.med.Pill;
 
-import static org.example.powwww.Sim.SimMethods.getRandomStationaryCoordinates;
 import static org.example.powwww.Sim.SimMethods.getTurkishNames;
 
 /**
@@ -24,7 +21,7 @@ public class City {
 
     Road[][] roads;
     Mobile[][] mobiles;
-    org.example.powwww.grid.Stationary[][] stationarys;
+    Patients[][] patients;
     ArrayList<Order> orders;
     public ArrayList<ArrayList<Integer>> wholeWay = new ArrayList<ArrayList<Integer>>();
     int width;
@@ -48,7 +45,7 @@ public class City {
         this.orders = new ArrayList<Order>();
 
         roads = new Road[ width + 1][ height + 1];
-        stationarys = new Stationary[ width ][ height];
+        patients = new Patients[ width ][ height];
 
         for (int x = 0; x < width + 1; x++) {
             for (int y = 0; y < height + 1; y++) {
@@ -71,48 +68,40 @@ public class City {
      * @param stationary The stationary entity to find the nearest mobile to.
      * @return The coordinates of the nearest mobile entity.
      */
-    public int[] findMobile(Stationary stationary){
-        boolean control = true;
+    public int[] findMobile(Stationary stationary) {
         int x = stationary.getCoordinates()[0];
         int y = stationary.getCoordinates()[1];
-        int distance = 1;
-        int[] coord = new int[2];
 
-        while (control && distance <= this.height && distance <= this.width) {
-            distance++;
+        // Initialize the minimum distance to a large value
+        int minDistance = Integer.MAX_VALUE;
+        int[] nearestCoord = null;
 
-            try{
-                for (int i = 0; i < distance; i++) {
-                    if (x + i < this.width && y - (distance - i) >= 0 && roads[x + i][y - (distance - i)].getContained() instanceof Nurses) {
-                        coord[0] = x + i;
-                        coord[1] = y - (distance - i);
-                        control = false;
-                        return coord;
+        // Iterate over all positions in the grid
+        for (int i = 0; i < this.width; i++) {
+            for (int j = 0; j < this.height; j++) {
+                try {
+                    // Check if the current position contains a nurse
+                    if (roads[i][j].getContained() instanceof Nurses) {
+                        // Calculate the distance to the current nurse
+                        int distance = Math.abs(x - i) + Math.abs(y - j);
+                        if (distance < minDistance) {
+                            // Update the minimum distance and nearest coordinates
+                            minDistance = distance;
+                            nearestCoord = new int[]{i, j};
+                        }
                     }
-                    if (x - i >= 0 && y - (distance - i) >= 0 && roads[x - i][y - (distance - i)].getContained() instanceof Nurses) {
-                        coord[0] = x - i;
-                        coord[1] = y - (distance - i);
-                        control = false;
-                        return coord;
-                    }
-                    if (x + i < this.width && y + (distance - i) < this.height && roads[x + i][y + (distance - i)].getContained() instanceof Nurses) {
-                        coord[0] = x + i;
-                        coord[1] = y + (distance - i);
-                        control = false;
-                        return coord;
-                    }
-                    if (x - i >= 0 && y + (distance - i) < this.height && roads[x - i][y + (distance - i)].getContained() instanceof Nurses) {
-                        coord[0] = x - i;
-                        coord[1] = y + (distance - i);
-                        control = false;
-                        return coord;
-                    }
-                }
-            } catch(NullPointerException e){
-                // It is possible that an object is in the way
+                }catch (NullPointerException e){}
             }
         }
-        return null;
+
+        if (nearestCoord != null) {
+            System.out.println(nearestCoord[0] + "  " + nearestCoord[1]);
+            return nearestCoord;
+        } else {
+            // No nurse found
+            System.out.println("Could not find an available nurse");
+            return null;
+        }
     }
 
     /**
@@ -121,7 +110,7 @@ public class City {
      * @return The coordinates of the nearest mobile entity.
      */
     public int[] findMobile(int[] coordinates){
-        return this.findMobile(stationarys[coordinates[0]][coordinates[1]]);
+        return this.findMobile(patients[coordinates[0]][coordinates[1]]);
     }
 
     /**
@@ -130,7 +119,7 @@ public class City {
      * @param stationary The stationary entity.
      * @return The list of roads representing the shortest path.
      */
-    public ArrayList<Road> findPath(Mobile mobile, org.example.powwww.grid.Stationary stationary){
+    public ArrayList<Road> findPath(Mobile mobile, Patients stationary){
         // Create open and closed lists
         List<Road> open = new ArrayList<>();
         Set<Road> closed = new HashSet<>();
@@ -283,7 +272,7 @@ public class City {
     /**
      * Builds a stationary at a given coordinate the size and width wanted
      */
-    public Stationary buildCustomeStationary(int x, int y, int width, int height, org.example.powwww.grid.Stationary stationaryInside){
+    public Stationary buildCustomeStationary(int x, int y, int width, int height){
 
         if(x+width >= this.width){
             width = this.width - x;
@@ -300,10 +289,7 @@ public class City {
             }
         }
 
-        // creating and allocating a stationary to the monstrocity
-        stationarys[x][y] = new Stationary(x, y, this);
-
-        return stationarys[x][y];
+        return patients[x][y];
     }
 
     public Road getRoad(int x, int y){
@@ -450,9 +436,9 @@ public ArrayList<Stationary> getStationaryList(){
     return stationaryList;
 }
 
-public void addStationary(Stationary newStationary){
-    this.stationaryList.add(newStationary);
-    stationarys[newStationary.getCoordinates()[0]][newStationary.getCoordinates()[1]] = newStationary;
+public void addStationary(Patients newStationary){
+    this.patientList.add(newStationary);
+    patients[newStationary.getCoordinates()[0]][newStationary.getCoordinates()[1]] = newStationary;
 }
 
 public ArrayList<Scooter> getScooterList(){
@@ -486,7 +472,7 @@ public void createRandomBuildings(int numBuildings, double portionOfCity) {
         boolean isOverlap = false;
         for (int x = startX; x < startX + buildingWidth; x++) {
             for (int y = startY; y < startY + buildingHeight; y++) {
-                if (stationarys[x][y] != null) {
+                if (patients[x][y] != null) {
                     isOverlap = true;
                     break;
                 }
@@ -495,10 +481,10 @@ public void createRandomBuildings(int numBuildings, double portionOfCity) {
 
         if (!isOverlap) {
             // Build the stationary object for the building
-            Stationary building = new Stationary(startX, startY, this);
+            Stationary building = new Patients(startX, startY, this);
             stationaryList.add(building);
             // Place the building in the city org.example.powwww.grid
-            buildCustomeStationary(startX, startY, buildingWidth, buildingHeight, building);
+            buildCustomeStationary(startX, startY, buildingWidth, buildingHeight);
 
             int[] newObstacle = {startX, startY, buildingWidth, buildingHeight};
             GridPanel.addObstacle(newObstacle);
@@ -520,8 +506,8 @@ public void createVansAndScooters() {
     // Determine the number of vans and scooters based on city parameters
     /*int numVans = 1 + width * height / 100; // Adjust the factor as needed. en az 1 olmalı
     int numScooters = 1  + width * height / 50;*/ // Adjust the factor as needed
-    int numVans = 5;
-    int numScooters = 5;
+    int numVans = 4;
+    int numScooters = 4;
     
     // Place vans randomly in the city
     for (int i = 0; i < numVans; i++) {
@@ -554,7 +540,7 @@ public void createVansAndScooters() {
 }
 
     public Stationary[][] getStationaries() {
-        return this.stationarys;
+        return this.patients;
     }
 
     public void createBilkent(int numPatients) {
@@ -565,28 +551,27 @@ public void createVansAndScooters() {
         int[] tempHeight ={2,2,3,2,4,4,4,2,2,4,6};
 
         for(int i = 0; i<tempX.length; i++){
-            Stationary building = new Stationary(tempX[i], tempY[i], this);
-            stationaryList.add(building);
-            buildCustomeStationary(tempX[i], tempY[i], tempWidth[i],tempHeight[i], building);
+            buildCustomeStationary(tempX[i], tempY[i], tempWidth[i],tempHeight[i]);
             int[] newObstacle = {tempX[i], tempY[i], tempWidth[i], tempHeight[i]};
             GridPanel.addObstacle(newObstacle);
         }
         ArrayList<String> turkishNames = getTurkishNames(); // Get a list of Turkish names
 
         Random random = new Random();
-        int[] temporX= {11,1,2,28,25,26,17,19,6,6,19};
-        int[] temporY= {0,1,17,0,8,15,15,1,7,14,12};
+        int[] temporX= {11,12,2,28,25,24,17,19,6,6,19,1,14,23,27};
+        int[] temporY= {0,3,17,0,8,13,15,1,7,14,12,10,8,16,17};
         for (int i = 0; i < temporX.length; i++) {
             String name = turkishNames.get(random.nextInt(turkishNames.size())); // her bir patientı bir stationary ile aynı lokasyona atıyoruz
             Patients patient = new Patients(name, temporX[i], temporY[i], this);
-            this.getPatientList().add(patient);
         }
-        killPatients();
+        //killPatients();
     }
-    public void killPatients(){
+    public void stimulateOrders(){
+    //TODO: erase fillpill
+        Pill.fillPills();
         Pill p = new Pill(0);
         for(int i = 0; i< getPatientList().size(); i++){
-            if (Math.random() < 0.1) {
+            if (Math.random() < 0.03) {
                 SimMethods.getRandomSickness(getPatientList().get(i));
             }
         }

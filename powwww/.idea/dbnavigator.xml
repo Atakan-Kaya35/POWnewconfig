@@ -27,13 +27,14 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="5043d8d3-8629-4294-aa64-8aef7614e439" object-ref="consoles/sql6698722" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="1efe620c-5396-4d3c-a9e2-b1bd1fb2fb3f" />
     <connection id="5043d8d3-8629-4294-aa64-8aef7614e439" />
+  </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />

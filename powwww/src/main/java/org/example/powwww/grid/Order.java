@@ -16,11 +16,12 @@ public class Order {
     ArrayList<Road> path;
     int progressIndex;
     Medicine carriedMedicine;
-    ArrayList<Serum> carriedSerums;
-    ArrayList<Pill> carriedPills;
+    ArrayList<Serum> carriedSerums = new ArrayList();
+    ArrayList<Pill> carriedPills = new ArrayList();
     public static ArrayList<Order> assignedOrders = new ArrayList<Order>();
     public static ArrayList<Order> completedOrders = new ArrayList<Order>();
     Patients orderPatient;
+    Nurses assignedNurse;
 
     //atakan biz burda pathi array arraylisti yaptık da, biz citydeki 
     //find pathde road array listi olarak kullandık sıkıntı çıkarmaz mı bu????
@@ -31,17 +32,7 @@ public class Order {
     }
 
     // constructors
-    public Order(Patients patient, Pill carriedPill){
-        patient.setCurrentOrder(this);
-
-        this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
-        path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
-        this.finishingCord = patient.getCoordinates();
-        this.carriedMedicine = new Pill(carriedPill.getPillID());
-        orderPatient = patient;
-    }
-
-    public Order(Patients patient, Serum carriedPill){
+/*    public Order(Patients patient, Serum carriedPill){
         patient.setCurrentOrder(this);
 
         this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
@@ -49,35 +40,38 @@ public class Order {
         this.finishingCord = patient.getCoordinates();
         this.carriedMedicine = new Serum();
         orderPatient = patient;
-    }
+    }*/
 
     public Order(Patients patient, Medicine carriedPill){
-        patient.setCurrentOrder(this);
-
-        this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
-        if(startingCord != null){
-            path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained(), patient);
-            this.finishingCord = patient.getCoordinates();
-            this.carriedMedicine = carriedPill;
-            if (startingCord != null)
-                ((Nurses)(patient.getCity().getRoad(startingCord[0], startingCord[1]).getContained())).receiveOrder(this);
-        }
         orderPatient = patient;
+        this.finishingCord = patient.getCoordinates();
+        this.carriedMedicine = carriedPill;
+        int[] initialGuy = orderPatient.getCity().findMobile(orderPatient.getCoordinates());
+        if (initialGuy != null)
+            assignedNurse = ((Nurses)(orderPatient.getCity().getRoad(initialGuy[0], initialGuy[1]).getContained()));
+            assignedNurse.receiveOrder(this);
     }
 
     public Order(Patients patient, ArrayList<Medicine> medList){
-        patient.setCurrentOrder(this);
-        this.startingCord = patient.getCity().findMobile(patient.getCoordinates());
-        path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
+        orderPatient = patient;
         this.finishingCord = patient.getCoordinates();
         for (Medicine med : medList) {
-            if (med instanceof Serum){
-                carriedSerums.add(new Serum());
+            if (med instanceof Pill){
+                carriedPills.add((Pill)med);
             } else {
-                carriedPills.add(new Pill(((Pill)med).getPillID()));
+
             }
         }
-        orderPatient = patient;
+        int[] initialGuy = orderPatient.getCity().findMobile(orderPatient.getCoordinates());
+        if (initialGuy != null)
+            assignedNurse = ((Nurses)(orderPatient.getCity().getRoad(initialGuy[0], initialGuy[1]).getContained()));
+            assignedNurse.receiveOrder(this);
+    }
+
+    public void manifestOrder(){
+        orderPatient.setCurrentOrder(this);
+        this.startingCord = assignedNurse.getContainedIn().getCoords();
+        path = orderPatient.getCity().findPath(orderPatient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), orderPatient);
     }
 
     // manifest order path dolacak??
@@ -138,4 +132,6 @@ public class Order {
     public Patients getPatient() {
         return this.orderPatient;
     }
+
+
 }

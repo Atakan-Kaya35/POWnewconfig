@@ -3,7 +3,6 @@ package org.example.powwww.entity.stationary;
 import java.util.ArrayList;
 
 import org.example.powwww.grid.City;
-import org.example.powwww.grid.Stationary;
 import org.example.powwww.med.Pill;
 
 public class Pharmacy extends Stationary {
