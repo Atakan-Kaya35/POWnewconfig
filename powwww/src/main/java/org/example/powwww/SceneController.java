@@ -640,7 +640,15 @@ public class SceneController {
         stage.setScene(scene);
 
         // Call setItems() after the ComboBox is initialized
-        controller.changeToPrevOrder();
+        //controller.changeToPrevOrder();
+        if(currentOrder.size() != 0){
+            lastOrder.clear();
+            lastOrder.add(currentOrder.get(0));
+            currentOrder.clear();
+        }
+        controller.sqlDownload();
+        controller.printPrevOrderInfo();
+        controller.printCurrentOrderInfo();
 
         //controller.setInfos();
         /*root = fxmlLoader.load();
@@ -982,7 +990,7 @@ public class SceneController {
         }
     }
     
-    public void changeToPrevOrder(){
+    /*public void changeToPrevOrder(){
         if(currentOrder.size() != 0){
             lastOrder.clear();
             lastOrder.add(currentOrder.get(0));
@@ -991,5 +999,5 @@ public class SceneController {
         sqlDownload();
         printPrevOrderInfo();
         printCurrentOrderInfo();
-    }
+    }*/
 }
