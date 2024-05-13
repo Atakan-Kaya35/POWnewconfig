@@ -335,6 +335,7 @@ public class SceneController {
     public static ArrayList<Medicine> cart = new ArrayList<Medicine>();
     static ArrayList<User> users = new ArrayList<>();
     Patients currentUserPatient;
+    boolean isThereCurrentOrder = false;
 
     private Stage stage;
     private Scene scene;
@@ -587,19 +588,25 @@ public class SceneController {
         controller.changeTotalCost();
         controller.changeNoOfProducts();
         controller.setInfos();
-        controller.printCurrentOrderInfo();
+        //controller.printCurrentOrderInfo();
 
-        if(currentOrder.size() != 0){
+        if(isThereCurrentOrder){
+            controller.printCurrentOrderInfo();
+            if(lastOrder.size()!=0){
+                controller.sqlDownload();
+                controller.printPrevOrderInfo();
+            }
+        } else {
             lastOrder.clear();
             lastOrder.add(currentOrder.get(0));
             currentOrder.clear();
+            controller.sqlDownload();
+            controller.printPrevOrderInfo();
         }
-        controller.sqlDownload();
-        controller.printPrevOrderInfo();
-        controller.printCurrentOrderInfo();
 
 
-        controller.sqlDownload();
+
+
         /*root = fxmlLoader.load();
         scene = new Scene(root);
         scene.setRoot(root);
@@ -928,6 +935,7 @@ public class SceneController {
 
     public void giveOrder(ActionEvent event){
         Order newOrder = new Order(currentUserPatient, cart);
+        isThereCurrentOrder = true;
         if(currentOrder.size() != 0){
             lastOrder.clear();
             lastOrder.add(currentOrder.get(0));
