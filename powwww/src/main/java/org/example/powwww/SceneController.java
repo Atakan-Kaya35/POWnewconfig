@@ -589,6 +589,17 @@ public class SceneController {
         controller.changeNoOfProducts();
         controller.setInfos();
         controller.printCurrentOrderInfo();
+
+        if(currentOrder.size() != 0){
+            lastOrder.clear();
+            lastOrder.add(currentOrder.get(0));
+            currentOrder.clear();
+        }
+        controller.sqlDownload();
+        controller.printPrevOrderInfo();
+        controller.printCurrentOrderInfo();
+
+
         controller.sqlDownload();
         /*root = fxmlLoader.load();
         scene = new Scene(root);
@@ -642,14 +653,7 @@ public class SceneController {
 
         // Call setItems() after the ComboBox is initialized
         //controller.changeToPrevOrder();
-        if(currentOrder.size() != 0){
-            lastOrder.clear();
-            lastOrder.add(currentOrder.get(0));
-            currentOrder.clear();
-        }
-        controller.sqlDownload();
-        controller.printPrevOrderInfo();
-        controller.printCurrentOrderInfo();
+
 
         //controller.setInfos();
         /*root = fxmlLoader.load();
@@ -982,11 +986,7 @@ public class SceneController {
         String allPrevProducts = "";
         if(SQLTest.getPastOrder(userName).length != 0) {
             String[] arr = SQLTest.getPastOrder(userName);
-            String[] names = arr[2].split("#");
-            for( int i = 0; i < names.length; i++){
-                allPrevProducts += names[i] + " ";
-            }
-            nameOfproductsPrev.setText(allPrevProducts);
+            nameOfproductsPrev.setText(arr[2]);
             totalCostOfProductsPrev.setText(arr[1]);
             totalNumberOfProductsPrev.setText(arr[0]);
         }
