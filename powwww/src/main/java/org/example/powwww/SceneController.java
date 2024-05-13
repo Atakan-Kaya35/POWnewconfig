@@ -335,6 +335,7 @@ public class SceneController {
     public static ArrayList<Medicine> cart = new ArrayList<Medicine>();
     static ArrayList<User> users = new ArrayList<>();
     Patients currentUserPatient;
+    String reminderString = "";
 
     private Stage stage;
     private Scene scene;
@@ -924,6 +925,17 @@ public class SceneController {
 
     public void giveOrder(ActionEvent event){
         Order newOrder = new Order(currentUserPatient, cart);
+        String hours = "";
+
+        for (Medicine med : cart){
+            for (int i = 0; i < 2; i++) {
+                hours = hours + med.getName() + " -> " + (Math.random() * 14 + 4) + ":" + "00" + "#";
+            }
+            reminderString = reminderString + hours;
+        }
+
+        A_Remainder.setText(reminderString);
+
         if(currentOrder.size() != 0){
             lastOrder.clear();
             lastOrder.add(currentOrder.get(0));
