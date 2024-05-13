@@ -27,7 +27,7 @@ public class Animations extends Mobile{
             angles[i] = 2 * Math.PI * random.nextDouble(); // Random angle in radians
         }
         try {
-            image = ImageIO.read(new File("C:\\Users\\burka\\Desktop\\pnal.png")); // Load the image
+            image = ImageIO.read(new File("powwww/src/main/resources/pnal.png")); // Load the image
         } catch (IOException e) {
             e.printStackTrace();
         }
