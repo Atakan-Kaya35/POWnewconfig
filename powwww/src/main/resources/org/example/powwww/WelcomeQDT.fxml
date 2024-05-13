@@ -232,7 +232,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="exit" layoutX="4.0" layoutY="663.0" mnemonicParsing="false" onAction="#Exit">
+      <Button fx:id="exit" layoutX="4.0" layoutY="663.0" mnemonicParsing="false" onAction="#Exit" onMouseDragReleased="#changeToPrevOrder">
          <graphic>
             <ImageView fitHeight="45.0" fitWidth="43.0">
                <image>
