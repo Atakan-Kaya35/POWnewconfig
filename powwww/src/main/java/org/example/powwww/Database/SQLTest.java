@@ -174,7 +174,7 @@ public class SQLTest {
             rs = stmt.executeQuery();
 
             if (rs.next()) {
-                String userInfo = rs.getString("info");
+                String userInfo = rs.getString("pastOrder");
                 System.out.println("Retrieved user info successfully!");
                 return userInfo.split("#");
             } else {

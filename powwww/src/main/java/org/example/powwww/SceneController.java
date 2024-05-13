@@ -960,15 +960,14 @@ public class SceneController {
 
     public void printPrevOrderInfo() {
         String allPrevProducts = "";
-        String[] userInfo = SQLTest.getUserInfo(userName);
-        String userName_ = userInfo[3];
-        if(SQLTest.getPastOrder(userName_).length != 0) {
+        if(SQLTest.getPastOrder(userName).length != 0) {
             String[] arr = SQLTest.getPastOrder(userName);
             String[] names = arr[2].split("#");
             for( int i = 0; i < names.length; i++){
                 allPrevProducts += names[i] + " ";
             }
-            totalCostOfProductsPrev.setText("");
+            nameOfproductsPrev.setText(allPrevProducts);
+            totalCostOfProductsPrev.setText(arr[1]);
             totalNumberOfProductsPrev.setText(arr[0]);
         }
     }
@@ -978,9 +977,8 @@ public class SceneController {
             for (Pill p : lastOrder.get(0).getCarriedPills()) {
                 totalCost += p.getPrice();
             }
-            String[] userInfo = SQLTest.getUserInfo(userName);
-            String userName_ = userInfo[3];
-            SQLTest.pastOrderAssign(userName_, totalCost, "" + lastOrder.get(0).getCarriedPills().size(), lastOrder.get(0).getCarriedPills());
+
+            SQLTest.pastOrderAssign(userName, totalCost, "" + lastOrder.get(0).getCarriedPills().size(), lastOrder.get(0).getCarriedPills());
         }
     }
     
