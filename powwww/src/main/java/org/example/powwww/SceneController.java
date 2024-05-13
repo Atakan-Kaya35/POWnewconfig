@@ -335,12 +335,12 @@ public class SceneController {
     public static String password;
     public static ArrayList<Medicine> cart = new ArrayList<Medicine>();
     static ArrayList<User> users = new ArrayList<>();
-    String[] userInfo = SQLTest.getUserInfo(userName);
+    /*String[] userInfo = SQLTest.getUserInfo(userName);
     String AGE = userInfo[2] + " years";
     String NAME = userInfo[3];
     String WEIGHT = userInfo[0] + " kg";
     String HEIGHT = userInfo[1] + " cm";
-    String ADDRESS = userInfo[4]+","+userInfo[5];
+    String ADDRESS = userInfo[4]+","+userInfo[5];*/
     
     Patients currentUserPatient;
     String reminderString = "";
@@ -443,7 +443,7 @@ public class SceneController {
             city.addStationary(currentUserPatient);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
             Parent root = loader.load();
-        userInfo = SQLTest.getUserInfo(userName);
+            userInfo = SQLTest.getUserInfo(userName);
 
             // Set the scene
             Scene scene = new Scene(root);
