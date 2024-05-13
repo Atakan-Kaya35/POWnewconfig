@@ -71,10 +71,10 @@ public class Order {
         path = patient.getCity().findPath(patient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), patient);
         this.finishingCord = patient.getCoordinates();
         for (Medicine med : medList) {
-            if (med instanceof Serum){
-                carriedSerums.add(new Serum());
+            if (med instanceof Pill){
+                carriedPills.add((Pill)med);
             } else {
-                carriedPills.add(new Pill(((Pill)med).getPillID()));
+
             }
         }
         orderPatient = patient;
