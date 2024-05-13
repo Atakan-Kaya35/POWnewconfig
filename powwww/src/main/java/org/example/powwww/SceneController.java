@@ -336,6 +336,7 @@ public class SceneController {
     static ArrayList<User> users = new ArrayList<>();
     Patients currentUserPatient;
     String reminderString = "";
+    String[] userInfo;
 
     private Stage stage;
     private Scene scene;
@@ -427,7 +428,7 @@ public class SceneController {
         //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
         userName = userNameTextField.getText();
 
-        String[] userInfo = SQLTest.getUserInfo(userName);
+        userInfo = SQLTest.getUserInfo(userName);
 
         currentUserPatient = new Patients(userInfo[3],Integer.parseInt(userInfo[4]),Integer.parseInt(userInfo[5]),Simulation.city);
         city.addStationary(currentUserPatient);
@@ -680,6 +681,8 @@ public class SceneController {
         A_Height.setText(height_);
         String age_ = userInfo[2] + " years";
         A_Age.setText(age_);
+        reminderString = userInfo[7];
+        A_Remainder.setText(reminderString);
 
         // create the patient as soon as the information is made available
         currentUserPatient = new Patients(userInfo[3], Integer.parseInt(userInfo[4]), Integer.parseInt(userInfo[5]), Simulation.city);
@@ -700,7 +703,7 @@ public class SceneController {
         ((GridFrame)grid).getPanel().repaint();
     }
     public void setInfoPIP(){
-        String[] userInfo = SQLTest.getUserInfo(userName);
+        userInfo = SQLTest.getUserInfo(userName);
         String bmi = String.format("%,2f",(Integer.parseInt(userInfo[2]) / (Integer.parseInt(userInfo[1]) / 100.0)));
         bmi += ((Integer.parseInt(userInfo[2]) / (Integer.parseInt(userInfo[1]) / 100.0)) < 15 || (Integer.parseInt(userInfo[1]) / (Integer.parseInt(userInfo[2]) / 100.0)) > 25)? "(good)" : " (bad)";
         bmi_p.setText(bmi);
@@ -936,7 +939,7 @@ public class SceneController {
             reminderString = reminderString + hours;
         }
 
-        A_Remainder.setText(reminderString);
+        SQLTest.updateUser(userName, userInfo[6], userInfo[2], userInfo[3], userInfo[0],userInfo[1], userInfo[4], userInfo[5], reminderString);
 
         if(currentOrder.size() != 0){
             lastOrder.clear();

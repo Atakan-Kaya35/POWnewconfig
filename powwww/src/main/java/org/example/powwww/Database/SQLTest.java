@@ -28,49 +28,6 @@ public class SQLTest {
         }*/
     }
 
-    // Varchar değeri güncelleyen metot
-    public static boolean updateVarcharColumn(int id, String newVarcharValue) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-
-        try {
-            // Load the JDBC driver
-            Class.forName(JDBC_DRIVER);
-
-            // Connect to the database
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-
-            // SQL query - Update the data
-            String sql = "UPDATE nurse SET info = ? WHERE idNum = ?";
-            stmt = conn.prepareStatement(sql);
-
-            // Specify the new value and id number as parameters
-            stmt.setString(1, newVarcharValue);
-            stmt.setInt(2, id);
-
-            // Execute the query
-            int rowsAffected = stmt.executeUpdate();
-
-            // Return whether the update was successful
-            return rowsAffected > 0;
-        } catch (SQLException | ClassNotFoundException se) {
-            // Handle JDBC errors and class loading errors
-            se.printStackTrace();
-            return false;
-        } finally {
-            // Close the connection and statement object
-            try {
-                if (stmt != null) stmt.close();
-            } catch (SQLException se2) {
-            }
-            try {
-                if (conn != null) conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
-        }
-    }
-
     public static String coder(int x, int y, String ... vars){
 
         String answer = "";
@@ -83,7 +40,7 @@ public class SQLTest {
 
     public static boolean addUser(String userName, String password, int age, String name, int weight, int height, int x, int y){
         String encriptedPassword = encryptPassword(password);
-        String userInfo = weight + "#" + height + "#" + age + "#" + name + "#" + x + "#" + y + "#" + encriptedPassword;
+        String userInfo = weight + "#" + height + "#" + age + "#" + name + "#" + x + "#" + y + "#" + encriptedPassword + "# ";
         Connection conn = null;
         PreparedStatement stmt = null;
 
@@ -110,6 +67,31 @@ public class SQLTest {
             }
         }
         else{
+            return false;
+        }
+    }
+
+    public static boolean updateUser(String userName, String encryptedPassword, String age, String name, String weight, String height, String x, String y, String remainders) {
+        String userInfo = weight + "#" + height + "#" + age + "#" + name + "#" + x + "#" + y + "#" + encryptedPassword + "#" + remainders;
+
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS)) {
+            String sql = "INSERT INTO Patients (userName, info) VALUES (?, ?)";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, userName);
+                stmt.setString(2, userInfo);
+
+                int rowsInserted = stmt.executeUpdate();
+
+                if (rowsInserted > 0) {
+                    System.out.println("A new row has been inserted successfully!");
+                    return true;
+                } else {
+                    System.out.println("Failed to insert a new row!");
+                    return false;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
             return false;
         }
     }
