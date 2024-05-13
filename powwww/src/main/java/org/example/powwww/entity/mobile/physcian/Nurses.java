@@ -1,4 +1,5 @@
 package org.example.powwww.entity.mobile.physcian;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -16,12 +17,13 @@ public class Nurses extends Mobile {
     protected ArrayList<Pill> pillBaggage = new ArrayList<>();
     protected ArrayList<Medicine> baggage = new ArrayList<Medicine>();
     protected String name;
-    protected Order currentOrder;
+    protected Order currentOrder = null;
     protected City city;
     protected int x;
     protected int y;
     protected int currentTrafic;
     Random rand = new Random();
+    ArrayList<Order> waitingOrders = new ArrayList<>();
 
     public enum ArrowKey {
         UP,
@@ -46,27 +48,24 @@ public class Nurses extends Mobile {
 
     public boolean move(){
         if(currentOrder != null){
-            setDirectionOfTravel();
-            if (direction == ArrowKey.UP) {
-                y -= (36 / currentTrafic);
-            } else if (direction == ArrowKey.DOWN) {
-                y += (36 / currentTrafic);
-            } else if (direction == ArrowKey.LEFT) {
-                x -= (36 / currentTrafic);
-            } else if(direction == ArrowKey.RIGHT){
-                x += (36 / currentTrafic);
+            if(setDirectionOfTravel()) {
+                if (direction == ArrowKey.UP) {
+                    y -= (36 / currentTrafic);
+                } else if (direction == ArrowKey.DOWN) {
+                    y += (36 / currentTrafic);
+                } else if (direction == ArrowKey.LEFT) {
+                    x -= (36 / currentTrafic);
+                } else if (direction == ArrowKey.RIGHT) {
+                    x += (36 / currentTrafic);
+                }
+                return roadUpdateNecessaryCheck();
             }
-            return roadUpdateNecessaryCheck();
         }
         else{
-            /*try {
-                this.moveForth(city.getRoad(getContainedIn().getCoords()[0] + rand.nextInt(-1,2), getContainedIn().getCoords()[1]+ rand.nextInt(-1,2)));
-                x = this.getContainedIn().getCoords()[0] * 36;
-                y = this.getContainedIn().getCoords()[1] * 36;
-            } catch (Exception e){}*/
             x = this.getContainedIn().getCoords()[0] * 36;
             y = this.getContainedIn().getCoords()[1] * 36;
             direction = ArrowKey.STAY;
+            continueToNextOrder();
         }
         return false;
     }
@@ -85,7 +84,7 @@ public class Nurses extends Mobile {
         return false;
     }
 
-    private void setDirectionOfTravel(){
+    private boolean setDirectionOfTravel(){
         try{
             currentTrafic = city.getTrafficBetweenRoads(currentOrder.getPath().get(currentOrder.getProgressIndex()), currentOrder.getPath().get(currentOrder.getProgressIndex() + 1));
 
@@ -105,10 +104,23 @@ public class Nurses extends Mobile {
         }catch(IndexOutOfBoundsException e){
             System.out.println("end of road");
             direction = ArrowKey.STAY;
-            //currentOrder.getPatient().setCurrentOrder(null);
+            continueToNextOrder();
+            return false;
+        }
+        return true;
+    }
+
+    private void continueToNextOrder() {
+        if(waitingOrders.size() < 1){
             currentOrder = null;
         }
+        else{
+            currentOrder = waitingOrders.getFirst();
+            currentOrder.manifestOrder();
+            waitingOrders.removeFirst();
+        }
     }
+
 
     public String getName() {
         return name;
@@ -152,14 +164,7 @@ public class Nurses extends Mobile {
         return currentOrder;
     }
 
-    public void setCurrentOrder(Order newOrder){
-        this.currentOrder = newOrder;
-    }
-
     public void receiveOrder(org.example.powwww.grid.Order order){
-        if(currentOrder == null) {
-            this.pillBaggage = order.getCarriedPills();
-            this.currentOrder = order;
-        }
+        waitingOrders.add(order);
     }
 }
