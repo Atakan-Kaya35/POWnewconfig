@@ -932,9 +932,7 @@ public class SceneController {
         String hours = "";
 
         for (Medicine med : cart){
-            for (int i = 0; i < 2; i++) {
-                hours = hours + med.getName() + " -> " + (Math.random() * 14 + 4) + ":" + "00" + "#";
-            }
+            hours = hours + med.getName() + " -> " + String.format("%2d",(int)(Math.random() * 14 + 4)) + ":" + "00" + "#";
             reminderString = reminderString + hours;
         }
 

@@ -32,7 +32,7 @@ public class Applic extends Application implements Runnable {
     public void run() {
         // Your custom behavior for the simulation goes here
         // This method will be executed in a separate thread
-        Simulation.runThisShit(); // Assuming this method exists in your code
+        Simulation.playSimulation(); // Assuming this method exists in your code
     }
 }
 
