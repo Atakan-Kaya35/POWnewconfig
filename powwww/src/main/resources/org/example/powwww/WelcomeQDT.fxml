@@ -69,7 +69,7 @@
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="7.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="176.8840789794922" />
+                  <Text fx:id="A_Remainder" layoutX="8.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B-12 Vit at 10 a.m. Parol at 10 a.m.and 10 p.m." wrappingWidth="148.0" />
                   <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">
                      <image>
                         <Image url="@Adsız tasarım-3.png" />
