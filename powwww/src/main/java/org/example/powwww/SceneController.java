@@ -967,6 +967,8 @@ public class SceneController {
         SQLTest.updateUser(userName, userInfo[6], userInfo[2], userInfo[3], userInfo[0],userInfo[1], userInfo[4], userInfo[5], reminderString);
         setInfos();
 
+        isThereCurrentOrder = true;
+
         if(currentOrder.size() != 0){
             lastOrder.clear();
             lastOrder.add(currentOrder.get(0));
