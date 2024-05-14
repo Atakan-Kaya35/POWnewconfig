@@ -319,20 +319,11 @@ public class SceneController {
     public static ArrayList<Order> currentOrder = new ArrayList<>();
     public static ArrayList<Medicine> cart = new ArrayList<Medicine>();
     static ArrayList<User> users = new ArrayList<>();
-<<<<<<< Updated upstream
     public static String userName;
     public static String password;
 
     boolean isThereCurrentOrder = false;
-=======
-    /*String[] userInfo = SQLTest.getUserInfo(userName);
-    String AGE = userInfo[2] + " years";
-    String NAME = userInfo[3];
-    String WEIGHT = userInfo[0] + " kg";
-    String HEIGHT = userInfo[1] + " cm";
-    String ADDRESS = userInfo[4]+","+userInfo[5];
-    */
->>>>>>> Stashed changes
+
     Patients currentUserPatient;
     String reminderString = "";
     String[] userInfo;
@@ -975,6 +966,8 @@ public class SceneController {
 
         SQLTest.updateUser(userName, userInfo[6], userInfo[2], userInfo[3], userInfo[0],userInfo[1], userInfo[4], userInfo[5], reminderString);
         setInfos();
+
+        isThereCurrentOrder = true;
 
         if(currentOrder.size() != 0){
             lastOrder.clear();
