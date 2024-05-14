@@ -81,7 +81,7 @@ public class Patients extends Stationary {
     public void patientCycle(int timeOfDay){
         for (int i = 0; i < sicknesses.size(); i++){
 
-            // TODO: Creater an order automatically if the patient has run out of medicine
+            // new Order(this, sickness.getCart);
 
             Sickness sick = sicknesses.get(i);
             if(sick.fullCycle(timeOfDay)){

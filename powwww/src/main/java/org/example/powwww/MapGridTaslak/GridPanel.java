@@ -150,6 +150,7 @@ public class GridPanel extends JComponent
                         obstacle[2] * GridFrame.EACH_SQUARE - 2, obstacle[3] * GridFrame.EACH_SQUARE - 2);
             }
         }
+/*
 
         g.setColor(new Color(19,109,21)); // grass color
         g.fillRect(684, 288,252,72); //mayfest
@@ -208,6 +209,7 @@ public class GridPanel extends JComponent
         g.drawString("Bilkent Center", 430, 690);
         g.drawString("Forest", 425, 260);
 
+*/
 
         g.setFont(new Font("Arial", Font.PLAIN, 18));
 

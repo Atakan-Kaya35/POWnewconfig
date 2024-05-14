@@ -319,20 +319,10 @@ public class SceneController {
     public static ArrayList<Order> currentOrder = new ArrayList<>();
     public static ArrayList<Medicine> cart = new ArrayList<Medicine>();
     static ArrayList<User> users = new ArrayList<>();
-<<<<<<< Updated upstream
     public static String userName;
     public static String password;
 
     boolean isThereCurrentOrder = false;
-=======
-    /*String[] userInfo = SQLTest.getUserInfo(userName);
-    String AGE = userInfo[2] + " years";
-    String NAME = userInfo[3];
-    String WEIGHT = userInfo[0] + " kg";
-    String HEIGHT = userInfo[1] + " cm";
-    String ADDRESS = userInfo[4]+","+userInfo[5];
-    */
->>>>>>> Stashed changes
     Patients currentUserPatient;
     String reminderString = "";
     String[] userInfo;
@@ -969,6 +959,7 @@ public class SceneController {
         String hours = "";
 
         for (Medicine med : cart){
+            hours = "";
             hours = hours + med.getName() + " -> " + String.format("%2d",(int)(Math.random() * 14 + 7)) + ":" + "00" + "\n";
             reminderString = reminderString + hours;
         }
@@ -1022,7 +1013,11 @@ public class SceneController {
         String allPrevProducts = "";
         if(SQLTest.getPastOrder(userName).length != 0) {
             String[] arr = SQLTest.getPastOrder(userName);
-            nameOfproductsPrev.setText(arr[2]);
+            String reminderText = "";
+            for (int i = 2; i < arr.length; i++) {
+                reminderText = reminderText + arr[i];
+            }
+            nameOfproductsPrev.setText(reminderText);
             totalCostOfProductsPrev.setText(arr[1]);
             totalNumberOfProductsPrev.setText(arr[0]);
         }

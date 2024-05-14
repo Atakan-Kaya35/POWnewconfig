@@ -26,42 +26,10 @@ public class Simulation extends SimMethods implements Runnable{
         Pill a = new Pill(0);
         System.out.println();
 
-
-
         JFrame grid = new GridFrame(city);
         grid.setTitle("MAP");
         grid.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         grid.setVisible(true);
-
-        int h = 1;
-
-
-        /*sign upa tıklanırsa
-        boolean signedUp = false;
-        while (!signedup) {
-            signedUp = signUp(name, x, y, ankara, username, password);
-                //kordinatları önce default bir şey yapıp sonra kendimiz atarız. kullanıcı sign upta kordinat veremez çünkü.
-                //diğer bilgiler sign up ekranından çekilecek.patient classını editleyip age, height vb constructora eklicem.
-            if (!signedUp) {
-                System.out.println("Sign up unsuccessful. Try again.")
-                // boş sign up ekranı yüklenmeli burada tekrar.
-            } else {
-                System.out.println("Welcome to Pills on Wheels!")
-                // bu yazı da UI işi
-            }
-        }
-        logine tıklanırsa:
-        boolean login = false;
-        while (!login)
-            login(username, password);
-            if (!login) {
-                System.out.println("Login unsuccessful. Try again.")
-                // boş login ekranı yüklenmeli
-            } else {
-                System.out.println("Login successfull!")
-                // UI
-            }
-         */
 
         buildBilkent(city);
 
@@ -92,7 +60,6 @@ public class Simulation extends SimMethods implements Runnable{
                 day += 1;
             }
 
-            // bu if bloklarının sayısını artırıp refresh constantı her birinde değiştirince birbirinden farklı aralıklarda bir
             // çalışan metodlar olmuş oluyor. mesela orderları 2 tickte bir güncellerken başka bir şeyi 10 tickte 1 yapabiliyorsun
             if (tick % (TICK_DURATION_MINUTES * REFRESH_CONSTANT / TICK_DURATION_MINUTES) == 0) {   //
                 //System.out.println("mert");
@@ -108,14 +75,11 @@ public class Simulation extends SimMethods implements Runnable{
                 }
             }
 
-
             // moves all nurses
             stimulateNurses(city);
 
             ((GridFrame)grid).showTime(tick);
             ((GridFrame)grid).getPanel().repaint();
-
-            //System.out.println(city.viewMap(false));
 
             // Advance the time by one tick
             tick++;
@@ -129,9 +93,6 @@ public class Simulation extends SimMethods implements Runnable{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            // Check the progress of activities
-            //checkActivityProgress();
         }
     }
 

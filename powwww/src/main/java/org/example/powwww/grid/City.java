@@ -185,8 +185,6 @@ public class City {
             if (currentSCoords[1] - 1 >= 0 && roads[currentSCoords[0]][currentSCoords[1] - 1] != null) {
                 neighbors.add(roads[currentSCoords[0]][currentSCoords[1] - 1]);
             }
-            
-
 
             for (Road neighbor : neighbors) {
                  if (closed.contains(neighbor)) {

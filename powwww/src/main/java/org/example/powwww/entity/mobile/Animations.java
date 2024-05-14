@@ -26,11 +26,11 @@ public class Animations extends Mobile{
             planePositions[i] = new Point(random.nextInt(WIDTH - PLANE_SIZE), random.nextInt(HEIGHT - PLANE_SIZE));
             angles[i] = 2 * Math.PI * random.nextDouble(); // Random angle in radians
         }
-//        try {
-//            image = ImageIO.read(new File("https://github.com/Atakan-Kaya35/POWnewconfig/blob/f814962cf9a500127052c1432f21827aef2a860a/powwww/src/main/resources/pnal.png")); // Load the image
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+/*        try {
+            image = ImageIO.read(new File("C:\\Users\\ataka\\Desktop\\POWnewconfig\\powwww\\src\\main\\resources\\pnal.png")); // Load the image
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
 
 
     }
@@ -49,16 +49,13 @@ public class Animations extends Mobile{
     }
 
     public void draw(Graphics g, JComponent j) {
-        Graphics2D g2d = (Graphics2D) g;
-//        for (int i = 0; i < NUM_PLANES; i++) {
-//            double direction = angles[i];
-//            g2d.translate(planePositions[i].x + PLANE_SIZE / 2.0, planePositions[i].y + PLANE_SIZE / 2.0);
-//            g2d.rotate(direction + Math.PI / 2+calibrationValue);
-//            g2d.drawImage(image.getScaledInstance(PLANE_SIZE, PLANE_SIZE, Image.SCALE_SMOOTH), -PLANE_SIZE / 2, -PLANE_SIZE / 2, j);
-//            g2d.setTransform(new AffineTransform());
-//        }
+/*        Graphics2D g2d = (Graphics2D) g;
+        for (int i = 0; i < NUM_PLANES; i++) {
+            double direction = angles[i];
+            g2d.translate(planePositions[i].x + PLANE_SIZE / 2.0, planePositions[i].y + PLANE_SIZE / 2.0);
+            g2d.rotate(direction + Math.PI / 2+calibrationValue);
+            g2d.drawImage(image.getScaledInstance(PLANE_SIZE, PLANE_SIZE, Image.SCALE_SMOOTH), -PLANE_SIZE / 2, -PLANE_SIZE / 2, j);
+            g2d.setTransform(new AffineTransform());
+        }*/
     }
-
-
-
 }
