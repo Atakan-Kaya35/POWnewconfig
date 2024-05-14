@@ -40,7 +40,7 @@ public class SQLTest {
 
     public static boolean addUser(String userName, String password, int age, String name, int weight, int height, int x, int y){
         String encriptedPassword = encryptPassword(password);
-        String userInfo = weight + "#" + height + "#" + age + "#" + name + "#" + x + "#" + y + "#" + encriptedPassword + "# ";
+        String userInfo = weight + "#" + height + "#" + age + "#" + name + "#" + x + "#" + y + "#" + encriptedPassword + "#-";
         Connection conn = null;
         PreparedStatement stmt = null;
 
@@ -75,10 +75,10 @@ public class SQLTest {
         String userInfo = weight + "#" + height + "#" + age + "#" + name + "#" + x + "#" + y + "#" + encryptedPassword + "#" + remainders;
 
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS)) {
-            String sql = "INSERT INTO Patients (userName, info) VALUES (?, ?)";
+            String sql = "UPDATE Patients SET info = ? WHERE userName = ?";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-                stmt.setString(1, userName);
-                stmt.setString(2, userInfo);
+                stmt.setString(1, userInfo);
+                stmt.setString(2, userName);
 
                 int rowsInserted = stmt.executeUpdate();
 
@@ -234,7 +234,7 @@ public class SQLTest {
 
     public static boolean isUserAuthorised(String userName, String enteredPassword){
         String[] infoOfUser = getUserInfo(userName);
-        if(SQLTest.encryptPassword(enteredPassword).equals(infoOfUser[infoOfUser.length - 1])){
+        if(SQLTest.encryptPassword(enteredPassword).equals(infoOfUser[infoOfUser.length - 2])){
             return true;
         }
         return false;

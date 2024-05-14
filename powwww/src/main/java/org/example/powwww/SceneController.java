@@ -319,10 +319,20 @@ public class SceneController {
     public static ArrayList<Order> currentOrder = new ArrayList<>();
     public static ArrayList<Medicine> cart = new ArrayList<Medicine>();
     static ArrayList<User> users = new ArrayList<>();
+<<<<<<< Updated upstream
     public static String userName;
     public static String password;
 
     boolean isThereCurrentOrder = false;
+=======
+    /*String[] userInfo = SQLTest.getUserInfo(userName);
+    String AGE = userInfo[2] + " years";
+    String NAME = userInfo[3];
+    String WEIGHT = userInfo[0] + " kg";
+    String HEIGHT = userInfo[1] + " cm";
+    String ADDRESS = userInfo[4]+","+userInfo[5];
+    */
+>>>>>>> Stashed changes
     Patients currentUserPatient;
     String reminderString = "";
     String[] userInfo;
@@ -454,13 +464,13 @@ public class SceneController {
         userName = userNameTextField.getText();
         password = passwordTextField.getText();
         if(SQLTest.isUserAuthorised(userName,password)) {
-            String[] userInfo = SQLTest.getUserInfo(userName);
+            userInfo = SQLTest.getUserInfo(userName);
 
             currentUserPatient = new Patients(userInfo[3], Integer.parseInt(userInfo[4]), Integer.parseInt(userInfo[5]), Simulation.city);
             city.addStationary(currentUserPatient);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
             Parent root = loader.load();
-            userInfo = SQLTest.getUserInfo(userName);
+            //userInfo = SQLTest.getUserInfo(userName);
 
             // Set the scene
             Scene scene = new Scene(root);
@@ -683,7 +693,10 @@ public class SceneController {
      * in the column in left of the app.
      */
     public void setInfos(){
-        String[] userInfo = SQLTest.getUserInfo(userName);
+        userInfo = SQLTest.getUserInfo(userName);
+        // create the patient as soon as the information is made available
+        currentUserPatient = new Patients(userInfo[3], Integer.parseInt(userInfo[4]), Integer.parseInt(userInfo[5]), Simulation.city);
+
         String userName_ = userInfo[3];
         A_Name.setText(userName_);
         String weight_ = userInfo[0];
@@ -693,10 +706,9 @@ public class SceneController {
         String age_ = userInfo[2] + " years";
         A_Age.setText(age_);
         reminderString = userInfo[7];
+        System.out.println(reminderString + "!!!!!!!!!");
         A_Remainder.setText(reminderString);
 
-        // create the patient as soon as the information is made available
-        currentUserPatient = new Patients(userInfo[3], Integer.parseInt(userInfo[4]), Integer.parseInt(userInfo[5]), Simulation.city);
     }
     /**
      * This method opens Quick Diagnosis Test
@@ -957,11 +969,12 @@ public class SceneController {
         String hours = "";
 
         for (Medicine med : cart){
-            hours = hours + med.getName() + " -> " + String.format("%2d",(int)(Math.random() * 14 + 4)) + ":" + "00" + "#";
+            hours = hours + med.getName() + " -> " + String.format("%2d",(int)(Math.random() * 14 + 7)) + ":" + "00" + "\n";
             reminderString = reminderString + hours;
         }
 
         SQLTest.updateUser(userName, userInfo[6], userInfo[2], userInfo[3], userInfo[0],userInfo[1], userInfo[4], userInfo[5], reminderString);
+        setInfos();
 
         if(currentOrder.size() != 0){
             lastOrder.clear();
