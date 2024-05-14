@@ -1,5 +1,4 @@
 package org.example.powwww;
-
 import org.example.powwww.Database.*;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
@@ -20,13 +19,10 @@ import org.example.powwww.grid.Order;
 import org.example.powwww.entity.stationary.Stationary;
 import org.example.powwww.med.Medicine;
 import org.example.powwww.med.Pill;
-
 import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import static org.example.powwww.Sim.Simulation.pills;
-
 
 public class SceneController {
     @FXML
@@ -36,11 +32,8 @@ public class SceneController {
     @FXML
     private Button signUpButtonTwo;
     @FXML
-    private Button signUpButtonThree;
-    @FXML
     private Button pillsPage;
-    @FXML
-    private Button QDT;
+
     @FXML
     private Button Purchase;
     @FXML
@@ -97,14 +90,7 @@ public class SceneController {
     private TextField height_p;
     @FXML
     private TextField bmi_p;
-    @FXML
-    private Label totalCostLabel;
-    @FXML
-    private Label totalProductLabel;
-    @FXML
-    private Label totalCostPrev;
-    @FXML
-    private Label totalProductPrev;
+
     @FXML
     private Label med1;
     @FXML
@@ -331,16 +317,10 @@ public class SceneController {
     public static ArrayList<Text> textarr = new ArrayList<>();
     public static ArrayList<Order> lastOrder = new ArrayList<>();
     public static ArrayList<Order> currentOrder = new ArrayList<>();
-    public static String userName;
-    public static String password;
     public static ArrayList<Medicine> cart = new ArrayList<Medicine>();
     static ArrayList<User> users = new ArrayList<>();
-    /*String[] userInfo = SQLTest.getUserInfo(userName);
-    String AGE = userInfo[2] + " years";
-    String NAME = userInfo[3];
-    String WEIGHT = userInfo[0] + " kg";
-    String HEIGHT = userInfo[1] + " cm";
-    String ADDRESS = userInfo[4]+","+userInfo[5];*/
+    public static String userName;
+    public static String password;
 
     boolean isThereCurrentOrder = false;
     Patients currentUserPatient;
@@ -351,7 +331,15 @@ public class SceneController {
     private Scene scene;
     private Parent root ;
     private FXMLLoader fxmlLoader;
+
+    /**
+     * This method used in Login page
+     * It opens Signup page which occupation choose
+     * @param event
+     * @throws IOException
+     */
     public void switchToSignUpPage(ActionEvent event) throws IOException {
+
         // Load the FXML file
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/SignInForNursesAndCourier.fxml"));
         Parent root = loader.load();
@@ -372,7 +360,18 @@ public class SceneController {
         stage.show();
     }
 
+    /**
+     * This method used in Login page
+     * It opens Signup page
+     * New user created here
+     * If chosen username is already taken or
+     * chosen password is not long enough
+     * it shows alert message
+     * @param event
+     * @throws IOException
+     */
     public void switchToSignUpPage2(ActionEvent event) throws IOException {
+
         fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/SignInPage.fxml"));
         root = fxmlLoader.load();
         scene = new Scene(root);
@@ -382,6 +381,7 @@ public class SceneController {
         stage.show();
     }
     public void switchToSignUpPagetoLogIn(ActionEvent event) throws IOException {
+
         //creating user
 
         if (isUsernameTaken(SU_Username.getText())) {
@@ -429,11 +429,27 @@ public class SceneController {
             stage.show();
         }
     }
+
+    /**
+     * This method checks whether the username is already
+     * taken or not.
+     * It is helper method for creating new user.
+     * @param username
+     * @return
+     */
     private static boolean isUsernameTaken(String username) {
         return usernames.contains(username);
     }
 
+    /**
+     * This method used in Login page
+     * It opens Homepage when clicked in the Login button
+     * If mistyping errors occur it gives an alert message
+     * @param event
+     * @throws IOException
+     */
     public void switchToHomePageWithLogIn(ActionEvent event) throws IOException {
+
         //if(UserMethods.login(userNameTextField.getText(), passwordTextField.getText())) {
         userName = userNameTextField.getText();
         password = passwordTextField.getText();
@@ -468,7 +484,15 @@ public class SceneController {
             alert.showAndWait();
         }
     }
+
+    /**
+     * This method used in all pages in app
+     * It opens Homepage which homepage button
+     * @param event
+     * @throws IOException
+     */
     public void switchToHomePageInApp(ActionEvent event) throws IOException {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/HomePage.fxml"));
         Parent root = loader.load();
 
@@ -488,7 +512,15 @@ public class SceneController {
         controller.changeNoOfProducts();
         stage.show();
     }
+    /**
+     * This method used in all pages in app
+     * It opens Personal Information Page
+     * It is connected to Personal Info Page button
+     * @param event
+     * @throws IOException
+     */
     public void switchToPersonalInfoPage(ActionEvent event) throws IOException {
+
         //fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/PersonalInfoPage.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/PersonalInfoPage.fxml"));
         Parent root = loader.load();
@@ -507,19 +539,17 @@ public class SceneController {
         controller.changeTotalCost();
         controller.changeNoOfProducts();
 
-        // Call setItems() after the ComboBox is initialized
-        /*controller.setInfos();
-        root = fxmlLoader.load();
-        scene = new Scene(root);
-        scene.setRoot(root);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        setInfos();*/
-
         stage.show();
     }
+    /**
+     * This method used in all pages in app
+     * It opens Pills Page
+     * It is connected to Pills Page button
+     * @param event
+     * @throws IOException
+     */
     public void switchToPillsPage(ActionEvent event) throws IOException {
-        //fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/PillsPage.fxml"));
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/PillsPage.fxml"));
         Parent root = loader.load();
 
@@ -539,16 +569,17 @@ public class SceneController {
         controller.setCost();
         controller.changeTotalCost();
         controller.changeNoOfProducts();
-        /*root = fxmlLoader.load();
-        scene = new Scene(root);
-        scene.setRoot(root);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        setInfos();*/
         stage.show();
     }
+    /**
+     * This method used in all pages in app
+     * It opens Welcome Quick Diagnosis Test Page
+     * It is connected QDT Page button
+     * @param event
+     * @throws IOException
+     */
     public void switchToQDTPage(ActionEvent event) throws IOException {
-        //fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/WelcomeQDT.fxml"));
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/WelcomeQDT.fxml"));
         Parent root = loader.load();
 
@@ -565,14 +596,15 @@ public class SceneController {
         controller.changeTotalCost();
         controller.changeNoOfProducts();
         controller.setInfos();
-        /*root = fxmlLoader.load();
-        scene = new Scene(root);
-        scene.setRoot(root);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        setInfos();*/
         stage.show();
     }
+    /**
+     * This method used in all pages in app
+     * It opens Orders Page
+     * It is connected to Orders Page button
+     * @param event
+     * @throws IOException
+     */
     public void switchToOrdersPage(ActionEvent event) throws IOException {
         //fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/OrdersPage.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/OrdersPage.fxml"));
@@ -607,45 +639,16 @@ public class SceneController {
             controller.sqlDownload();
             controller.printPrevOrderInfo();
         }
-
-
-
-
-        /*root = fxmlLoader.load();
-        scene = new Scene(root);
-        scene.setRoot(root);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        setInfos();*/
         stage.show();
     }
-    public void switchToCurrentOrdersPage(ActionEvent event) throws IOException {
-        //fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/CurrentOrdersPage.fxml"));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/CurrentOrdersPage.fxml"));
-        Parent root = loader.load();
-
-        // Set the scene
-        Scene scene = new Scene(root);
-
-        // Set the controller
-        SceneController controller = loader.getController();
-
-        // Set the stage
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-
-        // Call setItems() after the ComboBox is initialized
-        controller.changeTotalCost();
-        controller.changeNoOfProducts();
-        controller.setInfos();
-        /*root = fxmlLoader.load();
-        scene = new Scene(root);
-        scene.setRoot(root);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        setInfos();*/
-        stage.show();
-    }
+    /**
+     * This method used in all pages in app
+     * It opens Login Page
+     * It is connected to Exit button
+     * It exists the current users account
+     * @param event
+     * @throws IOException
+     */
     public void Exit(ActionEvent event) throws IOException {
         //fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/powwww/Merhaba.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/powwww/Merhaba.fxml"));
@@ -660,19 +663,13 @@ public class SceneController {
         // Set the stage
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-
-        // Call setItems() after the ComboBox is initialized
-        //controller.changeToPrevOrder();
-
-
-        //controller.setInfos();
-        /*root = fxmlLoader.load();
-        scene = new Scene(root);
-        scene.setRoot(root);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);*/
         stage.show();
     }
+    /**
+     * It set items in combo box
+     * in signup page
+     * which occupations chosen
+     */
     public void setItems(){
         choices.add("Nurse");
         choices.add("Patient");
@@ -680,6 +677,11 @@ public class SceneController {
         occupationSelectionBox.getItems().addAll(choices);
         System.out.println("sevgi");
     }
+    /**
+     * This method used in app
+     * in all pages. It sets the users information
+     * in the column in left of the app.
+     */
     public void setInfos(){
         String[] userInfo = SQLTest.getUserInfo(userName);
         String userName_ = userInfo[3];
@@ -696,6 +698,10 @@ public class SceneController {
         // create the patient as soon as the information is made available
         currentUserPatient = new Patients(userInfo[3], Integer.parseInt(userInfo[4]), Integer.parseInt(userInfo[5]), Simulation.city);
     }
+    /**
+     * This method opens Quick Diagnosis Test
+     * as a pop-up.
+     */
     public void openQDT(ActionEvent event) {
         // Instantiate a Swing JFrame
         JFrame menuFrame = new Menu();
@@ -703,7 +709,10 @@ public class SceneController {
         menuFrame.setDefaultCloseOperation(menuFrame.DISPOSE_ON_CLOSE);
         menuFrame.setVisible(true);
     }
-
+    /**
+     * This method opens Maps current version
+     * as a pop-up.
+     */
     public void openMap(ActionEvent event){
         JFrame grid = new GridFrame(city);
 
@@ -711,6 +720,10 @@ public class SceneController {
         ((GridFrame)grid).showTime(10);
         ((GridFrame)grid).getPanel().repaint();
     }
+    /**
+     * This method used in Personal Information Page
+     * It sets the users information in the table
+     */
     public void setInfoPIP(){
         userInfo = SQLTest.getUserInfo(userName);
         String bmi = String.format("%,2f",(Integer.parseInt(userInfo[2]) / (Integer.parseInt(userInfo[1]) / 100.0)));
@@ -1011,15 +1024,4 @@ public class SceneController {
             SQLTest.pastOrderAssign(userName, totalCost, "" + lastOrder.get(0).getCarriedPills().size(), lastOrder.get(0).getCarriedPills());
         }
     }
-    
-    /*public void changeToPrevOrder(){
-        if(currentOrder.size() != 0){
-            lastOrder.clear();
-            lastOrder.add(currentOrder.get(0));
-            currentOrder.clear();
-        }
-        sqlDownload();
-        printPrevOrderInfo();
-        printCurrentOrderInfo();
-    }*/
 }
