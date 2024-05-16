@@ -87,12 +87,11 @@ public class Simulation extends SimMethods implements Runnable{
             long nanoSecTaken = System.nanoTime() - start;
             // Pause execution to simulate the duration of a tick
             try {
-                Thread.sleep(100
-                //        -(int)(nanoSecTaken / 1000000)
-                ); // constant saniye boyunca uyuyor. real time simüle ediliyor.
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+                int waitTime = 100-(int)(nanoSecTaken / 1000000);
+                if(waitTime > 0) {
+                    Thread.sleep(waitTime);
+                }
+            } catch (InterruptedException e) {}
         }
     }
 
