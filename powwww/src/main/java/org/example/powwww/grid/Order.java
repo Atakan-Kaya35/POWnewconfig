@@ -70,8 +70,7 @@ public class Order {
 
     public void manifestOrder(){
         orderPatient.setCurrentOrder(this);
-        this.startingCord = assignedNurse.getContainedIn().getCoords();
-        path = orderPatient.getCity().findPath(orderPatient.getCity().getRoad(startingCord[0],startingCord[1]).getContained(), orderPatient);
+        path = orderPatient.getCity().findPath(assignedNurse, orderPatient);
     }
 
     // manifest order path dolacak??
