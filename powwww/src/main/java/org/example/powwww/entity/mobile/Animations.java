@@ -13,7 +13,7 @@ public class Animations extends Mobile{
     private static final int WIDTH = 1200;
     private static final int HEIGHT = 850;
     private static final int PLANE_SIZE = 40;
-    private static final int NUM_PLANES = 5;
+    private static final int NUM_PLANES = 2;
     private final Random random = new Random();
     private final Point[] planePositions = new Point[NUM_PLANES];
     private final double[] angles = new double[NUM_PLANES];
@@ -26,13 +26,11 @@ public class Animations extends Mobile{
             planePositions[i] = new Point(random.nextInt(WIDTH - PLANE_SIZE), random.nextInt(HEIGHT - PLANE_SIZE));
             angles[i] = 2 * Math.PI * random.nextDouble(); // Random angle in radians
         }
-/*        try {
-            image = ImageIO.read(new File("C:\\Users\\ataka\\Desktop\\POWnewconfig\\powwww\\src\\main\\resources\\pnal.png")); // Load the image
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-
-
+//        try {
+//            image = ImageIO.read(new File("powwww/src/main/resources/pnal.png")); // Load the image
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
     public void movePlanes() {
         for (int i = 0; i < NUM_PLANES; i++) {

@@ -152,50 +152,50 @@ public class GridPanel extends JComponent
         }
 /*
 
-        g.setColor(new Color(19,109,21)); // grass color
-        g.fillRect(684, 288,252,72); //mayfest
-        g.fillRect(72,252,144,144); //n building grass
-        g.fillRect(936,144,72,72); //dorm grass
-
-        g.setColor(new Color(1,50,32)); //forest color
-        g.fillRect(324,216,288,72); //forest near the river
-        g.fillRect(432,288,72,144); //forest near the river
-        g.fillRect(324,32,72,144); //mssf left forest
-        g.fillRect(540,32,72,144); //mssf left forest
-
-        g.setColor(new Color(180,180,170)); // marble color
-        g.fillRect(648, 432,72,108); // odeon
-
-        g.setColor(new Color(6,66,150)); // ocean color
-        g.fillRect(396,432,144,72); //lake
-        g.fillRect(432,504,72,72); //lake
-
-        g.setColor(Color.GREEN); // center color1
-        g.fillRect(360, 648,36,36);
-        g.fillRect(612, 648,72,36);
-        g.fillRect(504, 684,72,36);
-
-        g.setColor(Color.RED); // center color2
-        g.fillRect(396, 648,72,36);
-        g.fillRect(576, 684,72,36);
-
-        g.setColor(Color.ORANGE); // center color2
-        g.fillRect(360, 684,72,36);
-        g.fillRect(540, 648,72,36);
-
-        g.setColor(new Color(6,66,150)); // ocean color
-        g.fillRect(468, 648,72,36);
-        g.fillRect(648, 684,36,36);
-        g.setColor(Color.YELLOW); // center color2
-
-        g.fillRect(432, 684,72,36);
-
-
-
-        g.setFont(new Font("Arial", Font.PLAIN, 18));
+//        g.setColor(new Color(19,109,21)); // grass color
+//        g.fillRect(684, 288,252,72); //mayfest
+//        g.fillRect(72,252,144,144); //n building grass
+//        g.fillRect(936,144,72,72); //dorm grass
+//
+//        g.setColor(new Color(1,50,32)); //forest color
+//        g.fillRect(324,216,288,72); //forest near the river
+//        g.fillRect(432,288,72,144); //forest near the river
+//        g.fillRect(324,32,72,144); //mssf left forest
+//        g.fillRect(540,32,72,144); //mssf left forest
+//
+//        g.setColor(new Color(180,180,170)); // marble color
+//        g.fillRect(648, 432,72,108); // odeon
+//
+//        g.setColor(new Color(6,66,150)); // ocean color
+//        g.fillRect(396,432,144,72); //lake
+//        g.fillRect(432,504,72,72); //lake
+//
+//        g.setColor(Color.GREEN); // center color1
+//        g.fillRect(360, 648,36,36);
+//        g.fillRect(612, 648,72,36);
+//        g.fillRect(504, 684,72,36);
+//
+//        g.setColor(Color.RED); // center color2
+//        g.fillRect(396, 648,72,36);
+//        g.fillRect(576, 684,72,36);
+//
+//        g.setColor(Color.ORANGE); // center color2
+//        g.fillRect(360, 684,72,36);
+//        g.fillRect(540, 648,72,36);
+//
+//        g.setColor(new Color(6,66,150)); // ocean color
+//        g.fillRect(468, 648,72,36);
+//        g.fillRect(648, 684,36,36);
+//        g.setColor(Color.YELLOW); // center color2
+//
+//        g.fillRect(432, 684,72,36);
 
 
-        g.setColor(Color.BLACK); // Set the font color
+
+        g.setFont(new Font("Arial", Font.PLAIN, 12));
+
+
+        g.setColor(Color.WHITE); // Set the font color
         g.drawString("Odeon", 655, 500);
         g.drawString("Mayfest", 770, 330);
         g.drawString("Dorm", 950, 180);
@@ -204,14 +204,14 @@ public class GridPanel extends JComponent
         g.drawString("Grass Area", 100, 340);
         g.drawString("Bilkent Lake", 420, 470);
 
-        g.setFont(new Font("Arial", Font.PLAIN, 32));
+        g.setFont(new Font("Arial", Font.PLAIN, 12));
 
         g.drawString("Bilkent Center", 430, 690);
         g.drawString("Forest", 425, 260);
 
 */
 
-        g.setFont(new Font("Arial", Font.PLAIN, 18));
+        g.setFont(new Font("Arial", Font.PLAIN, 12));
 
 
         for(Van v : city.getVanList()){
